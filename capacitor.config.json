@@ -1,0 +1,8 @@
+{
+  "appId": "app.vercel.mmdrosy.hyperstage",
+  "appName": "HyperStage",
+  "webDir": "dist",
+  "android": {
+    "allowMixedContent": false
+  }
+}
