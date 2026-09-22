@@ -74,7 +74,11 @@ export function createPerformance({scene,camera,controls,actor,stage,ring,setThe
  // x=±3 on the z=1.4 front row, so the frame must clear 3 + .3 body + .55 camera
  // drift at THAT depth, not at the stage centre.  A flat 1.4/aspect factor overshot
  // on portrait phones, shrinking everyone and pushing them into the 12–30 fog band.
- function showDistance(act){const base=act==='proposal'||act==='jackpot'?10.5:12.5;const fit=1.4+3.85/(Math.tan(camera.fov*Math.PI/360)*camera.aspect);return Math.min(18,Math.max(base,fit));}
+ // A short frame should bring the camera in rather than shrink the cast: hold the
+ // authored wide shot down to a 660px stage (a maximised 1080p desktop), then scale
+ // with the height so tablet landscape and zoomed-in windows keep the performers the
+ // same apparent size instead of stranding them in a band of empty sky.
+ function showDistance(act){const base=act==='proposal'||act==='jackpot'?10.5:12.5;const framed=base*Math.min(1,($('#viewport').clientHeight||660)/660);const fit=1.4+3.85/(Math.tan(camera.fov*Math.PI/360)*camera.aspect);return Math.min(18,Math.max(framed,fit));}
  // The subtitle plate sits over the bottom of the frame.  A tall desktop gives it
  // about a quarter of the height, but a short window — browser zoom, small laptop —
  // lets it reach 40%+, burying the cast.  Tilt down by the excess so they stay clear.
