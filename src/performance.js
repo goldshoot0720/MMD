@@ -5,6 +5,7 @@ import { parseLrc, timedCue } from './lrc.js';
 import * as THREE from 'three';
 import { models, performanceModelIds, modelById, loadAsset, instantiateAsset } from './models.js';
 import { chapters, lyrics, defaultDuration, cueAt, chapterTime, castNames, actorPose } from './song-data';
+import { showDistance, fogRange, orbitCeiling } from './framing.js';
 import './performance.css';
 
 export function createPerformance({scene,camera,controls,actor,stage,ring,setTheme,onEnter,onExit,toast}) {
@@ -46,8 +47,8 @@ export function createPerformance({scene,camera,controls,actor,stage,ring,setThe
   }catch(error){if(ticket!==castRequest)return;$('#show-play').textContent='角色載入失敗';toast('角色載入失敗，請重新選擇角色');console.error(error);}
  }
  let prior;
- function enter(){if(active)return;prior={camera:camera.position.clone(),target:controls.target.clone(),stage:stage.scale.clone(),ring:ring.scale.clone(),auto:controls.autoRotate};onEnter();active=true;group.visible=true;actor.visible=false;stage.scale.set(2.6,1,1.5);ring.scale.set(2.6,1.5,1);document.body.classList.add('show-mode');ui.hidden=false;overlay.hidden=false;transport.hidden=false;controls.autoRotate=false;lastChapter=-2;update(0);}
- function exit(){pause();active=false;group.visible=false;actor.visible=true;stage.scale.copy(prior.stage);ring.scale.copy(prior.ring);camera.position.copy(prior.camera);controls.target.copy(prior.target);controls.autoRotate=prior.auto;document.body.classList.remove('show-mode');ui.hidden=true;overlay.hidden=true;transport.hidden=true;onExit();}
+ function enter(){if(active)return;prior={camera:camera.position.clone(),target:controls.target.clone(),stage:stage.scale.clone(),ring:ring.scale.clone(),auto:controls.autoRotate,fog:{near:scene.fog.near,far:scene.fog.far},maxDistance:controls.maxDistance};onEnter();active=true;group.visible=true;actor.visible=false;stage.scale.set(2.6,1,1.5);ring.scale.set(2.6,1.5,1);document.body.classList.add('show-mode');ui.hidden=false;overlay.hidden=false;transport.hidden=false;controls.autoRotate=false;lastChapter=-2;update(0);}
+ function exit(){pause();active=false;group.visible=false;actor.visible=true;stage.scale.copy(prior.stage);ring.scale.copy(prior.ring);Object.assign(scene.fog,prior.fog);controls.maxDistance=prior.maxDistance;camera.position.copy(prior.camera);controls.target.copy(prior.target);controls.autoRotate=prior.auto;document.body.classList.remove('show-mode');ui.hidden=true;overlay.hidden=true;transport.hidden=true;onExit();}
  function update(dt){if(!active)return;if(playing){time=audioURL?audio.currentTime:time+dt;if(time>=duration-.015||(audioURL&&audio.ended)){if($('#show-loop').checked){time=0;if(audioURL){audio.currentTime=0;audio.play().catch(()=>pause());}}else{time=duration;pause();}}}const cue=synced?timedCue(time,duration,originalCues,lyrics,chapters):cueAt(time,duration),act=cue.chapterData.action;
  if(cue.chapter!==lastChapter){setTheme(cue.chapterData.theme);lastChapter=cue.chapter;$('#chapter-title').textContent=cue.chapterData.title;ui.querySelectorAll('[data-chapter]').forEach(b=>b.classList.toggle('selected',Number(b.dataset.chapter)===cue.chapter));}
  if(cue.index!==lastCue){lastCue=cue.index;$('#current-lyric').textContent=cue.text;$('#next-lyric').textContent=lyrics[cue.index+1]?.text||'— 謝幕 · 願幸福都中頭獎 —';$('#line-count').textContent=`${cue.index<0?'INTRO':String(cue.index+1).padStart(2,'0')+' / '+lyrics.length} · ${act==='wedding'?'雙倍幸福':'歌詞演繹'}`;ui.querySelectorAll('[data-line]').forEach(b=>b.classList.toggle('selected',Number(b.dataset.line)===cue.index));const current=ui.querySelector(`[data-line="${cue.index}"]`);if(current)$('#lyric-list').scrollTop=current.offsetTop-$('#lyric-list').offsetTop-45;else $('#lyric-list').scrollTop=0;}
@@ -64,7 +65,7 @@ export function createPerformance({scene,camera,controls,actor,stage,ring,setThe
  $('#couple-status').textContent=!danceEnabled?'開啟骨架舞蹈以使用互動':interaction.pairs.length?`${interaction.hug>.5?'抱抱':'牽手'} · ${eligible} 對（需雙方有骨架）`:'雙人互動將隨劇情開始';
  arch.visible=act==='wedding';hearts.visible=act==='wedding'||act==='proposal'||act==='dance';hearts.children.forEach((h,i)=>{h.position.set(Math.sin(i*7)*3,1+(time*.28+i*.7)%2.8,-.6);h.rotation.y=Math.sin(time+i)*.3;});confetti.visible=act==='jackpot'||act==='dance'||act==='wedding';for(let i=0;i<150;i++)positions[i*3+1]=4.6-((time*(.5+(i%5)*.08)+i*.33)%4.5);confettiGeo.attributes.position.needsUpdate=true;
  $('#story-prop').textContent=act==='jackpot'?'✦ 今彩 539 · 中頭獎啦！ ✦':act==='proposal'&&cue.line>=2&&cue.line<=4?'🎟 牙妹的幸運號碼':act==='wedding'?'♡ DOUBLE HAPPINESS ♡':act==='dance'?'♡ 愛情 × 運氣 ＝ 甜蜜 ♡':'';
- if($('#cinematic').checked){const dist=showDistance(act);camera.position.set(Math.sin(time*.12)*.55,3.05,dist);controls.target.set(0,1.2-subtitleLift(dist),0);controls.update();}
+ if($('#cinematic').checked){const dist=showDistance({action:act,fov:camera.fov,aspect:camera.aspect,stageHeight:$('#viewport').clientHeight});Object.assign(scene.fog,fogRange(dist));controls.maxDistance=orbitCeiling(dist);camera.position.set(Math.sin(time*.12)*.55,3.05,dist);controls.target.set(0,1.2-subtitleLift(dist),0);controls.update();}
  const v=$('#viewport'),vw=v.clientWidth,vh=v.clientHeight,lw=labels.map(l=>l.offsetWidth),lh=labels.map(l=>l.offsetHeight);
  const marks=performers.map((p,i)=>{const point=new THREE.Vector3(p.position.x,p.position.y+2.8*p.scale.y+.27,p.position.z).project(camera);return {i,x:(point.x*.5+.5)*vw,y:(-point.y*.5+.5)*vh,off:point.z>1};});
  // Paired chapters stand two performers about a label's width apart, and a narrow
@@ -81,11 +82,6 @@ export function createPerformance({scene,camera,controls,actor,stage,ring,setThe
  // x=±3 on the z=1.4 front row, so the frame must clear 3 + .3 body + .55 camera
  // drift at THAT depth, not at the stage centre.  A flat 1.4/aspect factor overshot
  // on portrait phones, shrinking everyone and pushing them into the 12–30 fog band.
- // A short frame should bring the camera in rather than shrink the cast: hold the
- // authored wide shot down to a 660px stage (a maximised 1080p desktop), then scale
- // with the height so tablet landscape and zoomed-in windows keep the performers the
- // same apparent size instead of stranding them in a band of empty sky.
- function showDistance(act){const base=act==='proposal'||act==='jackpot'?10.5:12.5;const framed=base*Math.min(1,($('#viewport').clientHeight||660)/660);const fit=1.4+3.85/(Math.tan(camera.fov*Math.PI/360)*camera.aspect);return Math.min(18,Math.max(framed,fit));}
  // The subtitle plate sits over the bottom of the frame.  A tall desktop gives it
  // about a quarter of the height, but a short window — browser zoom, small laptop —
  // lets it reach 40%+, burying the cast.  Tilt down by the excess so they stay clear.

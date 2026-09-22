@@ -3,6 +3,7 @@ import { createPerformance } from './performance.js';
 import { models, modelById, loadAsset, instantiateAsset } from './models.js';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { editorMaxDistance } from './framing.js';
 import './style.css';
 
 const $ = s => document.querySelector(s);
@@ -18,7 +19,7 @@ const renderer = new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:t
 renderer.setPixelRatio(Math.min(devicePixelRatio,2)); renderer.shadowMap.enabled=true; renderer.shadowMap.type=THREE.PCFShadowMap; renderer.toneMapping=THREE.ACESFilmicToneMapping;
 viewport.prepend(renderer.domElement);
 const scene=new THREE.Scene(); scene.background=new THREE.Color('#1d1b29'); scene.fog=new THREE.Fog('#1d1b29',12,30);
-const camera=new THREE.PerspectiveCamera(36,1,0.1,80); const controls=new OrbitControls(camera,renderer.domElement); controls.enableDamping=true; controls.minDistance=2; controls.maxDistance=15; controls.maxPolarAngle=Math.PI/2+0.06;
+const camera=new THREE.PerspectiveCamera(36,1,0.1,80); const controls=new OrbitControls(camera,renderer.domElement); controls.enableDamping=true; controls.minDistance=2; controls.maxDistance=editorMaxDistance; controls.maxPolarAngle=Math.PI/2+0.06;
 function resetCamera(){camera.position.set(0,2.4,7.8);controls.target.set(0,1.35,0);controls.update();} resetCamera();
 scene.add(new THREE.HemisphereLight(0xcbd0ff,0x635472,2));
 const keyLight=new THREE.DirectionalLight(0xfff1e8,3.5);keyLight.position.set(3,6,5);keyLight.castShadow=true;keyLight.shadow.mapSize.set(2048,2048);scene.add(keyLight);
