@@ -10,9 +10,20 @@ export const models = [
 export const performanceModelIds=[10,5,11,9];
 export const modelById=id=>models.find(m=>m.id===id);
 const gltfLoader=new GLTFLoader(),fbxLoader=new FBXLoader();
-export async function loadAsset(url,format='GLB') {
- if(format==='FBX'){const scene=await fbxLoader.loadAsync(url);return {scene,animations:scene.animations};}
- return gltfLoader.loadAsync(url);
+// onProgress receives a 0–1 fraction while the file downloads (when the server
+// reports a length), so the UI can show a real progress bar for large FBX files.
+export async function loadAsset(url, format = 'GLB', onProgress) {
+ const progress = event => {
+  if (onProgress && event.lengthComputable && event.total > 0) onProgress(event.loaded / event.total);
+ };
+ if (format === 'FBX') {
+  const scene = await fbxLoader.loadAsync(url, progress);
+  onProgress?.(1);
+  return { scene, animations: scene.animations };
+ }
+ const gltf = await gltfLoader.loadAsync(url, progress);
+ onProgress?.(1);
+ return gltf;
 }
 export function instantiateAsset(asset) {
  const model=clone(asset.scene);
