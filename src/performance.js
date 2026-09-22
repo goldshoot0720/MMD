@@ -5,7 +5,7 @@ import { parseLrc, timedCue } from './lrc.js';
 import * as THREE from 'three';
 import { models, performanceModelIds, modelById, loadAsset, instantiateAsset } from './models.js';
 import { chapters, lyrics, defaultDuration, cueAt, chapterTime, castNames, actorPose } from './song-data';
-import { showDistance, fogRange, orbitCeiling } from './framing.js';
+import { showDistance, subtitleTilt, fogRange, orbitCeiling, targetHeight } from './framing.js';
 import './performance.css';
 
 export function createPerformance({scene,camera,controls,actor,stage,ring,setTheme,onEnter,onExit,toast}) {
@@ -65,8 +65,9 @@ export function createPerformance({scene,camera,controls,actor,stage,ring,setThe
  $('#couple-status').textContent=!danceEnabled?'開啟骨架舞蹈以使用互動':interaction.pairs.length?`${interaction.hug>.5?'抱抱':'牽手'} · ${eligible} 對（需雙方有骨架）`:'雙人互動將隨劇情開始';
  arch.visible=act==='wedding';hearts.visible=act==='wedding'||act==='proposal'||act==='dance';hearts.children.forEach((h,i)=>{h.position.set(Math.sin(i*7)*3,1+(time*.28+i*.7)%2.8,-.6);h.rotation.y=Math.sin(time+i)*.3;});confetti.visible=act==='jackpot'||act==='dance'||act==='wedding';for(let i=0;i<150;i++)positions[i*3+1]=4.6-((time*(.5+(i%5)*.08)+i*.33)%4.5);confettiGeo.attributes.position.needsUpdate=true;
  $('#story-prop').textContent=act==='jackpot'?'✦ 今彩 539 · 中頭獎啦！ ✦':act==='proposal'&&cue.line>=2&&cue.line<=4?'🎟 牙妹的幸運號碼':act==='wedding'?'♡ DOUBLE HAPPINESS ♡':act==='dance'?'♡ 愛情 × 運氣 ＝ 甜蜜 ♡':'';
- if($('#cinematic').checked){const dist=showDistance({action:act,fov:camera.fov,aspect:camera.aspect,stageHeight:$('#viewport').clientHeight});Object.assign(scene.fog,fogRange(dist));controls.maxDistance=orbitCeiling(dist);camera.position.set(Math.sin(time*.12)*.55,3.05,dist);controls.target.set(0,1.2-subtitleLift(dist),0);controls.update();}
- const v=$('#viewport'),vw=v.clientWidth,vh=v.clientHeight,lw=labels.map(l=>l.offsetWidth),lh=labels.map(l=>l.offsetHeight);
+ const v=$('#viewport');
+ if($('#cinematic').checked){const plate=$('.subtitle').getBoundingClientRect(),share=v.clientHeight?(v.getBoundingClientRect().bottom-plate.top)/v.clientHeight:0;const dist=showDistance({action:act,fov:camera.fov,aspect:camera.aspect,stageHeight:v.clientHeight,subtitleShare:share});Object.assign(scene.fog,fogRange(dist));controls.maxDistance=orbitCeiling(dist);camera.position.set(Math.sin(time*.12)*.55,3.05,dist);controls.target.set(0,targetHeight-subtitleTilt({distance:dist,fov:camera.fov,subtitleShare:share}),0);controls.update();}
+ const vw=v.clientWidth,vh=v.clientHeight,lw=labels.map(l=>l.offsetWidth),lh=labels.map(l=>l.offsetHeight);
  const marks=performers.map((p,i)=>{const point=new THREE.Vector3(p.position.x,p.position.y+2.8*p.scale.y+.27,p.position.z).project(camera);return {i,x:(point.x*.5+.5)*vw,y:(-point.y*.5+.5)*vh,off:point.z>1};});
  // Paired chapters stand two performers about a label's width apart, and a narrow
  // frame (phone, browser zoom) closes that gap further while the text stays put.
@@ -82,10 +83,6 @@ export function createPerformance({scene,camera,controls,actor,stage,ring,setThe
  // x=±3 on the z=1.4 front row, so the frame must clear 3 + .3 body + .55 camera
  // drift at THAT depth, not at the stage centre.  A flat 1.4/aspect factor overshot
  // on portrait phones, shrinking everyone and pushing them into the 12–30 fog band.
- // The subtitle plate sits over the bottom of the frame.  A tall desktop gives it
- // about a quarter of the height, but a short window — browser zoom, small laptop —
- // lets it reach 40%+, burying the cast.  Tilt down by the excess so they stay clear.
- function subtitleLift(distance){const v=$('#viewport'),plate=$('.subtitle');if(!v.clientHeight)return 0;const share=(v.getBoundingClientRect().bottom-plate.getBoundingClientRect().top)/v.clientHeight;return Math.max(0,Math.min(.45,share)-.24)*distance*Math.tan(camera.fov*Math.PI/360);}
  function chapterStart(chapter){return synced?originalCues[lyrics.findIndex(l=>l.chapter===chapter)].time:chapterTime(chapter,duration);}
  function releaseURL(){if(audioURL?.startsWith('blob:'))URL.revokeObjectURL(audioURL);}
  function loadAudio(url,name,useLrc){
