@@ -69,3 +69,8 @@ npm run dev
 - **記住偏好**：角色分配、互動模式、骨架舞蹈、BPM、動作幅度、分鏡鏡頭、循環、音量存於本機瀏覽器。
 - **歌詞清單**：自動置中目前句；使用者手動捲動時暫停自動捲動 4 秒。字幕依句內進度呈現卡拉 OK 漸層。
 - **編輯器**：播放頭、點 ◆ 跳到影格、雙擊刪除；鍵盤 Space、←→ 逐格（Shift 1 秒）、K 新增、Del 刪除、G 網格、R 重設視角、1/2/3 視角；可把 GLB／FBX／專案 JSON 直接拖進舞台；模型載入顯示進度條。
+
+## 發行版打包
+
+- **PC（`hyperstage-<版本>-pc.zip`）**：`npm run build` 後，把 `dist/` 複製為 `HyperStage-<版本>/app/`，再放入 `release/pc/` 的啟動器（Windows `Start-HyperStage.bat` + `serve.ps1`、macOS `start-mac.command` + `serve.py`、`README.txt`）後壓縮。啟動器是支援 HTTP Range（音樂可拖曳定位）的本機伺服器，免安裝。
+- **Android（`hyperstage-<版本>-debug.apk`）**：`npx cap sync android`，再於 `android/` 以 JDK 21 執行 `./gradlew assembleDebug`。
