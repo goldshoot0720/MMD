@@ -23,3 +23,20 @@ test('phrase transitions are continuous and scrubbing is stateless',()=>{
 test('rigs without supported bones degrade safely',()=>{
  const dancer=createDancer(new THREE.Group());assert.equal(dancer.supported,false);assert.equal(dancer.apply(12),null);dancer.reset();
 });
+
+test('extended choreography has distinct footwork and expressive arms throughout its cycle',()=>{
+ const feet=new Set(),arms=new Set();
+ for(let phrase=0;phrase<8;phrase++){
+  const samples=Array.from({length:12},(_,i)=>dancePose(phrase*4+i*.125,{action:'dance'}).pose);
+  feet.add(JSON.stringify(samples.map(p=>['LeftUpLeg','LeftLeg','LeftFoot','RightUpLeg','RightLeg','RightFoot'].map(k=>p[k]))));
+  arms.add(JSON.stringify(samples.map(p=>['LeftArm','LeftForeArm','LeftHand','RightArm','RightForeArm','RightHand'].map(k=>p[k]))));
+  for(const joint of ['LeftUpLeg','RightUpLeg','LeftFoot','RightFoot','LeftArm','RightArm','LeftHand','RightHand']){
+   assert.ok(samples.some(p=>p[joint].some((v,i)=>Math.abs(v-samples[0][joint][i])>.05)),`${phrase}: ${joint} should move`);
+  }
+ }
+ assert.equal(feet.size,8);assert.equal(arms.size,8);
+ const march=dancePose(.25,{action:'dance'}).pose;
+ assert.ok(march.LeftUpLeg[0]<-.8&&march.LeftLeg[0]>1,'high knee must visibly lift and bend');
+ const curl=dancePose(28.25,{action:'dance'}).pose;
+ assert.ok(curl.LeftLeg[0]>1,'back curl must bend the knee');
+});
