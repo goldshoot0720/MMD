@@ -1,0 +1,50 @@
+[
+  {
+    "name": "牙妹",
+    "supported": true,
+    "moving": true,
+    "deterministic": true
+  },
+  {
+    "name": "Gugugaga",
+    "supported": true,
+    "moving": true,
+    "deterministic": true
+  },
+  {
+    "name": "Miabyby",
+    "supported": true,
+    "moving": true,
+    "deterministic": true
+  },
+  {
+    "name": "Dpskmusume",
+    "supported": true,
+    "moving": true,
+    "deterministic": true
+  },
+  {
+    "name": "魚妹",
+    "supported": true,
+    "moving": true,
+    "deterministic": true
+  },
+  {
+    "name": "鋒兄",
+    "supported": true,
+    "moving": true,
+    "deterministic": true
+  },
+  {
+    "name": "小塗",
+    "supported": true,
+    "moving": true,
+    "deterministic": true
+  },
+  {
+    "name": "Miabubu",
+    "supported": true,
+    "moving": true,
+    "deterministic": true
+  }
+]
