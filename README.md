@@ -74,3 +74,9 @@ npm run dev
 
 - **PC（`hyperstage-<版本>-pc.zip`）**：`npm run build` 後，把 `dist/` 複製為 `HyperStage-<版本>/app/`，再放入 `release/pc/` 的啟動器（Windows `Start-HyperStage.bat` + `serve.ps1`、macOS `start-mac.command` + `serve.py`、`README.txt`）後壓縮。啟動器是支援 HTTP Range（音樂可拖曳定位）的本機伺服器，免安裝。
 - **Android（`hyperstage-<版本>-debug.apk`）**：`npx cap sync android`，再於 `android/` 以 JDK 21 執行 `./gradlew assembleDebug`。
+
+## 多首歌曲
+
+歌詞劇場右側「選擇歌曲」可切換 9 首歌：原本的《最瞎結婚理由》，加上參考 [goldshoot0720/Effects](https://github.com/goldshoot0720/Effects) 匯入的 8 首（鋒塗力百年夢、水電進化 Show、喵布布本喵掉的毛、鋒兄的傳奇人生、塗哥水電王子爆紅、鋒兄進化 Show！、我與國中畢業紀念冊的對話、統一發票頭獎得主鋒兄威力彩頭獎得主塗哥）。每首歌有自己的 MP3、逐句時間戳、分幕、預設角色（FBX 班底）與分析得出的 BPM；角色分配與 BPM 依歌曲分別記憶。新歌沒有固定情侶配對，「隨劇情」模式各自跳舞，仍可手動切換兩對牽手／抱抱；副歌使用新的「rally」舞台動作（彩紙＋群舞）。
+
+重新匯入：`python3 tools/import-effects-songs.py <Effects 路徑>`，會複製音檔到 `public/audio/` 並產生 `src/effects-songs.js`；分幕標題與角色在腳本內編寫。

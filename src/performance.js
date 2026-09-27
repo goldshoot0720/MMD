@@ -1,10 +1,10 @@
 import * as THREE from 'three';
 import { coupleCue, applyCouples } from './couples.js';
 import { createDancer } from './dance.js';
-import bundledLrc from './wedding.lrc?raw';
-import { parseLrc, timedCue } from './lrc.js';
-import { models, performanceModelIds, modelById, loadAsset, instantiateAsset } from './models.js';
-import { chapters, lyrics, defaultDuration, cueAt, chapterTime, castNames, actorPose } from './song-data.js';
+import { timedCue } from './lrc.js';
+import { models, modelById, loadAsset, instantiateAsset } from './models.js';
+import { cueAt, chapterTime, actorPose } from './song-data.js';
+import { songs, songById } from './songs.js';
 import { showDistance, subtitleTilt, fogRange, orbitCeiling, targetHeight } from './framing.js';
 import {
   $, formatClock, loadPrefs, savePrefs,
@@ -15,9 +15,6 @@ import './performance.css';
 // ===========================================================================
 // Constants
 // ===========================================================================
-const SONG_URL = '/audio/wedding.mp3';
-const SONG_TITLE = '最瞎結婚理由';
-const SHOW_TITLE = `${SONG_TITLE} · 歌詞劇場`;
 const SEEK_STEP = 5;              // seconds for ← / →
 const RESTART_LINE_AFTER = 1.5;   // "previous line" restarts the current one after this long
 const CONFETTI_COUNT = 150;
@@ -43,9 +40,12 @@ const STORY_PROPS = {
 // ===========================================================================
 export function createPerformance({ scene, camera, controls, actor, stage, ring, setTheme, onEnter, onExit, toast }) {
   const prefs = loadPrefs();
-  const originalCues = parseLrc(bundledLrc);
-  if (originalCues.length !== lyrics.length) throw new Error('LRC 與分鏡句數不符');
-  const introLabel = originalCues[0].time.toFixed(2);
+
+  // The current song. Everything song-specific is read through these bindings,
+  // which selectSong() swaps together.
+  let song = songById(prefs.song) || songs[0];
+  let { chapters, lyrics, cues: originalCues } = song;
+  const introLabel = () => (originalCues[0].time > 0.05 ? `${originalCues[0].time.toFixed(2)} 秒前奏` : '無前奏');
 
   // -------------------------------------------------------------------------
   // State
@@ -63,11 +63,11 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
     playing: false,
     pending: false,        // waiting for audio.play() to resolve
     time: 0,
-    duration: defaultDuration,
+    duration: song.defaultDuration,
     synced: true,          // lyrics follow the bundled LRC timestamps
     audioURL: null,
     audioReady: false,
-    audioName: SONG_TITLE,
+    audioName: song.title,
     castRequest: 0,
     lastCue: -2,
     lastChapter: -2,
@@ -92,9 +92,18 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
   // -------------------------------------------------------------------------
   // Markup
   // -------------------------------------------------------------------------
-  const savedCast = Array.isArray(prefs.cast) && prefs.cast.length === PERFORMER_COUNT && prefs.cast.every(id => modelById(id))
-    ? prefs.cast
-    : performanceModelIds;
+  // Cast choices are remembered per song; the wedding song also accepts the older single-song pref.
+  function savedCast(target) {
+    const saved = prefs.casts?.[target.id] ?? (target.id === 'wedding' ? prefs.cast : null);
+    return Array.isArray(saved) && saved.length === PERFORMER_COUNT && saved.every(id => modelById(id))
+      ? saved
+      : target.defaultCast;
+  }
+
+  function savedBpm(target) {
+    const saved = prefs.bpms?.[target.id] ?? (target.id === 'wedding' ? prefs.bpm : undefined);
+    return clampNumber(saved ?? target.bpm, 60, 200, target.bpm);
+  }
 
   const entry = document.createElement('button');
   entry.id = 'performance-entry';
@@ -116,29 +125,27 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
   ui.innerHTML = `
     <div class="show-heading">
       <div>
-        <span>LYRIC THEATRE / 01</span>
-        <h2>${SONG_TITLE}</h2>
-        <p>鋒兄 × 牙妹 · 小塗 × 魚妹</p>
+        <span id="show-kicker">LYRIC THEATRE / 01</span>
+        <h2 id="show-song-title"></h2>
+        <p id="show-song-subtitle"></p>
       </div>
       <button id="exit-show">返回編輯器 ↗</button>
     </div>
-    <div class="show-note">原曲 MP3 × LRC 時間戳同步演出<br>含 ${introLabel} 秒前奏；字幕與分幕依音訊時間切換。</div>
+    <label class="song-picker">選擇歌曲
+      <select id="song-select">
+        ${songs.map((s, i) => `<option value="${s.id}">${String(i + 1).padStart(2, '0')} · ${s.title}</option>`).join('')}
+      </select>
+    </label>
+    <div class="show-note"></div>
 
-    <div class="show-chapters" role="list">
-      ${chapters.map((c, i) => `
-        <button data-chapter="${i}" role="listitem" title="跳到 ${c.title}">
-          <small>0${i + 1}</small>${c.title}<span>↗</span>
-        </button>`).join('')}
-    </div>
+    <div class="show-chapters" id="show-chapters" role="list"></div>
 
     <h3 class="panel-title">歌詞 <span>點選跳轉</span></h3>
-    <div id="lyric-list">
-      ${lyrics.map((l, i) => `<button data-line="${i}"><small>${String(i + 1).padStart(2, '0')}</small>${l.text}</button>`).join('')}
-    </div>
+    <div id="lyric-list"></div>
 
     <details class="panel-group" open>
       <summary>雙人互動</summary>
-      <p class="pair-names">鋒兄 ♡ 牙妹<br>小塗 ♡ 魚妹</p>
+      <p class="pair-names" id="pair-names"></p>
       <label class="toggle-row">互動模式
         <select id="couple-mode">
           ${COUPLE_MODES.map(m => `<option value="${m.value}">${m.label}</option>`).join('')}
@@ -160,16 +167,16 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
       <label class="toggle-row">動作幅度 <output id="dance-intensity-value">85%</output></label>
       <input id="dance-intensity" type="range" min="0.3" max="1" step="0.05" value="0.85">
       <p id="dance-status" class="status-line" role="status">準備骨架…</p>
-      <p class="hint">原創循環編舞 · 預設 120 BPM，可依歌曲調整。無骨架模型僅呈現走位。</p>
+      <p class="hint">原創循環編舞 · 預設為各曲分析的 BPM，可自行調整。無骨架模型僅呈現走位。</p>
     </details>
 
     <details class="panel-group">
       <summary>角色分配</summary>
       <div class="cast-map">
-        ${castNames.map((name, i) => `
-          <label>${name}
+        ${Array.from({ length: PERFORMER_COUNT }, (_, i) => `
+          <label><span data-cast-name="${i}"></span>
             <select data-cast="${i}">
-              ${models.map(m => `<option value="${m.id}" ${m.id === savedCast[i] ? 'selected' : ''}>${m.name} · ${m.format}</option>`).join('')}
+              ${models.map(m => `<option value="${m.id}">${m.name} · ${m.format}</option>`).join('')}
             </select>
           </label>`).join('')}
       </div>
@@ -221,7 +228,7 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
     <div id="start-card" role="dialog" aria-label="開始演出">
       <div class="start-inner">
         <span class="start-kicker">LYRIC THEATRE</span>
-        <strong class="start-title">${SONG_TITLE}</strong>
+        <strong class="start-title" id="start-title"></strong>
         <button id="start-play" class="start-button" disabled>
           <span class="start-icon" aria-hidden="true">▶</span>
           <span id="start-label">準備角色中…</span>
@@ -254,10 +261,7 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
     </div>
     <div class="show-timeline">
       <input id="show-scrub" type="range" min="0" max="${show.duration}" step="0.01" value="0" aria-label="歌詞演出時間軸">
-      <div class="show-markers" id="show-markers">
-        <button data-jump="-1" class="intro-segment">前奏</button>
-        ${chapters.map((c, i) => `<button data-jump="${i}" title="${c.title}">${c.title.split(' · ')[0]}</button>`).join('')}
-      </div>
+      <div class="show-markers" id="show-markers"></div>
     </div>`;
   $('.workspace').append(transport);
 
@@ -300,16 +304,24 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
     seekFlash: $('#seek-flash'),
     viewport: $('#viewport'),
     projectTitle: $('#project-title'),
+    songSelect: $('#song-select'),
+    songTitle: $('#show-song-title'),
+    songSubtitle: $('#show-song-subtitle'),
+    kicker: $('#show-kicker'),
+    startTitle: $('#start-title'),
+    chapters: $('#show-chapters'),
+    pairNames: $('#pair-names'),
   };
-  const chapterButtons = Array.from(ui.querySelectorAll('[data-chapter]'));
-  const lineButtons = Array.from(ui.querySelectorAll('[data-line]'));
-  const markerButtons = Array.from(transport.querySelectorAll('[data-jump]'));
   const castSelects = Array.from(ui.querySelectorAll('[data-cast]'));
+  const castNameNodes = Array.from(ui.querySelectorAll('[data-cast-name]'));
+  let chapterButtons = [];
+  let lineButtons = [];
+  let markerButtons = [];
+  let labels = [];
 
   // Restore saved preferences into the controls.
   if (COUPLE_MODES.some(m => m.value === prefs.coupleMode)) el.coupleMode.value = prefs.coupleMode;
   if (typeof prefs.danceEnabled === 'boolean') el.danceEnabled.checked = prefs.danceEnabled;
-  el.danceBpm.value = clampNumber(prefs.bpm, 60, 200, 120);
   el.danceIntensity.value = clampNumber(prefs.intensity, 0.3, 1, 0.85);
   if (typeof prefs.cinematic === 'boolean') el.cinematic.checked = prefs.cinematic;
   if (typeof prefs.loop === 'boolean') el.loop.checked = prefs.loop;
@@ -318,12 +330,48 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
   updateMuteButton();
   if (!fullscreenSupported()) el.fullscreen.hidden = true;
 
-  const labels = castNames.map(name => {
-    const label = document.createElement('span');
-    label.textContent = name;
-    $('#cast-labels').append(label);
-    return label;
-  });
+  // Fill every song-specific part of the panel, overlay and timeline.
+  function renderSong() {
+    const number = String(songs.indexOf(song) + 1).padStart(2, '0');
+    const names = song.cast.map(({ name }) => name);
+    el.songSelect.value = song.id;
+    el.kicker.textContent = `LYRIC THEATRE / ${number}`;
+    el.songTitle.textContent = song.title;
+    el.songSubtitle.textContent = song.subtitle;
+    el.startTitle.textContent = song.title;
+    if (show.active && el.projectTitle) el.projectTitle.textContent = `${song.title} · 歌詞劇場`;
+
+    el.chapters.innerHTML = chapters.map((c, i) => `
+      <button data-chapter="${i}" role="listitem" title="跳到 ${c.title}">
+        <small>${String(i + 1).padStart(2, '0')}</small>${c.title}<span>↗</span>
+      </button>`).join('');
+    el.lyricList.innerHTML = lyrics
+      .map((l, i) => `<button data-line="${i}"><small>${String(i + 1).padStart(2, '0')}</small>${l.text}</button>`)
+      .join('');
+    el.markers.innerHTML = `<button data-jump="-1" class="intro-segment">前奏</button>`
+      + chapters.map((c, i) => `<button data-jump="${i}" title="${c.title}">${c.title.split(' · ')[0]}</button>`).join('');
+    chapterButtons = Array.from(el.chapters.querySelectorAll('[data-chapter]'));
+    lineButtons = Array.from(el.lyricList.querySelectorAll('[data-line]'));
+    markerButtons = Array.from(el.markers.querySelectorAll('[data-jump]'));
+
+    el.pairNames.innerHTML = song.couples
+      ? `${names[0]} ♡ ${names[1]}<br>${names[2]} ♡ ${names[3]}`
+      : `本曲無固定配對<br>可選「兩對牽手／抱抱」：${names[0]} × ${names[1]}、${names[2]} × ${names[3]}`;
+    castNameNodes.forEach((node, i) => { node.textContent = names[i]; });
+    const ids = savedCast(song);
+    castSelects.forEach((select, i) => { select.value = ids[i]; });
+
+    const labelRoot = $('#cast-labels');
+    labelRoot.replaceChildren();
+    labels = names.map(name => {
+      const label = document.createElement('span');
+      label.textContent = name;
+      labelRoot.append(label);
+      return label;
+    });
+    el.danceBpm.value = savedBpm(song);
+  }
+  renderSong();
 
   // -------------------------------------------------------------------------
   // Stage props: confetti, wedding arch, floating hearts
@@ -391,7 +439,7 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
     if (chapter < 0) return 0;
     return show.synced
       ? originalCues[lyrics.findIndex(l => l.chapter === chapter)].time
-      : chapterTime(chapter, show.duration);
+      : chapterTime(chapter, show.duration, song);
   }
 
   function chapterEnd(chapter) {
@@ -399,7 +447,9 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
   }
 
   function currentCue(time = show.time) {
-    return show.synced ? timedCue(time, show.duration, originalCues, lyrics, chapters) : cueAt(time, show.duration);
+    return show.synced
+      ? timedCue(time, show.duration, originalCues, lyrics, chapters, song.title)
+      : cueAt(time, show.duration, song);
   }
 
   function flash(text) {
@@ -446,10 +496,10 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
     el.startBar.style.width = '100%';
     if (show.ended) {
       setText(el.startLabel, '再看一次');
-      setText(el.startDetail, '演出結束 · 願幸福都中頭獎');
+      setText(el.startDetail, song.ending ?? `演出結束 · ${song.tagline}`);
     } else {
       setText(el.startLabel, '播放演出');
-      setText(el.startDetail, audioLoading ? '音樂載入中，稍候即可播放' : `${formatClock(show.duration)} · ${lyrics.length} 句歌詞 · 5 幕`);
+      setText(el.startDetail, audioLoading ? '音樂載入中，稍候即可播放' : `${formatClock(show.duration)} · ${lyrics.length} 句歌詞 · ${chapters.length} 幕`);
     }
   }
 
@@ -634,9 +684,9 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
     try {
       if (show.active && typeof MediaMetadata !== 'undefined') {
         navigator.mediaSession.metadata = new MediaMetadata({
-          title: SONG_TITLE,
+          title: song.title,
           artist: 'HyperStage 歌詞劇場',
-          album: '鋒兄 × 牙妹 · 小塗 × 魚妹',
+          album: song.subtitle,
         });
       }
       navigator.mediaSession.playbackState = show.playing ? 'playing' : 'paused';
@@ -693,7 +743,8 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
     refreshPlayButton();
 
     const ids = castSelects.map(select => Number(select.value));
-    savePrefs({ cast: ids });
+    prefs.casts = { ...prefs.casts, [song.id]: ids };
+    savePrefs({ casts: prefs.casts });
 
     try {
       const assets = await Promise.all(ids.map(requestAsset));
@@ -764,7 +815,7 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
       el.scrub.max = show.duration;
       el.audioStatus.textContent = `${name} · ${formatClock(show.duration)}${show.synced ? ' · LRC 逐句同步' : ' · 等分字幕時間'}`;
       el.note.textContent = show.synced
-        ? `原曲 MP3 × LRC 同步演出 · ${introLabel} 秒前奏 · ${lyrics.length} 句字幕`
+        ? `原曲 MP3 × LRC 同步演出 · ${introLabel()} · ${lyrics.length} 句字幕`
         : '自訂音檔 · 字幕依曲長平均分配，未套用原曲 LRC';
       el.removeAudio.hidden = false;
       layoutMarkers();
@@ -789,13 +840,37 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
     show.audioURL = null;
     show.audioReady = false;
     show.synced = false;
-    show.duration = defaultDuration;
+    show.duration = song.defaultDuration;
     el.scrub.max = show.duration;
     el.audioStatus.textContent = '無音檔 · 靜音預演';
     el.note.textContent = '靜音預演 · 每句 4 秒';
     el.removeAudio.hidden = true;
     layoutMarkers();
     seek(0);
+  }
+
+  // -------------------------------------------------------------------------
+  // Song switching
+  // -------------------------------------------------------------------------
+  function selectSong(id) {
+    const next = songById(id);
+    if (!next || next === song) return;
+    pause();
+    song = next;
+    ({ chapters, lyrics, cues: originalCues } = song);
+    savePrefs({ song: song.id });
+    show.time = 0;
+    show.welcome = true;
+    show.ended = false;
+    show.lastChapter = -2;
+    show.lastCue = -2;
+    show.lastProp = null;
+    renderSong();
+    layoutMarkers();
+    dancers.forEach(dancer => dancer.reset());
+    loadAudio(song.audio, song.title, true);
+    assignCast();
+    flash(`♫ ${song.title}`);
   }
 
   // -------------------------------------------------------------------------
@@ -825,7 +900,7 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
     overlay.hidden = false;
     transport.hidden = false;
     controls.autoRotate = false;
-    if (el.projectTitle) el.projectTitle.textContent = SHOW_TITLE;
+    if (el.projectTitle) el.projectTitle.textContent = `${song.title} · 歌詞劇場`;
     show.lastChapter = -2;
     show.lastCue = -2;
     update(0);
@@ -892,7 +967,8 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
   function onCueChange(cue, action) {
     show.lastCue = cue.index;
     setText(el.currentLyric, cue.text);
-    setText(el.nextLyric, lyrics[cue.index + 1]?.text || '— 謝幕 · 願幸福都中頭獎 —');
+    setText(el.nextLyric, lyrics[cue.index + 1]?.text || song.outro);
+    el.currentLyric.classList.toggle('long', cue.text.length > 28);
     const count = cue.index < 0 ? 'INTRO' : `${String(cue.index + 1).padStart(2, '0')} / ${lyrics.length}`;
     setText(el.lineCount, `${count} · ${action === 'wedding' ? '雙倍幸福' : '歌詞演繹'}`);
     el.currentLyric.classList.remove('enter');
@@ -954,7 +1030,7 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
     const inIntro = cue.index < 0;
     const elapsed = show.time - (inIntro ? 0 : chapterStart(cue.chapter));
     const remaining = (cue.chapter + 1 < chapters.length ? chapterStart(cue.chapter + 1) : show.duration) - show.time;
-    const interaction = coupleCue(inIntro ? 'intro' : action, elapsed, remaining, el.coupleMode.value);
+    const interaction = coupleCue(inIntro ? 'intro' : action, elapsed, remaining, el.coupleMode.value, song.couples);
     if (danceEnabled) applyCouples(performers, dancers, interaction);
 
     const eligible = interaction.pairs.filter(pair => pair.every(i => dancers[i]?.supported)).length;
@@ -962,7 +1038,7 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
       ? '開啟骨架舞蹈以使用互動'
       : interaction.pairs.length
         ? `${interaction.hug > 0.5 ? '抱抱' : '牽手'} · ${eligible} 對（需雙方有骨架）`
-        : '雙人互動將隨劇情開始';
+        : song.couples ? '雙人互動將隨劇情開始' : '本曲各自跳舞 · 可切換兩對牽手／抱抱';
     if (status !== show.lastCoupleStatus) {
       show.lastCoupleStatus = status;
       el.coupleStatus.textContent = status;
@@ -978,7 +1054,7 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
         heart.rotation.y = Math.sin(show.time + i) * 0.3;
       });
     }
-    confetti.visible = action === 'jackpot' || action === 'dance' || action === 'wedding';
+    confetti.visible = action === 'jackpot' || action === 'dance' || action === 'wedding' || action === 'rally';
     if (confetti.visible) {
       for (let i = 0; i < CONFETTI_COUNT; i++) {
         confettiPositions[i * 3 + 1] = 4.6 - ((show.time * (0.5 + (i % 5) * 0.08) + i * 0.33) % 4.5);
@@ -986,7 +1062,7 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
       confettiGeometry.attributes.position.needsUpdate = true;
     }
 
-    let prop = STORY_PROPS[action] || '';
+    let prop = cue.chapterData.prop ?? (song.couples ? STORY_PROPS[action] : '') ?? '';
     if (action === 'proposal' && cue.line >= 2 && cue.line <= 4) prop = '🎟 牙妹的幸運號碼';
     if (prop !== show.lastProp) {
       show.lastProp = prop;
@@ -1172,19 +1248,28 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
   document.addEventListener('fullscreenchange', onFullscreenChange);
   document.addEventListener('webkitfullscreenchange', onFullscreenChange);
 
-  chapterButtons.forEach(button => button.addEventListener('click', () => seek(chapterStart(Number(button.dataset.chapter)))));
-  markerButtons.forEach(button => button.addEventListener('click', () => seek(chapterStart(Number(button.dataset.jump)))));
-  lineButtons.forEach(button => button.addEventListener('click', () => {
+  // These lists are rebuilt per song, so listen on their containers.
+  el.chapters.addEventListener('click', event => {
+    const button = event.target.closest('[data-chapter]');
+    if (button) seek(chapterStart(Number(button.dataset.chapter)));
+  });
+  el.markers.addEventListener('click', event => {
+    const button = event.target.closest('[data-jump]');
+    if (button) seek(chapterStart(Number(button.dataset.jump)));
+  });
+  el.lyricList.addEventListener('click', event => {
+    const button = event.target.closest('[data-line]');
+    if (!button) return;
     show.lastUserScroll = 0; // a click is a deliberate jump: let the list follow again
     seek(lineStart(Number(button.dataset.line)));
-  }));
+  });
   for (const type of ['wheel', 'touchmove']) {
     el.lyricList.addEventListener(type, () => { show.lastUserScroll = Date.now(); }, { passive: true });
   }
 
   castSelects.forEach(select => select.addEventListener('change', assignCast));
   $('#reset-cast').addEventListener('click', () => {
-    castSelects.forEach((select, i) => { select.value = performanceModelIds[i]; });
+    castSelects.forEach((select, i) => { select.value = song.defaultCast[i]; });
     assignCast();
   });
 
@@ -1197,15 +1282,15 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
     savePrefs({ danceEnabled: el.danceEnabled.checked });
     update(0);
   });
-  el.danceBpm.addEventListener('change', () => {
-    el.danceBpm.value = clampNumber(el.danceBpm.value, 60, 200, 120);
-    savePrefs({ bpm: Number(el.danceBpm.value) });
+  function setBpm(value) {
+    el.danceBpm.value = clampNumber(value, 60, 200, song.bpm);
+    prefs.bpms = { ...prefs.bpms, [song.id]: Number(el.danceBpm.value) };
+    savePrefs({ bpms: prefs.bpms });
     update(0);
-  });
+  }
+  el.danceBpm.addEventListener('change', () => setBpm(el.danceBpm.value));
   ui.querySelectorAll('[data-bpm-step]').forEach(button => button.addEventListener('click', () => {
-    el.danceBpm.value = clampNumber(Number(el.danceBpm.value) + Number(button.dataset.bpmStep), 60, 200, 120);
-    savePrefs({ bpm: Number(el.danceBpm.value) });
-    update(0);
+    setBpm(Number(el.danceBpm.value) + Number(button.dataset.bpmStep));
   }));
   el.danceIntensity.addEventListener('input', () => {
     updateIntensityLabel();
@@ -1224,7 +1309,8 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
     if (file) loadAudio(URL.createObjectURL(file), file.name, false);
   });
   el.removeAudio.addEventListener('click', removeAudio);
-  $('#restore-song').addEventListener('click', () => loadAudio(SONG_URL, SONG_TITLE, true));
+  $('#restore-song').addEventListener('click', () => loadAudio(song.audio, song.title, true));
+  el.songSelect.addEventListener('change', () => selectSong(el.songSelect.value));
 
   // A phone going to the background should not keep singing to an empty room.
   document.addEventListener('visibilitychange', () => {
@@ -1243,7 +1329,7 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
     }
   });
 
-  loadAudio(SONG_URL, SONG_TITLE, true);
+  loadAudio(song.audio, song.title, true);
   init();
 
   return {

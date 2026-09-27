@@ -9,9 +9,9 @@ export function parseLrc(source){
  }
  return entries.sort((a,b)=>a.time-b.time);
 }
-export function timedCue(time,duration,entries,lyrics,chapters){
+export function timedCue(time,duration,entries,lyrics,chapters,title='最瞎結婚理由'){
  let index=-1;for(let i=0;i<entries.length;i++){if(entries[i].time<=time+1e-8)index=i;else break;}
- if(index<0)return {index:-1,chapter:-1,line:-1,text:'前奏 · 最瞎結婚理由',progress:Math.max(0,time/entries[0].time),chapterData:{title:'前奏 · 等待歌聲',theme:'violet',action:'intro'}};
+ if(index<0)return {index:-1,chapter:-1,line:-1,text:`前奏 · ${title}`,progress:Math.max(0,time/entries[0].time),chapterData:{title:'前奏 · 等待歌聲',theme:'violet',action:'intro'}};
  const lyric=lyrics[index],start=entries[index].time,end=entries[index+1]?.time??duration;
  return {...lyric,text:entries[index].text,index,progress:Math.max(0,Math.min(1,(time-start)/Math.max(.001,end-start))),chapterData:chapters[lyric.chapter]};
 }

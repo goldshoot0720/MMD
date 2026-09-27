@@ -5,10 +5,12 @@ export const chapters = [
  { title:'第二幕 · 財神爺點名', theme:'blue', action:'jackpot', lines:['換到小塗這邊','故事居然同一套','今彩五三九播報畫面','他整個人直接跳','魚妹隨手寫的牌','竟然全中好幾張','他說財神爺都點名了','不跟她走進禮堂實在太不應該'] },
  { title:'終幕 · 雙倍幸福', theme:'rose', action:'wedding', lines:['鋒兄牽著牙妹','小塗牽著魚妹','喝喜酒的人十桌百桌','都在笑這兩段緣','最瞎結婚理由','結果都開成頭獎','如果幸福也能這樣瞎忙','那我明天也去買一張'] }
 ];
-export const lyrics=chapters.flatMap((c,chapter)=>c.lines.map((text,line)=>({text,chapter,line})));
+export const flattenLyrics=chapters=>chapters.flatMap((c,chapter)=>c.lines.map((text,line)=>({text,chapter,line})));
+export const lyrics=flattenLyrics(chapters);
 export const defaultDuration=lyrics.length*4;
-export function cueAt(time,duration=defaultDuration){const raw=Math.max(0,Math.min(lyrics.length-0.000001,time/duration*lyrics.length+1e-9));const index=Math.floor(raw);return {...lyrics[index],index,progress:raw-index,chapterData:chapters[lyrics[index].chapter]};}
-export function chapterTime(index,duration=defaultDuration){return chapters.slice(0,index).reduce((n,c)=>n+c.lines.length,0)/lyrics.length*duration;}
+// Untimed (silent or custom-audio) playback spreads the lines evenly. `song` defaults to the wedding song.
+export function cueAt(time,duration,song={chapters,lyrics}){const list=song.lyrics;duration??=list.length*4;const raw=Math.max(0,Math.min(list.length-0.000001,time/duration*list.length+1e-9));const index=Math.floor(raw);return {...list[index],index,progress:raw-index,chapterData:song.chapters[list[index].chapter]};}
+export function chapterTime(index,duration,song={chapters,lyrics}){duration??=song.lyrics.length*4;return song.chapters.slice(0,index).reduce((n,c)=>n+c.lines.length,0)/song.lyrics.length*duration;}
 // Keep the character names and their bundled model IDs together.  The cast UI,
 // performer loader, and model thumbnails all consume this one source of truth.
 export const cast=[
@@ -24,6 +26,7 @@ export function actorPose(index,time,cue){const beat=time*Math.PI,hop=Math.abs(M
  if(action==='proposal'){if(index<2){x=index===0?-.65:.65;ry=index===0?.35:-.35;y=cue.line===4?hop*.25:0;rz=cue.line>=5?Math.sin(beat/2)*.055:0;}else{x=index===2?-3:3;z=1.4;scale=.65;}}
  if(action==='dance'){x+=Math.sin(beat/2+index*.5)*.25;y=hop*.18;rz=Math.sin(beat+index*.4)*.065;ry=Math.sin(beat/2)*.25;}
  if(action==='jackpot'){if(index>=2){x=index===2?-.7:.7;y=cue.line>=3?hop*.45:hop*.06;ry=index===2?.25:-.25;rz=Math.sin(beat)*.07;}else{x=index===0?-3:3;z=1.4;scale=.65;}}
+ if(action==='rally'){x+=Math.sin(beat/2+index*.9)*.18;y=hop*.22;ry=Math.sin(beat/2+index)*.2;rz=Math.sin(beat+index*.6)*.05;}
  if(action==='wedding'){x=[-1.95,-.95,.95,1.95][index];z=cue.line<2?.4:0;ry=index%2?-.18:.18;y=cue.line>=4?hop*.14:0;rz=cue.line>=2?Math.sin(beat/2)*.04:0;}
  return {x,y,z,ry,rz,scale};
 }

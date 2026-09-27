@@ -2,8 +2,9 @@ import * as THREE from 'three';
 
 export const couples=[[0,1],[2,3]];
 const smooth=x=>{x=THREE.MathUtils.clamp(x,0,1);return x*x*(3-2*x);};
-export function coupleCue(action,elapsed,remaining,mode='auto'){
- if(mode==='dance')return {pairs:[],weight:0,hug:0};
+// Songs without fixed couples (story=false) only pair up when the user asks for it.
+export function coupleCue(action,elapsed,remaining,mode='auto',story=true){
+ if(mode==='dance'||(mode==='auto'&&!story))return {pairs:[],weight:0,hug:0};
  if(mode==='hold'||mode==='hug')return {pairs:couples,weight:1,hug:mode==='hug'?1:0};
  const pairs=action==='proposal'?[couples[0]]:action==='jackpot'?[couples[1]]:action==='wedding'?couples:[];
  return {pairs,weight:smooth(elapsed/1.5)*smooth(remaining/1.5),hug:smooth((elapsed-8)/2)};

@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 
 export const danceNames={groove:'踏步律動',wave:'交替揮手',disco:'斜向指天',clap:'胸前合拍',reach:'雙手上舉',swing:'側步擺臂',heart:'胸前收手',bow:'鞠躬謝幕',march:'抬膝擺臂',kick:'前踢推掌',side:'側踏展臂',cross:'交叉步揮手',shuffle:'滑步輪臂',heel:'點踵轉腕',twist:'扭步出拳',curl:'後勾腿畫圓'};
-const sequences={intro:['groove','heel','march','wave'],tease:['side','cross','wave','twist','curl','shuffle'],proposal:['heart','side','clap','heel','wave','march'],dance:['march','kick','side','cross','shuffle','heel','twist','curl','disco','reach','swing'],jackpot:['kick','reach','shuffle','twist','curl','disco'],wedding:['side','cross','heart','march','wave','curl','clap','bow']};
+const sequences={intro:['groove','heel','march','wave'],tease:['side','cross','wave','twist','curl','shuffle'],proposal:['heart','side','clap','heel','wave','march'],dance:['march','kick','side','cross','shuffle','heel','twist','curl','disco','reach','swing'],jackpot:['kick','reach','shuffle','twist','curl','disco'],wedding:['side','cross','heart','march','wave','curl','clap','bow'],rally:['disco','kick','shuffle','reach','twist','march','swing','cross']};
 const smooth=x=>{x=Math.max(0,Math.min(1,x));return x*x*(3-2*x);};
 const blend=(a,b,k)=>Object.fromEntries(Object.keys(a).map(key=>[key,a[key].map((v,i)=>THREE.MathUtils.lerp(v,b[key][i],k))]));
 function motif(name,beat,index){
