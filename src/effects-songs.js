@@ -43,6 +43,12 @@ export const effectsSongs = [
      "一條路 三個夢同軌",
      "鋒塗力鋒塗力 一起拚下去",
      "百年企業心擔起"
+    ],
+    "moves": [
+     "write",
+     "think",
+     "point",
+     "side"
     ]
    },
    {
@@ -52,6 +58,12 @@ export const effectsSongs = [
     "lines": [
      "今天種的夢 明天變成你福氣",
      "鋒塗力 鋒塗力 就在你身邊一起前進"
+    ],
+    "moves": [
+     "cheer",
+     "point",
+     "march",
+     "reach"
     ]
    },
    {
@@ -68,6 +80,12 @@ export const effectsSongs = [
      "安全舒適住進你家裡",
      "鋒塗力鋒塗力 一起拚下去",
      "百年企業心擔起"
+    ],
+    "moves": [
+     "wrench",
+     "write",
+     "heel",
+     "cross"
     ]
    },
    {
@@ -77,6 +95,12 @@ export const effectsSongs = [
     "lines": [
      "今天種的夢 明天變成你福氣",
      "鋒塗力 鋒塗力 就在你身邊一起前進"
+    ],
+    "moves": [
+     "cheer",
+     "disco",
+     "kick",
+     "point"
     ]
    },
    {
@@ -88,6 +112,12 @@ export const effectsSongs = [
      "名字寫進版圖",
      "從這里 到全國",
      "一步一步走得穩固"
+    ],
+    "moves": [
+     "point",
+     "side",
+     "heart",
+     "march"
     ]
    },
    {
@@ -100,7 +130,13 @@ export const effectsSongs = [
      "今天種的夢 明天變成你福氣",
      "鋒塗力 鋒塗力 大家作伙向著未來前進"
     ],
-    "prop": "✦ 鋒塗力 · 百年企業 ✦"
+    "prop": "✦ 鋒塗力 · 百年企業 ✦",
+    "moves": [
+     "cheer",
+     "royal",
+     "reach",
+     "bow"
+    ]
    }
   ],
   "times": [
@@ -171,6 +207,12 @@ export const effectsSongs = [
     "action": "rally",
     "lines": [
      "台北有大家真好 嗨起來別逃跑"
+    ],
+    "moves": [
+     "cheer",
+     "mic",
+     "disco",
+     "kick"
     ]
    },
    {
@@ -184,6 +226,12 @@ export const effectsSongs = [
      "(三十七歲) 那年同學高考三級奪榜首（yeah）",
      "資訊處理一戰成名 程式都寫成傳說",
      "隔著時代的螢幕光 夢想像演算法（run）"
+    ],
+    "moves": [
+     "wrench",
+     "guitar",
+     "side",
+     "guitar"
     ]
    },
    {
@@ -196,6 +244,12 @@ export const effectsSongs = [
      "備取瞬間正取秒秒到",
      "不唱就取消資格(笑)",
      "進化不靠運氣靠信號"
+    ],
+    "moves": [
+     "mic",
+     "point",
+     "guitar",
+     "cross"
     ]
    },
    {
@@ -206,7 +260,13 @@ export const effectsSongs = [
      "台北有大家真好 嗨起來別逃跑",
      "從水電進化到樂團 命運像 debug 一樣爆"
     ],
-    "prop": "♪ 從水電進化到樂團 ♪"
+    "prop": "♪ 從水電進化到樂團 ♪",
+    "moves": [
+     "guitar",
+     "cheer",
+     "shuffle",
+     "disco"
+    ]
    },
    {
     "title": "主歌三 · 二零四零的夜",
@@ -220,6 +280,12 @@ export const effectsSongs = [
      "別說不可能 大家就是 evolution",
      "(AI) 輔助水管操作 資料開放新世代",
      "陰陽同框 水電與理想 交錯的舞台線上"
+    ],
+    "moves": [
+     "wrench",
+     "mic",
+     "twist",
+     "point"
     ]
    },
    {
@@ -231,7 +297,13 @@ export const effectsSongs = [
      "(最後副歌) 台北有大家真好 嗨起來直到早朝",
      "(最後副歌) 台北有大家真好 嗨起來直到早朝"
     ],
-    "prop": "♪ 台北有大家真好 ♪"
+    "prop": "♪ 台北有大家真好 ♪",
+    "moves": [
+     "cheer",
+     "guitar",
+     "mic",
+     "reach"
+    ]
    },
    {
     "title": "尾聲 · 進化論",
@@ -242,6 +314,11 @@ export const effectsSongs = [
      "吉他至上也點頭 這進化合乎理想",
      "有理有理進化論",
      "不 這是水電進化 Show"
+    ],
+    "moves": [
+     "guitar",
+     "cheer",
+     "bow"
     ]
    }
   ],
@@ -322,6 +399,12 @@ export const effectsSongs = [
      "什麼都沒做都這麼尊貴",
      "你還在那邊算來算去",
      "喵布布本喵掉的毛 (嘿)"
+    ],
+    "moves": [
+     "point",
+     "paw",
+     "royal",
+     "heel"
     ]
    },
    {
@@ -337,7 +420,13 @@ export const effectsSongs = [
      "錢放下 人可以走",
      "能不能買到看我心情好不好"
     ],
-    "prop": "🐾 本喵原廠 · 一根一根都是寶 🐾"
+    "prop": "🐾 本喵原廠 · 一根一根都是寶 🐾",
+    "moves": [
+     "paw",
+     "twist",
+     "paw",
+     "disco"
+    ]
    },
    {
     "title": "主歌 · 本喵原廠",
@@ -352,6 +441,12 @@ export const effectsSongs = [
      "吵到本喵耳朵都要折",
      "本喵一甩尾巴說 88",
      "給你機會示好 不算太苛"
+    ],
+    "moves": [
+     "royal",
+     "paw",
+     "point",
+     "curl"
     ]
    },
    {
@@ -370,7 +465,13 @@ export const effectsSongs = [
      "今天想掉 就掉一床",
      "明天不爽 全部收回去珍藏"
     ],
-    "prop": "🐾 喵布布本喵掉的毛 🐾"
+    "prop": "🐾 喵布布本喵掉的毛 🐾",
+    "moves": [
+     "paw",
+     "shuffle",
+     "paw",
+     "reach"
+    ]
    },
    {
     "title": "橋段 · 向上朝聖",
@@ -382,6 +483,12 @@ export const effectsSongs = [
      "喵布布本喵掉的毛",
      "你買到是本喵賞臉的號召",
      "這不是交易 是你向上朝聖一秒"
+    ],
+    "moves": [
+     "royal",
+     "think",
+     "paw",
+     "side"
     ]
    },
    {
@@ -394,6 +501,12 @@ export const effectsSongs = [
      "最後通牒就說到這麼高傲",
      "錢放下 人可以走",
      "排隊朝拜本喵就好 (喵喵)"
+    ],
+    "moves": [
+     "point",
+     "paw",
+     "royal",
+     "bow"
     ]
    }
   ],
@@ -483,6 +596,12 @@ export const effectsSongs = [
     "lines": [
      "鋒兄的傳奇人生",
      "從頭獎到榜首"
+    ],
+    "moves": [
+     "royal",
+     "point",
+     "cheer",
+     "march"
     ]
    },
    {
@@ -496,7 +615,13 @@ export const effectsSongs = [
      "威力彩頭獎得主",
      "大樂透頭獎得主"
     ],
-    "prop": "🎟 發票 × 威力彩 × 大樂透 · 頭獎！"
+    "prop": "🎟 發票 × 威力彩 × 大樂透 · 頭獎！",
+    "moves": [
+     "cash",
+     "cheer",
+     "cash",
+     "kick"
+    ]
    },
    {
     "title": "榜首 · 創業",
@@ -508,6 +633,12 @@ export const effectsSongs = [
      "鋒兄塗哥公關資訊",
      "創業",
      "五十一歲"
+    ],
+    "moves": [
+     "write",
+     "think",
+     "point",
+     "cheer"
     ]
    },
    {
@@ -518,6 +649,12 @@ export const effectsSongs = [
      "台北市資訊局長",
      "五十二歲",
      "台北市副秘書長"
+    ],
+    "moves": [
+     "royal",
+     "point",
+     "side",
+     "march"
     ]
    },
    {
@@ -530,7 +667,13 @@ export const effectsSongs = [
      "百億市長",
      "鋒兄發大財"
     ],
-    "prop": "✦ 鋒兄發大財 ✦"
+    "prop": "✦ 鋒兄發大財 ✦",
+    "moves": [
+     "cash",
+     "royal",
+     "cheer",
+     "disco"
+    ]
    },
    {
     "title": "六十三歲 · 一兆總統",
@@ -544,7 +687,13 @@ export const effectsSongs = [
      "鋒兄發大財",
      "幸運台灣"
     ],
-    "prop": "✦ 幸運台北 · 幸運台灣 ✦"
+    "prop": "✦ 幸運台北 · 幸運台灣 ✦",
+    "moves": [
+     "royal",
+     "cash",
+     "cheer",
+     "reach"
+    ]
    },
    {
     "title": "終章 · 從榜首到總統",
@@ -554,6 +703,12 @@ export const effectsSongs = [
      "鋒兄的傳奇人生",
      "從頭獎到榜首",
      "從榜首到總統"
+    ],
+    "moves": [
+     "royal",
+     "cheer",
+     "point",
+     "bow"
     ]
    }
   ],
@@ -624,6 +779,12 @@ export const effectsSongs = [
      "西元兩零零四年六月十五日",
      "這一天是國中畢業生可以在畢業紀念冊留下紀念簽名的一天",
      "同時也是我們故事主角塗神 塗三傑 江湖人稱塗哥一切的開始"
+    ],
+    "moves": [
+     "book",
+     "write",
+     "think",
+     "groove"
     ]
    },
    {
@@ -633,6 +794,12 @@ export const effectsSongs = [
     "lines": [
      "塗哥人在台中小吃店 同行指著電視畫面說台北爆發學運太陽花學運 塗哥說我不懂政治 等一下我們去買太陽餅",
      "我聽鋒兄說彰化盛產向日葵 下個月我們去彰化農場踏青 同行職業病發作對農場施工頭頭是道"
+    ],
+    "moves": [
+     "think",
+     "point",
+     "heel",
+     "side"
     ]
    },
    {
@@ -642,6 +809,12 @@ export const effectsSongs = [
     "lines": [
      "鋒兄歷史小學堂",
      "林學徒說AI機器人有可能取代水電工 我好焦慮喔 塗哥說可是我聽鋒兄說那是未來不是現在 先作好手邊的工作"
+    ],
+    "moves": [
+     "book",
+     "think",
+     "point",
+     "wave"
     ]
    },
    {
@@ -652,6 +825,12 @@ export const effectsSongs = [
      "塗哥說我有個同學在台北當副市長 同行回你是說鋒兄嗎 鋒兄 怎麼可能 鋒兄現在是青木瓜手搖飲區域經理 副市長是黃馨鋒",
      "同行說我還以為是鋒兄 一樣名字有個鋒字",
      "對了你那同學不出來選台北市長嗎 塗哥說我同學寫了一本有關於水電工的書 他說銷售量超過兩百五十萬冊 才有出來選的本錢"
+    ],
+    "moves": [
+     "think",
+     "point",
+     "cross",
+     "royal"
     ]
    },
    {
@@ -662,6 +841,12 @@ export const effectsSongs = [
      "有人在台北動物園快閃唱動物園不得了了 蠟筆小新 塗哥說我不懂日語 等一下我們去KTV唱快樂天堂",
      "塗董 最近的電視劇很火你有在看嗎 水電情 聽說原型人物是塗偉傑 塗偉傑  我叫塗三傑 姓名只差一個字 說不定是我遠房親戚 真的假的 你們塗家壟斷水電這一行業太誇張了吧",
      "塗董 你知道塗偉傑紅到被寫進高職國文課本這件事嗎 哇操 塗偉傑肯定是我遠房親戚 傻眼貓咪 我看鋒兄家的貓都會傻眼"
+    ],
+    "moves": [
+     "wrench",
+     "think",
+     "point",
+     "twist"
     ]
    },
    {
@@ -672,7 +857,13 @@ export const effectsSongs = [
      "現象級水電工塗哥人物專訪 塗神衍生作品王子 高職國文課本 水電",
      "電視劇 愛上水電工 主題曲鋒兄作詞 小說名場景 青木瓜四木飲冠名播出 鋒兄和塗哥喝青木瓜四木飲一年份喝到吐。"
     ],
-    "prop": "📺 電視劇 · 小說 · 電影"
+    "prop": "📺 電視劇 · 小說 · 電影",
+    "moves": [
+     "royal",
+     "cheer",
+     "wrench",
+     "disco"
+    ]
    },
    {
     "title": "學術引用 · 論文",
@@ -682,7 +873,13 @@ export const effectsSongs = [
      "電影 水電工大老闆 學術引用 社會學系碩士論文引用 塗神水電王子 二十一世紀前期文學作品所呈現的台灣社會",
      "國文學系博士論文引用 塗神水電王子 台灣政治人物代表作家及其作品研究"
     ],
-    "prop": "🎓 碩博士論文引用"
+    "prop": "🎓 碩博士論文引用",
+    "moves": [
+     "book",
+     "write",
+     "point",
+     "reach"
+    ]
    },
    {
     "title": "爆紅 · 三百三十三億",
@@ -691,7 +888,13 @@ export const effectsSongs = [
     "lines": [
      "塗哥水電王子爆紅 鋒兄賺三百三十三億 塗哥賺三億"
     ],
-    "prop": "💰 鋒兄 333 億 · 塗哥 3 億"
+    "prop": "💰 鋒兄 333 億 · 塗哥 3 億",
+    "moves": [
+     "cash",
+     "cheer",
+     "cash",
+     "bow"
+    ]
    }
   ],
   "times": [
@@ -751,6 +954,12 @@ export const effectsSongs = [
      "台北有鋒兄真好",
      "嗨起來別逃跑",
      "從榜首進化到市長 這節奏太離譜（wow）"
+    ],
+    "moves": [
+     "cheer",
+     "mic",
+     "disco",
+     "kick"
     ]
    },
    {
@@ -763,6 +972,12 @@ export const effectsSongs = [
      "實力至上都說這段人生 根本 S 級動畫稿（yeah）",
      "(三十七歲) 那年我高考三級奪榜首",
      "資訊處理一戰成名 程式都寫成傳說"
+    ],
+    "moves": [
+     "write",
+     "point",
+     "mic",
+     "side"
     ]
    },
    {
@@ -779,6 +994,12 @@ export const effectsSongs = [
      "台北有鋒兄真好",
      "嗨起來別逃跑",
      "從榜首進化到市長"
+    ],
+    "moves": [
+     "royal",
+     "mic",
+     "point",
+     "cross"
     ]
    },
    {
@@ -792,6 +1013,12 @@ export const effectsSongs = [
      "代理只是過場",
      "市民心中早就想",
      "(二零四零) 那年的夜 霓虹閃爍到市政府"
+    ],
+    "moves": [
+     "mic",
+     "cheer",
+     "shuffle",
+     "reach"
     ]
    },
    {
@@ -807,6 +1034,12 @@ export const effectsSongs = [
      "塗哥還要再唱",
      "(最後副歌) 台北有鋒兄真好",
      "嗨起來直到早朝"
+    ],
+    "moves": [
+     "point",
+     "think",
+     "twist",
+     "disco"
     ]
    },
    {
@@ -823,7 +1056,13 @@ export const effectsSongs = [
      "不 這是鋒兄進化 Show",
      "不 這是鋒兄進化 Show"
     ],
-    "prop": "⚡ 鋒兄進化 Show！ ⚡"
+    "prop": "⚡ 鋒兄進化 Show！ ⚡",
+    "moves": [
+     "cheer",
+     "royal",
+     "mic",
+     "bow"
+    ]
    }
   ],
   "times": [
@@ -904,6 +1143,12 @@ export const effectsSongs = [
      "今年是2021年",
      "國中的時候班上有33名學生",
      "剛好我今年生日33歲"
+    ],
+    "moves": [
+     "book",
+     "think",
+     "groove",
+     "heel"
     ]
    },
    {
@@ -921,6 +1166,12 @@ export const effectsSongs = [
      "12 18 一組 12 23 一組 18 23 一組",
      "好像沒有意義",
      "我是國中畢業紀念冊 誰在呼喚我"
+    ],
+    "moves": [
+     "think",
+     "point",
+     "book",
+     "side"
     ]
    },
    {
@@ -934,7 +1185,13 @@ export const effectsSongs = [
      "做不到就沒意義 意義 怎麼可能有意義",
      "5 12 一組 你有本事考榜首就有意義"
     ],
-    "prop": "📖 國中畢業紀念冊"
+    "prop": "📖 國中畢業紀念冊",
+    "moves": [
+     "book",
+     "wave",
+     "think",
+     "point"
+    ]
    },
    {
     "title": "考試 · 榜首",
@@ -947,7 +1204,13 @@ export const effectsSongs = [
      "你37歲一過就可以不再需要考試了",
      "那 真是太好了 反正我本來就不想考試 我真的考到榜首了耶"
     ],
-    "prop": "📝 真的考到榜首了耶"
+    "prop": "📝 真的考到榜首了耶",
+    "moves": [
+     "write",
+     "cheer",
+     "cheer",
+     "kick"
+    ]
    },
    {
     "title": "5 12 · 職等之謎",
@@ -958,6 +1221,12 @@ export const effectsSongs = [
      "5 12是五十二歲嗎 是也不是 什麼意思",
      "同理你52歲還沒十二職等 這組就結束了",
      "重點是十二職等是副秘書長 而且不是五十二歲"
+    ],
+    "moves": [
+     "think",
+     "point",
+     "book",
+     "cross"
     ]
    },
    {
@@ -968,6 +1237,12 @@ export const effectsSongs = [
      "你看是不是還有其他組",
      "對耶 還有其他組 5 18 一組 這組沒意義 跳過",
      "5 23 一組 5班23號 國中補習班同學 這有什麼特別的"
+    ],
+    "moves": [
+     "book",
+     "point",
+     "think",
+     "heel"
     ]
    },
    {
@@ -986,6 +1261,12 @@ export const effectsSongs = [
      "沒有了 台北市長 你在開玩笑吧",
      "要當也是當黃大洲之前的市長 有總統挺",
      "12 23 一組 這組沒意義 跳過"
+    ],
+    "moves": [
+     "think",
+     "royal",
+     "point",
+     "side"
     ]
    },
    {
@@ -997,6 +1278,12 @@ export const effectsSongs = [
      "同時往後7屆不就對上了 總統 看起來很正常",
      "台北市長接總統 幹嘛當總統",
      "跟歷史有關係嗎 跟歷史無關的話 沒有非當不可吧"
+    ],
+    "moves": [
+     "royal",
+     "cheer",
+     "point",
+     "reach"
     ]
    },
    {
@@ -1005,6 +1292,10 @@ export const effectsSongs = [
     "action": "tease",
     "lines": [
      "以上是排列組合的對話"
+    ],
+    "moves": [
+     "book",
+     "bow"
     ]
    }
   ],
@@ -1097,7 +1388,13 @@ export const effectsSongs = [
      "塗哥明年生日願望要實現",
      "威力彩頭獎就在眼前"
     ],
-    "prop": "🎂 鋒兄三十七歲生日快樂"
+    "prop": "🎂 鋒兄三十七歲生日快樂",
+    "moves": [
+     "paw",
+     "cheer",
+     "heart",
+     "clap"
+    ]
    },
    {
     "title": "塗哥選號 · 中獎",
@@ -1110,7 +1407,13 @@ export const effectsSongs = [
      "全家共享這份幸運呀",
      "招財喵布布把幸福播撒"
     ],
-    "prop": "🎟 威力彩頭獎 · 分紅兩千零二十五萬"
+    "prop": "🎟 威力彩頭獎 · 分紅兩千零二十五萬",
+    "moves": [
+     "write",
+     "cash",
+     "cheer",
+     "cash"
+    ]
    },
    {
     "title": "雙家到場 · 見證",
@@ -1125,6 +1428,12 @@ export const effectsSongs = [
      "財富和快樂永遠不散場",
      "塗哥明年生日願望要實現",
      "威力彩頭獎就在眼前"
+    ],
+    "moves": [
+     "royal",
+     "heart",
+     "clap",
+     "bow"
     ]
    },
    {
@@ -1138,7 +1447,13 @@ export const effectsSongs = [
      "全家共享這份幸運呀",
      "招財喵布布把幸福播撒"
     ],
-    "prop": "🐾 招財喵布布把幸福播撒 🐾"
+    "prop": "🐾 招財喵布布把幸福播撒 🐾",
+    "moves": [
+     "cash",
+     "paw",
+     "cheer",
+     "reach"
+    ]
    }
   ],
   "times": [

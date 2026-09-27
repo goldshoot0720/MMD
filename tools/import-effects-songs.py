@@ -125,6 +125,79 @@ SONGS = {
 }
 THEMES = {'tease': 'blue', 'rally': 'rose', 'jackpot': 'violet'}
 
+# Story gestures per chapter (see src/dance.js): each 8-beat phrase takes the next move.
+MOVES = {
+    's023': [  # 一張桌一枝筆 → 職人 → 百年企業
+        ['write', 'think', 'point', 'side'],
+        ['cheer', 'point', 'march', 'reach'],
+        ['wrench', 'write', 'heel', 'cross'],
+        ['cheer', 'disco', 'kick', 'point'],
+        ['point', 'side', 'heart', 'march'],
+        ['cheer', 'royal', 'reach', 'bow'],
+    ],
+    's024': [  # 水電工變樂團
+        ['cheer', 'mic', 'disco', 'kick'],
+        ['wrench', 'guitar', 'side', 'guitar'],
+        ['mic', 'point', 'guitar', 'cross'],
+        ['guitar', 'cheer', 'shuffle', 'disco'],
+        ['wrench', 'mic', 'twist', 'point'],
+        ['cheer', 'guitar', 'mic', 'reach'],
+        ['guitar', 'cheer', 'bow'],
+    ],
+    's026': [  # 傲嬌本喵
+        ['point', 'paw', 'royal', 'heel'],
+        ['paw', 'twist', 'paw', 'disco'],
+        ['royal', 'paw', 'point', 'curl'],
+        ['paw', 'shuffle', 'paw', 'reach'],
+        ['royal', 'think', 'paw', 'side'],
+        ['point', 'paw', 'royal', 'bow'],
+    ],
+    's027': [  # 頭獎 → 榜首 → 市長 → 總統
+        ['royal', 'point', 'cheer', 'march'],
+        ['cash', 'cheer', 'cash', 'kick'],
+        ['write', 'think', 'point', 'cheer'],
+        ['royal', 'point', 'side', 'march'],
+        ['cash', 'royal', 'cheer', 'disco'],
+        ['royal', 'cash', 'cheer', 'reach'],
+        ['royal', 'cheer', 'point', 'bow'],
+    ],
+    's028': [  # 塗哥的旁白故事
+        ['book', 'write', 'think', 'groove'],
+        ['think', 'point', 'heel', 'side'],
+        ['book', 'think', 'point', 'wave'],
+        ['think', 'point', 'cross', 'royal'],
+        ['wrench', 'think', 'point', 'twist'],
+        ['royal', 'cheer', 'wrench', 'disco'],
+        ['book', 'write', 'point', 'reach'],
+        ['cash', 'cheer', 'cash', 'bow'],
+    ],
+    's062': [  # 榜首進化到市長的演唱會
+        ['cheer', 'mic', 'disco', 'kick'],
+        ['write', 'point', 'mic', 'side'],
+        ['royal', 'mic', 'point', 'cross'],
+        ['mic', 'cheer', 'shuffle', 'reach'],
+        ['point', 'think', 'twist', 'disco'],
+        ['cheer', 'royal', 'mic', 'bow'],
+    ],
+    's101': [  # 和畢業紀念冊對話、排列組合
+        ['book', 'think', 'groove', 'heel'],
+        ['think', 'point', 'book', 'side'],
+        ['book', 'wave', 'think', 'point'],
+        ['write', 'cheer', 'cheer', 'kick'],
+        ['think', 'point', 'book', 'cross'],
+        ['book', 'point', 'think', 'heel'],
+        ['think', 'royal', 'point', 'side'],
+        ['royal', 'cheer', 'point', 'reach'],
+        ['book', 'bow'],
+    ],
+    's102': [  # 招財喵、生日、中獎
+        ['paw', 'cheer', 'heart', 'clap'],
+        ['write', 'cash', 'cheer', 'cash'],
+        ['royal', 'heart', 'clap', 'bow'],
+        ['cash', 'paw', 'cheer', 'reach'],
+    ],
+}
+
 
 def load(effects, sid):
     text = open(os.path.join(effects, 'data', 'song', sid + '.js'), encoding='utf-8').read()
@@ -151,8 +224,10 @@ def main(effects):
                  'lines': [lines[i]['text'] for i in picked]}
             if len(chapter) > 3:
                 c['prop'] = chapter[3]
+            c['moves'] = MOVES[sid][len(chapters)]
             chapters.append(c)
         assert covered == list(range(len(lines))), f'{sid}: chapters must cover every line in order'
+        assert len(MOVES[sid]) == len(chapters), f'{sid}: one move list per chapter'
         shutil.copyfile(os.path.join(effects, 'audio', sid + '.mp3'),
                         os.path.join(ROOT, 'public', 'audio', sid + '.mp3'))
         out.append({

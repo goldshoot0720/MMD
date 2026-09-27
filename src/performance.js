@@ -72,6 +72,7 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
     lastCue: -2,
     lastChapter: -2,
     welcome: true,         // show the big start card until the first play
+    chosen: false,         // every visit starts on the song menu; nothing loads until a pick
     autoplay: true,        // start by itself once the cast (and music) are ready
     autoBlocked: false,    // the browser refused to start audio without a click
     ended: false,          // reached the end with loop off
@@ -138,6 +139,7 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
     </div>
     <label class="song-picker">選擇歌曲
       <select id="song-select">
+        <option value="" disabled hidden>請先選擇歌曲</option>
         ${songs.map((s, i) => `<option value="${s.id}">${String(i + 1).padStart(2, '0')} · ${s.title}</option>`).join('')}
       </select>
     </label>
@@ -211,7 +213,7 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
         <dt>Home</dt><dd>回到開頭</dd>
         <dt>M</dt><dd>靜音</dd>
         <dt>F</dt><dd>全螢幕</dd>
-        <dt>L</dt><dd>循環播放</dd>
+        <dt>L</dt><dd>單曲循環</dd>
         <dt>C</dt><dd>分鏡鏡頭</dd>
         <dt>S</dt><dd>選擇歌曲</dd>
         <dt>N P</dt><dd>下一首／上一首</dd>
@@ -276,10 +278,11 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
   transport.hidden = true;
   transport.innerHTML = `
     <div class="show-controls">
-      <button id="show-rewind" aria-label="回到起點" title="回到起點 (Home)">⏮</button>
+      <button id="show-prev-song" aria-label="上一首" title="上一首 (P)">⏮</button>
       <button id="show-prev" aria-label="上一句" title="上一句 (↑)">⏪</button>
       <button id="show-play" class="primary" disabled title="播放／暫停 (Space)">準備角色中…</button>
       <button id="show-next" aria-label="下一句" title="下一句 (↓)">⏩</button>
+      <button id="show-next-song" aria-label="下一首" title="下一首 (N)">⏭</button>
       <button id="show-songs" title="選擇歌曲 (S)">♫ <span>選歌</span></button>
       <span id="show-clock">00:00 / 00:00</span>
       <span class="show-spacer"></span>
@@ -287,7 +290,7 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
         <button id="show-mute" aria-label="靜音" title="靜音 (M)">🔊</button>
         <input id="show-volume" type="range" min="0" max="1" step="0.05" value="1" aria-label="音量">
       </span>
-      <label class="show-loop" title="循環播放 (L)"><input id="show-loop" type="checkbox" checked> 循環</label>
+      <label class="show-loop" title="單曲循環 (L)"><input id="show-loop" type="checkbox"> <span>單曲循環</span></label>
       <button id="show-fullscreen" aria-label="全螢幕" title="全螢幕 (F)">⛶</button>
     </div>
     <div class="show-timeline">
@@ -301,7 +304,6 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
     play: $('#show-play'),
     prev: $('#show-prev'),
     next: $('#show-next'),
-    rewind: $('#show-rewind'),
     clock: $('#show-clock'),
     scrub: $('#show-scrub'),
     loop: $('#show-loop'),
@@ -366,10 +368,11 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
   function renderSong() {
     const number = String(songs.indexOf(song) + 1).padStart(2, '0');
     const names = song.cast.map(({ name }) => name);
-    el.songSelect.value = song.id;
+    el.songSelect.value = show.chosen ? song.id : '';
     el.songMenu.querySelectorAll('[data-song]').forEach(card => {
-      card.classList.toggle('selected', card.dataset.song === song.id);
+      card.classList.toggle('selected', show.chosen && card.dataset.song === song.id);
     });
+    el.songMenu.classList.toggle('required', !show.chosen);
     el.kicker.textContent = `LYRIC THEATRE / ${number}`;
     el.songTitle.textContent = song.title;
     el.songSubtitle.textContent = song.subtitle;
@@ -747,8 +750,8 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
       pause: () => pause(),
       seekbackward: () => seekBy(-SEEK_STEP),
       seekforward: () => seekBy(SEEK_STEP),
-      previoustrack: () => previousChapter(),
-      nexttrack: () => nextChapter(),
+      previoustrack: () => stepSong(-1),
+      nexttrack: () => stepSong(1),
       seekto: details => seek(details.seekTime ?? show.time),
     };
     for (const [action, handler] of Object.entries(handlers)) {
@@ -867,7 +870,6 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
     }
     setupMediaSession();
     layoutMarkers();
-    assignCast();
   }
 
   // -------------------------------------------------------------------------
@@ -939,7 +941,9 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
   // -------------------------------------------------------------------------
   function selectSong(id) {
     const next = songById(id);
-    if (!next || next === song) return;
+    if (!next || (next === song && show.chosen)) return;
+    const first = !show.chosen;
+    show.chosen = true;
     pause();
     song = next;
     ({ chapters, lyrics, cues: originalCues } = song);
@@ -955,7 +959,7 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
     dancers.forEach(dancer => dancer.reset());
     loadAudio(song.audio, song.title, true);
     assignCast();
-    flash(`♫ ${song.title}`);
+    if (!first) flash(`♫ ${song.title}`);
   }
 
   function openSongMenu() {
@@ -963,11 +967,13 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
     (el.songMenu.querySelector('.song-card.selected') || el.songMenu.querySelector('.song-card')).focus();
   }
 
+  // Until the first pick the menu is the only way in, so it cannot be dismissed.
   function closeSongMenu() {
-    el.songMenu.hidden = true;
+    if (show.chosen) el.songMenu.hidden = true;
   }
 
   function stepSong(delta) {
+    if (!show.chosen) return;
     const index = (songs.indexOf(song) + delta + songs.length) % songs.length;
     selectSong(songs[index].id);
   }
@@ -1004,6 +1010,7 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
     show.lastCue = -2;
     update(0);
     refreshPlayButton();
+    if (!show.chosen) openSongMenu();
     maybeAutoplay();
   }
 
@@ -1045,6 +1052,9 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
         audio.currentTime = 0;
         audio.play().catch(() => pause());
       }
+    } else if (songs.indexOf(song) + 1 < songs.length) {
+      // Without single-song loop the show carries on with the next song.
+      stepSong(1);
     } else {
       show.time = show.duration;
       show.ended = true;
@@ -1101,6 +1111,8 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
       if (!danceEnabled || !dancer.supported) return;
       danceName = dancer.apply(show.time, {
         action: inIntro ? 'intro' : action,
+        moves: inIntro ? undefined : cue.chapterData.moves,
+        previousMoves: cue.chapter > 0 ? chapters[cue.chapter - 1].moves : undefined,
         bpm,
         intensity,
         index: i,
@@ -1329,7 +1341,7 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
       case 'l':
       case 'L':
         setLoop(!el.loop.checked);
-        flash(el.loop.checked ? '↻ 循環：開' : '↻ 循環：關');
+        flash(el.loop.checked ? '↻ 單曲循環：開' : '↻ 單曲循環：關');
         return true;
       case 'c':
       case 'C':
@@ -1356,10 +1368,8 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
 
   el.play.addEventListener('click', togglePlay);
   el.startPlay.addEventListener('click', togglePlay);
-  el.rewind.addEventListener('click', () => {
-    pause();
-    seek(0);
-  });
+  $('#show-prev-song').addEventListener('click', () => stepSong(-1));
+  $('#show-next-song').addEventListener('click', () => stepSong(1));
   el.prev.addEventListener('click', previousLine);
   el.next.addEventListener('click', nextLine);
   el.scrub.addEventListener('input', event => seek(Number(event.target.value)));
@@ -1437,15 +1447,18 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
   });
   el.removeAudio.addEventListener('click', removeAudio);
   $('#restore-song').addEventListener('click', () => loadAudio(song.audio, song.title, true));
-  el.songSelect.addEventListener('change', () => selectSong(el.songSelect.value));
+  el.songSelect.addEventListener('change', () => {
+    selectSong(el.songSelect.value);
+    closeSongMenu();
+  });
   $('#show-songs').addEventListener('click', openSongMenu);
   $('#start-songs').addEventListener('click', openSongMenu);
   $('#song-menu-close').addEventListener('click', closeSongMenu);
   el.songMenu.addEventListener('click', event => {
     const card = event.target.closest('[data-song]');
     if (card) {
-      closeSongMenu();
       selectSong(card.dataset.song);
+      closeSongMenu();
     } else if (event.target === el.songMenu) {
       closeSongMenu();
     }
@@ -1460,7 +1473,6 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
     }
   });
 
-  loadAudio(song.audio, song.title, true);
   init();
 
   return {

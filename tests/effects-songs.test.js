@@ -45,3 +45,14 @@ test('the rally action poses and dances with finite values', () => {
     assert.ok(Object.values(dancePose(t, { action: 'rally' }).pose).flat().every(Number.isFinite));
   }
 });
+
+test('every chapter of every song names only known dance moves', async () => {
+ const { danceNames } = await import('../src/dance.js');
+ const { chapters } = await import('../src/song-data.js');
+ for (const [id, list] of [['wedding', chapters], ...effectsSongs.map(s => [s.id, s.chapters])]) {
+  list.forEach((c, i) => {
+   assert.ok(Array.isArray(c.moves) && c.moves.length > 0, `${id} ${i}`);
+   c.moves.forEach(m => assert.ok(danceNames[m], `${id} ${i}: ${m}`));
+  });
+ }
+});

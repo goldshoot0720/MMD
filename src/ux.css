@@ -254,10 +254,10 @@ button:disabled { cursor: not-allowed; }
 .show-spacer { flex: 1; }
 .show-transport label.show-loop { margin-left: 0; white-space: nowrap; }
 .volume { display: inline-flex; align-items: center; gap: 4px; }
-.volume button, #show-fullscreen, #show-prev, #show-next, #show-rewind {
+.volume button, #show-fullscreen, #show-prev, #show-next, #show-prev-song, #show-next-song {
   background: transparent; border-color: transparent; padding: 6px 8px;
 }
-.volume button:hover, #show-fullscreen:hover, #show-prev:hover, #show-next:hover, #show-rewind:hover {
+.volume button:hover, #show-fullscreen:hover, #show-prev:hover, #show-next:hover, #show-prev-song:hover, #show-next-song:hover {
   background: #2d2638; border-color: #4a3d5c;
 }
 #show-volume { width: 84px; margin: 0; height: 4px; }
@@ -298,8 +298,10 @@ button:disabled { cursor: not-allowed; }
   .show-controls #show-play:disabled::before { content: '…'; }
   .show-spacer { display: none; }
   #show-volume { display: none; }
-  /* The 前奏 segment below already jumps to the start. */
-  #show-rewind { display: none; }
+  /* Lines are one tap away in the lyric list; the row keeps the song buttons. */
+  #show-prev, #show-next { display: none; }
+  .show-loop span { display: none; }
+  .show-loop::after { content: '↻'; font-size: 14px; }
   .show-controls { gap: 4px; }
   #show-clock { order: 10; width: 100%; text-align: center; }
   .start-title { font-size: 20px; }
@@ -401,3 +403,4 @@ button:disabled { cursor: not-allowed; }
   .show-controls button { min-width: 36px; padding-left: 4px; padding-right: 4px; }
   .show-transport > div.show-controls:first-child { gap: 4px; }
 }
+#song-menu.required #song-menu-close { display: none; }

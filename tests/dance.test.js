@@ -40,3 +40,22 @@ test('extended choreography has distinct footwork and expressive arms throughout
  const curl=dancePose(28.25,{action:'dance'}).pose;
  assert.ok(curl.LeftLeg[0]>1,'back curl must bend the knee');
 });
+
+test('story gestures are bounded, continuous across phrases and follow the chapter move list', async () => {
+ const { gestureNames, danceNames } = await import('../src/dance.js');
+ for (const name of gestureNames) {
+  assert.ok(danceNames[name], name);
+  for (let t = 0; t < 40; t += .113) for (const index of [0, 1]) {
+   const v = values(dancePose(t, { moves: [name, 'groove'], index }));
+   assert.ok(v.every(x => Number.isFinite(x) && Math.abs(x) < Math.PI), `${name} @${t}`);
+  }
+  for (let phrase = 1; phrase < 6; phrase++) {
+   const t = phrase * 4;
+   const a = values(dancePose(t - 1e-5, { moves: [name, 'cheer'] })), b = values(dancePose(t + 1e-5, { moves: [name, 'cheer'] }));
+   assert.ok(a.every((x, i) => Math.abs(x - b[i]) < .001), `${name} phrase ${phrase}`);
+  }
+ }
+ assert.equal(dancePose(1, { moves: ['guitar', 'mic'] }).name, danceNames.guitar);
+ assert.equal(dancePose(5, { moves: ['guitar', 'mic'] }).name, danceNames.mic);
+ assert.equal(dancePose(1, { action: 'dance', moves: [] }).name, dancePose(1, { action: 'dance' }).name);
+});
