@@ -83,7 +83,10 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
     lastProp: null,
   };
 
-  const audio = new Audio();
+  // A hidden <video> plays the MP3: Chrome allows muted autoplay for video but not for <audio>,
+  // which the autoplay fallback in play() relies on.
+  const audio = document.createElement('video');
+  audio.playsInline = true;
   audio.preload = 'auto';
   audio.id = 'performance-audio';
   audio.hidden = true;
@@ -540,6 +543,30 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
     play({ auto: true });
   }
 
+  async function playMuted() {
+    audio.muted = true;
+    try {
+      await audio.play();
+    } catch {
+      audio.muted = false;
+      return false;
+    }
+    updateMuteButton();
+    toast('🔇 已靜音自動播放 · 點一下任意處開啟聲音', { duration: 6000 });
+    const unmute = event => {
+      document.removeEventListener('pointerdown', unmute, true);
+      document.removeEventListener('keydown', unmute, true);
+      // The mute button toggles by itself; anywhere else restores the sound here.
+      if (event.target.closest?.('#show-mute') || event.key === 'm' || event.key === 'M' || !audio.muted) return;
+      audio.muted = false;
+      updateMuteButton();
+      flash('🔊 已開啟聲音');
+    };
+    document.addEventListener('pointerdown', unmute, true);
+    document.addEventListener('keydown', unmute, true);
+    return true;
+  }
+
   async function play({ auto = false } = {}) {
     show.autoplay = false;
     if (show.failed) {
@@ -559,14 +586,18 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
         audio.currentTime = show.time;
         await audio.play();
       } catch {
-        show.pending = false;
-        if (auto) {
-          show.autoBlocked = true;
-          refreshStartCard();
-        } else {
-          toast('音檔無法播放，請再按一次播放或換一個音檔');
+        // Browsers refuse sound before the first click but allow muted playback:
+        // start muted and turn the sound on at the first interaction.
+        if (!(auto && !audio.muted && await playMuted())) {
+          show.pending = false;
+          if (auto) {
+            show.autoBlocked = true;
+            refreshStartCard();
+          } else {
+            toast('音檔無法播放，請再按一次播放或換一個音檔');
+          }
+          return;
         }
-        return;
       }
       show.pending = false;
       if (!show.active) {
