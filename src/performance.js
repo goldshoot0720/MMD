@@ -1312,14 +1312,6 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
   $('#restore-song').addEventListener('click', () => loadAudio(song.audio, song.title, true));
   el.songSelect.addEventListener('change', () => selectSong(el.songSelect.value));
 
-  // A phone going to the background should not keep singing to an empty room.
-  document.addEventListener('visibilitychange', () => {
-    if (document.visibilityState === 'hidden' && show.playing) {
-      pause();
-      toast('已暫停：切換到背景時自動暫停');
-    }
-  });
-
   // Audio can also stop on its own (headphones unplugged, OS interruption).
   audio.addEventListener('pause', () => {
     if (show.playing && !audio.ended && !show.pending) {
