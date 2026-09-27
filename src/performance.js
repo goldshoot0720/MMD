@@ -870,6 +870,20 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
     }
     setupMediaSession();
     layoutMarkers();
+    preloadCast();
+  }
+
+  // While the song menu is up nothing else is happening, so fetch the characters most
+  // songs use, one at a time. A pick reuses the in-flight download and stops the queue.
+  async function preloadCast() {
+    if (navigator.connection?.saveData) return;
+    const uses = new Map();
+    for (const s of songs) for (const id of new Set(s.defaultCast)) uses.set(id, (uses.get(id) ?? 0) + 1);
+    const order = [...uses.keys()].sort((a, b) => uses.get(b) - uses.get(a));
+    for (const id of order) {
+      if (show.chosen) return;
+      await requestAsset(id).catch(() => {});
+    }
   }
 
   // -------------------------------------------------------------------------
