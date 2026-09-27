@@ -213,7 +213,9 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
         <dt>F</dt><dd>全螢幕</dd>
         <dt>L</dt><dd>循環播放</dd>
         <dt>C</dt><dd>分鏡鏡頭</dd>
-        <dt>Esc</dt><dd>返回編輯器</dd>
+        <dt>S</dt><dd>選擇歌曲</dd>
+        <dt>N P</dt><dd>下一首／上一首</dd>
+        <dt>Esc</dt><dd>關閉選歌／返回編輯器</dd>
       </dl>
     </details>`;
   $('main').append(ui);
@@ -240,7 +242,30 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
         </button>
         <div class="start-progress" aria-hidden="true"><i id="start-bar"></i></div>
         <p id="start-detail">載入 4 位角色與原曲</p>
-        <p class="start-keys">Space 播放 · ← → 快轉 · F 全螢幕</p>
+        <button id="start-songs" class="start-songs">♫ 選擇歌曲 · ${songs.length} 首</button>
+        <p class="start-keys">Space 播放 · ← → 快轉 · S 選歌 · F 全螢幕</p>
+      </div>
+    </div>
+    <div id="song-menu" role="dialog" aria-label="選擇歌曲" hidden>
+      <div class="song-menu-inner">
+        <div class="song-menu-head">
+          <div>
+            <span class="start-kicker">LYRIC THEATRE</span>
+            <h3>選一首歌</h3>
+          </div>
+          <button id="song-menu-close" aria-label="關閉選歌" title="關閉 (Esc)">✕</button>
+        </div>
+        <div class="song-grid">
+          ${songs.map((s, i) => `
+            <button class="song-card" data-song="${s.id}">
+              <small>${String(i + 1).padStart(2, '0')}</small>
+              <strong>${s.title}</strong>
+              <span>${s.subtitle}</span>
+              <em>${s.tagline}</em>
+              <i>${s.lyrics.length} 句 · ${s.chapters.length} 幕 · ${s.cast.map(c => c.name).join('、')}</i>
+            </button>`).join('')}
+        </div>
+        <p class="start-keys">S 開關選歌 · N / P 下一首／上一首 · Esc 關閉</p>
       </div>
     </div>
     <div id="seek-flash" aria-hidden="true"></div>`;
@@ -255,6 +280,7 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
       <button id="show-prev" aria-label="上一句" title="上一句 (↑)">⏪</button>
       <button id="show-play" class="primary" disabled title="播放／暫停 (Space)">準備角色中…</button>
       <button id="show-next" aria-label="下一句" title="下一句 (↓)">⏩</button>
+      <button id="show-songs" title="選擇歌曲 (S)">♫ <span>選歌</span></button>
       <span id="show-clock">00:00 / 00:00</span>
       <span class="show-spacer"></span>
       <span class="volume">
@@ -315,6 +341,7 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
     kicker: $('#show-kicker'),
     startTitle: $('#start-title'),
     chapters: $('#show-chapters'),
+    songMenu: $('#song-menu'),
     pairNames: $('#pair-names'),
   };
   const castSelects = Array.from(ui.querySelectorAll('[data-cast]'));
@@ -340,6 +367,9 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
     const number = String(songs.indexOf(song) + 1).padStart(2, '0');
     const names = song.cast.map(({ name }) => name);
     el.songSelect.value = song.id;
+    el.songMenu.querySelectorAll('[data-song]').forEach(card => {
+      card.classList.toggle('selected', card.dataset.song === song.id);
+    });
     el.kicker.textContent = `LYRIC THEATRE / ${number}`;
     el.songTitle.textContent = song.title;
     el.songSubtitle.textContent = song.subtitle;
@@ -928,6 +958,20 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
     flash(`♫ ${song.title}`);
   }
 
+  function openSongMenu() {
+    el.songMenu.hidden = false;
+    (el.songMenu.querySelector('.song-card.selected') || el.songMenu.querySelector('.song-card')).focus();
+  }
+
+  function closeSongMenu() {
+    el.songMenu.hidden = true;
+  }
+
+  function stepSong(delta) {
+    const index = (songs.indexOf(song) + delta + songs.length) % songs.length;
+    selectSong(songs[index].id);
+  }
+
   // -------------------------------------------------------------------------
   // Enter / exit
   // -------------------------------------------------------------------------
@@ -1217,7 +1261,34 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
   // Keyboard (called by main.js while the show is on screen)
   // -------------------------------------------------------------------------
   function handleKey(event) {
+    if (!el.songMenu.hidden) {
+      // The menu is a modal: Enter/Space activate the focused card, Esc and S close it.
+      if (event.key === 'Escape' || event.key === 's' || event.key === 'S') {
+        closeSongMenu();
+        return true;
+      }
+      if (event.key === ' ' || event.key === 'Enter') return false;
+      const step = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[event.key];
+      if (step) {
+        const cards = Array.from(el.songMenu.querySelectorAll('.song-card'));
+        const at = cards.indexOf(document.activeElement);
+        cards[(at + step + cards.length) % cards.length].focus();
+        return true;
+      }
+    }
     switch (event.key) {
+      case 's':
+      case 'S':
+        openSongMenu();
+        return true;
+      case 'n':
+      case 'N':
+        stepSong(1);
+        return true;
+      case 'p':
+      case 'P':
+        stepSong(-1);
+        return true;
       case ' ':
         togglePlay();
         return true;
@@ -1367,6 +1438,18 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
   el.removeAudio.addEventListener('click', removeAudio);
   $('#restore-song').addEventListener('click', () => loadAudio(song.audio, song.title, true));
   el.songSelect.addEventListener('change', () => selectSong(el.songSelect.value));
+  $('#show-songs').addEventListener('click', openSongMenu);
+  $('#start-songs').addEventListener('click', openSongMenu);
+  $('#song-menu-close').addEventListener('click', closeSongMenu);
+  el.songMenu.addEventListener('click', event => {
+    const card = event.target.closest('[data-song]');
+    if (card) {
+      closeSongMenu();
+      selectSong(card.dataset.song);
+    } else if (event.target === el.songMenu) {
+      closeSongMenu();
+    }
+  });
 
   // Audio can also stop on its own (headphones unplugged, OS interruption).
   audio.addEventListener('pause', () => {

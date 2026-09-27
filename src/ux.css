@@ -349,3 +349,55 @@ button:disabled { cursor: not-allowed; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition: none !important; }
 }
+
+/* ---------------------------------------------------------------------------
+   Song selection screen
+   --------------------------------------------------------------------------- */
+.start-songs {
+  margin-top: 2px; padding: 8px 18px; border-radius: 999px; font-size: 12px;
+  background: transparent; border: 1px solid #6b5a86; color: #dcc8f5;
+}
+.start-songs:hover { background: #2e2540; border-color: #bca8ff; }
+#song-menu {
+  position: absolute; inset: 0; z-index: 6; pointer-events: auto;
+  display: grid; place-items: center; padding: 16px;
+  background: #0f0b17e0; backdrop-filter: blur(6px);
+  animation: hs-fade .25s ease-out both;
+}
+#song-menu[hidden] { display: none; }
+.song-menu-inner {
+  width: min(920px, 100%); max-height: 100%; overflow: auto;
+  display: flex; flex-direction: column; gap: 14px;
+  padding: 22px 24px; border-radius: 18px;
+  background: #1c1628f2; border: 1px solid #4a3b5e; box-shadow: 0 20px 60px #000a;
+}
+.song-menu-head { display: flex; align-items: flex-start; justify-content: space-between; }
+.song-menu-head h3 { font-size: 22px; color: #fff0ff; margin: 6px 0 0; font-weight: 700; }
+#song-menu-close { background: transparent; border: 0; font-size: 16px; color: #b69fd6; padding: 6px 10px; }
+.song-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; }
+.song-card {
+  display: flex; flex-direction: column; align-items: flex-start; gap: 5px; text-align: left;
+  padding: 14px 16px; border-radius: 12px; background: #241e30; border: 1px solid #3b3150;
+}
+.song-card:hover { background: #2e2540; border-color: #8f78b8; }
+.song-card.selected { background: #3a2b4d; border-color: #bca8ff; }
+.song-card small { font-size: 9px; letter-spacing: 2px; color: #8f7fa6; }
+.song-card strong { font-size: 14px; line-height: 1.35; color: #f6e8ff; }
+.song-card span { font-size: 11px; color: #c7b3e0; }
+.song-card em { font-style: normal; font-size: 11px; color: #ffdc91; }
+.song-card i { font-style: normal; font-size: 9px; color: #7f7392; line-height: 1.6; }
+.song-card.selected small::after { content: ' · 目前歌曲'; color: #bca8ff; }
+@media (max-width: 760px) {
+  .song-menu-inner { padding: 16px; }
+  .song-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .song-card { padding: 10px 12px; }
+  .song-card i { display: none; }
+  #show-songs span { display: none; }
+  #show-songs { padding: 6px 8px; }
+  .show-controls #show-play { min-width: 48px; flex-basis: 48px; }
+}
+@media (max-width: 420px) { .song-grid { grid-template-columns: 1fr; } }
+@media (max-width: 380px) {
+  .show-controls button { min-width: 36px; padding-left: 4px; padding-right: 4px; }
+  .show-transport > div.show-controls:first-child { gap: 4px; }
+}
