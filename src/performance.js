@@ -72,6 +72,8 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
     lastCue: -2,
     lastChapter: -2,
     welcome: true,         // show the big start card until the first play
+    autoplay: true,        // start by itself once the cast (and music) are ready
+    autoBlocked: false,    // the browser refused to start audio without a click
     ended: false,          // reached the end with loop off
     lastUserScroll: 0,
     prior: null,           // editor camera / stage state to restore on exit
@@ -497,9 +499,12 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
     if (show.ended) {
       setText(el.startLabel, '再看一次');
       setText(el.startDetail, song.ending ?? `演出結束 · ${song.tagline}`);
+    } else if (show.autoBlocked) {
+      setText(el.startLabel, '播放演出');
+      setText(el.startDetail, '瀏覽器需要點一下才能播放音樂');
     } else {
       setText(el.startLabel, '播放演出');
-      setText(el.startDetail, audioLoading ? '音樂載入中，稍候即可播放' : `${formatClock(show.duration)} · ${lyrics.length} 句歌詞 · ${chapters.length} 幕`);
+      setText(el.startDetail, audioLoading ? '音樂載入中，載入完成後自動播放' : `${formatClock(show.duration)} · ${lyrics.length} 句歌詞 · ${chapters.length} 幕`);
     }
   }
 
@@ -527,7 +532,16 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
     refreshPlayButton();
   }
 
-  async function play() {
+  // Called whenever the cast or the music finishes loading; plays once both are ready.
+  function maybeAutoplay() {
+    const audioOk = !show.audioURL || show.audioReady;
+    if (!show.autoplay || !show.active || !show.ready || show.failed || show.playing || show.pending || !audioOk) return;
+    show.autoplay = false;
+    play({ auto: true });
+  }
+
+  async function play({ auto = false } = {}) {
+    show.autoplay = false;
     if (show.failed) {
       assignCast();
       return;
@@ -546,7 +560,12 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
         await audio.play();
       } catch {
         show.pending = false;
-        toast('音檔無法播放，請再按一次播放或換一個音檔');
+        if (auto) {
+          show.autoBlocked = true;
+          refreshStartCard();
+        } else {
+          toast('音檔無法播放，請再按一次播放或換一個音檔');
+        }
         return;
       }
       show.pending = false;
@@ -556,6 +575,7 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
       }
     }
     show.playing = true;
+    show.autoBlocked = false;
     show.welcome = false;
     show.ended = false;
     keepAwake(true);
@@ -738,6 +758,7 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
   async function assignCast() {
     const ticket = ++show.castRequest;
     pause();
+    show.autoplay = true;
     show.ready = false;
     show.failed = false;
     refreshPlayButton();
@@ -767,6 +788,7 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
       show.ready = true;
       refreshPlayButton();
       update(0);
+      maybeAutoplay();
     } catch (error) {
       if (ticket !== show.castRequest) return;
       show.failed = true;
@@ -821,6 +843,7 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
       layoutMarkers();
       seek(0);
       if (!useLrc) toast(`已載入 ${name}`);
+      maybeAutoplay();
     };
     audio.onerror = () => {
       removeAudio();
@@ -847,6 +870,7 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
     el.removeAudio.hidden = true;
     layoutMarkers();
     seek(0);
+    maybeAutoplay();
   }
 
   // -------------------------------------------------------------------------
@@ -905,6 +929,7 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
     show.lastCue = -2;
     update(0);
     refreshPlayButton();
+    maybeAutoplay();
   }
 
   function exit() {
