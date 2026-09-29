@@ -69,6 +69,7 @@ $('#app').innerHTML = `
 <header>
   <a class="brand" href="./"><b class="logo">H</b> HyperStage <span>STUDIO</span></a>
   <div class="project-name"><span id="project-title">Untitled performance</span> <span class="project-tag">本機專案</span></div>
+  <a id="inside-identity-link" class="header-link" href="./inside-identity.html" title="8 位角色的 INSIDE IDENTITY 舞台">✦ <span>INSIDE IDENTITY</span></a>
   <button id="save" title="下載 JSON 專案檔">↥ 儲存專案</button>
   <button id="shot" class="primary" title="下載目前畫面 PNG">▣ 擷取畫面</button>
 </header>

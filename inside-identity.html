@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inside Identity 3D · HyperStage</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #050006;
+    --panel: rgba(14, 6, 12, 0.78);
+    --line: rgba(255, 42, 74, 0.28);
+    --text: #f3e9ee;
+    --muted: #a88f9b;
+    --accent: #ff2a4a;
+    --accent-2: #ffd23f;
+    --radius: 10px;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: var(--bg); color: var(--text); overflow: hidden;
+    font: 14px/1.45 "Noto Sans TC", system-ui, sans-serif; }
+  #app { position: fixed; inset: 0; }
+  canvas#gl { display: block; width: 100%; height: 100%; }
+
+  /* title */
+  .title { position: fixed; left: 20px; top: 16px; pointer-events: none; user-select: none; }
+  .title h1 { margin: 0; font: 400 clamp(22px, 3.4vw, 40px)/1 "Dela Gothic One", sans-serif; letter-spacing: .04em;
+    color: #fff; text-shadow: 2px 0 var(--accent), -2px 0 #3fd7ff; position: relative; }
+  .title h1::after { content: attr(data-text); position: absolute; left: 0; top: 0; color: var(--accent);
+    clip-path: inset(0 0 60% 0); transform: translateX(3px); opacity: .7; animation: glitch 2.2s infinite steps(1); }
+  .title p { margin: 6px 0 0; color: var(--muted); letter-spacing: .3em; font-size: 11px; text-transform: uppercase; }
+  @keyframes glitch { 0%,86%,100% { clip-path: inset(0 0 60% 0); transform: translateX(3px); }
+    88% { clip-path: inset(40% 0 20% 0); transform: translateX(-6px); } 92% { clip-path: inset(70% 0 5% 0); transform: translateX(5px); } }
+
+  .back { position: fixed; left: 20px; top: calc(16px + clamp(22px, 3.4vw, 40px) + 28px); color: var(--muted); font-size: 12px;
+    letter-spacing: .12em; text-decoration: none; }
+  .back:hover { color: var(--text); }
+
+  .hud { position: fixed; left: 20px; bottom: 16px; font: 400 12px/1.4 ui-monospace, Menlo, monospace; color: var(--muted);
+    pointer-events: none; letter-spacing: .06em; }
+  .hud b { color: var(--text); font-weight: 600; }
+  .hud .move { font: 900 26px/1.1 "Noto Sans TC", sans-serif; color: #fff; letter-spacing: .05em; margin-bottom: 4px;
+    text-shadow: 0 0 18px rgba(255,42,74,.6); }
+
+  /* callout */
+  #callout { position: fixed; left: 50%; top: 40%; transform: translate(-50%, -50%); pointer-events: none; white-space: nowrap;
+    font: 400 clamp(28px, 7vw, 88px)/1 "Dela Gothic One", sans-serif; color: #fff; opacity: 0;
+    text-shadow: 4px 0 var(--accent), -4px 0 #3fd7ff, 0 0 40px rgba(255,42,74,.8); }
+  #callout.show { animation: callout 1.9s ease-out forwards; }
+  @keyframes callout {
+    0% { opacity: 0; transform: translate(-50%, -50%) scale(1.6) skewX(-12deg); letter-spacing: .4em; }
+    10% { opacity: 1; transform: translate(-50%, -50%) scale(1) skewX(-8deg); letter-spacing: .02em; }
+    14% { transform: translate(-48%, -50%) skewX(-8deg); } 18% { transform: translate(-52%, -50%) skewX(-8deg); }
+    22%, 75% { opacity: 1; transform: translate(-50%, -50%) skewX(-8deg); }
+    100% { opacity: 0; transform: translate(-50%, -54%) skewX(-8deg); } }
+  #flash { position: fixed; inset: 0; pointer-events: none; opacity: 0; mix-blend-mode: screen;
+    background: repeating-linear-gradient(115deg, rgba(255,42,74,.55) 0 18px, transparent 18px 60px); }
+  #flash.on { animation: flash .35s ease-out; }
+  @keyframes flash { 0% { opacity: .9; } 100% { opacity: 0; } }
+
+  /* panel */
+  .panel { position: fixed; right: 16px; top: 16px; width: 300px; max-height: calc(100% - 32px); overflow: auto;
+    background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); backdrop-filter: blur(10px);
+    padding: 14px; scrollbar-width: thin; }
+  .panel h2 { font-size: 11px; letter-spacing: .25em; color: var(--muted); text-transform: uppercase; margin: 14px 0 8px; font-weight: 500; }
+  .panel h2:first-child { margin-top: 0; }
+  .seg { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; background: rgba(255,255,255,.04); padding: 4px; border-radius: 8px; }
+  .seg button { border: 0; background: transparent; color: var(--muted); padding: 8px 4px; border-radius: 6px; font: inherit; font-weight: 500; cursor: pointer; }
+  .seg button.on { background: var(--accent); color: #fff; box-shadow: 0 0 18px rgba(255,42,74,.45); }
+  .row { display: flex; align-items: center; gap: 8px; margin: 8px 0; }
+  .row label { flex: 1; color: var(--muted); }
+  .btn { border: 1px solid var(--line); background: rgba(255,42,74,.12); color: var(--text); padding: 8px 12px; border-radius: 8px;
+    font: inherit; cursor: pointer; white-space: nowrap; }
+  .btn:hover { background: rgba(255,42,74,.25); }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 700; }
+  .btn.wide { width: 100%; }
+  .btns { display: flex; gap: 6px; }
+  .btns .btn { flex: 1; }
+  input[type=number] { width: 72px; background: rgba(0,0,0,.35); border: 1px solid var(--line); color: var(--text); border-radius: 6px; padding: 6px; font: inherit; }
+  input[type=range] { flex: 1.3; accent-color: var(--accent); }
+  input[type=checkbox] { accent-color: var(--accent); width: 16px; height: 16px; }
+  .file { display: block; border: 1px dashed var(--line); border-radius: 8px; padding: 10px; text-align: center; color: var(--muted); cursor: pointer; }
+  .file:hover, .file.drag { border-color: var(--accent); color: var(--text); }
+  .file input { display: none; }
+  .note { color: var(--muted); font-size: 12px; margin: 6px 0 0; }
+  .chars { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+  .chars label { display: flex; align-items: center; gap: 6px; background: rgba(255,255,255,.04); padding: 6px 8px; border-radius: 6px; cursor: pointer; font-size: 12px; }
+  .chars i { width: 8px; height: 8px; border-radius: 50%; flex: none; }
+  [hidden] { display: none !important; }
+  #toggle { display: none; }
+
+  /* PIP */
+  .pip { position: fixed; left: 20px; bottom: 90px; width: min(34vw, 360px); aspect-ratio: 16/9; border: 1px solid var(--line);
+    border-radius: var(--radius); overflow: hidden; background: #000; cursor: pointer; }
+  .pip canvas { width: 100%; height: 100%; display: block; }
+  .pip span { position: absolute; left: 8px; top: 6px; font-size: 11px; letter-spacing: .15em; color: #fff; text-shadow: 0 0 6px #000; }
+  video#src { display: none; }
+
+  #loading { position: fixed; inset: 0; display: grid; place-items: center; background: var(--bg); z-index: 10; transition: opacity .6s; }
+  #loading.done { opacity: 0; pointer-events: none; }
+  #loading .t { font: 400 28px "Dela Gothic One", sans-serif; letter-spacing: .08em; text-shadow: 2px 0 var(--accent), -2px 0 #3fd7ff; text-align: center; }
+  #loading .bar { width: 240px; height: 3px; background: rgba(255,255,255,.1); margin: 18px auto 8px; border-radius: 3px; overflow: hidden; }
+  #loading .bar div { height: 100%; width: 0; background: var(--accent); box-shadow: 0 0 12px var(--accent); transition: width .2s; }
+  #loading small { color: var(--muted); display: block; text-align: center; }
+
+  @media (max-width: 720px) {
+    .panel { left: 16px; right: 16px; top: auto; bottom: 16px; width: auto; max-height: 55%; }
+    .panel.collapsed > :not(#toggle) { display: none; }
+    #toggle { display: block; width: 100%; margin-bottom: 8px; }
+    .panel.collapsed #toggle { margin: 0; }
+    .hud { display: none; }
+    .pip { top: 100px; bottom: auto; left: 16px; width: 44vw; }
+  }
+</style>
+</head>
+<body>
+<div id="app"><canvas id="gl"></canvas></div>
+
+<div class="title">
+  <h1 data-text="INSIDE IDENTITY">INSIDE IDENTITY</h1>
+  <p>3D Motion Mimic · 動作模仿 · 8 人舞台</p>
+</div>
+<a class="back" href="./">← HyperStage</a>
+
+<div class="hud">
+  <div class="move" id="hudMove">—</div>
+  <div>BAR <b id="hudBar">0</b> · BEAT <b id="hudBeat">0</b> · <span id="hudStatus">準備中</span></div>
+</div>
+
+<div id="callout"></div>
+<div id="flash"></div>
+
+<div class="pip" id="pip" hidden><canvas id="pipCanvas"></canvas><span id="pipLabel">CAMERA</span></div>
+<video id="src" playsinline></video>
+<audio id="music"></audio>
+
+<aside class="panel" id="panel">
+  <button class="btn wide" id="toggle">控制面板</button>
+  <h2>模式</h2>
+  <div class="seg" id="modes">
+    <button data-mode="dance" class="on">MV 編舞</button>
+    <button data-mode="camera">攝像頭</button>
+    <button data-mode="video">影片</button>
+  </div>
+
+  <section id="secDance">
+    <h2>音樂與節拍</h2>
+    <label class="file" id="musicDrop">載入歌曲 (mp3 / m4a…)<input type="file" id="musicFile" accept="audio/*"></label>
+    <div class="row"><label>BPM</label><input type="number" id="bpm" value="190" min="60" max="260" step="1"><button class="btn" id="tap">Tap</button></div>
+    <div class="row"><label>起拍偏移 (秒)</label><input type="number" id="offset" value="0" step="0.05"></div>
+    <div class="btns"><button class="btn primary" id="play">▶ 播放</button><button class="btn" id="restart">⟲ 從頭</button></div>
+    <p class="note">無音樂時按節拍器時鐘跳舞。載入歌曲後，用 Tap 對拍並調整偏移。</p>
+  </section>
+
+  <section id="secCamera" hidden>
+    <h2>攝像頭</h2>
+    <button class="btn primary wide" id="camBtn">開啟攝像頭</button>
+    <p class="note">站到鏡頭前，全身入鏡效果最好；只拍上半身時腿部會保持站姿。</p>
+  </section>
+
+  <section id="secVideo" hidden>
+    <h2>舞蹈影片</h2>
+    <label class="file" id="videoDrop">選擇或拖入影片檔<input type="file" id="videoFile" accept="video/*"></label>
+    <div class="row"><label>播放速度</label><input type="range" id="rate" min="0.25" max="1.5" step="0.05" value="1"><span id="rateVal">1.00×</span></div>
+    <p class="note">影片中最多 4 人，按左→右分配給前排 4 位角色，後排依序跟跳同一人；只有 1 人時全員跟跳。點擊左下預覽可暫停。</p>
+  </section>
+
+  <section id="secTrack" hidden>
+    <div class="row"><label>鏡像</label><input type="checkbox" id="mirror"></div>
+    <div class="row"><label>輪唱延遲</label><input type="range" id="delay" min="0" max="0.6" step="0.05" value="0"><span id="delayVal">0.00s</span></div>
+    <div class="row"><label>平滑度</label><input type="range" id="smooth" min="0" max="1" step="0.05" value="0.5"></div>
+  </section>
+
+  <h2>畫面</h2>
+  <div class="row"><label>自動運鏡</label><input type="checkbox" id="autoCam" checked></div>
+  <div class="row"><label>特效強度</label><input type="range" id="fx" min="0" max="1.5" step="0.05" value="1"></div>
+
+  <h2>角色</h2>
+  <div class="chars" id="chars"></div>
+</aside>
+
+<div id="loading"><div><div class="t">INSIDE IDENTITY</div><div class="bar"><div id="loadBar"></div></div><small id="loadText">載入 8 位角色中…</small></div></div>
+
+<script type="module" src="/src/inside-identity/main.js"></script>
+</body>
+</html>

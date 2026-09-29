@@ -25,6 +25,17 @@ button:disabled { cursor: not-allowed; }
 #show-exit-header { display: none; }
 .show-mode #show-exit-header { display: inline-block; margin-left: auto; }
 .show-mode #shot { margin-left: 0; }
+.header-link {
+  display: inline-flex; align-items: center; gap: 6px; padding: 8px 12px; border-radius: 6px;
+  border: 1px solid #5a2231; background: #2a1419; color: #ff8fa3; text-decoration: none;
+  letter-spacing: .08em; transition: background .15s, border-color .15s;
+}
+.header-link:hover { background: #3d1b23; border-color: #ff2a4a; }
+.show-mode .header-link { display: none; }
+@media (max-width: 760px) {
+  .header-link { padding: 8px 10px; }
+  .header-link span { display: none; }
+}
 .project-name .project-tag {
   margin-left: 12px; font-size: 10px; padding: 4px 7px;
   background: #23222a; border-radius: 4px; color: #777380;
