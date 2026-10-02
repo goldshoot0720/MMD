@@ -104,4 +104,4 @@ npm run pv -- s023 s024                      # 指定歌曲
 npm run pv -- s024 --from 28 --to 34 --out pv/test   # 測試片段
 ```
 
-`tools/render-pv.mjs` 啟動 Vite、用無頭 Chrome 逐格呼叫 `window.PV.frame(t)`，把 JPEG 串流交給 ffmpeg（libx264 CRF 21、AAC 192k）並合併原曲。每格只依時間計算，可平行輸出（`--jobs`，預設 3）。設定在 `src/pv/`：`styles.js` 各曲配色與粒子、`timeline.js` 分鏡與字卡模式、`bg.js` 背景、`type.js` 字卡、`toon.js` 卡通著色。
+`tools/render-pv.mjs` 啟動 Vite、用無頭 Chrome 逐格呼叫 `window.PV.frame(t)`，把 JPEG 串流交給 ffmpeg（libx264 CRF 21、AAC 192k）並合併原曲。每格只依時間計算，可平行輸出（`--jobs`，預設 2）；已完成的影片會略過，某首崩潰時自動重試最多 3 次。設定在 `src/pv/`：`styles.js` 各曲配色與粒子、`timeline.js` 分鏡與字卡模式、`bg.js` 背景、`type.js` 字卡、`toon.js` 卡通著色。
