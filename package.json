@@ -8,7 +8,8 @@
     "build": "vite build",
     "preview": "vite preview --host 127.0.0.1",
     "test": "node --test tests/*.test.js",
-    "pv": "node tools/render-pv.mjs"
+    "pv": "node tools/render-pv.mjs",
+    "pv:compress": "node tools/compress-pv.mjs"
   },
   "dependencies": {
     "three": "^0.186.0",
