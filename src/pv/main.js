@@ -1,8 +1,8 @@
 // HyperStage PV: a music-video renderer for every song in the lyric theatre.
 //
-//   /pv.html            song menu, real-time playback with sound
-//   /pv.html?song=s023  play that song straight away (&t=40 to start at 40 s)
-//   /pv.html?render     no playback; tools/render-pv.mjs drives window.PV frame by frame
+//   /                   song menu, real-time playback with sound (the site's home page)
+//   /?song=s023         play that song straight away (&t=40 to start at 40 s)
+//   /?render            no playback; tools/render-pv.mjs drives window.PV frame by frame
 //
 // Every frame is a pure function of the song time: background → 3D cast (or .pet
 // windows of close-ups) → typography → post. That is what makes offline rendering exact.

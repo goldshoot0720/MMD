@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Render every song's PV to MP4: headless Chrome poses pv.html frame by frame,
+// Render every song's PV to MP4: headless Chrome poses the PV page (index.html) frame by frame,
 // ffmpeg encodes the JPEG stream and muxes the original MP3.
 //
 //   npm run pv                         all songs → pv/NN-title.mp4
@@ -53,7 +53,7 @@ async function openPage() {
   const [page] = await browser.pages();
   page.on('pageerror', error => console.error('page error:', error.message));
   await page.setViewport({ width: 1280, height: 720 });
-  await page.goto(`${base}pv.html?render`, { waitUntil: 'load' });
+  await page.goto(`${base}?render`, { waitUntil: 'load' });
   await page.waitForFunction(() => window.PV);
   return page;
 }

@@ -284,6 +284,7 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
       <button id="show-next" aria-label="下一句" title="下一句 (↓)">⏩</button>
       <button id="show-next-song" aria-label="下一首" title="下一首 (N)">⏭</button>
       <button id="show-songs" title="選擇歌曲 (S)">♫ <span>選歌</span></button>
+      <a id="show-pv" class="show-pv" href="./" target="_blank" rel="noopener" title="在新分頁觀看本曲的二次元 PV">▶ <span>看 PV</span></a>
       <span id="show-clock">00:00 / 00:00</span>
       <span class="show-spacer"></span>
       <span class="volume">
@@ -339,6 +340,7 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
     projectTitle: $('#project-title'),
     songSelect: $('#song-select'),
     songTitle: $('#show-song-title'),
+    pv: $('#show-pv'),
     songSubtitle: $('#show-song-subtitle'),
     kicker: $('#show-kicker'),
     startTitle: $('#start-title'),
@@ -376,6 +378,7 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
     el.kicker.textContent = `LYRIC THEATRE / ${number}`;
     el.songTitle.textContent = song.title;
     el.songSubtitle.textContent = song.subtitle;
+    el.pv.href = `./?song=${song.id}`;
     el.startTitle.textContent = song.title;
     if (show.active && el.projectTitle) el.projectTitle.textContent = `${song.title} · 歌詞劇場`;
 

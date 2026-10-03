@@ -405,7 +405,7 @@ button:disabled { cursor: not-allowed; }
   .song-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
   .song-card { padding: 10px 12px; }
   .song-card i { display: none; }
-  #show-songs span { display: none; }
+  #show-songs span, #show-pv span { display: none; }
   #show-songs { padding: 6px 8px; }
   .show-controls #show-play { min-width: 48px; flex-basis: 48px; }
 }
@@ -415,3 +415,11 @@ button:disabled { cursor: not-allowed; }
   .show-transport > div.show-controls:first-child { gap: 4px; }
 }
 #song-menu.required #song-menu-close { display: none; }
+
+/* Link to the song's PV page, styled like the transport buttons. */
+.show-pv {
+  display: inline-flex; align-items: center; gap: 4px; padding: 8px 12px; border-radius: 6px;
+  background: linear-gradient(90deg, #ff6fae, #9b7bff); color: #fff; font-weight: 700; text-decoration: none;
+  border: 1px solid #ffb3d6; white-space: nowrap; flex-shrink: 0;
+}
+.show-pv:hover { filter: brightness(1.1); }
