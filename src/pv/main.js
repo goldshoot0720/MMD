@@ -525,23 +525,94 @@ window.PV = {
 // ---------------------------------------------------------------------------
 const status = document.getElementById('status');
 const menu = document.getElementById('menu');
+const transport = document.getElementById('transport');
+const scrub = document.getElementById('scrub');
+const elapsedLabel = document.getElementById('elapsed');
+const totalLabel = document.getElementById('total');
+const playButton = document.getElementById('play');
 const audio = new Audio();
 let raf = 0;
+let scrubbing = false;
+let playToken = 0;
+
+function formatTime(seconds) {
+  if (!Number.isFinite(seconds) || seconds < 0) return '0:00';
+  const whole = Math.floor(seconds);
+  return `${Math.floor(whole / 60)}:${String(whole % 60).padStart(2, '0')}`;
+}
+
+function mediaDuration() {
+  if (Number.isFinite(audio.duration) && audio.duration > 0) return audio.duration;
+  const max = Number(scrub.max);
+  return Number.isFinite(max) ? max : 0;
+}
+
+function paintTransport() {
+  const duration = mediaDuration();
+  const time = scrubbing ? Number(scrub.value) : (audio.currentTime || 0);
+  // While a finger is down, the tick must not snap the thumb back to the playhead.
+  if (!scrubbing) {
+    if (duration) scrub.max = String(duration);
+    scrub.value = String(Math.min(time, duration || time));
+  }
+  elapsedLabel.textContent = formatTime(time);
+  totalLabel.textContent = formatTime(duration);
+  playButton.textContent = audio.paused ? '播放' : '暫停';
+}
+
+function seek(time) {
+  const duration = mediaDuration();
+  const next = duration ? Math.min(duration, Math.max(0, time)) : Math.max(0, time);
+  if (audio.src) audio.currentTime = next;
+  if (current) frame(next);
+  paintTransport();
+}
+
+function togglePlayback() {
+  if (!audio.src) return;
+  if (audio.paused) audio.play().catch(() => { status.textContent = '再點一次播放'; });
+  else audio.pause();
+}
+
+function showMenu() {
+  playToken += 1;
+  audio.pause();
+  cancelAnimationFrame(raf);
+  menu.hidden = false;
+  transport.hidden = true;
+  status.textContent = '';
+}
 
 async function play(id, at = 0) {
+  const token = ++playToken;
   menu.hidden = true;
+  transport.hidden = true;
   cancelAnimationFrame(raf);
   audio.pause();
   status.textContent = '載入角色與音樂中…';
   const info = await load(id);
+  if (token !== playToken) return;
   history.replaceState(null, '', `?song=${id}`);
   audio.src = songById(id).audio;
-  audio.currentTime = at;
-  status.textContent = `${info.title} · Space 暫停 · ← → 快轉 · Esc 選單`;
-  frame(at);
-  audio.play().catch(() => { status.textContent = '點一下畫面開始播放'; });
+  await new Promise((resolve, reject) => {
+    if (audio.readyState >= 1) resolve();
+    else {
+      audio.addEventListener('loadedmetadata', resolve, { once: true });
+      audio.addEventListener('error', () => reject(audio.error || new Error('audio failed')), { once: true });
+    }
+  });
+  if (token !== playToken) return;
+  scrub.max = String(info.duration);
+  const start = Math.min(info.duration, Math.max(0, at));
+  audio.currentTime = start;
+  status.textContent = '';
+  frame(start);
+  transport.hidden = false;
+  paintTransport();
+  audio.play().catch(() => { status.textContent = '點一下畫面或「播放」開始'; paintTransport(); });
   const tick = () => {
-    frame(audio.currentTime);
+    frame(audio.currentTime || 0);
+    paintTransport();
     raf = requestAnimationFrame(tick);
   };
   raf = requestAnimationFrame(tick);
@@ -555,16 +626,27 @@ if (!renderMode) {
     const button = event.target.closest('[data-song]');
     if (button) play(button.dataset.song);
   });
-  out.addEventListener('click', () => { if (audio.src) (audio.paused ? audio.play() : audio.pause()); });
+  document.getElementById('back').addEventListener('click', showMenu);
+  document.getElementById('rewind').addEventListener('click', () => seek((audio.currentTime || 0) - 5));
+  document.getElementById('forward').addEventListener('click', () => seek((audio.currentTime || 0) + 5));
+  playButton.addEventListener('click', togglePlayback);
+  scrub.addEventListener('pointerdown', () => { scrubbing = true; });
+  addEventListener('pointerup', () => { if (!scrubbing) return; scrubbing = false; paintTransport(); });
+  addEventListener('pointercancel', () => { if (!scrubbing) return; scrubbing = false; paintTransport(); });
+  scrub.addEventListener('input', () => seek(Number(scrub.value)));
+  out.addEventListener('click', togglePlayback);
   addEventListener('keydown', event => {
-    if (event.key === ' ') { event.preventDefault(); if (audio.src) (audio.paused ? audio.play() : audio.pause()); }
-    if (event.key === 'ArrowRight') audio.currentTime += 5;
-    if (event.key === 'ArrowLeft') audio.currentTime = Math.max(0, audio.currentTime - 5);
-    if (event.key === 'Escape') { audio.pause(); menu.hidden = false; }
+    const tag = event.target.tagName;
+    if (tag === 'INPUT' || tag === 'BUTTON' || tag === 'A') return;
+    if (event.key === ' ') { event.preventDefault(); togglePlayback(); }
+    if (event.key === 'ArrowRight') seek((audio.currentTime || 0) + 5);
+    if (event.key === 'ArrowLeft') seek((audio.currentTime || 0) - 5);
+    if (event.key === 'Escape') showMenu();
   });
   const id = params.get('song');
   if (id && songById(id)) play(id, Number(params.get('t')) || 0);
   else menu.hidden = false;
 } else {
   status.hidden = true;
+  transport.hidden = true;
 }

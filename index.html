@@ -9,9 +9,12 @@
   html, body { margin: 0; height: 100%; background: #0b0910; color: #f3ecff; overflow: hidden; }
   #out { position: absolute; inset: 0; margin: auto; width: 100vw; height: 56.25vw; max-height: 100vh; max-width: 177.78vh; display: block; background: #000; }
   #gl { position: absolute; left: -99999px; top: 0; }
-  #menu { position: absolute; inset: 0; display: grid; place-items: center; background: #0b0910e6; z-index: 2; }
+  /* The song list is taller than a phone. Body stays locked so the player
+     does not scroll; this overlay is the scroll container. margin: auto
+     centers it when it fits, and collapses so a tall list starts at the top. */
+  #menu { position: fixed; z-index: 2; left: 0; right: 0; top: 0; height: 100dvh; display: flex; flex-direction: column; overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; background: #0b0910e6; }
   #menu[hidden] { display: none; }
-  #menu .inner { width: min(920px, 92vw); }
+  #menu .inner { width: min(920px, 92vw); margin-inline: auto; margin-block: auto; padding-block: 28px calc(28px + env(safe-area-inset-bottom, 0px)); flex: 0 0 auto; }
   #menu h1 { font-size: 28px; margin: 0 0 6px; }
   #menu p { color: #b9a9d0; margin: 0 0 18px; font-size: 14px; }
   #list { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 10px; }
@@ -21,7 +24,19 @@
   #list strong { display: block; margin: 4px 0; font-size: 15px; }
   #menu .v2 { display: inline-block; margin-top: 18px; color: #d8c6ff; font-size: 14px; text-decoration: none; border: 1px solid #4a3d66; border-radius: 999px; padding: 8px 16px; }
   #menu .v2:hover { border-color: #bca8ff; background: #2d2440; }
-  #status { position: absolute; left: 16px; bottom: 12px; font-size: 12px; color: #c9b8e6; z-index: 3; text-shadow: 0 1px 4px #000; }
+  #status { position: absolute; left: 16px; right: 16px; bottom: calc(118px + env(safe-area-inset-bottom, 0px)); font-size: 12px; color: #c9b8e6; z-index: 3; text-shadow: 0 1px 4px #000; pointer-events: none; }
+  #transport { position: fixed; z-index: 4; left: 0; right: 0; bottom: 0; display: grid; gap: 6px; padding: 8px 16px calc(12px + env(safe-area-inset-bottom, 0px)); background: linear-gradient(#0b091000, #0b0910 24px); }
+  #transport[hidden] { display: none; }
+  #transport input[type="range"] { -webkit-appearance: none; appearance: none; width: 100%; height: 36px; margin: 0; background: transparent; touch-action: none; accent-color: #bca8ff; }
+  #transport input[type="range"]::-webkit-slider-runnable-track { height: 6px; background: #3d3153; border-radius: 999px; }
+  #transport input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 22px; height: 22px; margin-top: -8px; border: 0; border-radius: 50%; background: #bca8ff; }
+  #transport input[type="range"]::-moz-range-track { height: 6px; background: #3d3153; border: 0; border-radius: 999px; }
+  #transport input[type="range"]::-moz-range-thumb { width: 22px; height: 22px; border: 0; border-radius: 50%; background: #bca8ff; }
+  #transport .controls { display: flex; align-items: center; gap: 8px; }
+  #transport button { font: inherit; color: inherit; background: #221b30; border: 1px solid #3d3153; border-radius: 999px; min-width: 52px; min-height: 44px; padding: 8px 12px; }
+  #transport button:hover { border-color: #bca8ff; background: #2d2440; }
+  #transport button.play { background: #bca8ff; color: #221c37; border-color: #bca8ff; font-weight: 700; }
+  #clock { margin-left: auto; color: #c9b8e6; font-size: 13px; font-variant-numeric: tabular-nums; white-space: nowrap; }
 </style>
 </head>
 <body>
@@ -29,12 +44,22 @@
 <div id="menu" hidden>
   <div class="inner">
     <h1>HyperStage PV</h1>
-    <p>選一首歌即時播放 PV（Space 暫停、← → 快轉、Esc 回選單）。成品 MP4 請用 <code>npm run pv</code> 逐格輸出。</p>
+    <p>選一首歌即時播放。拖時間軸或點 −5／+5 快轉；鍵盤可用 Space、← →、Esc。成品 MP4 請用 <code>npm run pv</code> 逐格輸出。</p>
     <div id="list"></div>
     <a class="v2" href="./v2.html">第二版本：3D 編輯器與歌詞劇場 →</a>
   </div>
 </div>
 <div id="status"></div>
+<div id="transport" hidden>
+  <input id="scrub" type="range" min="0" max="0" value="0" step="0.1" aria-label="時間軸">
+  <div class="controls">
+    <button type="button" id="back">選單</button>
+    <button type="button" id="rewind" aria-label="倒退 5 秒">−5</button>
+    <button type="button" id="play" class="play">播放</button>
+    <button type="button" id="forward" aria-label="快轉 5 秒">+5</button>
+    <span id="clock"><span id="elapsed">0:00</span> / <span id="total">0:00</span></span>
+  </div>
+</div>
 <script type="module" src="/src/pv/main.js"></script>
 </body>
 </html>
