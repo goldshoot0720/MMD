@@ -7,7 +7,8 @@
 <style>
   :root { color-scheme: dark; font-family: "PingFang TC", "Noto Sans TC", sans-serif; }
   html, body { margin: 0; height: 100%; background: #0b0910; color: #f3ecff; overflow: hidden; }
-  #out { position: absolute; inset: 0; margin: auto; width: 100vw; height: 56.25vw; max-height: 100vh; max-width: 177.78vh; display: block; background: #000; }
+  /* Sit the frame above the transport so the lyric band and the cast's feet stay visible. */
+  #out { position: absolute; left: 0; right: 0; top: 0; margin-inline: auto; width: min(100vw, calc((100dvh - 118px) * 16 / 9)); aspect-ratio: 16 / 9; height: auto; max-height: calc(100dvh - 118px); display: block; background: #000; }
   #gl { position: absolute; left: -99999px; top: 0; }
   /* The song list is taller than a phone. Body stays locked so the player
      does not scroll; this overlay is the scroll container. margin: auto

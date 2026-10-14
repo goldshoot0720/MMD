@@ -14,7 +14,7 @@ const ramp = (() => {
 })();
 
 const INK = 0x22142c;
-const OUTLINE_WORLD = 0.011; // outline width in stage units (a performer is ~2.2 tall)
+const OUTLINE_WORLD = 0.006; // thin enough that forearms and fingers stay readable
 const converted = new Map();
 
 function toToon(material) {
@@ -37,7 +37,7 @@ function toToon(material) {
 }
 
 function outlineMaterial(width) {
-  const material = new THREE.MeshBasicMaterial({ color: INK, side: THREE.BackSide });
+  const material = new THREE.MeshBasicMaterial({ color: INK, side: THREE.BackSide, polygonOffset: true, polygonOffsetFactor: 2, polygonOffsetUnits: 2 });
   material.onBeforeCompile = shader => {
     shader.uniforms.outlineWidth = { value: width };
     shader.vertexShader = `uniform float outlineWidth;\n${shader.vertexShader}`.replace(

@@ -18,7 +18,7 @@ import { toonify } from './toon.js';
 import { mix, rgb, css, CANDY } from './color.js';
 import { styleFor, moodName } from './styles.js';
 import { buildTimeline, findAt, smooth, lerp, clamp } from './timeline.js';
-import { drawLyric, drawTitle, drawChapterTab, drawProp, drawHud, drawTicker, drawEnding, drawWindowFrame } from './type.js';
+import { drawLyric, drawTitle, drawChapterTab, drawProp, drawHud, drawTicker, drawEnding, drawWindowFrame, lyricLookDown, LYRIC_BAND } from './type.js';
 
 const W = 1920;
 const H = 1080;
@@ -341,7 +341,7 @@ function placeCamera(shot, t, shake) {
       break;
     }
     case 'crane': pos = new THREE.Vector3(0.4, lerp(8, 2.6, u), lerp(5.5, 9.5, u)); target = new THREE.Vector3(0, lerp(0.6, 1.25, u), 0); break;
-    case 'dutch': pos = new THREE.Vector3(1.8 * dir, 1.9, lerp(6.6, 6, u)); roll = 0.13 * dir; target = new THREE.Vector3(0, 1.45, 0); break;
+    case 'dutch': pos = new THREE.Vector3(1.8 * dir, 1.9, lerp(7.2, 6.6, u)); roll = 0.05 * dir; target = new THREE.Vector3(0, 1.45, 0); break;
     case 'top': pos = new THREE.Vector3(lerp(-1, 1, u), lerp(9.5, 8, u), 3.2); target = new THREE.Vector3(0, 0.6, 0); fov = 40; break;
     case 'pullback': pos = new THREE.Vector3(0, lerp(2.4, 3.6, u), lerp(8, 13, u)); break;
     default: pos = new THREE.Vector3(0, 2.6, 9.5);
@@ -352,13 +352,71 @@ function placeCamera(shot, t, shake) {
     pos.x += Math.sin(t * 91) * 0.05 * shake;
     pos.y += Math.cos(t * 77) * 0.05 * shake;
   }
+  // Sit the cast in the clear band above the lyric plate, then dolly out until
+  // every head, hand and foot of the subject is inside that band.
+  target.y -= lyricLookDown(pos.distanceTo(target), fov);
   camera.fov = fov;
   camera.aspect = W / H;
   camera.updateProjectionMatrix();
-  camera.position.copy(pos);
-  camera.up.set(0, 1, 0);
-  camera.lookAt(target);
-  camera.rotateZ(roll);
+  const subject = shot.type === 'solo' || shot.type === 'face' ? [focus] : [0, 1, 2, 3];
+  dollyUntilFit(camera, pos, target, castExtents(subject), { x: 0.06, top: 0.045, bottom: LYRIC_BAND + 0.02 }, roll);
+}
+
+// Feet, crown and both hands, so a shot that "fits" cannot crop a limb.
+function castExtents(indices) {
+  const points = [];
+  for (const i of indices) {
+    const p = performers[i];
+    const s = p.scale.y || 0.78;
+    const reach = 1.25 * s;
+    points.push(
+      new THREE.Vector3(p.position.x, p.position.y, p.position.z),
+      new THREE.Vector3(p.position.x, p.position.y + 2.3 * s, p.position.z),
+      new THREE.Vector3(p.position.x - reach, p.position.y + 1.15 * s, p.position.z),
+      new THREE.Vector3(p.position.x + reach, p.position.y + 1.15 * s, p.position.z),
+    );
+  }
+  return points;
+}
+
+function frameFits(cam, points, margin) {
+  for (const point of points) {
+    const n = point.clone().project(cam);
+    if (n.z < -1 || n.z > 1) return false;
+    const x = (n.x + 1) / 2;
+    const y = (1 - n.y) / 2;
+    if (x < margin.x || x > 1 - margin.x || y < margin.top || y > 1 - margin.bottom) return false;
+  }
+  return true;
+}
+
+function dollyUntilFit(cam, pos, target, points, margin, roll) {
+  const offset = pos.clone().sub(target);
+  let dist = Math.max(0.8, offset.length());
+  const dir = offset.multiplyScalar(1 / dist);
+  const place = d => {
+    cam.position.copy(target).addScaledVector(dir, d);
+    cam.up.set(0, 1, 0);
+    cam.lookAt(target);
+    if (roll) cam.rotateZ(roll);
+    cam.updateMatrixWorld();
+  };
+  place(dist);
+  if (!points.length || frameFits(cam, points, margin)) return;
+  let lo = dist;
+  let hi = dist;
+  while (hi < 46 && !frameFits(cam, points, margin)) {
+    hi = Math.min(46, hi * 1.22);
+    place(hi);
+    if (hi >= 46) break;
+  }
+  for (let i = 0; i < 12; i++) {
+    const mid = (lo + hi) / 2;
+    place(mid);
+    if (frameFits(cam, points, margin)) hi = mid;
+    else lo = mid;
+  }
+  place(hi);
 }
 
 function applyLights(look) {
@@ -379,10 +437,10 @@ function applyLights(look) {
 // .pet windows: close-ups of each cast member in cute app windows
 // ---------------------------------------------------------------------------
 const WINDOW_LAYOUT = [
-  { x: 110, y: 250, w: 400, h: 560, r: -0.035 },
-  { x: 560, y: 330, w: 400, h: 560, r: 0.025 },
-  { x: 1010, y: 230, w: 400, h: 560, r: -0.02 },
-  { x: 1460, y: 320, w: 400, h: 560, r: 0.035 },
+  { x: 56, y: 168, w: 430, h: 640, r: -0.03 },
+  { x: 508, y: 190, w: 430, h: 640, r: 0.02 },
+  { x: 968, y: 160, w: 430, h: 640, r: -0.02 },
+  { x: 1428, y: 186, w: 430, h: 640, r: 0.03 },
 ];
 
 function drawWindows(shot, t, look) {
@@ -396,13 +454,15 @@ function drawWindows(shot, t, look) {
     const out = smooth(leaving / 0.3);
     const scale = pop * out;
     if (scale <= 0.01) return;
-    // Close-up of performer i.
-    const h = head(i);
+    // Full body, so arms and legs are inside the card instead of cut off at the thigh.
+    const person = performers[i];
+    const s = person.scale.y || 0.78;
+    const mid = new THREE.Vector3(person.position.x, person.position.y + 1.05 * s, person.position.z);
+    windowCamera.fov = 26;
     windowCamera.aspect = rect.w / rect.h;
-    windowCamera.fov = 30;
     windowCamera.updateProjectionMatrix();
-    windowCamera.position.copy(h).add(new THREE.Vector3(Math.sin(t * 0.5 + i) * 0.4, 0.15, 2.9));
-    windowCamera.lookAt(h.clone().add(new THREE.Vector3(0, -0.3, 0)));
+    const winPos = mid.clone().add(new THREE.Vector3(Math.sin(t * 0.4 + i) * 0.2, 0.04, 5.6));
+    dollyUntilFit(windowCamera, winPos, mid, castExtents([i]), { x: 0.1, top: 0.07, bottom: 0.06 }, 0);
     const glY = H - rect.y - rect.h;
     renderer.setViewport(rect.x, glY, rect.w, rect.h);
     renderer.setScissor(rect.x, glY, rect.w, rect.h);
@@ -477,7 +537,7 @@ function frame(t) {
     const chapter = timeline.chapters[chapterIndex];
     drawChapterTab(ctx, chapter, chapterIndex, t, look, W);
     const prop = chapter.prop ?? (song.couples ? STORY_PROPS[chapter.action] : '');
-    if (prop && !(line?.mode === 'impact')) drawProp(ctx, prop, t - chapter.start, W);
+    if (prop) drawProp(ctx, prop, t - chapter.start, W);
   }
   if (line) drawLyric(ctx, line, t, look, W, H, { inset, label: `♪ ${song.title}.lrc` });
   if (t > 1 && t < timeline.outroStart) drawHud(ctx, current.number, song.title, look, W);

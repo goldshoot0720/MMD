@@ -32,14 +32,8 @@ const MOOD = { tease: 'calm', proposal: 'calm', intro: 'calm', dance: 'hot', ral
 
 const visibleLength = text => [...text.replace(/[\s　]/g, '')].length;
 
-function typeMode(song, line, index) {
-  const len = visibleLength(line.text);
-  if (len > 20) return 'caption';
-  const mood = MOOD[line.action] ?? 'calm';
-  if (mood === 'hot') return len > 14 && hash(song.id, index, 'imp') < 0.35 ? 'pop' : 'impact';
-  if (mood === 'gold') return 'pop';
-  return len <= 18 && hash(song.id, index, 'vert') < 0.45 ? 'vertical' : 'pop';
-}
+// Every sung line uses the same bottom plate. Random impact / vertical / caption
+// layouts either covered the cast or left a stretch with no lyric at all.
 
 export function buildTimeline(song, duration) {
   const cues = song.cues;
@@ -51,7 +45,7 @@ export function buildTimeline(song, duration) {
     const chapter = song.chapters[lyric.chapter];
     return { ...lyric, text: cues[i].text || lyric.text, index: i, start, end: Math.max(end, start + 0.4), action: chapter.action };
   });
-  lines.forEach((line, i) => { line.mode = typeMode(song, line, i); });
+  lines.forEach(line => { line.mode = 'plate'; });
 
   const chapters = song.chapters.map((chapter, i) => {
     const own = lines.filter(l => l.chapter === i);

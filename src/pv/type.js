@@ -1,8 +1,7 @@
-// Foreground typography: sticker lettering (candy fills, white outline, drop shadow),
-// elegant vertical serif lines, chorus impact stacks, karaoke caption cards, plus the
+// Foreground typography: one bottom sticker plate for every lyric line, plus the
 // title card, chapter tabs, prop badges, news ticker and the ending card.
 import { CANDY, css } from './color.js';
-import { SANS, SERIF } from './bg.js';
+import { SANS } from './bg.js';
 import { clamp, hash, smooth } from './timeline.js';
 
 const backOut = k => {
@@ -86,7 +85,7 @@ const shade = hex => {
 
 // Lay out and animate a row of sticker glyphs centred on (cx, cy).
 // appear(i) gives each glyph's entrance time; `exit` (0..1) shrinks the row away.
-function stickerRow(ctx, text, cx, cy, size, t, appear, { exit = 0, seed = 0, offset = 0, rim = '#3a1d52' } = {}) {
+function stickerRow(ctx, text, cx, cy, size, t, appear, { exit = 0, seed = 0, offset = 0, rim = '#3a1d52', alpha = 1 } = {}) {
   ctx.save();
   ctx.font = `900 ${size}px ${SANS}`;
   ctx.textAlign = 'center';
@@ -108,7 +107,7 @@ function stickerRow(ctx, text, cx, cy, size, t, appear, { exit = 0, seed = 0, of
         ctx.translate(x + w / 2, cy + hop - (1 - smooth(k)) * size * 0.3);
         ctx.rotate(wobble + (hash(seed, i) - 0.5) * 0.16);
         ctx.scale(s, s);
-        ctx.globalAlpha = smooth(k * 2) * (1 - smooth(exit));
+        ctx.globalAlpha = smooth(k * 2) * (1 - smooth(exit)) * alpha;
         stickerGlyph(ctx, ch, size, CANDY[(n + offset) % CANDY.length], rim);
         ctx.restore();
       }
@@ -121,171 +120,70 @@ function stickerRow(ctx, text, cx, cy, size, t, appear, { exit = 0, seed = 0, of
 }
 
 // ---------------------------------------------------------------------------
-// Lyric modes
+// One lyric plate for every line. It lives in the bottom LYRIC_BAND of the frame;
+// cameras keep heads, hands and feet above that band.
 // ---------------------------------------------------------------------------
-function popMode(ctx, line, t, look, W, H, inset) {
-  const rows = wrap(line.text, 11);
-  const longest = Math.max(...rows.map(r => visible(r).length));
-  const size = clamp(1450 / longest, 70, 124);
-  const count = rows.reduce((n, r) => n + visible(r).length, 0);
-  const span = Math.min((line.end - line.start) * 0.5, count * 0.075 + 0.2);
-  const step = span / Math.max(1, count);
-  const exit = (t - (line.end - 0.22)) / 0.22;
-  let n = 0;
-  const bottom = H - inset - 70;
-  rows.forEach((row, r) => {
-    const base = n;
-    const y = bottom - (rows.length - 1 - r) * size * 1.22;
-    n += stickerRow(ctx, row, W / 2, y, size, t, i => line.start + (base + i) * step, { exit, seed: line.index * 7 + r, offset: line.index + r });
-  });
+export const LYRIC_BAND = 0.2;
+
+export function lyricLookDown(distance, fov, share = LYRIC_BAND * 0.45) {
+  return share * 2 * distance * Math.tan((fov * Math.PI) / 360);
 }
 
-function impactMode(ctx, line, t, look, W, H) {
-  let chunks = line.text.trim().split(/[\s　]+/).filter(Boolean);
-  // Long phrases split into balanced halves (or thirds) rather than 6 + leftovers.
-  chunks = chunks.flatMap(c => {
-    const chars = [...c];
-    if (chars.length <= 7) return [c];
-    const parts = Math.ceil(chars.length / 7);
-    const per = Math.ceil(chars.length / parts);
-    return Array.from({ length: parts }, (_, i) => chars.slice(i * per, (i + 1) * per).join(''));
-  });
-  if (chunks.length > 4) {
-    const merged = [];
-    const per = Math.ceil(chunks.length / 4);
-    for (let i = 0; i < chunks.length; i += per) merged.push(chunks.slice(i, i + per).join(' '));
-    chunks = merged;
+function rowsFor(text) {
+  const count = Math.max(1, visible(text).length);
+  const target = count <= 16 ? 1 : count <= 32 ? 2 : count <= 48 ? 3 : 4;
+  let per = Math.max(8, Math.ceil(count / target));
+  let rows = wrap(text, per);
+  while (rows.length > target && per < count) {
+    per += 2;
+    rows = wrap(text, per);
   }
-  const longest = Math.max(...chunks.map(c => [...c].length));
-  let size = clamp(1500 / longest, 90, 168);
-  size = Math.min(size, (H * 0.74) / (chunks.length * 1.25));
-  const gap = Math.min(0.45, ((line.end - line.start) * 0.55) / chunks.length);
-  const exit = (t - (line.end - 0.18)) / 0.18;
-  const top = H * 0.47 - ((chunks.length - 1) * size * 1.25) / 2;
-  let shake = 0;
-  chunks.forEach((chunk, i) => {
-    const at = line.start + i * gap;
-    const since = t - at;
-    if (since < 0) return;
-    shake = Math.max(shake, 1 - since / 0.18);
-    const k = backOut(since / 0.24);
-    const slam = 1 + (1 - smooth(since / 0.2)) * 0.9;
-    ctx.save();
-    const x = W / 2 + (i % 2 ? 1 : -1) * Math.min(90, W * 0.04) * (chunks.length > 1 ? 1 : 0);
-    const y = top + i * size * 1.25;
-    ctx.translate(x, y);
-    ctx.rotate((i % 2 ? 1 : -1) * 0.045);
-    ctx.scale(slam * k, slam * k);
-    stickerRow(ctx, chunk, 0, 0, size, t, () => at - 1, { exit, seed: line.index * 13 + i, offset: i * 2 + line.index });
-    ctx.restore();
-  });
-  return Math.max(0, shake);
+  return rows;
 }
 
-function verticalMode(ctx, line, t, look, W, H) {
-  const rows = wrap(line.text, 8);
-  const size = rows.length > 2 ? 64 : 80;
-  const right = line.index % 2 === 0;
-  const count = rows.reduce((n, r) => n + [...r].length, 0);
-  const step = Math.min(0.12, ((line.end - line.start) * 0.55) / count);
-  const fade = smooth((line.end - t) / 0.35);
+export function lyricPlate(text, H, inset = 0) {
+  const bandTop = Math.round(H * (1 - LYRIC_BAND));
+  const bandBottom = H - inset - 22;
+  const pad = 12;
+  const innerH = Math.max(36, bandBottom - bandTop - pad * 2);
+  const rows = rowsFor(text);
+  const longest = Math.max(1, ...rows.map(row => visible(row).length));
+  const size = clamp(Math.min(72, innerH / (rows.length * 1.28), 1560 / longest), 14, 72);
+  const lineH = size * 1.18;
+  const block = rows.length * lineH;
+  let top = bandTop + pad + Math.max(0, (innerH - block) / 2);
+  if (top + block > bandBottom - 4) top = bandBottom - 4 - block;
+  if (top < bandTop) top = bandTop;
+  return { bandTop, bandBottom, size, rows, top, lineH, block };
+}
+
+function plateMode(ctx, line, t, W, H, inset) {
+  const plate = lyricPlate(line.text, H, inset);
+  const fade = smooth((t - line.start) / 0.12);
+  if (fade <= 0) return;
   ctx.save();
-  ctx.font = `700 ${size}px ${SERIF}`;
-  ctx.textAlign = 'center';
-  ctx.textBaseline = 'middle';
-  const ink = look.light > 0.5 ? css(look.ink) : css(look.ink);
-  const glow = look.light > 0.5 ? 'rgba(255,255,255,.95)' : css(look.glow, 0.9);
-  let n = 0;
-  rows.forEach((row, r) => {
-    const x = right ? W * 0.88 - r * size * 1.45 : W * 0.12 + r * size * 1.45;
-    const top = H * 0.2 + (r % 2) * size * 0.6;
-    // Hairline and a small diamond beside each column.
-    const lineK = smooth((t - line.start - r * 0.1) / 0.6) * fade;
-    ctx.strokeStyle = css(look.accent, 0.6 * lineK);
-    ctx.lineWidth = 2;
-    ctx.beginPath();
-    ctx.moveTo(x + (right ? 1 : -1) * size * 0.72, top - size * 0.5);
-    ctx.lineTo(x + (right ? 1 : -1) * size * 0.72, top - size * 0.5 + lineK * size * 1.15 * [...row].length);
-    ctx.stroke();
-    [...row].forEach((ch, i) => {
-      const k = smooth((t - (line.start + n * step)) / 0.5);
-      n++;
-      if (k <= 0 || ch === ' ') return;
-      ctx.save();
-      ctx.globalAlpha = k * fade;
-      ctx.shadowColor = glow;
-      ctx.shadowBlur = 26;
-      ctx.fillStyle = ink;
-      ctx.fillText(ch, x, top + i * size * 1.15 - (1 - k) * 26);
-      ctx.restore();
+  ctx.letterSpacing = '0px';
+  const shade = ctx.createLinearGradient(0, plate.bandTop, 0, H);
+  shade.addColorStop(0, 'rgba(8,6,16,0)');
+  shade.addColorStop(0.2, 'rgba(8,6,16,.5)');
+  shade.addColorStop(1, 'rgba(8,6,16,.82)');
+  ctx.fillStyle = shade;
+  ctx.fillRect(0, plate.bandTop, W, H - plate.bandTop);
+  plate.rows.forEach((row, r) => {
+    const y = plate.top + plate.lineH * (r + 0.5);
+    stickerRow(ctx, row, W / 2, y, plate.size, t, () => line.start - 1, {
+      seed: line.index * 7 + r,
+      offset: line.index + r,
+      alpha: fade,
     });
   });
   ctx.restore();
 }
 
-function captionMode(ctx, line, t, look, W, H, inset, label) {
-  const k = backOut((t - line.start) / 0.3);
-  const fade = smooth((line.end - t) / 0.2);
-  let size = 52;
-  let rows = wrap(line.text, 26);
-  if (rows.length > 3) { size = 42; rows = wrap(line.text, 33); }
-  const lineH = size * 1.42;
-  const cardW = Math.min(W - 160, 1660);
-  const cardH = rows.length * lineH + 70;
-  const x = (W - cardW) / 2;
-  const y = H - inset - 46 - cardH;
-  ctx.save();
-  ctx.globalAlpha = fade;
-  ctx.translate(W / 2, y + cardH);
-  ctx.scale(0.92 + 0.08 * k, 0.92 + 0.08 * k);
-  ctx.translate(-W / 2, -(y + cardH));
-  // Window-style card with a tab title bar.
-  ctx.shadowColor = 'rgba(20,10,40,.35)';
-  ctx.shadowBlur = 30;
-  ctx.shadowOffsetY = 10;
-  ctx.fillStyle = 'rgba(255,255,255,.94)';
-  roundRect(ctx, x, y, cardW, cardH, 30);
-  ctx.fill();
-  ctx.shadowColor = 'transparent';
-  ctx.lineWidth = 5;
-  ctx.strokeStyle = css(look.accent, 1);
-  ctx.stroke();
-  ctx.font = `700 22px ${SANS}`;
-  const tabW = ctx.measureText(label).width + 56;
-  ctx.fillStyle = css(look.accent, 1);
-  roundRect(ctx, x + 34, y - 20, tabW, 42, 21);
-  ctx.fill();
-  ctx.fillStyle = '#fff';
-  ctx.textBaseline = 'middle';
-  ctx.fillText(label, x + 62, y + 1);
-  // Karaoke: sung characters turn pink.
-  const chars = rows.reduce((n, r) => n + [...r].length, 0);
-  const sung = clamp((t - line.start) / Math.max(0.5, (line.end - line.start) * 0.9), 0, 1) * chars;
-  ctx.font = `600 ${size}px ${SANS}`;
-  ctx.textAlign = 'left';
-  let n = 0;
-  rows.forEach((row, r) => {
-    const width = ctx.measureText(row).width;
-    let cx = W / 2 - width / 2;
-    const cy = y + 50 + r * lineH + lineH / 2 - 8;
-    for (const ch of row) {
-      ctx.fillStyle = n < sung ? '#ff4f93' : '#3a2a4a';
-      ctx.fillText(ch, cx, cy);
-      cx += ctx.measureText(ch).width;
-      n++;
-    }
-  });
-  ctx.restore();
-}
-
-export function drawLyric(ctx, line, t, look, W, H, { inset = 0, label = '' } = {}) {
+export function drawLyric(ctx, line, t, look, W, H, { inset = 0 } = {}) {
   if (!line || t < line.start || t > line.end) return 0;
-  switch (line.mode) {
-    case 'impact': return impactMode(ctx, line, t, look, W, H);
-    case 'vertical': verticalMode(ctx, line, t, look, W, H); return 0;
-    case 'caption': captionMode(ctx, line, t, look, W, H, inset, label); return 0;
-    default: popMode(ctx, line, t, look, W, H, inset); return 0;
-  }
+  plateMode(ctx, line, t, W, H, inset);
+  return 0;
 }
 
 // ---------------------------------------------------------------------------
