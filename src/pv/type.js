@@ -10,8 +10,13 @@ const backOut = k => {
   return 1 + (c + 1) * Math.pow(k - 1, 3) + c * Math.pow(k - 1, 2);
 };
 const visible = text => [...text.replace(/[\s　]/g, '')];
+const SPACE_UNITS = 0.35; // what stickerRow gives a space, as a fraction of a glyph
 
-// Greedy wrap that prefers spaces and never exceeds `max` visible characters per row.
+// Width of a row in glyph units: full-width glyphs count 1, spaces count SPACE_UNITS.
+// Character counts alone underestimate rows that contain spaces.
+const rowUnits = row => [...row].reduce((n, ch) => n + (/\s/.test(ch) ? SPACE_UNITS : 1), 0);
+
+// Greedy wrap that prefers spaces and never exceeds `max` glyph units per row.
 export function wrap(text, max) {
   const words = text.trim().split(/[\s　]+/).filter(Boolean);
   const rows = [];
@@ -25,7 +30,7 @@ export function wrap(text, max) {
       continue;
     }
     const joined = row ? `${row} ${word}` : word;
-    if (visible(joined).length + (row ? 1 : 0) > max) { push(); row = word; } else row = joined;
+    if (row && rowUnits(joined) > max) { push(); row = word; } else row = joined;
   }
   push();
   // Balance a short orphan row with the one before it.
@@ -129,16 +134,39 @@ export function lyricLookDown(distance, fov, share = LYRIC_BAND * 0.45) {
   return share * 2 * distance * Math.tan((fov * Math.PI) / 360);
 }
 
-function rowsFor(text) {
-  const count = Math.max(1, visible(text).length);
-  const target = count <= 16 ? 1 : count <= 32 ? 2 : count <= 48 ? 3 : 4;
-  let per = Math.max(8, Math.ceil(count / target));
-  let rows = wrap(text, per);
-  while (rows.length > target && per < count) {
-    per += 2;
-    rows = wrap(text, per);
+// Glyphs are capped by how wide the plate may get and by how tall the band is, and the
+// two limits pull in opposite directions as rows are added. A long line is far more
+// legible as two wide rows than as four cramped ones, so try every row count and keep
+// whichever ends up with the biggest glyphs.
+export const PLATE_WIDTH = 1620;
+export const MAX_GLYPH = 88;
+const ROW_FIT = 1.26; // glyph size = innerH / (rows × ROW_FIT); slack for the outline
+const MAX_ROWS = 4;
+
+// Greedy wrapping alone gives "one full row plus a stub" (36 / 20 / 17 for a long line).
+// Binary-search the narrowest per-row budget that still fits in `rows` rows instead, so
+// the rows come out even and the glyphs can be as large as the band allows.
+function fitRows(text, rows) {
+  const units = Math.max(1, rowUnits(text));
+  let lo = Math.max(1, Math.ceil(units / rows));
+  let hi = Math.max(lo, Math.ceil(units));
+  while (lo < hi) {
+    const mid = (lo + hi) >> 1;
+    if (wrap(text, mid).length <= rows) hi = mid;
+    else lo = mid + 1;
   }
-  return rows;
+  return wrap(text, lo);
+}
+
+function rowsFor(text, innerH) {
+  let best = null;
+  for (let guess = 1; guess <= MAX_ROWS; guess++) {
+    const rows = fitRows(text, guess);
+    const longest = Math.max(1, ...rows.map(rowUnits));
+    const size = Math.min(MAX_GLYPH, PLATE_WIDTH / longest, innerH / (rows.length * ROW_FIT));
+    if (!best || size > best.size + 0.01) best = { rows, size };
+  }
+  return best.rows;
 }
 
 export function lyricPlate(text, H, inset = 0) {
@@ -146,9 +174,9 @@ export function lyricPlate(text, H, inset = 0) {
   const bandBottom = H - inset - 22;
   const pad = 12;
   const innerH = Math.max(36, bandBottom - bandTop - pad * 2);
-  const rows = rowsFor(text);
-  const longest = Math.max(1, ...rows.map(row => visible(row).length));
-  const size = clamp(Math.min(72, innerH / (rows.length * 1.28), 1560 / longest), 14, 72);
+  const rows = rowsFor(text, innerH);
+  const longest = Math.max(1, ...rows.map(rowUnits));
+  const size = clamp(Math.min(MAX_GLYPH, innerH / (rows.length * ROW_FIT), PLATE_WIDTH / longest), 14, MAX_GLYPH);
   const lineH = size * 1.18;
   const block = rows.length * lineH;
   let top = bandTop + pad + Math.max(0, (innerH - block) / 2);
