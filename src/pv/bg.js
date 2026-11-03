@@ -1,6 +1,7 @@
 // Background layer: sky gradient, drifting glow orbs, a per-song pattern, floating
 // lyric glyphs and motion-graphic particles. Drawn behind the transparent 3D canvas.
 // Every position is a function of time, so frames can be rendered in any order.
+import { withoutPunctuation, fillText } from './text.js';
 import { css, mix } from './color.js';
 import { rng, smooth } from './timeline.js';
 
@@ -211,7 +212,7 @@ export function createBackground(W, H, style, seed) {
             const y = head - k * 26;
             if (y < -20 || y > H + 20) continue;
             ctx.fillStyle = css(k === 0 ? look.accent : look.glow, (k === 0 ? 0.55 : 0.22) * (1 - k / 14));
-            ctx.fillText(String.fromCharCode(0x30 + ((c * 7 + k * 13 + Math.floor(t * 8)) % 10)), c * (W / 48) + 20, y);
+            fillText(ctx, String.fromCharCode(0x30 + ((c * 7 + k * 13 + Math.floor(t * 8)) % 10)), c * (W / 48) + 20, y);
           }
         }
         break;
@@ -232,7 +233,7 @@ export function createBackground(W, H, style, seed) {
   // The current line's characters drift large and faint behind the stage (花束 style).
   function glyphs(ctx, look, t, line) {
     if (!line) return;
-    const chars = [...line.text.replace(/[\s　()（）]/g, '')];
+    const chars = [...withoutPunctuation(line.text).replace(/[\s　]/g, '')];
     if (!chars.length) return;
     const local = t - line.start;
     const life = smooth(local / 0.8) * smooth((line.end - t) / 0.5);
@@ -248,7 +249,7 @@ export function createBackground(W, H, style, seed) {
       ctx.fillStyle = css(look.light > 0.5 ? look.accent : look.ink, 0.10 * life);
       const x = (0.06 + s.x * 0.88) * W;
       const y = (0.08 + s.y * 0.7) * H + Math.sin(t * 0.4 + s.p) * 18 - local * 6;
-      ctx.fillText(chars[(k * 3) % chars.length], x, y);
+      fillText(ctx, chars[(k * 3) % chars.length], x, y);
     }
     ctx.restore();
   }
@@ -291,7 +292,7 @@ export function createBackground(W, H, style, seed) {
     ctx.fillStyle = '#2a2030';
     ctx.font = `800 ${s * 0.62}px ${SANS}`;
     ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-    ctx.fillText(String(n).padStart(2, '0'), 0, s * 0.04);
+    fillText(ctx, String(n).padStart(2, '0'), 0, s * 0.04);
   }
   function drawCoin(ctx, s, turn) {
     ctx.scale(Math.max(0.15, Math.abs(Math.cos(turn))), 1);
@@ -302,7 +303,7 @@ export function createBackground(W, H, style, seed) {
     ctx.fillStyle = '#c98a0c';
     ctx.font = `800 ${s}px ${SANS}`;
     ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-    ctx.fillText('$', 0, s * 0.05);
+    fillText(ctx, '$', 0, s * 0.05);
   }
   function drawTicket(ctx, s, color) {
     ctx.fillStyle = '#fffaf0';
@@ -312,13 +313,13 @@ export function createBackground(W, H, style, seed) {
     ctx.fillStyle = '#c0392b';
     ctx.font = `800 ${s * 0.6}px ${SANS}`;
     ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-    ctx.fillText(style.ticketLabel ?? '頭獎', 0, s * 0.25, s * 2.4);
+    fillText(ctx, style.ticketLabel ?? '頭獎', 0, s * 0.25, s * 2.4);
   }
   function drawNote(ctx, s, color) {
     ctx.fillStyle = color;
     ctx.font = `700 ${s * 2}px ${SANS}`;
     ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-    ctx.fillText('♪', 0, 0);
+    fillText(ctx, '♪', 0, 0);
   }
   function drawBolt(ctx, s, color) {
     ctx.fillStyle = color;
@@ -416,13 +417,13 @@ export function createBackground(W, H, style, seed) {
           ctx.font = `800 ${90 * s}px ${SANS}`;
           ctx.textAlign = 'center';
           ctx.fillStyle = css(look.light > 0.5 ? look.accent : look.glow, 0.22);
-          ctx.fillText(p.word, 0, 0);
+          fillText(ctx, p.word, 0, 0);
           break;
         }
         case 'code': {
           ctx.font = `600 ${22 * s}px ui-monospace, Menlo, monospace`;
           ctx.fillStyle = css(look.glow, 0.5);
-          ctx.fillText(p.code, 0, 0);
+          fillText(ctx, p.code, 0, 0);
           break;
         }
         case 'ring': {

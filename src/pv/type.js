@@ -1,5 +1,6 @@
 // Foreground typography: one bottom sticker plate for every lyric line, plus the
 // title card, chapter tabs, prop badges, news ticker and the ending card.
+import { withoutPunctuation, fillText, strokeText, measureText } from './text.js';
 import { CANDY, css } from './color.js';
 import { SANS } from './bg.js';
 import { clamp, hash, smooth } from './timeline.js';
@@ -9,7 +10,6 @@ const backOut = k => {
   const c = 1.9;
   return 1 + (c + 1) * Math.pow(k - 1, 3) + c * Math.pow(k - 1, 2);
 };
-const visible = text => [...text.replace(/[\s　]/g, '')];
 const SPACE_UNITS = 0.35; // what stickerRow gives a space, as a fraction of a glyph
 
 // Width of a row in glyph units: full-width glyphs count 1, spaces count SPACE_UNITS.
@@ -18,7 +18,7 @@ const rowUnits = row => [...row].reduce((n, ch) => n + (/\s/.test(ch) ? SPACE_UN
 
 // Greedy wrap that prefers spaces and never exceeds `max` glyph units per row.
 export function wrap(text, max) {
-  const words = text.trim().split(/[\s　]+/).filter(Boolean);
+  const words = withoutPunctuation(text).trim().split(/[\s　]+/).filter(Boolean);
   const rows = [];
   let row = '';
   const push = () => { if (row) rows.push(row); row = ''; };
@@ -60,18 +60,18 @@ function roundRect(ctx, x, y, w, h, r) {
 function stickerGlyph(ctx, ch, size, fill, rim) {
   ctx.lineJoin = 'round';
   ctx.fillStyle = 'rgba(30,15,45,.35)';
-  ctx.fillText(ch, size * 0.06, size * 0.09);
+  fillText(ctx, ch, size * 0.06, size * 0.09);
   ctx.strokeStyle = rim;
   ctx.lineWidth = size * 0.34;
-  ctx.strokeText(ch, 0, 0);
+  strokeText(ctx, ch, 0, 0);
   ctx.strokeStyle = '#ffffff';
   ctx.lineWidth = size * 0.2;
-  ctx.strokeText(ch, 0, 0);
+  strokeText(ctx, ch, 0, 0);
   const g = ctx.createLinearGradient(0, -size * 0.5, 0, size * 0.5);
   g.addColorStop(0, fill);
   g.addColorStop(1, shade(fill));
   ctx.fillStyle = g;
-  ctx.fillText(ch, 0, 0);
+  fillText(ctx, ch, 0, 0);
   // Gloss highlight.
   ctx.save();
   ctx.globalAlpha *= 0.35;
@@ -79,7 +79,7 @@ function stickerGlyph(ctx, ch, size, fill, rim) {
   ctx.beginPath();
   ctx.rect(-size, -size * 0.6, size * 2, size * 0.42);
   ctx.clip();
-  ctx.fillText(ch, 0, 0);
+  fillText(ctx, ch, 0, 0);
   ctx.restore();
 }
 const shade = hex => {
@@ -96,7 +96,7 @@ function stickerRow(ctx, text, cx, cy, size, t, appear, { exit = 0, seed = 0, of
   ctx.textAlign = 'center';
   ctx.textBaseline = 'middle';
   const chars = [...text];
-  const widths = chars.map(ch => (ch === ' ' ? size * 0.35 : ctx.measureText(ch).width * 0.98));
+  const widths = chars.map(ch => (ch === ' ' ? size * 0.35 : measureText(ctx, ch).width * 0.98));
   const total = widths.reduce((a, b) => a + b, 0);
   let x = cx - total / 2;
   let n = 0;
@@ -170,6 +170,7 @@ function rowsFor(text, innerH) {
 }
 
 export function lyricPlate(text, H, inset = 0) {
+  text = withoutPunctuation(text);
   const bandTop = Math.round(H * (1 - LYRIC_BAND));
   const bandBottom = H - inset - 22;
   const pad = 12;
@@ -221,7 +222,7 @@ function pill(ctx, x, y, text, { size = 24, fill = '#fff', ink = '#3a2a4a', bord
   ctx.save();
   ctx.font = `800 ${size}px ${SANS}`;
   ctx.letterSpacing = `${spacing}px`;
-  const w = ctx.measureText(text).width + size * (dot ? 3.2 : 1.8);
+  const w = measureText(ctx, text).width + size * (dot ? 3.2 : 1.8);
   const h = size * 2;
   ctx.fillStyle = fill;
   ctx.shadowColor = 'rgba(20,10,40,.3)';
@@ -242,7 +243,7 @@ function pill(ctx, x, y, text, { size = 24, fill = '#fff', ink = '#3a2a4a', bord
   ctx.fillStyle = ink;
   ctx.textAlign = 'center';
   ctx.textBaseline = 'middle';
-  ctx.fillText(text, x + (dot ? size * 0.7 : 0), y + 1);
+  fillText(ctx, text, x + (dot ? size * 0.7 : 0), y + 1);
   ctx.restore();
   return w;
 }
@@ -304,14 +305,14 @@ export function drawTitle(ctx, { song, style, number, total }, t, end, look, W, 
     ctx.strokeStyle = '#fff'; ctx.lineWidth = 5;
     ctx.beginPath(); ctx.arc(-barW / 2 + barH / 2, -4, 12, 0, Math.PI * 2); ctx.stroke();
     ctx.beginPath(); ctx.moveTo(-barW / 2 + barH / 2 + 9, 5); ctx.lineTo(-barW / 2 + barH / 2 + 18, 14); ctx.stroke();
-    const typed = [...song.tagline].slice(0, Math.floor((t - appear - 0.7) / 0.07));
+    const typed = [...withoutPunctuation(song.tagline)].slice(0, Math.floor((t - appear - 0.7) / 0.07));
     ctx.font = `600 34px ${SANS}`;
     ctx.fillStyle = '#4a3a5a';
     ctx.textBaseline = 'middle';
     ctx.textAlign = 'left';
     const text = typed.join('');
-    ctx.fillText(text, -barW / 2 + barH + 20, 2);
-    if (Math.floor(t * 2.5) % 2 === 0) ctx.fillRect(-barW / 2 + barH + 22 + ctx.measureText(text).width, -20, 3, 40);
+    fillText(ctx, text, -barW / 2 + barH + 20, 2);
+    if (Math.floor(t * 2.5) % 2 === 0) ctx.fillRect(-barW / 2 + barH + 22 + measureText(ctx, text).width, -20, 3, 40);
     ctx.font = `800 22px ${SANS}`;
     ctx.lineWidth = 4;
     ctx.strokeStyle = '#3a2a4a';
@@ -319,13 +320,13 @@ export function drawTitle(ctx, { song, style, number, total }, t, end, look, W, 
     ctx.stroke();
     ctx.fillStyle = '#3a2a4a';
     ctx.textAlign = 'center';
-    ctx.fillText('ENTER ↵', barW / 2 - 91, 1);
+    fillText(ctx, 'ENTER ↵', barW / 2 - 91, 1);
     ctx.restore();
     ctx.globalAlpha = fade * smooth((t - appear - 1) / 0.5);
     ctx.font = `600 28px ${SANS}`;
     ctx.fillStyle = look.light > 0.5 ? css(look.ink) : '#ffffff';
     ctx.textAlign = 'center';
-    ctx.fillText(`${song.subtitle}　·　HyperStage PV №${String(number).padStart(2, '0')} / ${String(total).padStart(2, '0')}`, W / 2, y + 110);
+    fillText(ctx, `${song.subtitle}　·　HyperStage PV №${String(number).padStart(2, '0')} / ${String(total).padStart(2, '0')}`, W / 2, y + 110);
   }
   ctx.restore();
 }
@@ -347,16 +348,16 @@ export function drawChapterTab(ctx, chapter, index, t, look, W) {
   ctx.fillStyle = '#fff';
   ctx.font = `900 30px ${SANS}`;
   ctx.textAlign = 'center';
-  ctx.fillText(String(index + 1).padStart(2, '0'), 85, 69);
+  fillText(ctx, String(index + 1).padStart(2, '0'), 85, 69);
   ctx.textAlign = 'left';
   ctx.font = `800 30px ${SANS}`;
   ctx.fillStyle = look.light > 0.5 ? css(look.ink) : '#ffffff';
   ctx.shadowColor = look.light > 0.5 ? 'rgba(255,255,255,.8)' : 'rgba(0,0,0,.6)';
   ctx.shadowBlur = 10;
-  ctx.fillText(head, 140, 58);
+  fillText(ctx, head, 140, 58);
   ctx.font = `600 22px ${SANS}`;
   ctx.globalAlpha = 0.65 + 0.35 * big;
-  ctx.fillText(rest.join(' · '), 140, 90);
+  fillText(ctx, rest.join(' · '), 140, 90);
   ctx.restore();
 }
 
@@ -377,10 +378,10 @@ export function drawHud(ctx, number, title, look, W) {
   ctx.textAlign = 'right';
   ctx.letterSpacing = '4px';
   ctx.fillStyle = look.light > 0.5 ? css(look.ink, 0.6) : 'rgba(255,255,255,.6)';
-  ctx.fillText(`HYPERSTAGE PV  №${String(number).padStart(2, '0')}`, W - 48, 62);
+  fillText(ctx, `HYPERSTAGE PV  №${String(number).padStart(2, '0')}`, W - 48, 62);
   ctx.letterSpacing = '0px';
   ctx.font = `600 18px ${SANS}`;
-  ctx.fillText(`♫ ${title}`, W - 48, 90);
+  fillText(ctx, `♫ ${title}`, W - 48, 90);
   ctx.restore();
 }
 
@@ -391,22 +392,22 @@ export function drawTicker(ctx, text, t, W, H) {
   ctx.font = `600 26px ${SANS}`;
   ctx.textBaseline = 'middle';
   ctx.fillStyle = '#fff';
-  const width = ctx.measureText(text).width + 120;
+  const width = measureText(ctx, text).width + 120;
   const offset = (t * 160) % width;
-  for (let x = 230 - offset; x < W; x += width) ctx.fillText(text, x, H - 29);
+  for (let x = 230 - offset; x < W; x += width) fillText(ctx, text, x, H - 29);
   ctx.fillStyle = '#e8243c';
   ctx.fillRect(0, H - 58, 210, 58);
   ctx.fillStyle = '#fff';
   ctx.font = `900 26px ${SANS}`;
   ctx.textAlign = 'center';
-  ctx.fillText('BREAKING', 105, H - 29);
+  fillText(ctx, 'BREAKING', 105, H - 29);
   // LIVE badge.
   ctx.fillStyle = '#e8243c';
   roundRect(ctx, W - 170, 112, 122, 44, 10);
   ctx.fill();
   ctx.fillStyle = '#fff';
   ctx.font = `900 22px ${SANS}`;
-  ctx.fillText(Math.floor(t * 1.5) % 2 ? '● LIVE' : '○ LIVE', W - 109, 135);
+  fillText(ctx, Math.floor(t * 1.5) % 2 ? '● LIVE' : '○ LIVE', W - 109, 135);
   ctx.restore();
 }
 
@@ -435,7 +436,7 @@ export function drawEnding(ctx, { song, cast }, t, start, end, look, W, H) {
     ctx.textAlign = 'center';
     ctx.fillStyle = look.light > 0.5 ? css(look.ink) : '#fff';
     ctx.globalAlpha = smooth((since - 0.8) / 0.5);
-    ctx.fillText('CAST', W / 2, y);
+    fillText(ctx, 'CAST', W / 2, y);
     ctx.letterSpacing = '0px';
     const names = [...new Set(cast)];
     const spacing = 240;
@@ -451,7 +452,7 @@ export function drawEnding(ctx, { song, cast }, t, start, end, look, W, H) {
     ctx.globalAlpha = smooth((since - 1.6) / 0.5);
     ctx.font = `600 22px ${SANS}`;
     ctx.fillStyle = look.light > 0.5 ? css(look.ink, 0.8) : 'rgba(255,255,255,.75)';
-    ctx.fillText(`♫ ${song.title}　·　HyperStage PV · Three.js 即時演算`, W / 2, y + 150);
+    fillText(ctx, `♫ ${song.title}　·　HyperStage PV · Three.js 即時演算`, W / 2, y + 150);
   }
   ctx.restore();
   // Fade to black over the final 1.4 seconds.
@@ -487,11 +488,11 @@ export function drawWindowFrame(ctx, x, y, w, h, name, color, bg) {
   ctx.fillStyle = color;
   ctx.font = `900 16px ${SANS}`;
   ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-  ctx.fillText('✿', x + 22, y - 25);
+  fillText(ctx, '✿', x + 22, y - 25);
   ctx.fillStyle = '#fff';
   ctx.textAlign = 'left';
   ctx.font = `800 24px ${SANS}`;
-  ctx.fillText(name, x + 46, y - 25);
+  fillText(ctx, name, x + 46, y - 25);
   for (let i = 0; i < 3; i++) {
     const bx = x + w - 26 - i * 34;
     ctx.strokeStyle = '#fff'; ctx.lineWidth = 3;

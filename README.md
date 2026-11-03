@@ -93,6 +93,8 @@ PV 首頁與歌詞劇場依 [goldshoot0720/NewEffects](https://github.com/goldsh
 
 每個版本都有獨立 MP3、原文歌詞與逐句 SRT 起訖時間，不借用其他語言時間軸，也不平均攤分全曲。依音源重唱的句子照實保留；NewEffects 明確標記未演唱的行不強塞進字幕。來源檔案、提交編號、SHA-256 與略唱紀錄在 `verification/neweffects-import.json`。英文、日文舞台字卡使用對應語言，並沿用各首歌曲的配色、角色及動作；頭獎曲保留五人、鋒兄 C 位、塗哥相鄰與喵掌姿勢。
 
+PV 畫面統一移除所有語言的標點符號，包含歌詞、歌名、章節、字卡、跑馬燈及背景文字。斷行與字寬以移除標點後的文字計算；日文長音、文字內容、原始歌詞／SRT、音檔及時間軸均保留。圖案與裝飾保留。
+
 本次來源對應 NewEffects 提交 `bfdfde8`；136 份音檔、字幕及歌詞／時間軸來源均已核對為該提交內容。驗證結果與選單截圖見 `verification/neweffects-versions.md`。
 
 `src/new-effects-data.js` 是目前 36 版的音檔、歌詞與時間軸資料，`src/song-versions.js` 結合既有角色、分幕與編舞設定。`src/lucky-translations.js` 保留頭獎曲三語舞台字卡，例如英文生日祝福。頭獎曲來源：[英文版](https://suno.com/s/NNjWp4nInpeloTf5)、[日文版](https://suno.com/s/xb8brpvBy23lIyfx)、[粵文版](https://suno.com/s/a0XTF9CAMxLNOtBc)。
