@@ -147,3 +147,5 @@ npm run pv:compress                          # 每支壓到 92 MB 以下（原�
 | 粵文 | [pv12-s102-yue-five-cast.mp4](https://github.com/goldshoot0720/MMD/releases/download/pv-jackpot-paws-20261102/pv12-s102-yue-five-cast.mp4) | 約 2:16 |
 
 四支均為完整原曲、1920×1080、30 fps、H.264／AAC 192 kbps；已驗證完整解碼、音畫長度與 Release 檔案 SHA-256。影片包含鋒兄 C 位、塗哥相鄰、咕咕嘎嘎與 GPT 娘，以及無 `.pet` 後綴的角色名稱。喵布布使用專屬招財貓手勢，雙掌抬到身前露出掌面，同時保留腳步與身體律動；此調整僅套用到本曲四個語言版本。
+
+2026-11-03 的[四語無標點 Release](https://github.com/goldshoot0720/MMD/releases/tag/pv-no-punctuation-20261103) 重新輸出 9 首歌的中文、英文、日文、粵文，共 36 支。歌詞、歌名、章節、字卡與跑馬燈移除標點；原始歌詞、音檔與時間軸保留。每支皆為 1920×1080、30 fps、H.264／AAC，並已完整解碼。
