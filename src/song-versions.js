@@ -22,6 +22,19 @@ const bannerTitles = {
   s101: { en: 'A Conversation with My Yearbook', ja: '卒業アルバムとの対話', yue: '我同畢業紀念冊嘅對話' },
 };
 
+const localizedCastNames = {
+  '喵布布': { en: 'Bu Bu', ja: 'ブブ' },
+  '咕咕嘎嘎': { en: 'Gugugaga', ja: 'ググガガ' },
+  '鋒兄': { en: 'Feng', ja: 'フェン' },
+  '塗哥': { en: 'Tu', ja: 'トゥ' },
+  'GPT 娘': { zh: 'ＧＰＴ娘', en: 'GPT Musume', ja: 'GPTむすめ', yue: 'ＧＰＴ娘' },
+  '牙妹': { en: 'Yamei', ja: 'ヤーメイ' },
+  '小塗': { en: 'Tu', ja: 'トゥ' },
+  '魚妹': { en: 'Yumei', ja: 'ユーメイ' },
+  '喵白白': { en: 'Miabyby', ja: 'ミャオバイバイ' },
+  '鯨魚娘': { en: 'Whale Girl', ja: 'クジラ娘' },
+};
+
 export function buildVersions(bases) {
   return newEffectsVersions.map(record => {
     const base = bases.find(song => song.id === record.baseId);
@@ -58,6 +71,7 @@ export function buildVersions(bases) {
       pvNumber: record.pvNumber,
       language,
       languageLabel: record.languageLabel,
+      pvCastNames: authored.cast.map(({ name }) => localizedCastNames[name]?.[language] ?? name),
       baseTitle: base.title,
       baseTagline: base.tagline,
       title: language === 'zh' ? base.title : `${base.title}(${record.languageLabel}歌詞)`,
@@ -69,6 +83,7 @@ export function buildVersions(bases) {
       chapters,
       times: record.cues.map(cue => cue.time),
       ends: record.cues.map(cue => cue.end),
+      translations: record.cues.some(cue => cue.translation) ? record.cues.map(cue => cue.translation) : undefined,
       outro: language === 'zh' || base.id === 's102' ? authored.outro : endings[language][0],
       ending: base.id === 's102' && authored.ending ? authored.ending : endings[language][1],
     };

@@ -32,19 +32,20 @@ def timestamp(text):
     h, m, s, ms = map(int, STAMP.fullmatch(text.strip()).groups())
     return round(h * 3600 + m * 60 + s + ms / 1000, 3)
 
-def parse_srt(text):
+def parse_srt(text, include_translation=False):
     cues = []
     for block in re.split(r'\r?\n\s*\r?\n', text.strip()):
         lines = block.splitlines()
         if len(lines) < 3:
             raise ValueError('Incomplete SRT block')
         start, end = [timestamp(t) for t in lines[1].split('-->')]
-        # Lucky EN/JA subtitles have a second Chinese translation line. The sung
-        # original is the first line; all other source builders also use one line.
         lyric = lines[2].strip()
         assert lyric and end > start >= 0
         assert not cues or start > cues[-1]['time']
-        cues.append({'time': start, 'end': end, 'text': lyric})
+        cue = {'time': start, 'end': end, 'text': lyric}
+        if include_translation and (translation := ' '.join(line.strip() for line in lines[3:] if line.strip())):
+            cue['translation'] = translation
+        cues.append(cue)
     assert cues
     return cues
 
@@ -69,7 +70,7 @@ def main(source):
             subtitle = source / (stem + '.srt')
             if not audio.is_file() or not subtitle.is_file():
                 raise FileNotFoundError(f'Missing source: {stem}')
-            cues = parse_srt(subtitle.read_text(encoding='utf-8-sig'))
+            cues = parse_srt(subtitle.read_text(encoding='utf-8-sig'), include_translation=lang in ('en', 'ja'))
             probe = json.loads(subprocess.check_output(['ffprobe', '-v', 'error', '-show_format', '-show_streams', '-of', 'json', str(audio)]))
             duration = float(probe['format']['duration'])
             assert cues[-1]['end'] <= duration + .1, stem
@@ -102,9 +103,10 @@ def main(source):
                 url = re.search(r'https://suno.com/s/[A-Za-z0-9]+', row)
                 source_url = url.group() if url else None
             else:
-                # The four lucky-song chapters have the same 6/4/6/4 sung lines.
-                assert len(cues) == 20
-                section_ids = [0] * 6 + [1] * 4 + [2] * 6 + [3] * 4
+                # Japanese sings the parent line once more at the end of acts 2 and 4.
+                counts = (6, 5, 6, 5) if lang == 'ja' else (6, 4, 6, 4)
+                assert len(cues) == sum(counts)
+                section_ids = [section for section, count in enumerate(counts) for _ in range(count)]
                 source_url = {'en': 'https://suno.com/s/NNjWp4nInpeloTf5', 'ja': 'https://suno.com/s/xb8brpvBy23lIyfx', 'yue': 'https://suno.com/s/a0XTF9CAMxLNOtBc'}.get(lang)
             for i, cue in enumerate(cues):
                 if section_ids is not None:

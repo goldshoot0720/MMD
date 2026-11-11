@@ -215,7 +215,7 @@ async function load(id) {
   current = {
     song, style, timeline, dancers,
     energy: analysis.energy, kick: analysis.kick,
-    names: song.cast.map(c => c.name),
+    names: song.pvCastNames,
     number: song.pvNumber,
     background: createBackground(W, H, style, song.pvNumber * 0.0731),
     ticker: style.pattern === 'scanlines'
@@ -600,6 +600,7 @@ const totalLabel = document.getElementById('total');
 const playButton = document.getElementById('play');
 const previousButton = document.getElementById('previous');
 const nextButton = document.getElementById('next');
+const speedSelect = document.getElementById('speed');
 const volumeSlider = document.getElementById('volume');
 const volumeValue = document.getElementById('volume-value');
 const muteButton = document.getElementById('mute');
@@ -718,6 +719,7 @@ async function play(id, at = 0) {
   if (token !== playToken) return;
   scrub.max = String(info.duration);
   const start = Math.min(info.duration, Math.max(0, at));
+  audio.playbackRate = Number(speedSelect.value);
   audio.currentTime = start;
   status.textContent = '';
   frame(start);
@@ -747,6 +749,10 @@ if (!renderMode) {
   document.getElementById('back').addEventListener('click', showMenu);
   previousButton.addEventListener('click', () => stepSong(-1));
   nextButton.addEventListener('click', () => stepSong(1));
+  speedSelect.value = '1';
+  speedSelect.addEventListener('change', () => {
+    audio.playbackRate = Number(speedSelect.value);
+  });
   volumeSlider.addEventListener('input', () => {
     audio.volume = Number(volumeSlider.value);
     audio.muted = false;
@@ -764,7 +770,7 @@ if (!renderMode) {
   out.addEventListener('click', togglePlayback);
   addEventListener('keydown', event => {
     const tag = event.target.tagName;
-    if (tag === 'INPUT' || tag === 'BUTTON' || tag === 'A') return;
+    if (tag === 'INPUT' || tag === 'BUTTON' || tag === 'A' || tag === 'SELECT') return;
     if (event.key === ' ') { event.preventDefault(); togglePlayback(); }
     if (event.key === 'ArrowRight') seek((audio.currentTime || 0) + 5);
     if (event.key === 'ArrowLeft') seek((audio.currentTime || 0) - 5);

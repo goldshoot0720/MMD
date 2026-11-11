@@ -224,205 +224,239 @@ export const newEffectsVersions = [
         "time": 18.02,
         "end": 24.84,
         "text": "Feng Bro, are you serious or just playing around?",
-        "section": 0
+        "section": 0,
+        "translation": "鋒兄，你是認真的，還是在開玩笑？"
       },
       {
         "time": 25.48,
         "end": 29.98,
         "text": "Xiao Tu's laughing so hard, he's falling to the ground!",
-        "section": 0
+        "section": 0,
+        "translation": "小塗笑得太厲害，快要跌到地上！"
       },
       {
         "time": 29.98,
         "end": 33.24,
         "text": "Feng Bro says he's getting married,",
-        "section": 1
+        "section": 1,
+        "translation": "鋒兄說他要結婚，"
       },
       {
         "time": 33.24,
         "end": 36.44,
         "text": "And there's only one reason why.",
-        "section": 1
+        "section": 1,
+        "translation": "理由就只有這一個。"
       },
       {
         "time": 36.44,
         "end": 39.4,
         "text": "On the day the lottery numbers came,",
-        "section": 1
+        "section": 1,
+        "translation": "在彩券號碼開出的那一天，"
       },
       {
         "time": 39.4,
         "end": 42.14,
         "text": "Ya Girl's lucky picks hit the sky!",
-        "section": 1
+        "section": 1,
+        "translation": "牙妹的幸運號碼中了頭獎！"
       },
       {
         "time": 42.14,
         "end": 44.78,
         "text": "Watching all that prize money fall,",
-        "section": 1
+        "section": 1,
+        "translation": "看著獎金不斷落下，"
       },
       {
         "time": 44.78,
         "end": 47.96,
         "text": "His heart surrendered once and for all.",
-        "section": 1
+        "section": 1,
+        "translation": "他的心也徹底被收服。"
       },
       {
         "time": 47.96,
         "end": 50.88,
         "text": "He said, \"This must be destiny!\"",
-        "section": 1
+        "section": 1,
+        "translation": "他說：「這一定是命中注定！」"
       },
       {
         "time": 50.88,
         "end": 55.2,
         "text": "\"How could I not marry her after all this mystery?\"",
-        "section": 1
+        "section": 1,
+        "translation": "「經歷這場奇蹟，怎能不娶她？」"
       },
       {
         "time": 56.36,
         "end": 59.74,
         "text": "The craziest wedding reason ever told,",
-        "section": 2
+        "section": 2,
+        "translation": "史上最瘋狂的結婚理由，"
       },
       {
         "time": 59.74,
         "end": 62.38,
         "text": "Five Three Nine makes love unfold!",
-        "section": 2
+        "section": 2,
+        "translation": "今彩五三九讓愛情開花！"
       },
       {
         "time": 62.74,
         "end": 65.76,
         "text": "One Ya Girl and one Yu Girl,",
-        "section": 2
+        "section": 2,
+        "translation": "一個牙妹，一個魚妹，"
       },
       {
         "time": 65.76,
         "end": 68.3,
         "text": "Lucky numbers shake the world!",
-        "section": 2
+        "section": 2,
+        "translation": "幸運號碼震撼全世界！"
       },
       {
         "time": 68.3,
         "end": 71.2,
         "text": "Two winning tickets, jackpot dreams,",
-        "section": 2
+        "section": 2,
+        "translation": "兩張中獎券，頭獎夢成真，"
       },
       {
         "time": 71.2,
         "end": 73.82,
         "text": "Is love just luck or mathematics, it seems?",
-        "section": 2
+        "section": 2,
+        "translation": "愛情究竟是運氣，還是數學題？"
       },
       {
         "time": 73.82,
         "end": 76.92,
         "text": "Laughing through tears, we all agree,",
-        "section": 2
+        "section": 2,
+        "translation": "大家笑到流淚，都同意，"
       },
       {
         "time": 76.92,
         "end": 80.18,
         "text": "So crazy, so crazy, yet sweet as can be!",
-        "section": 2
+        "section": 2,
+        "translation": "太瘋狂、太瘋狂，卻又甜蜜無比！"
       },
       {
         "time": 96.74,
         "end": 99.6,
         "text": "Now it's Xiao Tu's turn to shine,",
-        "section": 3
+        "section": 3,
+        "translation": "現在輪到小塗登場，"
       },
       {
         "time": 99.6,
         "end": 102.72,
         "text": "His story follows the very same line.",
-        "section": 3
+        "section": 3,
+        "translation": "他的故事竟然如出一轍。"
       },
       {
         "time": 102.72,
         "end": 105.72,
         "text": "Watching Five Three Nine on the screen,",
-        "section": 3
+        "section": 3,
+        "translation": "看著螢幕上的今彩五三九，"
       },
       {
         "time": 105.72,
         "end": 108.48,
         "text": "He jumped so high like he'd never been!",
-        "section": 3
+        "section": 3,
+        "translation": "他跳得前所未有地高！"
       },
       {
         "time": 108.48,
         "end": 111.2,
         "text": "Yu Girl wrote some numbers down,",
-        "section": 3
+        "section": 3,
+        "translation": "魚妹隨手寫了幾個號碼，"
       },
       {
         "time": 111.2,
         "end": 114.02,
         "text": "Several jackpot tickets came around!",
-        "section": 3
+        "section": 3,
+        "translation": "竟然中了好幾張頭獎券！"
       },
       {
         "time": 114.02,
         "end": 117.3,
         "text": "He said, \"The God of Fortune called my name!\"",
-        "section": 3
+        "section": 3,
+        "translation": "他說：「財神爺都叫了我的名字！」"
       },
       {
         "time": 117.3,
         "end": 122.44,
         "text": "\"Not marrying her would be a shame!\"",
-        "section": 3
+        "section": 3,
+        "translation": "「不娶她，實在太不應該！」"
       },
       {
         "time": 123.28,
         "end": 126.06,
         "text": "Feng Bro holds Ya Girl's hand,",
-        "section": 4
+        "section": 4,
+        "translation": "鋒兄牽著牙妹的手，"
       },
       {
         "time": 126.06,
         "end": 128.86,
         "text": "Xiao Tu and Yu Girl make their stand.",
-        "section": 4
+        "section": 4,
+        "translation": "小塗與魚妹並肩站好。"
       },
       {
         "time": 128.86,
         "end": 131.78,
         "text": "Ten tables, a hundred, wedding cheers,",
-        "section": 4
+        "section": 4,
+        "translation": "十桌、百桌，婚宴歡呼，"
       },
       {
         "time": 131.78,
         "end": 134.68,
         "text": "Everyone laughs until there are tears!",
-        "section": 4
+        "section": 4,
+        "translation": "每個人都笑到流淚！"
       },
       {
         "time": 134.68,
         "end": 137.54,
         "text": "The craziest reason to say \"I do,\"",
-        "section": 4
+        "section": 4,
+        "translation": "最瘋狂的結婚理由，"
       },
       {
         "time": 137.54,
         "end": 140.5,
         "text": "Yet all those jackpot dreams came true!",
-        "section": 4
+        "section": 4,
+        "translation": "竟讓所有頭獎夢都成真！"
       },
       {
         "time": 140.5,
         "end": 143.06,
         "text": "If happiness can be this wild and free,",
-        "section": 4
+        "section": 4,
+        "translation": "如果幸福也能這樣自在瘋狂，"
       },
       {
         "time": 143.06,
         "end": 149.06,
         "text": "Tomorrow I'll buy a ticket and see!",
-        "section": 4
+        "section": 4,
+        "translation": "那我明天也買一張試試！"
       }
     ]
   },
@@ -440,205 +474,239 @@ export const newEffectsVersions = [
         "time": 19.04,
         "end": 24.86,
         "text": "フォンにい、ほんきなの？ うそなの？",
-        "section": 0
+        "section": 0,
+        "translation": "鋒兄，你是認真的，還是在說笑？"
       },
       {
         "time": 25.24,
         "end": 30.72,
         "text": "シャオトゥも わらいが とまらないよ！",
-        "section": 0
+        "section": 0,
+        "translation": "小塗笑得太厲害，快要跌到地上！"
       },
       {
         "time": 30.72,
         "end": 35.64,
         "text": "フォンにいが けっこんするってさ",
-        "section": 1
+        "section": 1,
+        "translation": "鋒兄說他要結婚，"
       },
       {
         "time": 35.64,
         "end": 39.42,
         "text": "りゆうは たった ひとつだけ",
-        "section": 1
+        "section": 1,
+        "translation": "理由就只有這一個。"
       },
       {
         "time": 39.42,
         "end": 42.28,
         "text": "ジンツァイ ごさんきゅうの ちゅうせんのひ",
-        "section": 1
+        "section": 1,
+        "translation": "在彩券號碼開出的那一天，"
       },
       {
         "time": 42.28,
         "end": 45.26,
         "text": "ヤーメイの すうじが おおあたり！",
-        "section": 1
+        "section": 1,
+        "translation": "牙妹的號碼中了頭獎！"
       },
       {
         "time": 45.26,
         "end": 47.88,
         "text": "しょうきんが どんどん まいこんで",
-        "section": 1
+        "section": 1,
+        "translation": "看著獎金不斷落下，"
       },
       {
         "time": 47.88,
         "end": 50.82,
         "text": "こころも すっかり うばわれた",
-        "section": 1
+        "section": 1,
+        "translation": "他的心也徹底被收服。"
       },
       {
         "time": 50.82,
         "end": 53.64,
         "text": "「これは うんめいに ちがいない！」",
-        "section": 1
+        "section": 1,
+        "translation": "他說：「這一定是命中注定！」"
       },
       {
         "time": 53.64,
         "end": 57.2,
         "text": "「けっこんしなきゃ きせきに もうしわけない！」",
-        "section": 1
+        "section": 1,
+        "translation": "「不結婚，怎麼對得起這場奇蹟！」"
       },
       {
         "time": 59.5,
         "end": 64.74,
         "text": "しじょう さいこうに わらえる けっこんりゆう",
-        "section": 2
+        "section": 2,
+        "translation": "史上最好笑的結婚理由，"
       },
       {
         "time": 65.3,
         "end": 71.06,
         "text": "ジンツァイ ごさんきゅうが あかいいとを むすぶ",
-        "section": 2
+        "section": 2,
+        "translation": "今彩五三九牽起了紅線！"
       },
       {
         "time": 71.06,
         "end": 76.0,
         "text": "ヤーメイが ひとり、ユーメイが ひとり",
-        "section": 2
+        "section": 2,
+        "translation": "一個牙妹，一個魚妹，"
       },
       {
         "time": 76.0,
         "end": 82.0,
         "text": "すうじが あたって ふたりとも おおあたり！",
-        "section": 2
+        "section": 2,
+        "translation": "號碼一中，兩人都中了頭獎！"
       },
       {
         "time": 82.0,
         "end": 87.66,
         "text": "こいは うんなの？ すうがくの もんだいなの？",
-        "section": 2
+        "section": 2,
+        "translation": "愛情究竟是運氣，還是數學題？"
       },
       {
         "time": 87.66,
         "end": 91.26,
         "text": "なみだが でるほど わらっちゃうよ",
-        "section": 2
+        "section": 2,
+        "translation": "笑得眼淚都流出來！"
       },
       {
         "time": 91.26,
         "end": 94.0,
         "text": "おかしい おかしい でも あまい",
-        "section": 2
+        "section": 2,
+        "translation": "好荒唐、好荒唐，卻又甜蜜！"
       },
       {
         "time": 94.0,
         "end": 96.5,
         "text": "こんな きせきも わるくない！",
-        "section": 2
+        "section": 2,
+        "translation": "這樣的奇蹟也不壞！"
       },
       {
         "time": 96.5,
         "end": 99.88,
         "text": "こんどは シャオトゥの ばんだよ",
-        "section": 3
+        "section": 3,
+        "translation": "現在輪到小塗登場，"
       },
       {
         "time": 99.88,
         "end": 102.92,
         "text": "なんと はなしは おなじ パターン",
-        "section": 3
+        "section": 3,
+        "translation": "他的故事竟然如出一轍。"
       },
       {
         "time": 102.92,
         "end": 105.8,
         "text": "ジンツァイ ごさんきゅうの ちゅうせんがめん",
-        "section": 3
+        "section": 3,
+        "translation": "看著螢幕上的今彩五三九，"
       },
       {
         "time": 105.8,
         "end": 108.64,
         "text": "みた しゅんかんに とびあがった！",
-        "section": 3
+        "section": 3,
+        "translation": "他跳得前所未有地高！"
       },
       {
         "time": 109.2,
         "end": 111.4,
         "text": "ユーメイが かいた すうじ",
-        "section": 3
+        "section": 3,
+        "translation": "魚妹隨手寫了幾個號碼，"
       },
       {
         "time": 111.4,
         "end": 114.44,
         "text": "なんまいもの けんが おおあたり！",
-        "section": 3
+        "section": 3,
+        "translation": "竟然中了好幾張頭獎券！"
       },
       {
         "time": 114.44,
         "end": 117.26,
         "text": "「ふくのかみが おれを えらんだ！」",
-        "section": 3
+        "section": 3,
+        "translation": "他說：「財神爺都叫了我的名字！」"
       },
       {
         "time": 117.26,
         "end": 123.42,
         "text": "「かのじょと けっこんしない わけには いかない！」",
-        "section": 3
+        "section": 3,
+        "translation": "「不娶她，實在太不應該！」"
       },
       {
         "time": 134.66,
         "end": 140.0,
         "text": "フォンにいは ヤーメイの てを つなぎ",
-        "section": 4
+        "section": 4,
+        "translation": "鋒兄牽著牙妹的手，"
       },
       {
         "time": 140.0,
         "end": 145.7,
         "text": "シャオトゥは ユーメイの てを にぎる",
-        "section": 4
+        "section": 4,
+        "translation": "小塗與魚妹並肩站好。"
       },
       {
         "time": 145.7,
         "end": 150.94,
         "text": "ひろうえんには じゅったくも ひゃくたくも",
-        "section": 4
+        "section": 4,
+        "translation": "十桌、百桌，婚宴歡呼，"
       },
       {
         "time": 150.94,
         "end": 156.42,
         "text": "みんな わらって いわってる",
-        "section": 4
+        "section": 4,
+        "translation": "大家笑著送上祝福，"
       },
       {
         "time": 157.0,
         "end": 162.52,
         "text": "しじょう さいこうに わらえる けっこんりゆう",
-        "section": 4
+        "section": 4,
+        "translation": "史上最好笑的結婚理由，"
       },
       {
         "time": 162.52,
         "end": 165.96,
         "text": "それなのに ぜんぶが おおあたり！",
-        "section": 4
+        "section": 4,
+        "translation": "竟讓所有頭獎夢都成真！"
       },
       {
         "time": 165.96,
         "end": 168.48,
         "text": "しあわせまで こんな きせきなら",
-        "section": 4
+        "section": 4,
+        "translation": "如果連幸福都能有這樣的奇蹟，"
       },
       {
         "time": 169.2,
         "end": 172.66,
         "text": "あしたは ぼくも いちまい かおうかな！",
-        "section": 4
+        "section": 4,
+        "translation": "明天我也買一張好了！"
       }
     ]
   },
@@ -1076,193 +1144,225 @@ export const newEffectsVersions = [
         "time": 11.52,
         "end": 14.24,
         "text": "One dream starts with Brother Feng",
-        "section": 0
+        "section": 0,
+        "translation": "鋒兄的一個夢想啟程，"
       },
       {
         "time": 14.24,
         "end": 16.18,
         "text": "Brother Tu joins right along",
-        "section": 0
+        "section": 0,
+        "translation": "塗哥也一同加入。"
       },
       {
         "time": 16.18,
         "end": 19.04,
         "text": "One small desk, one little pen",
-        "section": 0
+        "section": 0,
+        "translation": "一張小桌，一枝小筆，"
       },
       {
         "time": 19.04,
         "end": 21.72,
         "text": "Draw the future, carry on",
-        "section": 0
+        "section": 0,
+        "translation": "畫出未來，繼續前行。"
       },
       {
         "time": 21.72,
         "end": 23.96,
         "text": "Information lights the night",
-        "section": 0
+        "section": 0,
+        "translation": "資訊點亮黑夜，"
       },
       {
         "time": 23.96,
         "end": 26.24,
         "text": "Culture makes our living bright",
-        "section": 0
+        "section": 0,
+        "translation": "文化讓生活明亮。"
       },
       {
         "time": 26.24,
         "end": 28.58,
         "text": "Power, water, tech unite",
-        "section": 0
+        "section": 0,
+        "translation": "電力、水與科技結合，"
       },
       {
         "time": 28.58,
         "end": 31.3,
         "text": "Three big dreams, one road, one ride",
-        "section": 0
+        "section": 0,
+        "translation": "三個大夢，一條路，一趟旅程。"
       },
       {
         "time": 31.3,
         "end": 35.14,
         "text": "Feng Tu Power, Feng Tu Power, we will fight",
-        "section": 1
+        "section": 1,
+        "translation": "鋒塗力，鋒塗力，我們一起拚，"
       },
       {
         "time": 35.14,
         "end": 38.5,
         "text": "Build a hundred years of pride",
-        "section": 1
+        "section": 1,
+        "translation": "打造百年的榮耀。"
       },
       {
         "time": 38.5,
         "end": 40.9,
         "text": "Dreams we plant today will bring tomorrow's light",
-        "section": 1
+        "section": 1,
+        "translation": "今天種下的夢，帶來明日光芒，"
       },
       {
         "time": 40.9,
         "end": 48.88,
         "text": "Feng Tu Power, Feng Tu Power, by your side we rise",
-        "section": 1
+        "section": 1,
+        "translation": "鋒塗力，鋒塗力，在你身邊一同向上。"
       },
       {
         "time": 49.82,
         "end": 52.58,
         "text": "Behind the screen, a heart so warm",
-        "section": 2
+        "section": 2,
+        "translation": "螢幕背後，有顆溫暖的心，"
       },
       {
         "time": 52.58,
         "end": 54.96,
         "text": "Every word can weather storms",
-        "section": 2
+        "section": 2,
+        "translation": "每句話都能抵擋風雨。"
       },
       {
         "time": 54.96,
         "end": 57.4,
         "text": "Every wire, every screw",
-        "section": 2
+        "section": 2,
+        "translation": "每條電線，每顆螺絲，"
       },
       {
         "time": 57.4,
         "end": 59.96,
         "text": "Craftsmen make our dreams come true",
-        "section": 2
+        "section": 2,
+        "translation": "職人讓我們的夢想成真。"
       },
       {
         "time": 59.96,
         "end": 62.28,
         "text": "Information links the world",
-        "section": 2
+        "section": 2,
+        "translation": "資訊連結世界，"
       },
       {
         "time": 62.28,
         "end": 63.96,
         "text": "Culture lets our dreams unfurl",
-        "section": 2
+        "section": 2,
+        "translation": "文化讓夢想展開。"
       },
       {
         "time": 64.68,
         "end": 66.86,
         "text": "Power, water, tech below",
-        "section": 2
+        "section": 2,
+        "translation": "以電力、水與科技作根基，"
       },
       {
         "time": 66.86,
         "end": 69.72,
         "text": "Safe and cozy homes will grow",
-        "section": 2
+        "section": 2,
+        "translation": "安全舒適的家園將成長。"
       },
       {
         "time": 69.72,
         "end": 73.58,
         "text": "Feng Tu Power, Feng Tu Power, we will fight",
-        "section": 3
+        "section": 3,
+        "translation": "鋒塗力，鋒塗力，我們一起拚，"
       },
       {
         "time": 73.58,
         "end": 76.86,
         "text": "Build a hundred years of pride",
-        "section": 3
+        "section": 3,
+        "translation": "打造百年的榮耀。"
       },
       {
         "time": 76.86,
         "end": 79.16,
         "text": "Dreams we plant today will bring tomorrow's light",
-        "section": 3
+        "section": 3,
+        "translation": "今天種下的夢，帶來明日光芒，"
       },
       {
         "time": 79.16,
         "end": 87.32,
         "text": "Feng Tu Power, Feng Tu Power, by your side we rise",
-        "section": 3
+        "section": 3,
+        "translation": "鋒塗力，鋒塗力，在你身邊一同向上。"
       },
       {
         "time": 88.38,
         "end": 90.98,
         "text": "One is Feng and one is Tu",
-        "section": 4
+        "section": 4,
+        "translation": "一個鋒，一個塗，"
       },
       {
         "time": 91.12,
         "end": 93.24,
         "text": "Names that make a dream come true",
-        "section": 4
+        "section": 4,
+        "translation": "名字讓夢想成真。"
       },
       {
         "time": 93.24,
         "end": 95.72,
         "text": "From this town across the land",
-        "section": 4
+        "section": 4,
+        "translation": "從這座城，走遍全國，"
       },
       {
         "time": 96.04,
         "end": 97.92,
         "text": "Step by step, together stand (Hey!)",
-        "section": 4
+        "section": 4,
+        "translation": "一步一步，攜手站穩（嘿！）"
       },
       {
         "time": 117.32,
         "end": 121.32,
         "text": "Feng Tu Power, Feng Tu Power, we will fight",
-        "section": 5
+        "section": 5,
+        "translation": "鋒塗力，鋒塗力，我們一起拚，"
       },
       {
         "time": 121.32,
         "end": 124.56,
         "text": "Build a hundred years of pride",
-        "section": 5
+        "section": 5,
+        "translation": "打造百年的榮耀。"
       },
       {
         "time": 124.56,
         "end": 126.8,
         "text": "Dreams we plant today will bring tomorrow's light",
-        "section": 5
+        "section": 5,
+        "translation": "今天種下的夢，帶來明日光芒，"
       },
       {
         "time": 126.8,
         "end": 135.06,
         "text": "Feng Tu Power, Feng Tu Power, to the future we will rise",
-        "section": 5
+        "section": 5,
+        "translation": "鋒塗力，鋒塗力，我們一同邁向未來。"
       }
     ]
   },
@@ -1280,193 +1380,225 @@ export const newEffectsVersions = [
         "time": 17.84,
         "end": 20.3,
         "text": "ふぇんにいの　ひらめき",
-        "section": 0
+        "section": 0,
+        "translation": "鋒兄的靈光一現，"
       },
       {
         "time": 20.5,
         "end": 22.36,
         "text": "とぅにいも　てをつなぎ",
-        "section": 0
+        "section": 0,
+        "translation": "塗哥也牽起手，"
       },
       {
         "time": 22.4,
         "end": 24.46,
         "text": "つくえひとつ　ぺんひとつ",
-        "section": 0
+        "section": 0,
+        "translation": "一張桌 一枝筆"
       },
       {
         "time": 24.72,
         "end": 27.32,
         "text": "みらいのゆめを　えがこう",
-        "section": 0
+        "section": 0,
+        "translation": "一起描繪未來的夢。"
       },
       {
         "time": 27.32,
         "end": 29.78,
         "text": "じょうほうが　ひかりだす",
-        "section": 0
+        "section": 0,
+        "translation": "資訊開始發光，"
       },
       {
         "time": 29.98,
         "end": 31.76,
         "text": "ぶんかが　まちをてらす",
-        "section": 0
+        "section": 0,
+        "translation": "文化照亮城市。"
       },
       {
         "time": 31.76,
         "end": 34.02,
         "text": "でんきとみず　ぎじゅつで",
-        "section": 0
+        "section": 0,
+        "translation": "靠電力、水與技術，"
       },
       {
         "time": 34.02,
         "end": 37.08,
         "text": "みっつのゆめが　ひとつになる",
-        "section": 0
+        "section": 0,
+        "translation": "三個夢想合而為一。"
       },
       {
         "time": 37.08,
         "end": 40.98,
         "text": "ふぇんとぅぱわー　ふぇんとぅぱわー　がんばろう",
-        "section": 1
+        "section": 1,
+        "translation": "鋒塗力，鋒塗力，一起加油！"
       },
       {
         "time": 40.98,
         "end": 43.72,
         "text": "ひゃくねんのゆめ　せおって",
-        "section": 1
+        "section": 1,
+        "translation": "肩負百年的夢想，"
       },
       {
         "time": 43.72,
         "end": 46.76,
         "text": "きょうまいたゆめ　あしたのしあわせに",
-        "section": 1
+        "section": 1,
+        "translation": "今天播下的夢，化作明日幸福，"
       },
       {
         "time": 46.76,
         "end": 52.44,
         "text": "ふぇんとぅぱわー　ふぇんとぅぱわー　きみとすすもう",
-        "section": 1
+        "section": 1,
+        "translation": "鋒塗力，鋒塗力，與你一起前行。"
       },
       {
         "time": 55.68,
         "end": 58.2,
         "text": "がめんのむこう　ぬくもり",
-        "section": 2
+        "section": 2,
+        "translation": "螢幕後的溫度"
       },
       {
         "time": 58.2,
         "end": 60.38,
         "text": "ことばにこめた　おもいやり",
-        "section": 2
+        "section": 2,
+        "translation": "話語中滿懷體貼，"
       },
       {
         "time": 60.38,
         "end": 62.6,
         "text": "いっぽんのせん　ねじひとつ",
-        "section": 2
+        "section": 2,
+        "translation": "每一條線 每一支螺絲"
       },
       {
         "time": 62.86,
         "end": 65.16,
         "text": "しょくにんのこころ　つまってる",
-        "section": 2
+        "section": 2,
+        "translation": "蘊藏滿滿的職人之心。"
       },
       {
         "time": 65.16,
         "end": 67.72,
         "text": "じょうほうが　せかいつなぐ",
-        "section": 2
+        "section": 2,
+        "translation": "資訊讓世界接軌"
       },
       {
         "time": 67.72,
         "end": 69.98,
         "text": "ぶんかが　まちをそだてる",
-        "section": 2
+        "section": 2,
+        "translation": "文化培育城市，"
       },
       {
         "time": 69.98,
         "end": 72.26,
         "text": "でんきとみず　ぎじゅつで",
-        "section": 2
+        "section": 2,
+        "translation": "靠電力、水與技術，"
       },
       {
         "time": 72.26,
         "end": 75.3,
         "text": "あんしんなくらし　とどけよう",
-        "section": 2
+        "section": 2,
+        "translation": "送上安心的生活。"
       },
       {
         "time": 75.3,
         "end": 79.18,
         "text": "ふぇんとぅぱわー　ふぇんとぅぱわー　がんばろう",
-        "section": 3
+        "section": 3,
+        "translation": "鋒塗力，鋒塗力，一起加油！"
       },
       {
         "time": 79.18,
         "end": 82.0,
         "text": "ひゃくねんのゆめ　せおって",
-        "section": 3
+        "section": 3,
+        "translation": "肩負百年的夢想，"
       },
       {
         "time": 82.0,
         "end": 84.94,
         "text": "きょうまいたゆめ　あしたのしあわせに",
-        "section": 3
+        "section": 3,
+        "translation": "今天播下的夢，化作明日幸福，"
       },
       {
         "time": 84.94,
         "end": 91.0,
         "text": "ふぇんとぅぱわー　ふぇんとぅぱわー　きみとすすもう",
-        "section": 3
+        "section": 3,
+        "translation": "鋒塗力，鋒塗力，與你一起前行。"
       },
       {
         "time": 93.98,
         "end": 96.2,
         "text": "ひとりはふぇん　ひとりはとぅ",
-        "section": 4
+        "section": 4,
+        "translation": "一個鋒 一個塗"
       },
       {
         "time": 96.2,
         "end": 98.62,
         "text": "なまえをきざむ　みらいず",
-        "section": 4
+        "section": 4,
+        "translation": "把名字刻在未來藍圖，"
       },
       {
         "time": 98.62,
         "end": 101.1,
         "text": "ここから　くにじゅうへ",
-        "section": 4
+        "section": 4,
+        "translation": "從這里 到全國"
       },
       {
         "time": 101.1,
         "end": 103.92,
         "text": "いっぽいっぽ　すすんでこう（へい！）",
-        "section": 4
+        "section": 4,
+        "translation": "一步一步，繼續向前（嘿！）"
       },
       {
         "time": 104.22,
         "end": 107.76,
         "text": "ふぇんとぅぱわー　ふぇんとぅぱわー　がんばろう",
-        "section": 5
+        "section": 5,
+        "translation": "鋒塗力，鋒塗力，一起加油！"
       },
       {
         "time": 107.76,
         "end": 110.5,
         "text": "ひゃくねんのゆめ　せおって",
-        "section": 5
+        "section": 5,
+        "translation": "肩負百年的夢想，"
       },
       {
         "time": 110.68,
         "end": 113.48,
         "text": "きょうまいたゆめ　あしたのしあわせに",
-        "section": 5
+        "section": 5,
+        "translation": "今天播下的夢，化作明日幸福，"
       },
       {
         "time": 113.48,
         "end": 121.44,
         "text": "ふぇんとぅぱわー　ふぇんとぅぱわー　みんなでみらいへすすもう",
-        "section": 5
+        "section": 5,
+        "translation": "鋒塗力，鋒塗力，大家一同邁向未來。"
       }
     ]
   },
@@ -1868,181 +2000,211 @@ export const newEffectsVersions = [
         "time": 3.1,
         "end": 8.62,
         "text": "Taipei's better with us all, get hyped, don't run away!",
-        "section": 0
+        "section": 0,
+        "translation": "台北有大家更美好，嗨起來，別逃跑！"
       },
       {
         "time": 8.62,
         "end": 14.42,
         "text": "From plumbing pipes to a rock band stage, this beat is crazy (wow)!",
-        "section": 0
+        "section": 0,
+        "translation": "從水電管線到搖滾樂團舞台，這節奏太瘋狂！（哇！）"
       },
       {
         "time": 25.3,
         "end": 29.46,
         "text": "Taipei's better with us all, get hyped, don't run away!",
-        "section": 0
+        "section": 0,
+        "translation": "台北有大家更美好，嗨起來，別逃跑！"
       },
       {
         "time": 29.6,
         "end": 35.88,
         "text": "From plumbing pipes to a rock band stage, this beat is crazy (wow)!",
-        "section": 0
+        "section": 0,
+        "translation": "從水電管線到搖滾樂團舞台，這節奏太瘋狂！（哇！）"
       },
       {
         "time": 36.3,
         "end": 40.3,
         "text": "Leader, sing it loud and proud, reporters snapping all around!",
-        "section": 0
+        "section": 0,
+        "translation": "團長，大聲自信地唱，記者們四處拍照！"
       },
       {
         "time": 40.3,
         "end": 45.72,
         "text": "Guitars rule, this life is wild, an S-tier anthem breaking ground!",
-        "section": 0
+        "section": 0,
+        "translation": "吉他至上，人生瘋狂，S 級神曲震撼登場！"
       },
       {
         "time": 45.72,
         "end": 50.84,
         "text": "(Thirty-seven) That year my classmate topped the national exam (yeah)!",
-        "section": 1
+        "section": 1,
+        "translation": "（三十七歲）那年同學考上國家考試榜首！（耶！）"
       },
       {
         "time": 50.84,
         "end": 56.46,
         "text": "Information processing king, his code became a legend, man!",
-        "section": 1
+        "section": 1,
+        "translation": "資訊處理之王，連程式都成為傳奇！"
       },
       {
         "time": 56.46,
         "end": 62.04,
         "text": "Across the glowing screens of time, dreams run like algorithms (run)!",
-        "section": 1
+        "section": 1,
+        "translation": "穿越時代發光的螢幕，夢想像演算法般運轉！（跑！）"
       },
       {
         "time": 62.4,
         "end": 68.36,
         "text": "(Fifty-two) Deputy mayor takes the lead, acting mayor on the run (yo)!",
-        "section": 1
+        "section": 1,
+        "translation": "（五十二歲）副市長帶頭，代理市長忙著奔走！（喲！）"
       },
       {
         "time": 70.68,
         "end": 72.58,
         "text": "Bandmates sing, our leader's great!",
-        "section": 2
+        "section": 2,
+        "translation": "團員們唱著：我們的團長真棒！"
       },
       {
         "time": 72.58,
         "end": 75.22,
         "text": "From waiting list to first place, no delay!",
-        "section": 2
+        "section": 2,
+        "translation": "從備取到第一名，一刻也不耽擱！"
       },
       {
         "time": 75.22,
         "end": 77.92,
         "text": "Don't sing? Your chance gets swept away (ha)!",
-        "section": 2
+        "section": 2,
+        "translation": "不唱？你的機會就被帶走！（哈！）"
       },
       {
         "time": 77.92,
         "end": 80.46,
         "text": "Evolution runs on signals, not on fate!",
-        "section": 2
+        "section": 2,
+        "translation": "進化靠訊號，不靠命運！"
       },
       {
         "time": 81.0,
         "end": 85.26,
         "text": "Taipei's better with us all, get hyped, don't run away!",
-        "section": 3
+        "section": 3,
+        "translation": "台北有大家更美好，嗨起來，別逃跑！"
       },
       {
         "time": 85.26,
         "end": 90.7,
         "text": "From plumbing pipes to rock band lights, debug your destiny today!",
-        "section": 3
+        "section": 3,
+        "translation": "從水電管線到搖滾燈光，今天替命運除錯！"
       },
       {
         "time": 90.7,
         "end": 96.18,
         "text": "Leader's voice is off the charts, the crowd is singing all the way!",
-        "section": 3
+        "section": 3,
+        "translation": "團長嗓門突破極限，全場一路大合唱！"
       },
       {
         "time": 96.18,
         "end": 105.04,
         "text": "Acting mayor's just a phase, the city's dreamed of this great day!",
-        "section": 3
+        "section": 3,
+        "translation": "代理市長只是階段，這座城早就夢想這一天！"
       },
       {
         "time": 105.04,
         "end": 110.22,
         "text": "(Twenty-forty) Neon nights, the National Theater shining bright!",
-        "section": 4
+        "section": 4,
+        "translation": "（二零四零）霓虹之夜，國家戲劇院閃耀光芒！"
       },
       {
         "time": 110.22,
         "end": 112.96,
         "text": "Screwdrivers spinning like an ACG opening tonight!",
-        "section": 4
+        "section": 4,
+        "translation": "螺絲起子旋轉，就像今晚的 ACG 片頭！"
       },
       {
         "time": 112.96,
         "end": 115.48,
         "text": "Don't say impossible, we're the evolution!",
-        "section": 4
+        "section": 4,
+        "translation": "別說不可能，我們就是進化！"
       },
       {
         "time": 115.48,
         "end": 118.2,
         "text": "(AI) Smart pipe control, open data revolution!",
-        "section": 4
+        "section": 4,
+        "translation": "（AI）智慧管線控制，開放資料革命！"
       },
       {
         "time": 118.2,
         "end": 123.28,
         "text": "Yin and yang together shine, plumbing dreams and stage lights intertwine!",
-        "section": 5
+        "section": 5,
+        "translation": "陰陽一同閃耀，水電夢想與舞台燈光交織！"
       },
       {
         "time": 123.28,
         "end": 131.44,
         "text": "One song gets the fans jumping high, the leader wants another line!",
-        "section": 5
+        "section": 5,
+        "translation": "一首歌讓粉絲跳起來，團長還想再唱一段！"
       },
       {
         "time": 131.44,
         "end": 134.46,
         "text": "(Final Chorus)",
-        "section": 6
+        "section": 6,
+        "translation": "（最後副歌）"
       },
       {
         "time": 134.46,
         "end": 138.38,
         "text": "Taipei's better with us all, party till the morning light!",
-        "section": 6
+        "section": 6,
+        "translation": "台北有大家更美好，狂歡直到天亮！"
       },
       {
         "time": 139.23,
         "end": 144.22,
         "text": "From plumbing pipes to rock band stars, the whole town screams tonight!",
-        "section": 6
+        "section": 6,
+        "translation": "從水電管線到搖滾巨星，全城今晚都在尖叫！"
       },
       {
         "time": 144.22,
         "end": 149.36,
         "text": "Even guitar kings agree, this evolution feels so right!",
-        "section": 6
+        "section": 6,
+        "translation": "連吉他高手都認同，這場進化恰到好處！"
       },
       {
         "time": 149.36,
         "end": 151.84,
         "text": "Evolution, evolution!",
-        "section": 6
+        "section": 6,
+        "translation": "進化，進化！"
       },
       {
         "time": 151.84,
         "end": 159.34,
         "text": "No! This is the Plumbing Evolution Show! 🔥",
-        "section": 6
+        "section": 6,
+        "translation": "不！這是水電進化秀！🔥"
       }
     ]
   },
@@ -2060,169 +2222,197 @@ export const newEffectsVersions = [
         "time": 2.76,
         "end": 7.3,
         "text": "たいぺいに みんながいて よかった　もりあがれ にげるなよ！",
-        "section": 0
+        "section": 0,
+        "translation": "台北有大家真好，嗨起來，別逃跑！"
       },
       {
         "time": 8.04,
         "end": 12.86,
         "text": "すいどうから バンドへ しんか　このビート やばすぎる（ワオ）！",
-        "section": 0
+        "section": 0,
+        "translation": "從水電進化到樂團，這節奏太瘋狂！（哇！）"
       },
       {
         "time": 12.86,
         "end": 18.62,
         "text": "だんちょう うたえ えんりょするな　きしゃたち みんな しゃしんをとる！",
-        "section": 0
+        "section": 0,
+        "translation": "團長唱吧，別客氣，記者全都在拍照！"
       },
       {
         "time": 18.62,
         "end": 23.3,
         "text": "ギターしじょう このじんせい　まるで エスきゅうの かしだよ！",
-        "section": 0
+        "section": 0,
+        "translation": "吉他至上的人生，就像 S 級歌詞！"
       },
       {
         "time": 23.3,
         "end": 28.8,
         "text": "（さんじゅうななさい）あのとし どうきゅうせいが しけんで いちばん（イェー）！",
-        "section": 1
+        "section": 1,
+        "translation": "（三十七歲）那年同學考試拿第一！（耶！）"
       },
       {
         "time": 28.8,
         "end": 34.32,
         "text": "じょうほうしょりで なをあげた　プログラムまで でんせつさ！",
-        "section": 1
+        "section": 1,
+        "translation": "資訊處理一戰成名 程式都寫成傳說"
       },
       {
         "time": 37.12,
         "end": 43.14,
         "text": "じだいをこえる がめんのひかり　ゆめは アルゴリズム（ラン）！",
-        "section": 1
+        "section": 1,
+        "translation": "隔著時代的螢幕光 夢想像演算法（run）"
       },
       {
         "time": 43.14,
         "end": 47.34,
         "text": "（ごじゅうにさい）ふくしちょうから だいりしちょう　おおいそがし（ヨー）！",
-        "section": 1
+        "section": 1,
+        "translation": "（五十二歲）從副市長到代理市長，忙得不得了！（喲！）"
       },
       {
         "time": 47.34,
         "end": 50.5,
         "text": "メンバーうたう だんちょう さいこう！",
-        "section": 2
+        "section": 2,
+        "translation": "團員唱著：團長最棒！"
       },
       {
         "time": 50.5,
         "end": 52.82,
         "text": "ほけつから ごうかく いっしゅんだ！",
-        "section": 2
+        "section": 2,
+        "translation": "從備取到錄取，只要一瞬間！"
       },
       {
         "time": 52.82,
         "end": 55.48,
         "text": "うたわなければ しかくとりけし（笑）！",
-        "section": 2
+        "section": 2,
+        "translation": "不唱就取消資格(笑)"
       },
       {
         "time": 55.48,
         "end": 59.04,
         "text": "しんかは うんじゃない シグナルだ！",
-        "section": 2
+        "section": 2,
+        "translation": "進化不靠運氣靠信號"
       },
       {
         "time": 60.74,
         "end": 65.58,
         "text": "たいぺいに みんながいて よかった　もりあがれ にげるなよ！",
-        "section": 3
+        "section": 3,
+        "translation": "台北有大家真好，嗨起來，別逃跑！"
       },
       {
         "time": 66.32,
         "end": 71.3,
         "text": "すいどうから バンドへ しんか　うんめい デバッグ だいばくはつ！",
-        "section": 3
+        "section": 3,
+        "translation": "從水電進化到樂團，命運除錯大爆發！"
       },
       {
         "time": 71.82,
         "end": 76.38,
         "text": "だんちょうの こえは さいだい　みんなで いっしょに だいがっしょう！",
-        "section": 3
+        "section": 3,
+        "translation": "團長嗓門開到爆表 全場跟著大合唱"
       },
       {
         "time": 76.38,
         "end": 82.82,
         "text": "だいりは ただの とおりみち　しみんの ゆめが かなうとき！",
-        "section": 3
+        "section": 3,
+        "translation": "代理只是必經之路，市民夢想實現之時！"
       },
       {
         "time": 83.68,
         "end": 89.8,
         "text": "（にせんよんじゅう）あのよる ネオンが りょうホールを てらしてる！",
-        "section": 4
+        "section": 4,
+        "translation": "(二零四零) 那年的夜 霓虹閃爍到兩廳院"
       },
       {
         "time": 89.8,
         "end": 95.16,
         "text": "ドライバーまるで エーシージーの オープニング！",
-        "section": 4
+        "section": 4,
+        "translation": "螺絲起子像ACG的opening"
       },
       {
         "time": 95.16,
         "end": 100.18,
         "text": "むりだなんて いわないで　みんなが エボリューション！",
-        "section": 4
+        "section": 4,
+        "translation": "別說不可能，大家就是進化！"
       },
       {
         "time": 100.18,
         "end": 105.88,
         "text": "（エーアイ）すいどうかんを サポート　オープンデータ あたらしいじだい！",
-        "section": 4
+        "section": 4,
+        "translation": "（AI）支援水管，開放資料的全新時代！"
       },
       {
         "time": 105.88,
         "end": 110.38,
         "text": "いんとようが ならびたつ　すいどうと ゆめが まじわる ステージ！",
-        "section": 5
+        "section": 5,
+        "translation": "陰陽同框 水電與理想 交錯的舞台線上"
       },
       {
         "time": 114.46,
         "end": 119.2,
         "text": "いっきょくうたえば ファンがとぶ　だんちょう まだまだ うたいたい！",
-        "section": 5
+        "section": 5,
+        "translation": "一首歌唱到粉絲都跳起來 團長還要再唱"
       },
       {
         "time": 119.2,
         "end": 119.78,
         "text": "（ラストサビ）",
-        "section": 6
+        "section": 6,
+        "translation": "（最後副歌）"
       },
       {
         "time": 119.78,
         "end": 124.42,
         "text": "たいぺいに みんながいて よかった　あさまで さわごうよ！",
-        "section": 6
+        "section": 6,
+        "translation": "台北有大家真好，熱鬧直到天亮！"
       },
       {
         "time": 124.42,
         "end": 129.34,
         "text": "すいどうから バンドへの しんかろん　まちじゅう さけんでる！",
-        "section": 6
+        "section": 6,
+        "translation": "水電到樂團的進化論 全城都在尖叫"
       },
       {
         "time": 129.34,
         "end": 132.96,
         "text": "ギターしじょうも うなずいた　このしんか りそうどおり！",
-        "section": 6
+        "section": 6,
+        "translation": "吉他至上也點頭，這場進化正合理想！"
       },
       {
         "time": 132.96,
         "end": 136.82,
         "text": "そうだ そうだ しんかろん！",
-        "section": 6
+        "section": 6,
+        "translation": "對，對，就是進化論！"
       },
       {
         "time": 136.82,
         "end": 143.04,
         "text": "いや！ これは すいどう エボリューション ショー！ 🔥",
-        "section": 6
+        "section": 6,
+        "translation": "不！這是水電進化秀！🔥"
       }
     ]
   },
@@ -2720,289 +2910,337 @@ export const newEffectsVersions = [
         "time": 14.04,
         "end": 16.34,
         "text": "(Meow!) Hey humans, listen up!",
-        "section": 0
+        "section": 0,
+        "translation": "（喵！）人類，聽好了！"
       },
       {
         "time": 16.48,
         "end": 17.92,
         "text": "Bow your heads and show respect!",
-        "section": 0
+        "section": 0,
+        "translation": "低下頭，向本喵致敬！"
       },
       {
         "time": 17.92,
         "end": 19.62,
         "text": "Keep your eyes on me right now!",
-        "section": 0
+        "section": 0,
+        "translation": "現在眼睛都看著本喵！"
       },
       {
         "time": 19.76,
         "end": 21.76,
         "text": "Your royal cat is stepping out!",
-        "section": 0
+        "section": 0,
+        "translation": "尊貴的貓王要出場！"
       },
       {
         "time": 21.76,
         "end": 23.32,
         "text": "This ain't just ordinary fur",
-        "section": 1
+        "section": 1,
+        "translation": "這不是普通的毛，"
       },
       {
         "time": 23.5,
         "end": 25.06,
         "text": "It's a gift from your feline ruler",
-        "section": 1
+        "section": 1,
+        "translation": "這是貓咪君王賜予的禮物。"
       },
       {
         "time": 25.06,
         "end": 26.96,
         "text": "Lying around with a lazy yawn",
-        "section": 1
+        "section": 1,
+        "translation": "懶洋洋躺著打個哈欠，"
       },
       {
         "time": 27.06,
         "end": 28.76,
         "text": "Dropping little treasures all day long",
-        "section": 1
+        "section": 1,
+        "translation": "整天掉下小小寶物。"
       },
       {
         "time": 28.76,
         "end": 31.22,
         "text": "Roll around, it's everywhere",
-        "section": 1
+        "section": 1,
+        "translation": "翻個身，毛就撒滿地，"
       },
       {
         "time": 31.22,
         "end": 35.3,
         "text": "Take two steps, more floating hair",
-        "section": 1
+        "section": 1,
+        "translation": "走兩步，又多了飄飛的毛。"
       },
       {
         "time": 35.3,
         "end": 38.06,
         "text": "Doing nothing, still supreme",
-        "section": 1
+        "section": 1,
+        "translation": "什麼都不做，依然至高無上，"
       },
       {
         "time": 38.7,
         "end": 41.98,
         "text": "You're counting pennies, I'm living the dream",
-        "section": 1
+        "section": 1,
+        "translation": "你在數零錢，本喵活得像夢一樣。"
       },
       {
         "time": 42.62,
         "end": 45.9,
         "text": "Bubu's royal shedding fur (Hey!)",
-        "section": 2
+        "section": 2,
+        "translation": "布布尊貴的掉毛（嘿！）"
       },
       {
         "time": 45.9,
         "end": 50.02,
         "text": "So precious you don't dare breathe it in (Don't breathe it in!)",
-        "section": 2
+        "section": 2,
+        "translation": "珍貴到你不敢吸進去（別吸進去！）"
       },
       {
         "time": 50.02,
         "end": 53.3,
         "text": "Stretch all day and treasures grow",
-        "section": 2
+        "section": 2,
+        "translation": "整天伸懶腰，寶物自然長，"
       },
       {
         "time": 53.3,
         "end": 57.12,
         "text": "Do you want it? Let me know",
-        "section": 2
+        "section": 2,
+        "translation": "想不想要？告訴本喵。"
       },
       {
         "time": 57.12,
         "end": 60.74,
         "text": "Bubu's royal shedding fur (Meow!)",
-        "section": 2
+        "section": 2,
+        "translation": "布布尊貴的掉毛（喵！）"
       },
       {
         "time": 60.74,
         "end": 63.78,
         "text": "Every strand has attitude to show",
-        "section": 2
+        "section": 2,
+        "translation": "每一根都展現傲嬌氣息，"
       },
       {
         "time": 63.78,
         "end": 67.04,
         "text": "Drop your cash and walk away",
-        "section": 2
+        "section": 2,
+        "translation": "放下錢，人就可以走，"
       },
       {
         "time": 67.04,
         "end": 72.12,
         "text": "Whether you get some depends on my day",
-        "section": 2
+        "section": 2,
+        "translation": "拿不拿得到，要看本喵今天心情。"
       },
       {
         "time": 74.62,
         "end": 76.52,
         "text": "Official label, genuine cat",
-        "section": 3
+        "section": 3,
+        "translation": "官方標籤，正宗本喵，"
       },
       {
         "time": 76.52,
         "end": 78.3,
         "text": "No cheap imitation can copy that",
-        "section": 3
+        "section": 3,
+        "translation": "廉價仿品誰都學不來。"
       },
       {
         "time": 78.3,
         "end": 80.18,
         "text": "Every strand says \"Leave me alone\"",
-        "section": 3
+        "section": 3,
+        "translation": "每一根都寫著「別煩我」，"
       },
       {
         "time": 80.18,
         "end": 82.06,
         "text": "Allergic? Your faith just isn't strong",
-        "section": 3
+        "section": 3,
+        "translation": "過敏？只是你的信仰不夠堅定。"
       },
       {
         "time": 82.06,
         "end": 83.6,
         "text": "You're shouting prices, eight-eight-eight",
-        "section": 3
+        "section": 3,
+        "translation": "你在那裡喊價，八八八，"
       },
       {
         "time": 83.6,
         "end": 85.36,
         "text": "Making my ears shake with your debate",
-        "section": 3
+        "section": 3,
+        "translation": "吵得本喵耳朵跟著抖。"
       },
       {
         "time": 85.36,
         "end": 87.3,
         "text": "I flick my tail and say bye-bye",
-        "section": 3
+        "section": 3,
+        "translation": "本喵甩甩尾巴說再見，"
       },
       {
         "time": 87.3,
         "end": 89.12,
         "text": "One more chance to please me, don't ask why",
-        "section": 3
+        "section": 3,
+        "translation": "再給你一次討好機會，別問為什麼。"
       },
       {
         "time": 89.12,
         "end": 92.62,
         "text": "Bubu's royal shedding fur (Meow meow!)",
-        "section": 4
+        "section": 4,
+        "translation": "布布尊貴的掉毛（喵喵！）"
       },
       {
         "time": 92.9,
         "end": 96.06,
         "text": "So precious you don't dare breathe it in (You're shaking now!)",
-        "section": 4
+        "section": 4,
+        "translation": "珍貴到你不敢吸進去（你已經在發抖！）"
       },
       {
         "time": 96.44,
         "end": 99.32,
         "text": "Stretch all day and treasures grow",
-        "section": 4
+        "section": 4,
+        "translation": "整天伸懶腰，寶物自然長，"
       },
       {
         "time": 99.32,
         "end": 103.1,
         "text": "Do you want it? Let me know",
-        "section": 4
+        "section": 4,
+        "translation": "想不想要？告訴本喵。"
       },
       {
         "time": 103.1,
         "end": 106.1,
         "text": "Bubu's royal shedding fur (Hey!)",
-        "section": 4
+        "section": 4,
+        "translation": "布布尊貴的掉毛（嘿！）"
       },
       {
         "time": 106.62,
         "end": 109.64,
         "text": "Every strand has attitude to show",
-        "section": 4
+        "section": 4,
+        "translation": "每一根都展現傲嬌氣息，"
       },
       {
         "time": 109.64,
         "end": 112.84,
         "text": "Drop your cash and walk away",
-        "section": 4
+        "section": 4,
+        "translation": "放下錢，人就可以走，"
       },
       {
         "time": 112.84,
         "end": 117.84,
         "text": "Whether you get some depends on my day",
-        "section": 4
+        "section": 4,
+        "translation": "拿不拿得到，要看本喵今天心情。"
       },
       {
         "time": 117.84,
         "end": 121.26,
         "text": "Today I shed across your bed",
-        "section": 5
+        "section": 5,
+        "translation": "今天本喵掉滿你的床，"
       },
       {
         "time": 121.26,
         "end": 124.74,
         "text": "Tomorrow I might take it back instead",
-        "section": 5
+        "section": 5,
+        "translation": "明天可能又全部收回來。"
       },
       {
         "time": 124.74,
         "end": 128.1,
         "text": "Next day I'm happy, might swallow it all",
-        "section": 5
+        "section": 5,
+        "translation": "後天心情好，可能全吞下肚，"
       },
       {
         "time": 128.1,
         "end": 132.7,
         "text": "You'll just scroll through my photos on your phone (Meow!)",
-        "section": 5
+        "section": 5,
+        "translation": "你只剩滑手機看本喵的照片（喵！）"
       },
       {
         "time": 133.16,
         "end": 136.0,
         "text": "Bubu's royal shedding fur",
-        "section": 6
+        "section": 6,
+        "translation": "布布尊貴的掉毛，"
       },
       {
         "time": 136.66,
         "end": 139.7,
         "text": "Getting some means you've earned my favor",
-        "section": 6
+        "section": 6,
+        "translation": "拿得到，表示你贏得本喵青睞。"
       },
       {
         "time": 139.7,
         "end": 143.18,
         "text": "This ain't shopping, it's a holy honor",
-        "section": 6
+        "section": 6,
+        "translation": "這不是購物，是神聖的榮耀，"
       },
       {
         "time": 143.18,
         "end": 146.82,
         "text": "Bow down lower, don't make a sound",
-        "section": 6
+        "section": 6,
+        "translation": "頭再低一點，不要出聲。"
       },
       {
         "time": 146.82,
         "end": 150.06,
         "text": "Bubu's royal shedding fur (Meow~)",
-        "section": 6
+        "section": 6,
+        "translation": "布布尊貴的掉毛（喵～）"
       },
       {
         "time": 150.34,
         "end": 153.18,
         "text": "That's my final royal word",
-        "section": 6
+        "section": 6,
+        "translation": "這就是本喵最後的諭令，"
       },
       {
         "time": 153.18,
         "end": 156.36,
         "text": "Drop your cash and walk away",
-        "section": 6
+        "section": 6,
+        "translation": "放下錢，人就可以走，"
       },
       {
         "time": 156.36,
         "end": 161.5,
         "text": "Line up and worship me all day (Meow meow!)",
-        "section": 6
+        "section": 6,
+        "translation": "整天排隊朝拜本喵吧（喵喵！）"
       }
     ]
   },
@@ -3020,289 +3258,337 @@ export const newEffectsVersions = [
         "time": 14.88,
         "end": 16.34,
         "text": "（ニャー！）にんげん よくきけ",
-        "section": 0
+        "section": 0,
+        "translation": "（喵！）人類，仔細聽好！"
       },
       {
         "time": 16.44,
         "end": 18.0,
         "text": "あたまを さげて ひざまずけ",
-        "section": 0
+        "section": 0,
+        "translation": "低下頭，跪下來，"
       },
       {
         "time": 18.0,
         "end": 19.66,
         "text": "おめめを あけて よくみてね",
-        "section": 0
+        "section": 0,
+        "translation": "睜大眼睛，仔細看，"
       },
       {
         "time": 19.8,
         "end": 21.56,
         "text": "ほんにゃんさまの おでましだ",
-        "section": 0
+        "section": 0,
+        "translation": "本喵大駕光臨！"
       },
       {
         "time": 21.88,
         "end": 23.02,
         "text": "これは ただの けじゃない",
-        "section": 1
+        "section": 1,
+        "translation": "這不是普通的毛，"
       },
       {
         "time": 23.24,
         "end": 24.94,
         "text": "ほんにゃんが おとした たからもの",
-        "section": 1
+        "section": 1,
+        "translation": "這是本喵掉下的寶物。"
       },
       {
         "time": 24.94,
         "end": 26.8,
         "text": "ごろごろ あくびを しながら",
-        "section": 1
+        "section": 1,
+        "translation": "懶洋洋滾著打哈欠，"
       },
       {
         "time": 26.8,
         "end": 28.44,
         "text": "キラキラ けだまを プレゼント",
-        "section": 1
+        "section": 1,
+        "translation": "送你閃閃發亮的毛球禮物。"
       },
       {
         "time": 28.44,
         "end": 31.92,
         "text": "ころんと ねがえり けがまう",
-        "section": 1
+        "section": 1,
+        "translation": "翻個身，毛就撒滿地，"
       },
       {
         "time": 31.92,
         "end": 35.0,
         "text": "にほあるけば またふえる",
-        "section": 1
+        "section": 1,
+        "translation": "走兩步，又多了飄飛的毛。"
       },
       {
         "time": 35.0,
         "end": 38.74,
         "text": "なにもしないで このきひん",
-        "section": 1
+        "section": 1,
+        "translation": "什麼都不做，就這麼高貴，"
       },
       {
         "time": 38.74,
         "end": 42.82,
         "text": "おまえは そこで かねかぞえ",
-        "section": 1
+        "section": 1,
+        "translation": "你還在那裡數錢。"
       },
       {
         "time": 42.82,
         "end": 46.18,
         "text": "ニャーブブ ほんにゃんの け（ヘイ！）",
-        "section": 2
+        "section": 2,
+        "translation": "喵布布，本喵的毛（嘿！）"
       },
       {
         "time": 46.42,
         "end": 50.34,
         "text": "とうとすぎて すえないよ（すえないよ！）",
-        "section": 2
+        "section": 2,
+        "translation": "珍貴到吸不得（吸不得！）"
       },
       {
         "time": 50.58,
         "end": 52.14,
         "text": "ねころび のびれば おたからだ",
-        "section": 2
+        "section": 2,
+        "translation": "躺著伸個懶腰，就成了寶物，"
       },
       {
         "time": 53.0,
         "end": 56.56,
         "text": "ほしいかどうか いってみな",
-        "section": 2
+        "section": 2,
+        "translation": "想不想要，說說看。"
       },
       {
         "time": 56.56,
         "end": 60.2,
         "text": "ニャーブブ ほんにゃんの け（ニャー！）",
-        "section": 2
+        "section": 2,
+        "translation": "喵布布，本喵的毛（喵！）"
       },
       {
         "time": 60.2,
         "end": 63.76,
         "text": "いっぽん いっぽん ツンデレのかおり",
-        "section": 2
+        "section": 2,
+        "translation": "一根一根，都是傲嬌的香氣，"
       },
       {
         "time": 63.76,
         "end": 66.82,
         "text": "おかねを おいて さようなら",
-        "section": 2
+        "section": 2,
+        "translation": "放下錢，人就可以走，"
       },
       {
         "time": 67.5,
         "end": 71.34,
         "text": "かえるかどうか きぶんしだい",
-        "section": 2
+        "section": 2,
+        "translation": "買不買得到，全看本喵心情。"
       },
       {
         "time": 73.82,
         "end": 75.86,
         "text": "ほんにゃんじるしの ほんものだ",
-        "section": 3
+        "section": 3,
+        "translation": "本喵標記，貨真價實，"
       },
       {
         "time": 75.86,
         "end": 77.54,
         "text": "にせものなんか ゆるさない",
-        "section": 3
+        "section": 3,
+        "translation": "假貨什麼的，絕不容許。"
       },
       {
         "time": 77.54,
         "end": 79.2,
         "text": "いっぽん いっぽん 「ほっといて」",
-        "section": 3
+        "section": 3,
+        "translation": "一根一根，都寫著「別管我」，"
       },
       {
         "time": 79.2,
         "end": 81.7,
         "text": "アレルギー？ しんじるこころが たりないね",
-        "section": 3
+        "section": 3,
+        "translation": "過敏？是你信仰的心還不夠。"
       },
       {
         "time": 81.7,
         "end": 83.1,
         "text": "おまえが さけぶ はちはちはち",
-        "section": 3
+        "section": 3,
+        "translation": "你在那裡喊價，八八八，"
       },
       {
         "time": 83.1,
         "end": 85.1,
         "text": "うるさくて おみみが ぴくぴく",
-        "section": 3
+        "section": 3,
+        "translation": "太吵了，耳朵都在抖，"
       },
       {
         "time": 85.1,
         "end": 86.86,
         "text": "しっぽを ふって バイバイバイ",
-        "section": 3
+        "section": 3,
+        "translation": "本喵甩甩尾巴說再見，"
       },
       {
         "time": 86.86,
         "end": 88.6,
         "text": "チャンスを あげる ありがたくね",
-        "section": 3
+        "section": 3,
+        "translation": "給你個機會，要心懷感激。"
       },
       {
         "time": 88.6,
         "end": 92.46,
         "text": "ニャーブブ ほんにゃんの け（ニャーニャー！）",
-        "section": 4
+        "section": 4,
+        "translation": "喵布布，本喵的毛（喵喵！）"
       },
       {
         "time": 92.46,
         "end": 95.62,
         "text": "とうとすぎて すえないよ（ブルブルだ！）",
-        "section": 4
+        "section": 4,
+        "translation": "珍貴到吸不得（抖個不停！）"
       },
       {
         "time": 95.62,
         "end": 98.52,
         "text": "ねころび のびれば おたからだ",
-        "section": 4
+        "section": 4,
+        "translation": "躺著伸個懶腰，就成了寶物，"
       },
       {
         "time": 98.52,
         "end": 102.14,
         "text": "ほしいかどうか いってみな",
-        "section": 4
+        "section": 4,
+        "translation": "想不想要，說說看。"
       },
       {
         "time": 102.7,
         "end": 106.3,
         "text": "ニャーブブ ほんにゃんの け（ヘイ！）",
-        "section": 4
+        "section": 4,
+        "translation": "喵布布，本喵的毛（嘿！）"
       },
       {
         "time": 106.3,
         "end": 108.9,
         "text": "いっぽん いっぽん ツンデレのかおり",
-        "section": 4
+        "section": 4,
+        "translation": "一根一根，都是傲嬌的香氣，"
       },
       {
         "time": 108.9,
         "end": 112.28,
         "text": "おかねを おいて さようなら",
-        "section": 4
+        "section": 4,
+        "translation": "放下錢，人就可以走，"
       },
       {
         "time": 112.28,
         "end": 116.96,
         "text": "かえるかどうか きぶんしだい",
-        "section": 4
+        "section": 4,
+        "translation": "買不買得到，全看本喵心情。"
       },
       {
         "time": 116.96,
         "end": 119.4,
         "text": "きょうは きまぐれ ベッドに け",
-        "section": 5
+        "section": 5,
+        "translation": "今天心血來潮，在床上掉毛，"
       },
       {
         "time": 120.24,
         "end": 123.18,
         "text": "あしたは ぜんぶ かえしてね",
-        "section": 5
+        "section": 5,
+        "translation": "明天全部還給本喵。"
       },
       {
         "time": 123.18,
         "end": 126.64,
         "text": "あさって ごきげん たべちゃうかも",
-        "section": 5
+        "section": 5,
+        "translation": "後天心情好，也許就吃掉，"
       },
       {
         "time": 126.64,
         "end": 130.2,
         "text": "おまえは スマホで しゃしんを みるだけ（ニャー！）",
-        "section": 5
+        "section": 5,
+        "translation": "你只能拿手機看照片（喵！）"
       },
       {
         "time": 130.86,
         "end": 134.74,
         "text": "ニャーブブ ほんにゃんの け",
-        "section": 6
+        "section": 6,
+        "translation": "喵布布，本喵的毛，"
       },
       {
         "time": 134.74,
         "end": 138.18,
         "text": "かえたら ほんにゃんの ごほうびだ",
-        "section": 6
+        "section": 6,
+        "translation": "買得到，就是本喵給你的獎賞。"
       },
       {
         "time": 138.18,
         "end": 141.46,
         "text": "これは とりひき じゃないんだ",
-        "section": 6
+        "section": 6,
+        "translation": "這可不是什麼交易，"
       },
       {
         "time": 141.46,
         "end": 145.38,
         "text": "おまいり するなら あたまを さげろ",
-        "section": 6
+        "section": 6,
+        "translation": "要來朝拜，就把頭低下。"
       },
       {
         "time": 145.38,
         "end": 149.1,
         "text": "ニャーブブ ほんにゃんの け（ニャー！）",
-        "section": 6
+        "section": 6,
+        "translation": "喵布布，本喵的毛（喵！）"
       },
       {
         "time": 149.1,
         "end": 151.98,
         "text": "さいごの おつげだ よくきけよ",
-        "section": 6
+        "section": 6,
+        "translation": "最後的諭示，給本喵聽好，"
       },
       {
         "time": 151.98,
         "end": 155.42,
         "text": "おかねを おいて さようなら",
-        "section": 6
+        "section": 6,
+        "translation": "放下錢，人就可以走，"
       },
       {
         "time": 155.42,
         "end": 162.02,
         "text": "ならんで おがめ ほんにゃんを（ニャーニャー！）",
-        "section": 6
+        "section": 6,
+        "translation": "排好隊，膜拜本喵（喵喵！）"
       }
     ]
   },
@@ -3777,187 +4063,218 @@ export const newEffectsVersions = [
         "time": 14.435,
         "end": 17.025,
         "text": "The Legendary Life of Brother Feng",
-        "section": 0
+        "section": 0,
+        "translation": "鋒兄的傳奇人生"
       },
       {
         "time": 17.355,
         "end": 19.865,
         "text": "From Jackpot to Number One",
-        "section": 0
+        "section": 0,
+        "translation": "從頭獎到第一名"
       },
       {
         "time": 20.075,
         "end": 25.055,
         "text": "From Number One to President",
-        "section": 0
+        "section": 0,
+        "translation": "從第一名到總統"
       },
       {
         "time": 25.055,
         "end": 27.335,
         "text": "At Thirty-Seven",
-        "section": 1
+        "section": 1,
+        "translation": "三十七歲"
       },
       {
         "time": 27.335,
         "end": 31.895,
         "text": "Special Invoice Prize Winner",
-        "section": 1
+        "section": 1,
+        "translation": "發票特別獎得主"
       },
       {
         "time": 31.895,
         "end": 35.855,
         "text": "Power Lottery Jackpot Winner",
-        "section": 1
+        "section": 1,
+        "translation": "威力彩頭獎得主"
       },
       {
         "time": 35.855,
         "end": 37.615,
         "text": "Lotto Jackpot Winner",
-        "section": 1
+        "section": 1,
+        "translation": "大樂透頭獎得主"
       },
       {
         "time": 37.615,
         "end": 41.385,
         "text": "Top Rank in Civil Service IT Exam",
-        "section": 1
+        "section": 1,
+        "translation": "公務人員資訊科技考試榜首"
       },
       {
         "time": 42.355,
         "end": 44.565,
         "text": "Gave Up the Appointment",
-        "section": 1
+        "section": 1,
+        "translation": "放棄報到"
       },
       {
         "time": 44.915,
         "end": 47.105,
         "text": "Brother Feng and Brother Tu",
-        "section": 1
+        "section": 1,
+        "translation": "鋒兄與塗哥"
       },
       {
         "time": 48.095,
         "end": 51.395,
         "text": "Public Relations and IT",
-        "section": 1
+        "section": 1,
+        "translation": "公關與資訊"
       },
       {
         "time": 51.395,
         "end": 53.195,
         "text": "Starting a Business",
-        "section": 1
+        "section": 1,
+        "translation": "創業"
       },
       {
         "time": 53.195,
         "end": 57.465,
         "text": "At Fifty-One",
-        "section": 2
+        "section": 2,
+        "translation": "五十一歲"
       },
       {
         "time": 58.455,
         "end": 62.165,
         "text": "Taipei City IT Commissioner",
-        "section": 2
+        "section": 2,
+        "translation": "台北市資訊局長"
       },
       {
         "time": 63.195,
         "end": 65.385,
         "text": "At Fifty-Two",
-        "section": 2
+        "section": 2,
+        "translation": "五十二歲"
       },
       {
         "time": 65.875,
         "end": 68.975,
         "text": "Taipei Deputy Secretary-General",
-        "section": 2
+        "section": 2,
+        "translation": "台北市副秘書長"
       },
       {
         "time": 68.975,
         "end": 70.725,
         "text": "At Fifty-Three",
-        "section": 2
+        "section": 2,
+        "translation": "五十三歲"
       },
       {
         "time": 71.155,
         "end": 73.585,
         "text": "Taipei Deputy Mayor",
-        "section": 2
+        "section": 2,
+        "translation": "台北市副市長"
       },
       {
         "time": 74.195,
         "end": 76.425,
         "text": "At Fifty-Four",
-        "section": 2
+        "section": 2,
+        "translation": "五十四歲"
       },
       {
         "time": 76.835,
         "end": 80.415,
         "text": "Taipei Mayoral Candidate",
-        "section": 2
+        "section": 2,
+        "translation": "台北市長候選人"
       },
       {
         "time": 80.415,
         "end": 82.515,
         "text": "Ten-Billion Mayor",
-        "section": 3
+        "section": 3,
+        "translation": "百億市長"
       },
       {
         "time": 82.515,
         "end": 85.085,
         "text": "Brother Feng Strikes It Rich",
-        "section": 3
+        "section": 3,
+        "translation": "鋒兄發大財"
       },
       {
         "time": 89.315,
         "end": 91.795,
         "text": "Lucky Taipei",
-        "section": 3
+        "section": 3,
+        "translation": "幸運台北"
       },
       {
         "time": 91.795,
         "end": 93.735,
         "text": "At Sixty-Three",
-        "section": 4
+        "section": 4,
+        "translation": "六十三歲"
       },
       {
         "time": 93.735,
         "end": 96.835,
         "text": "Presidential Candidate",
-        "section": 4
+        "section": 4,
+        "translation": "總統候選人"
       },
       {
         "time": 96.835,
         "end": 99.615,
         "text": "Trillion-Dollar President",
-        "section": 4
+        "section": 4,
+        "translation": "一兆總統"
       },
       {
         "time": 99.615,
         "end": 101.735,
         "text": "Brother Feng Strikes It Rich",
-        "section": 4
+        "section": 4,
+        "translation": "鋒兄發大財"
       },
       {
         "time": 101.735,
         "end": 103.745,
         "text": "Lucky Taiwan",
-        "section": 4
+        "section": 4,
+        "translation": "幸運台灣"
       },
       {
         "time": 132.375,
         "end": 135.795,
         "text": "The Legendary Life of Brother Feng",
-        "section": 5
+        "section": 5,
+        "translation": "鋒兄的傳奇人生"
       },
       {
         "time": 135.795,
         "end": 138.885,
         "text": "From Jackpot to Number One",
-        "section": 5
+        "section": 5,
+        "translation": "從頭獎到第一名"
       },
       {
         "time": 139.235,
         "end": 145.505,
         "text": "From Number One to President",
-        "section": 5
+        "section": 5,
+        "translation": "從第一名到總統"
       }
     ]
   },
@@ -3975,193 +4292,225 @@ export const newEffectsVersions = [
         "time": 10.235,
         "end": 13.985,
         "text": "ふぉんにいの でんせつじんせい",
-        "section": 0
+        "section": 0,
+        "translation": "鋒兄的傳奇人生"
       },
       {
         "time": 14.375,
         "end": 17.175,
         "text": "いっとうしょうから しゅせきへ",
-        "section": 0
+        "section": 0,
+        "translation": "從頭獎到榜首"
       },
       {
         "time": 17.175,
         "end": 23.155,
         "text": "しゅせきから だいとうりょうへ",
-        "section": 0
+        "section": 0,
+        "translation": "從榜首到總統"
       },
       {
         "time": 23.155,
         "end": 24.895,
         "text": "さんじゅうななさい",
-        "section": 1
+        "section": 1,
+        "translation": "三十七歲"
       },
       {
         "time": 24.895,
         "end": 28.575,
         "text": "とういつれしーと とくべつしょう とうせんしゃ",
-        "section": 1
+        "section": 1,
+        "translation": "統一發票特別獎得主"
       },
       {
         "time": 28.575,
         "end": 34.415,
         "text": "いりょくさいくじ いっとうしょう とうせんしゃ",
-        "section": 1
+        "section": 1,
+        "translation": "威力彩頭獎得主"
       },
       {
         "time": 34.415,
         "end": 39.775,
         "text": "だいろと いっとうしょう とうせんしゃ",
-        "section": 1
+        "section": 1,
+        "translation": "大樂透頭獎得主"
       },
       {
         "time": 39.775,
         "end": 42.135,
         "text": "こうとうこうむいんしけん",
-        "section": 1
+        "section": 1,
+        "translation": "高等公務員考試"
       },
       {
         "time": 42.135,
         "end": 44.515,
         "text": "じょうほうしょりの しゅせき",
-        "section": 1
+        "section": 1,
+        "translation": "資訊處理榜首"
       },
       {
         "time": 44.515,
         "end": 49.155,
         "text": "ちゃくにんを じたい",
-        "section": 1
+        "section": 1,
+        "translation": "放棄報到"
       },
       {
         "time": 49.155,
         "end": 51.755,
         "text": "ふぉんにい とぅーにい",
-        "section": 1
+        "section": 1,
+        "translation": "鋒兄與塗哥"
       },
       {
         "time": 51.755,
         "end": 52.995,
         "text": "こうほうと じょうほう",
-        "section": 1
+        "section": 1,
+        "translation": "公關與資訊"
       },
       {
         "time": 52.995,
         "end": 55.275,
         "text": "きぎょうする",
-        "section": 1
+        "section": 1,
+        "translation": "一起創業"
       },
       {
         "time": 55.275,
         "end": 56.665,
         "text": "ごじゅういっさい",
-        "section": 2
+        "section": 2,
+        "translation": "五十一歲"
       },
       {
         "time": 57.055,
         "end": 60.655,
         "text": "たいぺいし じょうほうきょくちょう",
-        "section": 2
+        "section": 2,
+        "translation": "台北市資訊局長"
       },
       {
         "time": 60.655,
         "end": 62.385,
         "text": "ごじゅうにさい",
-        "section": 2
+        "section": 2,
+        "translation": "五十二歲"
       },
       {
         "time": 62.635,
         "end": 66.375,
         "text": "たいぺいし ふくひしょちょう",
-        "section": 2
+        "section": 2,
+        "translation": "台北市副秘書長"
       },
       {
         "time": 66.375,
         "end": 68.065,
         "text": "ごじゅうさんさい",
-        "section": 2
+        "section": 2,
+        "translation": "五十三歲"
       },
       {
         "time": 68.315,
         "end": 72.055,
         "text": "たいぺいし ふくしちょう",
-        "section": 2
+        "section": 2,
+        "translation": "台北市副市長"
       },
       {
         "time": 72.055,
         "end": 73.465,
         "text": "ごじゅうよんさい",
-        "section": 2
+        "section": 2,
+        "translation": "五十四歲"
       },
       {
         "time": 73.665,
         "end": 77.065,
         "text": "たいぺいしちょう こうほしゃ",
-        "section": 2
+        "section": 2,
+        "translation": "台北市長候選人"
       },
       {
         "time": 77.735,
         "end": 83.335,
         "text": "ひゃくおくの しちょう",
-        "section": 3
+        "section": 3,
+        "translation": "百億市長"
       },
       {
         "time": 83.335,
         "end": 87.305,
         "text": "ふぉんにい おおがねもち",
-        "section": 3
+        "section": 3,
+        "translation": "鋒兄發大財"
       },
       {
         "time": 87.905,
         "end": 91.115,
         "text": "らっきー たいぺい",
-        "section": 3
+        "section": 3,
+        "translation": "幸運台北"
       },
       {
         "time": 91.115,
         "end": 93.785,
         "text": "ろくじゅうさんさい",
-        "section": 4
+        "section": 4,
+        "translation": "六十三歲"
       },
       {
         "time": 93.995,
         "end": 95.885,
         "text": "だいとうりょう こうほしゃ",
-        "section": 4
+        "section": 4,
+        "translation": "總統候選人"
       },
       {
         "time": 96.915,
         "end": 102.715,
         "text": "いっちょうの だいとうりょう",
-        "section": 4
+        "section": 4,
+        "translation": "一兆總統"
       },
       {
         "time": 102.715,
         "end": 108.345,
         "text": "ふぉんにい おおがねもち",
-        "section": 4
+        "section": 4,
+        "translation": "鋒兄發大財"
       },
       {
         "time": 108.665,
         "end": 115.639,
         "text": "らっきー たいわん",
-        "section": 4
+        "section": 4,
+        "translation": "幸運台灣"
       },
       {
         "time": 115.639,
         "end": 119.365,
         "text": "ふぉんにいの でんせつじんせい",
-        "section": 5
+        "section": 5,
+        "translation": "鋒兄的傳奇人生"
       },
       {
         "time": 119.655,
         "end": 122.315,
         "text": "いっとうしょうから しゅせきへ",
-        "section": 5
+        "section": 5,
+        "translation": "從頭獎到榜首"
       },
       {
         "time": 122.315,
         "end": 127.765,
         "text": "しゅせきから だいとうりょうへ",
-        "section": 5
+        "section": 5,
+        "translation": "從榜首到總統"
       }
     ]
   },
@@ -4816,583 +5165,680 @@ export const newEffectsVersions = [
         "time": 11.255,
         "end": 13.785,
         "text": "June fifteenth, two thousand and four",
-        "section": 0
+        "section": 0,
+        "translation": "二零零四年六月十五日，"
       },
       {
         "time": 14.015,
         "end": 18.015,
         "text": "A day for junior high graduates to sign their yearbooks",
-        "section": 0
+        "section": 0,
+        "translation": "這天是國中畢業生在畢業紀念冊簽名的日子，"
       },
       {
         "time": 18.015,
         "end": 20.615,
         "text": "A day to leave their memories behind",
-        "section": 0
+        "section": 0,
+        "translation": "留下屬於他們的回憶，"
       },
       {
         "time": 20.615,
         "end": 23.865,
         "text": "And the beginning of our hero's story",
-        "section": 0
+        "section": 0,
+        "translation": "也是我們故事主角的起點，"
       },
       {
         "time": 24.035,
         "end": 26.375,
         "text": "The Plumbing God, Tu San-Jie",
-        "section": 0
+        "section": 0,
+        "translation": "塗神，塗三傑，"
       },
       {
         "time": 26.375,
         "end": 31.315,
         "text": "Known to the world as Brother Tu!",
-        "section": 0
+        "section": 0,
+        "translation": "江湖人稱塗哥！"
       },
       {
         "time": 31.315,
         "end": 34.195,
         "text": "Brother Tu was eating at a snack shop in Taichung",
-        "section": 1
+        "section": 1,
+        "translation": "塗哥正在台中的小吃店用餐，"
       },
       {
         "time": 34.195,
         "end": 35.635,
         "text": "His friend pointed at the TV",
-        "section": 1
+        "section": 1,
+        "translation": "同行指著電視，"
       },
       {
         "time": 35.635,
         "end": 37.385,
         "text": "\"Taipei's got a student movement!",
-        "section": 1
+        "section": 1,
+        "translation": "「台北發生學生運動！"
       },
       {
         "time": 37.835,
         "end": 39.055,
         "text": "The Sunflower Movement!\"",
-        "section": 1
+        "section": 1,
+        "translation": "太陽花學運！」"
       },
       {
         "time": 39.055,
         "end": 41.875,
         "text": "Brother Tu said, \"Politics? I don't understand!",
-        "section": 1
+        "section": 1,
+        "translation": "塗哥說：「政治？我不懂！"
       },
       {
         "time": 41.875,
         "end": 46.875,
         "text": "Let's go buy some sun cakes instead!\"",
-        "section": 1
+        "section": 1,
+        "translation": "不如去買太陽餅吧！」"
       },
       {
         "time": 46.875,
         "end": 48.765,
         "text": "\"I heard Brother Feng say",
-        "section": 2
+        "section": 2,
+        "translation": "「我聽鋒兄說，"
       },
       {
         "time": 49.075,
         "end": 50.115,
         "text": "Changhua's famous for sunflowers!",
-        "section": 2
+        "section": 2,
+        "translation": "彰化以向日葵聞名！"
       },
       {
         "time": 50.115,
         "end": 52.255,
         "text": "Next month let's visit a farm",
-        "section": 2
+        "section": 2,
+        "translation": "下個月一起去農場，"
       },
       {
         "time": 52.255,
         "end": 55.035,
         "text": "And enjoy a little sunshine!\"",
-        "section": 2
+        "section": 2,
+        "translation": "享受一點陽光吧！」"
       },
       {
         "time": 55.035,
         "end": 57.855,
         "text": "His friend's work instincts kicked right in",
-        "section": 2
+        "section": 2,
+        "translation": "同行的職業病立刻發作，"
       },
       {
         "time": 57.855,
         "end": 60.655,
         "text": "Talking farm construction like a king!",
-        "section": 2
+        "section": 2,
+        "translation": "談起農場施工，簡直頭頭是道！"
       },
       {
         "time": 60.655,
         "end": 65.115,
         "text": "Brother Feng's Little History Class!",
-        "section": 3
+        "section": 3,
+        "translation": "鋒兄歷史小學堂！"
       },
       {
         "time": 65.115,
         "end": 66.505,
         "text": "Apprentice Lin said,",
-        "section": 4
+        "section": 4,
+        "translation": "林學徒說，"
       },
       {
         "time": 66.635,
         "end": 69.095,
         "text": "\"AI robots might replace plumbers someday!",
-        "section": 4
+        "section": 4,
+        "translation": "「AI 機器人有一天可能取代水電工！"
       },
       {
         "time": 69.095,
         "end": 71.315,
         "text": "I'm so worried, what can I do?\"",
-        "section": 4
+        "section": 4,
+        "translation": "我好擔心，該怎麼辦？」"
       },
       {
         "time": 71.315,
         "end": 72.385,
         "text": "Brother Tu said,",
-        "section": 4
+        "section": 4,
+        "translation": "塗哥說，"
       },
       {
         "time": 72.495,
         "end": 73.915,
         "text": "\"But Brother Feng told me",
-        "section": 4
+        "section": 4,
+        "translation": "「可是鋒兄告訴我，"
       },
       {
         "time": 73.915,
         "end": 75.735,
         "text": "That's the future, not today!",
-        "section": 4
+        "section": 4,
+        "translation": "那是未來，不是現在！"
       },
       {
         "time": 75.735,
         "end": 78.455,
         "text": "Just focus on the work in front of you!\"",
-        "section": 4
+        "section": 4,
+        "translation": "先專心做好眼前的工作！」"
       },
       {
         "time": 78.455,
         "end": 79.245,
         "text": "Brother Tu said,",
-        "section": 5
+        "section": 5,
+        "translation": "塗哥說，"
       },
       {
         "time": 79.315,
         "end": 82.035,
         "text": "\"I've got a classmate who's deputy mayor in Taipei!\"",
-        "section": 5
+        "section": 5,
+        "translation": "「我有個同學在台北當副市長！」"
       },
       {
         "time": 82.035,
         "end": 83.145,
         "text": "His friend replied,",
-        "section": 5
+        "section": 5,
+        "translation": "同行回答，"
       },
       {
         "time": 83.155,
         "end": 84.335,
         "text": "\"You mean Brother Feng?\"",
-        "section": 5
+        "section": 5,
+        "translation": "「你是說鋒兄？」"
       },
       {
         "time": 84.335,
         "end": 86.975,
         "text": "\"Brother Feng? No way!",
-        "section": 5
+        "section": 5,
+        "translation": "「鋒兄？不可能！"
       },
       {
         "time": 86.975,
         "end": 88.395,
         "text": "He's a regional manager",
-        "section": 5
+        "section": 5,
+        "translation": "他是區域經理，"
       },
       {
         "time": 88.395,
         "end": 89.895,
         "text": "At Green Papaya Bubble Tea!",
-        "section": 5
+        "section": 5,
+        "translation": "在青木瓜手搖飲！"
       },
       {
         "time": 89.895,
         "end": 92.335,
         "text": "The deputy mayor is Huang Xin-Feng!\"",
-        "section": 5
+        "section": 5,
+        "translation": "副市長是黃馨鋒！」"
       },
       {
         "time": 92.335,
         "end": 93.565,
         "text": "His friend said,",
-        "section": 6
+        "section": 6,
+        "translation": "同行說，"
       },
       {
         "time": 93.635,
         "end": 95.095,
         "text": "\"Oh, I thought you meant Brother Feng!",
-        "section": 6
+        "section": 6,
+        "translation": "「喔，我還以為你指鋒兄！"
       },
       {
         "time": 95.095,
         "end": 98.035,
         "text": "Their names both have Feng in them!\"",
-        "section": 6
+        "section": 6,
+        "translation": "他們的名字都有個鋒字！」"
       },
       {
         "time": 98.035,
         "end": 100.615,
         "text": "\"By the way, won't your classmate",
-        "section": 7
+        "section": 7,
+        "translation": "「對了，你那位同學，"
       },
       {
         "time": 100.615,
         "end": 102.835,
         "text": "Run for mayor of Taipei?\"",
-        "section": 7
+        "section": 7,
+        "translation": "不參選台北市長嗎？」"
       },
       {
         "time": 102.835,
         "end": 103.955,
         "text": "Brother Tu said,",
-        "section": 7
+        "section": 7,
+        "translation": "塗哥說，"
       },
       {
         "time": 103.955,
         "end": 106.505,
         "text": "\"My classmate wrote a book about plumbers!",
-        "section": 7
+        "section": 7,
+        "translation": "「我同學寫了一本水電工的書！"
       },
       {
         "time": 106.975,
         "end": 109.295,
         "text": "He says he'll only have a chance to run",
-        "section": 7
+        "section": 7,
+        "translation": "他說只有達到銷量門檻，才有參選的機會，"
       },
       {
         "time": 109.295,
         "end": 112.805,
         "text": "When sales pass two point five million copies!\"",
-        "section": 7
+        "section": 7,
+        "translation": "那就是賣出超過兩百五十萬冊！」"
       },
       {
         "time": 115.035,
         "end": 117.125,
         "text": "Someone at Taipei Zoo",
-        "section": 8
+        "section": 8,
+        "translation": "有人在台北動物園，"
       },
       {
         "time": 117.495,
         "end": 118.715,
         "text": "Started singing in a flash mob!",
-        "section": 8
+        "section": 8,
+        "translation": "開始快閃唱歌！"
       },
       {
         "time": 118.715,
         "end": 120.995,
         "text": "\"The zoo's going crazy!\"",
-        "section": 8
+        "section": 8,
+        "translation": "「動物園不得了啦！」"
       },
       {
         "time": 120.995,
         "end": 123.405,
         "text": "Crayon Shin-chan on the scene!",
-        "section": 8
+        "section": 8,
+        "translation": "蠟筆小新登場！"
       },
       {
         "time": 123.495,
         "end": 124.035,
         "text": "Brother Tu said,",
-        "section": 8
+        "section": 8,
+        "translation": "塗哥說，"
       },
       {
         "time": 124.035,
         "end": 126.445,
         "text": "\"Japanese? I don't understand!",
-        "section": 8
+        "section": 8,
+        "translation": "「日文？我不懂！"
       },
       {
         "time": 126.835,
         "end": 128.395,
         "text": "Let's go to KTV",
-        "section": 8
+        "section": 8,
+        "translation": "我們去 KTV，"
       },
       {
         "time": 128.395,
         "end": 133.385,
         "text": "And sing Happy Paradise instead!\"",
-        "section": 8
+        "section": 8,
+        "translation": "改唱《快樂天堂》吧！」"
       },
       {
         "time": 134.135,
         "end": 135.365,
         "text": "\"Chairman Tu!",
-        "section": 9
+        "section": 9,
+        "translation": "「塗董！"
       },
       {
         "time": 135.815,
         "end": 138.345,
         "text": "Have you seen that hit TV drama?",
-        "section": 9
+        "section": 9,
+        "translation": "你看過那齣熱門電視劇嗎？"
       },
       {
         "time": 138.715,
         "end": 141.025,
         "text": "Plumbing Love is everywhere!",
-        "section": 9
+        "section": 9,
+        "translation": "《水電情》紅遍各地！"
       },
       {
         "time": 141.175,
         "end": 142.415,
         "text": "They say it's based on Tu Wei-Jie!\"",
-        "section": 9
+        "section": 9,
+        "translation": "聽說是以塗偉傑為原型！」"
       },
       {
         "time": 142.415,
         "end": 143.605,
         "text": "\"Tu Wei-Jie?",
-        "section": 9
+        "section": 9,
+        "translation": "「塗偉傑？"
       },
       {
         "time": 144.755,
         "end": 147.105,
         "text": "My name is Tu San-Jie!",
-        "section": 9
+        "section": 9,
+        "translation": "我叫塗三傑！"
       },
       {
         "time": 147.315,
         "end": 149.585,
         "text": "Only one character apart!",
-        "section": 9
+        "section": 9,
+        "translation": "名字只差一個字！"
       },
       {
         "time": 149.875,
         "end": 152.645,
         "text": "Maybe he's my distant relative!\"",
-        "section": 9
+        "section": 9,
+        "translation": "也許他是我的遠房親戚！」"
       },
       {
         "time": 153.115,
         "end": 153.615,
         "text": "\"Seriously?",
-        "section": 9
+        "section": 9,
+        "translation": "「真的嗎？"
       },
       {
         "time": 154.135,
         "end": 156.845,
         "text": "Your Tu family dominates the plumbing world!",
-        "section": 9
+        "section": 9,
+        "translation": "你們塗家壟斷了水電業！"
       },
       {
         "time": 157.495,
         "end": 158.975,
         "text": "Isn't that a little too much?\"",
-        "section": 9
+        "section": 9,
+        "translation": "是不是有點太誇張？」"
       },
       {
         "time": 158.975,
         "end": 160.895,
         "text": "\"Chairman Tu!",
-        "section": 10
+        "section": 10,
+        "translation": "「塗董！"
       },
       {
         "time": 160.895,
         "end": 163.285,
         "text": "Did you hear Tu Wei-Jie's so famous",
-        "section": 10
+        "section": 10,
+        "translation": "你知道塗偉傑紅到，"
       },
       {
         "time": 163.715,
         "end": 166.355,
         "text": "He's in vocational school Chinese textbooks?\"",
-        "section": 10
+        "section": 10,
+        "translation": "被寫進高職國文教科書嗎？」"
       },
       {
         "time": 166.355,
         "end": 168.865,
         "text": "\"Whoa, no way!",
-        "section": 10
+        "section": 10,
+        "translation": "「哇，不會吧！"
       },
       {
         "time": 169.545,
         "end": 172.875,
         "text": "Tu Wei-Jie must be my distant relative!",
-        "section": 10
+        "section": 10,
+        "translation": "塗偉傑一定是我遠房親戚！"
       },
       {
         "time": 172.875,
         "end": 175.675,
         "text": "Even the cats are speechless!",
-        "section": 10
+        "section": 10,
+        "translation": "連貓咪都傻眼！"
       },
       {
         "time": 175.675,
         "end": 179.155,
         "text": "I bet Brother Feng's cat would be stunned!\"",
-        "section": 10
+        "section": 10,
+        "translation": "我敢說鋒兄家的貓也會驚呆！」"
       },
       {
         "time": 179.155,
         "end": 181.695,
         "text": "Phenomenal Plumber Brother Tu!",
-        "section": 11
+        "section": 11,
+        "translation": "現象級水電工塗哥！"
       },
       {
         "time": 181.695,
         "end": 184.015,
         "text": "An exclusive interview!",
-        "section": 11
+        "section": 11,
+        "translation": "獨家專訪！"
       },
       {
         "time": 184.015,
         "end": 185.725,
         "text": "The Plumbing God!",
-        "section": 11
+        "section": 11,
+        "translation": "塗神！"
       },
       {
         "time": 185.895,
         "end": 187.615,
         "text": "The Prince of Spin-Off Stories!",
-        "section": 11
+        "section": 11,
+        "translation": "衍生故事的王子！"
       },
       {
         "time": 187.615,
         "end": 190.495,
         "text": "Vocational Chinese textbooks!",
-        "section": 11
+        "section": 11,
+        "translation": "高職國文教科書！"
       },
       {
         "time": 190.495,
         "end": 191.915,
         "text": "Plumbing everywhere!",
-        "section": 11
+        "section": 11,
+        "translation": "到處都是水電！"
       },
       {
         "time": 191.915,
         "end": 195.155,
         "text": "TV drama: Falling for a Plumber!",
-        "section": 12
+        "section": 12,
+        "translation": "電視劇：《愛上水電工》！"
       },
       {
         "time": 195.155,
         "end": 198.175,
         "text": "Theme song lyrics by Brother Feng!",
-        "section": 12
+        "section": 12,
+        "translation": "主題曲歌詞由鋒兄創作！"
       },
       {
         "time": 198.175,
         "end": 200.415,
         "text": "Classic scenes from the novel!",
-        "section": 12
+        "section": 12,
+        "translation": "小說中的經典場景！"
       },
       {
         "time": 200.415,
         "end": 203.625,
         "text": "Sponsored by Green Papaya Four-Wood Tea!",
-        "section": 12
+        "section": 12,
+        "translation": "青木瓜四木飲贊助播出！"
       },
       {
         "time": 203.675,
         "end": 204.875,
         "text": "Brother Feng and Brother Tu",
-        "section": 12
+        "section": 12,
+        "translation": "鋒兄與塗哥，"
       },
       {
         "time": 204.875,
         "end": 206.175,
         "text": "Drank a whole year's supply!",
-        "section": 12
+        "section": 12,
+        "translation": "喝了一整年份的飲料！"
       },
       {
         "time": 206.175,
         "end": 208.875,
         "text": "So much they nearly threw up!",
-        "section": 12
+        "section": 12,
+        "translation": "多到兩人差點吐出來！"
       },
       {
         "time": 208.875,
         "end": 211.995,
         "text": "The movie: The Plumbing Tycoon!",
-        "section": 13
+        "section": 13,
+        "translation": "電影：《水電工大老闆》！"
       },
       {
         "time": 211.995,
         "end": 214.535,
         "text": "Academic citations everywhere!",
-        "section": 13
+        "section": 13,
+        "translation": "學術引用遍地開花！"
       },
       {
         "time": 214.535,
         "end": 216.955,
         "text": "A master's thesis in sociology",
-        "section": 13
+        "section": 13,
+        "translation": "社會學碩士論文，"
       },
       {
         "time": 216.955,
         "end": 219.415,
         "text": "Quotes The Plumbing God, Plumbing Prince!",
-        "section": 13
+        "section": 13,
+        "translation": "引用《塗神水電王子》！"
       },
       {
         "time": 219.415,
         "end": 221.835,
         "text": "Taiwanese Society in Literature",
-        "section": 13
+        "section": 13,
+        "translation": "文學中的台灣社會，"
       },
       {
         "time": 221.835,
         "end": 224.575,
         "text": "Of the Early Twenty-First Century!",
-        "section": 13
+        "section": 13,
+        "translation": "呈現於二十一世紀前期！"
       },
       {
         "time": 224.575,
         "end": 227.295,
         "text": "A doctoral thesis in Chinese literature",
-        "section": 14
+        "section": 14,
+        "translation": "國文學博士論文，"
       },
       {
         "time": 227.295,
         "end": 230.055,
         "text": "Quotes The Plumbing God, Plumbing Prince!",
-        "section": 14
+        "section": 14,
+        "translation": "引用《塗神水電王子》！"
       },
       {
         "time": 230.055,
         "end": 232.715,
         "text": "Taiwanese Political Figures",
-        "section": 14
+        "section": 14,
+        "translation": "台灣政治人物，"
       },
       {
         "time": 232.715,
         "end": 235.335,
         "text": "As Representative Writers",
-        "section": 14
+        "section": 14,
+        "translation": "作為代表作家，"
       },
       {
         "time": 235.335,
         "end": 237.675,
         "text": "And Studies of Their Works!",
-        "section": 14
+        "section": 14,
+        "translation": "以及他們的作品研究！"
       },
       {
         "time": 237.675,
         "end": 240.915,
         "text": "Brother Tu, the Plumbing Prince, goes viral!",
-        "section": 15
+        "section": 15,
+        "translation": "塗哥水電王子爆紅！"
       },
       {
         "time": 240.915,
         "end": 243.975,
         "text": "Brother Feng makes thirty-three point three billion!",
-        "section": 15
+        "section": 15,
+        "translation": "鋒兄賺三百三十三億！"
       },
       {
         "time": 243.975,
         "end": 248.005,
         "text": "Brother Tu makes three hundred million!",
-        "section": 15
+        "section": 15,
+        "translation": "塗哥賺三億！"
       },
       {
         "time": 248.355,
         "end": 253.985,
         "text": "The legend keeps on rolling!",
-        "section": 15
+        "section": 15,
+        "translation": "這個傳奇還在繼續！"
       }
     ]
   },
@@ -5410,661 +5856,771 @@ export const newEffectsVersions = [
         "time": 10.875,
         "end": 15.525,
         "text": "にせんよねん ろくがつ じゅうごにち",
-        "section": 0
+        "section": 0,
+        "translation": "二零零四年六月十五日，"
       },
       {
         "time": 15.622,
         "end": 20.875,
         "text": "このひは ちゅうがくの そつぎょうせいが",
-        "section": 0
+        "section": 0,
+        "translation": "這天是國中畢業生，"
       },
       {
         "time": 20.875,
         "end": 23.965,
         "text": "そつぎょうアルバムに サインを のこすひ",
-        "section": 0
+        "section": 0,
+        "translation": "在畢業紀念冊上簽名留念的日子，"
       },
       {
         "time": 23.985,
         "end": 26.015,
         "text": "そして ものがたりの しゅじんこう",
-        "section": 0
+        "section": 0,
+        "translation": "也是故事的主角，"
       },
       {
         "time": 26.275,
         "end": 28.495,
         "text": "トゥーしん トゥーサンジエ",
-        "section": 0
+        "section": 0,
+        "translation": "塗神，塗三傑，"
       },
       {
         "time": 28.495,
         "end": 31.395,
         "text": "みんなが よぶ トゥーにいの はじまり！",
-        "section": 0
+        "section": 0,
+        "translation": "大家口中的塗哥，傳奇的起點！"
       },
       {
         "time": 31.395,
         "end": 34.035,
         "text": "トゥーにいは タイジョンの しょくどうで",
-        "section": 1
+        "section": 1,
+        "translation": "塗哥在台中的小吃店，"
       },
       {
         "time": 34.035,
         "end": 36.575,
         "text": "なかまが テレビを ゆびさして",
-        "section": 1
+        "section": 1,
+        "translation": "同行指著電視，"
       },
       {
         "time": 36.575,
         "end": 39.035,
         "text": "「タイペイで がくせいうんどう！",
-        "section": 1
+        "section": 1,
+        "translation": "「台北有學生運動！"
       },
       {
         "time": 39.035,
         "end": 41.895,
         "text": "ひまわりうんどうが おきたぞ！」",
-        "section": 1
+        "section": 1,
+        "translation": "發生太陽花學運了！」"
       },
       {
         "time": 41.895,
         "end": 44.215,
         "text": "トゥーにいは こういった",
-        "section": 1
+        "section": 1,
+        "translation": "塗哥這麼說，"
       },
       {
         "time": 44.215,
         "end": 46.875,
         "text": "「せいじは よく わからない！",
-        "section": 1
+        "section": 1,
+        "translation": "「政治我不太懂！"
       },
       {
         "time": 46.875,
         "end": 53.265,
         "text": "あとで たいようもちを かいにいこう！」",
-        "section": 1
+        "section": 1,
+        "translation": "等一下去買太陽餅吧！」"
       },
       {
         "time": 63.035,
         "end": 65.432,
         "text": "「フォンにいから きいたんだけど",
-        "section": 2
+        "section": 2,
+        "translation": "「我聽鋒兄說，"
       },
       {
         "time": 65.432,
         "end": 68.235,
         "text": "ジャンホアは ひまわりが ゆうめい！",
-        "section": 2
+        "section": 2,
+        "translation": "彰化以向日葵聞名！"
       },
       {
         "time": 68.235,
         "end": 70.785,
         "text": "らいげつは のうじょうへ",
-        "section": 2
+        "section": 2,
+        "translation": "下個月去農場，"
       },
       {
         "time": 70.905,
         "end": 73.675,
         "text": "みんなで あそびに いこう！」",
-        "section": 2
+        "section": 2,
+        "translation": "大家一起去玩吧！」"
       },
       {
         "time": 73.675,
         "end": 76.725,
         "text": "なかまの しょくぎょうびょうが はじまった",
-        "section": 2
+        "section": 2,
+        "translation": "同行的職業病開始發作，"
       },
       {
         "time": 76.975,
         "end": 79.335,
         "text": "のうじょうこうじを かたりだす！",
-        "section": 2
+        "section": 2,
+        "translation": "談起了農場施工！"
       },
       {
         "time": 79.335,
         "end": 84.695,
         "text": "フォンにいの れきしミニきょうしつ！",
-        "section": 3
+        "section": 3,
+        "translation": "鋒兄的歷史小教室！"
       },
       {
         "time": 84.695,
         "end": 86.795,
         "text": "リンみならいが いった",
-        "section": 4
+        "section": 4,
+        "translation": "林學徒說，"
       },
       {
         "time": 86.795,
         "end": 89.415,
         "text": "「エーアイロボットが いつか",
-        "section": 4
+        "section": 4,
+        "translation": "「AI 機器人有一天，"
       },
       {
         "time": 89.415,
         "end": 92.355,
         "text": "すいどうでんきこうを うばうかも！",
-        "section": 4
+        "section": 4,
+        "translation": "可能會搶走水電工的工作！"
       },
       {
         "time": 92.355,
         "end": 95.535,
         "text": "ああ ふあんで たまらない！」",
-        "section": 4
+        "section": 4,
+        "translation": "啊，我焦慮得受不了！」"
       },
       {
         "time": 95.535,
         "end": 97.615,
         "text": "トゥーにいが こたえた",
-        "section": 4
+        "section": 4,
+        "translation": "塗哥回答，"
       },
       {
         "time": 97.615,
         "end": 99.815,
         "text": "「でも フォンにいが いってたよ！",
-        "section": 4
+        "section": 4,
+        "translation": "「但是鋒兄說過！"
       },
       {
         "time": 99.815,
         "end": 101.475,
         "text": "それは みらいの はなし",
-        "section": 4
+        "section": 4,
+        "translation": "那是未來的事，"
       },
       {
         "time": 101.475,
         "end": 102.855,
         "text": "いまの はなしじゃ ない！",
-        "section": 4
+        "section": 4,
+        "translation": "不是現在的事！"
       },
       {
         "time": 102.855,
         "end": 106.135,
         "text": "まずは めのまえの しごとを やろう！」",
-        "section": 4
+        "section": 4,
+        "translation": "先做好眼前的工作吧！」"
       },
       {
         "time": 106.135,
         "end": 107.375,
         "text": "トゥーにいが いった",
-        "section": 5
+        "section": 5,
+        "translation": "塗哥說，"
       },
       {
         "time": 107.375,
         "end": 109.175,
         "text": "「おれの どうきゅうせいが",
-        "section": 5
+        "section": 5,
+        "translation": "「我的同學，"
       },
       {
         "time": 109.175,
         "end": 111.515,
         "text": "タイペイで ふくしちょうを やってる！」",
-        "section": 5
+        "section": 5,
+        "translation": "在台北當副市長！」"
       },
       {
         "time": 111.515,
         "end": 112.655,
         "text": "なかまが きいた",
-        "section": 5
+        "section": 5,
+        "translation": "同行問，"
       },
       {
         "time": 112.655,
         "end": 114.03,
         "text": "「フォンにいの こと？」",
-        "section": 5
+        "section": 5,
+        "translation": "「你是說鋒兄？」"
       },
       {
         "time": 114.155,
         "end": 116.155,
         "text": "「フォンにい？ まさか！",
-        "section": 5
+        "section": 5,
+        "translation": "「鋒兄？怎麼可能！"
       },
       {
         "time": 116.155,
         "end": 118.455,
         "text": "いまは あおパパイヤドリンクの",
-        "section": 5
+        "section": 5,
+        "translation": "他現在是青木瓜飲料的，"
       },
       {
         "time": 118.455,
         "end": 121.415,
         "text": "エリアマネージャーだよ！",
-        "section": 5
+        "section": 5,
+        "translation": "區域經理！"
       },
       {
         "time": 121.415,
         "end": 127.395,
         "text": "ふくしちょうは ホアンシンフォン！」",
-        "section": 5
+        "section": 5,
+        "translation": "副市長是黃馨鋒！」"
       },
       {
         "time": 127.395,
         "end": 128.715,
         "text": "なかまが いった",
-        "section": 6
+        "section": 6,
+        "translation": "同行說，"
       },
       {
         "time": 128.715,
         "end": 131.375,
         "text": "「てっきり フォンにいかと おもった！",
-        "section": 6
+        "section": 6,
+        "translation": "「我還以為是鋒兄！"
       },
       {
         "time": 131.375,
         "end": 137.705,
         "text": "なまえに おなじ フォンが あるから！」",
-        "section": 6
+        "section": 6,
+        "translation": "因為名字裡都有同一個鋒字！」"
       },
       {
         "time": 137.875,
         "end": 140.015,
         "text": "「ところで その どうきゅうせい",
-        "section": 7
+        "section": 7,
+        "translation": "「對了，你那個同學，"
       },
       {
         "time": 140.015,
         "end": 143.015,
         "text": "タイペイしちょうに りっこうほしないの？」",
-        "section": 7
+        "section": 7,
+        "translation": "不參選台北市長嗎？」"
       },
       {
         "time": 143.015,
         "end": 144.475,
         "text": "トゥーにいが いった",
-        "section": 7
+        "section": 7,
+        "translation": "塗哥說，"
       },
       {
         "time": 144.475,
         "end": 145.955,
         "text": "「おれの どうきゅうせいは",
-        "section": 7
+        "section": 7,
+        "translation": "「我的同學，"
       },
       {
         "time": 145.955,
         "end": 148.675,
         "text": "すいどうでんきこうの ほんを かいた！",
-        "section": 7
+        "section": 7,
+        "translation": "寫了一本水電工的書！"
       },
       {
         "time": 148.675,
         "end": 150.995,
         "text": "にひゃくごじゅうまんぶ うれたら",
-        "section": 7
+        "section": 7,
+        "translation": "他說賣出兩百五十萬冊，"
       },
       {
         "time": 150.995,
         "end": 153.595,
         "text": "しちょうせんに でる じつりょくが",
-        "section": 7
+        "section": 7,
+        "translation": "才有參選市長的實力，"
       },
       {
         "time": 153.595,
         "end": 159.235,
         "text": "つくって いってたよ！」",
-        "section": 7
+        "section": 7,
+        "translation": "就是這麼告訴我的！」"
       },
       {
         "time": 159.235,
         "end": 161.275,
         "text": "タイペイどうぶつえんで",
-        "section": 8
+        "section": 8,
+        "translation": "在台北動物園，"
       },
       {
         "time": 161.275,
         "end": 163.855,
         "text": "だれかが とつぜん うたいだす！",
-        "section": 8
+        "section": 8,
+        "translation": "有人突然唱起歌！"
       },
       {
         "time": 163.855,
         "end": 166.235,
         "text": "「どうぶつえんが たいへんだ！」",
-        "section": 8
+        "section": 8,
+        "translation": "「動物園不得了啦！」"
       },
       {
         "time": 166.235,
         "end": 168.415,
         "text": "クレヨンしんちゃん！",
-        "section": 8
+        "section": 8,
+        "translation": "蠟筆小新！"
       },
       {
         "time": 168.415,
         "end": 171.105,
         "text": "トゥーにいが いった",
-        "section": 8
+        "section": 8,
+        "translation": "塗哥說，"
       },
       {
         "time": 171.495,
         "end": 172.715,
         "text": "「にほんごは わからない！",
-        "section": 8
+        "section": 8,
+        "translation": "「日文我不懂！"
       },
       {
         "time": 172.715,
         "end": 174.515,
         "text": "あとで カラオケに いって",
-        "section": 8
+        "section": 8,
+        "translation": "等一下去卡拉 OK，"
       },
       {
         "time": 174.515,
         "end": 180.515,
         "text": "ハッピーパラダイスを うたおう！」",
-        "section": 8
+        "section": 8,
+        "translation": "唱《快樂天堂》吧！」"
       },
       {
         "time": 180.515,
         "end": 182.375,
         "text": "「トゥーかいちょう！",
-        "section": 9
+        "section": 9,
+        "translation": "「塗董！"
       },
       {
         "time": 182.375,
         "end": 184.615,
         "text": "さいきんの ドラマ みてますか？",
-        "section": 9
+        "section": 9,
+        "translation": "最近的電視劇有在看嗎？"
       },
       {
         "time": 184.615,
         "end": 186.215,
         "text": "すいどうでんきの こい！",
-        "section": 9
+        "section": 9,
+        "translation": "《水電情》！"
       },
       {
         "time": 186.215,
         "end": 188.993,
         "text": "モデルは トゥーウェイジエらしい！」",
-        "section": 9
+        "section": 9,
+        "translation": "聽說原型是塗偉傑！」"
       },
       {
         "time": 188.993,
         "end": 190.295,
         "text": "「トゥーウェイジエ？",
-        "section": 9
+        "section": 9,
+        "translation": "「塗偉傑？"
       },
       {
         "time": 190.295,
         "end": 192.655,
         "text": "おれは トゥーサンジエ！",
-        "section": 9
+        "section": 9,
+        "translation": "我是塗三傑！"
       },
       {
         "time": 192.655,
         "end": 195.295,
         "text": "なまえが ひともじ ちがうだけ！",
-        "section": 9
+        "section": 9,
+        "translation": "名字只差一個字！"
       },
       {
         "time": 195.295,
         "end": 200.445,
         "text": "もしかして とおい しんせきかも！」",
-        "section": 9
+        "section": 9,
+        "translation": "說不定是遠房親戚！」"
       },
       {
         "time": 201.075,
         "end": 201.575,
         "text": "「ほんとうに？",
-        "section": 9
+        "section": 9,
+        "translation": "「真的嗎？"
       },
       {
         "time": 201.575,
         "end": 204.275,
         "text": "トゥーいちぞくが このぎょうかいを",
-        "section": 9
+        "section": 9,
+        "translation": "塗家一族竟然把這個行業，"
       },
       {
         "time": 204.275,
         "end": 206.775,
         "text": "どくせんしてるなんて すごすぎる！」",
-        "section": 9
+        "section": 9,
+        "translation": "全部壟斷，太厲害了！」"
       },
       {
         "time": 206.775,
         "end": 207.755,
         "text": "「トゥーかいちょう！",
-        "section": 10
+        "section": 10,
+        "translation": "「塗董！"
       },
       {
         "time": 207.755,
         "end": 210.355,
         "text": "トゥーウェイジエが ゆうめいすぎて",
-        "section": 10
+        "section": 10,
+        "translation": "塗偉傑太出名了，"
       },
       {
         "time": 210.355,
         "end": 212.565,
         "text": "こうこうの こくごきょうかしょに",
-        "section": 10
+        "section": 10,
+        "translation": "連高中的國文教科書，"
       },
       {
         "time": 212.72,
         "end": 214.435,
         "text": "のったって しってますか？」",
-        "section": 10
+        "section": 10,
+        "translation": "都收錄了，你知道嗎？」"
       },
       {
         "time": 214.435,
         "end": 215.795,
         "text": "「うわっ まじかよ！",
-        "section": 10
+        "section": 10,
+        "translation": "「哇，真的假的！"
       },
       {
         "time": 215.795,
         "end": 218.835,
         "text": "ぜったい おれの とおい しんせきだ！",
-        "section": 10
+        "section": 10,
+        "translation": "他絕對是我的遠房親戚！"
       },
       {
         "time": 218.835,
         "end": 220.355,
         "text": "びっくりネコちゃん！",
-        "section": 10
+        "section": 10,
+        "translation": "嚇一跳的貓咪！"
       },
       {
         "time": 220.355,
         "end": 222.315,
         "text": "フォンにいの いえの ネコまで",
-        "section": 10
+        "section": 10,
+        "translation": "連鋒兄家的貓，"
       },
       {
         "time": 222.315,
         "end": 223.455,
         "text": "びっくりするだろうな！」",
-        "section": 10
+        "section": 10,
+        "translation": "也會嚇到吧！」"
       },
       {
         "time": 223.455,
         "end": 225.645,
         "text": "しゃかいげんしょうの すいどうでんきこう",
-        "section": 11
+        "section": 11,
+        "translation": "社會現象級的水電工，"
       },
       {
         "time": 225.645,
         "end": 228.075,
         "text": "トゥーにいの とくべつインタビュー！",
-        "section": 11
+        "section": 11,
+        "translation": "塗哥的特別專訪！"
       },
       {
         "time": 228.075,
         "end": 229.525,
         "text": "トゥーしんの スピンオフ",
-        "section": 11
+        "section": 11,
+        "translation": "塗神的衍生作品，"
       },
       {
         "time": 229.875,
         "end": 231.675,
         "text": "すいどうでんきの おうじさま！",
-        "section": 11
+        "section": 11,
+        "translation": "水電王子！"
       },
       {
         "time": 231.675,
         "end": 233.735,
         "text": "こうこうの こくごきょうかしょ！",
-        "section": 11
+        "section": 11,
+        "translation": "高中的國文教科書！"
       },
       {
         "time": 233.735,
         "end": 235.365,
         "text": "すいどうでんき！",
-        "section": 11
+        "section": 11,
+        "translation": "水電！"
       },
       {
         "time": 235.405,
         "end": 236.115,
         "text": "テレビドラマ",
-        "section": 12
+        "section": 12,
+        "translation": "電視劇，"
       },
       {
         "time": 236.115,
         "end": 238.855,
         "text": "「すいどうでんきこうに こいしてる」",
-        "section": 12
+        "section": 12,
+        "translation": "《愛上水電工》，"
       },
       {
         "time": 238.855,
         "end": 242.155,
         "text": "テーマソングの さくしは フォンにい！",
-        "section": 12
+        "section": 12,
+        "translation": "主題曲作詞是鋒兄！"
       },
       {
         "time": 242.155,
         "end": 244.535,
         "text": "しょうせつの めいばめん！",
-        "section": 12
+        "section": 12,
+        "translation": "小說的經典場景！"
       },
       {
         "time": 244.535,
         "end": 246.982,
         "text": "あおパパイヤ よんもくドリンク",
-        "section": 12
+        "section": 12,
+        "translation": "青木瓜四木飲，"
       },
       {
         "time": 246.982,
         "end": 248.355,
         "text": "スポンサーほうそう！",
-        "section": 12
+        "section": 12,
+        "translation": "贊助播出！"
       },
       {
         "time": 248.355,
         "end": 249.875,
         "text": "フォンにいと トゥーにい",
-        "section": 12
+        "section": 12,
+        "translation": "鋒兄與塗哥，"
       },
       {
         "time": 249.875,
         "end": 252.175,
         "text": "いちねんぶんを のみつづけ",
-        "section": 12
+        "section": 12,
+        "translation": "喝了一整年份，"
       },
       {
         "time": 252.175,
         "end": 255.455,
         "text": "もう はきそうに なった！",
-        "section": 12
+        "section": 12,
+        "translation": "都快要吐出來了！"
       },
       {
         "time": 255.455,
         "end": 256.245,
         "text": "えいが",
-        "section": 13
+        "section": 13,
+        "translation": "電影，"
       },
       {
         "time": 256.495,
         "end": 258.155,
         "text": "「すいどうでんきの だいしゃちょう」",
-        "section": 13
+        "section": 13,
+        "translation": "《水電工大老闆》，"
       },
       {
         "time": 258.155,
         "end": 260.615,
         "text": "がくじゅつろんぶんにも とうじょう！",
-        "section": 13
+        "section": 13,
+        "translation": "也登上了學術論文！"
       },
       {
         "time": 260.615,
         "end": 262.875,
         "text": "しゃかいがくの しゅうしろんぶん",
-        "section": 13
+        "section": 13,
+        "translation": "社會學的碩士論文，"
       },
       {
         "time": 262.875,
         "end": 265.375,
         "text": "「トゥーしん すいどうでんきのおうじ」",
-        "section": 13
+        "section": 13,
+        "translation": "《塗神水電王子》，"
       },
       {
         "time": 265.375,
         "end": 267.775,
         "text": "にじゅういっせいき ぜんはんの",
-        "section": 13
+        "section": 13,
+        "translation": "二十一世紀前半，"
       },
       {
         "time": 267.775,
         "end": 269.535,
         "text": "ぶんがくに えがかれた",
-        "section": 13
+        "section": 13,
+        "translation": "文學所描繪的，"
       },
       {
         "time": 269.535,
         "end": 270.925,
         "text": "タイワンしゃかい！",
-        "section": 13
+        "section": 13,
+        "translation": "台灣社會！"
       },
       {
         "time": 271.165,
         "end": 273.895,
         "text": "こくぶんがくの はくしろんぶんにも",
-        "section": 14
+        "section": 14,
+        "translation": "國文學的博士論文也有，"
       },
       {
         "time": 273.895,
         "end": 276.575,
         "text": "「トゥーしん すいどうでんきのおうじ」",
-        "section": 14
+        "section": 14,
+        "translation": "《塗神水電王子》，"
       },
       {
         "time": 276.575,
         "end": 278.785,
         "text": "タイワンの せいじんぶつと",
-        "section": 14
+        "section": 14,
+        "translation": "台灣的政治人物，"
       },
       {
         "time": 279.155,
         "end": 280.415,
         "text": "だいひょうてき さっか",
-        "section": 14
+        "section": 14,
+        "translation": "以及代表作家，"
       },
       {
         "time": 280.415,
         "end": 283.015,
         "text": "そして その さくひんの けんきゅう！",
-        "section": 14
+        "section": 14,
+        "translation": "還有其作品研究！"
       },
       {
         "time": 283.015,
         "end": 286.897,
         "text": "トゥーにい すいどうでんきのおうじ",
-        "section": 15
+        "section": 15,
+        "translation": "塗哥水電王子，"
       },
       {
         "time": 287.111,
         "end": 288.865,
         "text": "だいブレイク！",
-        "section": 15
+        "section": 15,
+        "translation": "大爆紅！"
       },
       {
         "time": 288.955,
         "end": 292.195,
         "text": "フォンにいは さんびゃくさんじゅうさんおく！",
-        "section": 15
+        "section": 15,
+        "translation": "鋒兄賺三百三十三億！"
       },
       {
         "time": 292.195,
         "end": 293.995,
         "text": "トゥーにいは さんおく！",
-        "section": 15
+        "section": 15,
+        "translation": "塗哥賺三億！"
       },
       {
         "time": 294.215,
         "end": 298.525,
         "text": "でんせつは まだまだ つづく！",
-        "section": 15
+        "section": 15,
+        "translation": "傳奇還會繼續下去！"
       }
     ]
   },
@@ -6958,175 +7514,204 @@ export const newEffectsVersions = [
         "time": 0.0,
         "end": 5.4,
         "text": "Taipei's got Brother Feng, let's go, don't run away!",
-        "section": 0
+        "section": 0,
+        "translation": "台北有鋒兄，嗨起來，別逃跑！"
       },
       {
         "time": 5.4,
         "end": 11.28,
         "text": "From top exam ace to mayor, what a crazy play! (Wow!)",
-        "section": 0
+        "section": 0,
+        "translation": "從考試榜首到市長，多麼瘋狂的演出！（哇！）"
       },
       {
         "time": 11.28,
         "end": 15.66,
         "text": "Brother Tu, sing it loud, don't hide your shining glow!",
-        "section": 0
+        "section": 0,
+        "translation": "塗哥，大聲唱，別藏起你的光芒！"
       },
       {
         "time": 15.66,
         "end": 20.26,
         "text": "Cameras flashing everywhere, it's an S-tier anime show!",
-        "section": 0
+        "section": 0,
+        "translation": "相機閃光燈四處亮起，這是 S 級動畫秀！"
       },
       {
         "time": 20.26,
         "end": 23.16,
         "text": "(Thirty-seven!) I topped the national exam! (Yeah!)",
-        "section": 1
+        "section": 1,
+        "translation": "（三十七歲！）我考上國家考試榜首！（耶！）"
       },
       {
         "time": 23.16,
         "end": 25.78,
         "text": "Information tech champion, now you know just who I am!",
-        "section": 1
+        "section": 1,
+        "translation": "資訊科技冠軍，現在你知道我是誰！"
       },
       {
         "time": 25.78,
         "end": 28.4,
         "text": "Across the screens of time, my dreams became the code! (Run!)",
-        "section": 1
+        "section": 1,
+        "translation": "穿越時代的螢幕，我的夢想化為程式！（跑！）"
       },
       {
         "time": 28.4,
         "end": 30.68,
         "text": "(Fifty-two!) Deputy mayor, taking charge along the road! (Yo!)",
-        "section": 1
+        "section": 1,
+        "translation": "（五十二歲！）副市長上陣，一路掌舵！（喲！）"
       },
       {
         "time": 30.68,
         "end": 33.6,
         "text": "Brother Tu, sing, “It's great to have Brother Feng!”",
-        "section": 2
+        "section": 2,
+        "translation": "塗哥，唱吧：「有鋒兄真好！」"
       },
       {
         "time": 33.6,
         "end": 36.22,
         "text": "From waiting list to number one, hear the victory ring!",
-        "section": 2
+        "section": 2,
+        "translation": "從備取到第一名，聽見勝利響起！"
       },
       {
         "time": 36.22,
         "end": 38.44,
         "text": "Don't sing? Your chance gets canceled! (Ha!)",
-        "section": 2
+        "section": 2,
+        "translation": "不唱？你的機會就取消！（哈！）"
       },
       {
         "time": 38.44,
         "end": 41.74,
         "text": "Evolution runs on signals, not on lucky stars!",
-        "section": 2
+        "section": 2,
+        "translation": "進化靠訊號，不靠幸運星！"
       },
       {
         "time": 41.74,
         "end": 46.64,
         "text": "Taipei's got Brother Feng, let's go, don't run away!",
-        "section": 3
+        "section": 3,
+        "translation": "台北有鋒兄，嗨起來，別逃跑！"
       },
       {
         "time": 46.64,
         "end": 51.92,
         "text": "From exam king to city hall, debugging fate all day!",
-        "section": 3
+        "section": 3,
+        "translation": "從考場王者到市政府，整天為命運除錯！"
       },
       {
         "time": 51.92,
         "end": 56.44,
         "text": "Brother Tu, turn up the volume, make the whole crowd shout!",
-        "section": 3
+        "section": 3,
+        "translation": "塗哥，音量開大，讓全場吶喊！"
       },
       {
         "time": 57.02,
         "end": 62.9,
         "text": "Acting mayor's just a chapter, the city's dreaming loud!",
-        "section": 3
+        "section": 3,
+        "translation": "代理市長只是篇章，整座城大聲追夢！"
       },
       {
         "time": 64.72,
         "end": 69.44,
         "text": "(Twenty-forty!) Neon nights, the city hall's alive!",
-        "section": 4
+        "section": 4,
+        "translation": "（二零四零！）霓虹之夜，市政府充滿活力！"
       },
       {
         "time": 69.44,
         "end": 71.88,
         "text": "Campaign slogans like an ACG opening come to life!",
-        "section": 4
+        "section": 4,
+        "translation": "競選標語像 ACG 片頭，鮮活登場！"
       },
       {
         "time": 71.88,
         "end": 74.46,
         "text": "Don't say impossible, Brother Feng's evolution!",
-        "section": 4
+        "section": 4,
+        "translation": "別說不可能，這是鋒兄的進化！"
       },
       {
         "time": 74.46,
         "end": 77.48,
         "text": "(AI!) Smart government, open-data revolution!",
-        "section": 4
+        "section": 4,
+        "translation": "（AI！）智慧政務，開放資料的革命！"
       },
       {
         "time": 77.48,
         "end": 80.0,
         "text": "Yin and yang together, politics and dreams collide!",
-        "section": 5
+        "section": 5,
+        "translation": "陰陽同框，政治與夢想碰撞！"
       },
       {
         "time": 80.0,
         "end": 82.54,
         "text": "On this crossing stage, we're standing side by side!",
-        "section": 5
+        "section": 5,
+        "translation": "在這交錯舞台，我們並肩站立！"
       },
       {
         "time": 82.54,
         "end": 84.96,
         "text": "Sing so loud, the ballots start to dance tonight!",
-        "section": 5
+        "section": 5,
+        "translation": "大聲唱，讓選票今晚都跳起來！"
       },
       {
         "time": 84.96,
         "end": 87.0,
         "text": "Brother Tu — sing it one more time!",
-        "section": 5
+        "section": 5,
+        "translation": "塗哥——再唱一次！"
       },
       {
         "time": 87.0,
         "end": 92.88,
         "text": "Taipei's got Brother Feng, party till the morning light!",
-        "section": 6
+        "section": 6,
+        "translation": "台北有鋒兄，狂歡直到天亮！"
       },
       {
         "time": 92.88,
         "end": 97.24,
         "text": "From exam ace to mayor, evolution takes its flight!",
-        "section": 6
+        "section": 6,
+        "translation": "從考試榜首到市長，進化展翅飛翔！"
       },
       {
         "time": 97.24,
         "end": 102.78,
         "text": "Even the elite agree, this transformation's right!",
-        "section": 6
+        "section": 6,
+        "translation": "連菁英都同意，這場轉變恰如其分！"
       },
       {
         "time": 102.78,
         "end": 106.26,
         "text": "Yes, yes, evolution!",
-        "section": 6
+        "section": 6,
+        "translation": "對，對，就是進化！"
       },
       {
         "time": 106.88,
         "end": 111.1,
         "text": "No — this is Brother Feng's Evolution Show! 🔥",
-        "section": 7
+        "section": 7,
+        "translation": "不——這是鋒兄進化秀！🔥"
       }
     ]
   },
@@ -7144,343 +7729,400 @@ export const newEffectsVersions = [
         "time": 1.42,
         "end": 4.54,
         "text": "タイペイに フォンにいが いて よかった",
-        "section": 0
+        "section": 0,
+        "translation": "台北有鋒兄真好，"
       },
       {
         "time": 4.54,
         "end": 6.54,
         "text": "ハイになれ にげるなよ！",
-        "section": 0
+        "section": 0,
+        "translation": "嗨起來，別逃跑！"
       },
       {
         "time": 6.54,
         "end": 9.48,
         "text": "トップから しちょうへ しんかする",
-        "section": 0
+        "section": 0,
+        "translation": "從榜首進化到市長，"
       },
       {
         "time": 9.48,
         "end": 12.2,
         "text": "このリズム やばすぎる！（ウォウ！）",
-        "section": 0
+        "section": 0,
+        "translation": "這個節奏太瘋狂！（哇！）"
       },
       {
         "time": 12.48,
         "end": 16.7,
         "text": "トゥーにい うたえよ おとなしくするな",
-        "section": 1
+        "section": 1,
+        "translation": "塗哥，唱吧，別那麼安靜！"
       },
       {
         "time": 17.44,
         "end": 19.56,
         "text": "きしゃたち みんな カメラを むける",
-        "section": 1
+        "section": 1,
+        "translation": "記者們全都把鏡頭對過來。"
       },
       {
         "time": 19.56,
         "end": 22.1,
         "text": "じつりょくしじょうの このじんせい",
-        "section": 1
+        "section": 1,
+        "translation": "這段實力至上的人生，"
       },
       {
         "time": 22.1,
         "end": 25.64,
         "text": "まるで エスランクの アニメだぜ！",
-        "section": 1
+        "section": 1,
+        "translation": "簡直就像 S 級動畫！"
       },
       {
         "time": 26.8,
         "end": 27.84,
         "text": "（さんじゅうななさい！）",
-        "section": 2
+        "section": 2,
+        "translation": "（三十七歲！）"
       },
       {
         "time": 27.84,
         "end": 30.28,
         "text": "こっかしけんで トップを とった！（イェー！）",
-        "section": 2
+        "section": 2,
+        "translation": "國家考試拿下榜首！（耶！）"
       },
       {
         "time": 30.28,
         "end": 32.54,
         "text": "じょうほうしょりで なを あげた",
-        "section": 2
+        "section": 2,
+        "translation": "靠資訊處理闖出名號，"
       },
       {
         "time": 32.54,
         "end": 34.86,
         "text": "プログラムさえ でんせつになる！",
-        "section": 2
+        "section": 2,
+        "translation": "連程式都成為傳說！"
       },
       {
         "time": 34.86,
         "end": 37.08,
         "text": "じだいを こえる モニターのひかり",
-        "section": 2
+        "section": 2,
+        "translation": "穿越時代的螢幕光，"
       },
       {
         "time": 37.08,
         "end": 40.46,
         "text": "ゆめは アルゴリズム！（ラン！）",
-        "section": 2
+        "section": 2,
+        "translation": "夢想就是演算法！（跑！）"
       },
       {
         "time": 41.34,
         "end": 42.36,
         "text": "（ごじゅうにさい！）",
-        "section": 3
+        "section": 3,
+        "translation": "（五十二歲！）"
       },
       {
         "time": 42.36,
         "end": 46.9,
         "text": "ふくしちょうから だいりしちょうへ",
-        "section": 3
+        "section": 3,
+        "translation": "從副市長到代理市長，"
       },
       {
         "time": 46.9,
         "end": 50.36,
         "text": "いそがしい まいにち！（ヨー！）",
-        "section": 3
+        "section": 3,
+        "translation": "忙碌的每一天！（喲！）"
       },
       {
         "time": 51.64,
         "end": 53.0,
         "text": "トゥーにい うたえよ",
-        "section": 4
+        "section": 4,
+        "translation": "塗哥，唱吧，"
       },
       {
         "time": 53.0,
         "end": 56.68,
         "text": "フォンにいが いて よかった！",
-        "section": 4
+        "section": 4,
+        "translation": "有鋒兄真好！"
       },
       {
         "time": 56.68,
         "end": 58.6,
         "text": "ほけつから ごうかくへ",
-        "section": 4
+        "section": 4,
+        "translation": "從備取到錄取，"
       },
       {
         "time": 58.6,
         "end": 60.82,
         "text": "あっというまに きまったぜ！",
-        "section": 4
+        "section": 4,
+        "translation": "轉眼之間就定案！"
       },
       {
         "time": 62.4,
         "end": 64.96,
         "text": "うたわなければ しかくとりけし！（ハハ！）",
-        "section": 4
+        "section": 4,
+        "translation": "不唱就取消資格！（哈哈！）"
       },
       {
         "time": 65.48,
         "end": 66.82,
         "text": "しんかは うんじゃない",
-        "section": 4
+        "section": 4,
+        "translation": "進化不是靠運氣，"
       },
       {
         "time": 67.4,
         "end": 70.7,
         "text": "シグナルで きまるんだ！",
-        "section": 4
+        "section": 4,
+        "translation": "而是由訊號決定！"
       },
       {
         "time": 71.64,
         "end": 74.78,
         "text": "タイペイに フォンにいが いて よかった",
-        "section": 5
+        "section": 5,
+        "translation": "台北有鋒兄真好，"
       },
       {
         "time": 74.96,
         "end": 76.66,
         "text": "ハイになれ にげるなよ！",
-        "section": 5
+        "section": 5,
+        "translation": "嗨起來，別逃跑！"
       },
       {
         "time": 76.66,
         "end": 79.68,
         "text": "トップから しちょうへ しんかする",
-        "section": 5
+        "section": 5,
+        "translation": "從榜首進化到市長，"
       },
       {
         "time": 79.68,
         "end": 81.9,
         "text": "うんめいを デバッグしろ！",
-        "section": 5
+        "section": 5,
+        "translation": "替命運除錯吧！"
       },
       {
         "time": 82.28,
         "end": 84.86,
         "text": "トゥーにい こえを あげろ",
-        "section": 5
+        "section": 5,
+        "translation": "塗哥，大聲唱，"
       },
       {
         "time": 84.86,
         "end": 86.8,
         "text": "みんなで だいがっしょう！",
-        "section": 5
+        "section": 5,
+        "translation": "大家一起大合唱！"
       },
       {
         "time": 87.3,
         "end": 89.82,
         "text": "だいりなんて ただの つうかてん",
-        "section": 5
+        "section": 5,
+        "translation": "代理只是必經之路，"
       },
       {
         "time": 89.94,
         "end": 93.44,
         "text": "しみんの ゆめは もう とまらない！",
-        "section": 5
+        "section": 5,
+        "translation": "市民的夢想已經停不下來！"
       },
       {
         "time": 94.04,
         "end": 95.84,
         "text": "（にせんよんじゅうねん！）",
-        "section": 6
+        "section": 6,
+        "translation": "（二零四零年！）"
       },
       {
         "time": 95.84,
         "end": 99.46,
         "text": "ネオンが かがやく よる",
-        "section": 6
+        "section": 6,
+        "translation": "霓虹閃耀的夜晚，"
       },
       {
         "time": 99.46,
         "end": 102.22,
         "text": "しやくしょまで ひかりが とどく",
-        "section": 6
+        "section": 6,
+        "translation": "光芒照到市政府。"
       },
       {
         "time": 102.22,
         "end": 103.9,
         "text": "せんきょの スローガンは",
-        "section": 6
+        "section": 6,
+        "translation": "競選的標語，"
       },
       {
         "time": 103.9,
         "end": 106.92,
         "text": "エーシージーの オープニング！",
-        "section": 6
+        "section": 6,
+        "translation": "就是 ACG 的片頭！"
       },
       {
         "time": 106.92,
         "end": 109.18,
         "text": "むりだなんて いうなよ",
-        "section": 6
+        "section": 6,
+        "translation": "別說不可能，"
       },
       {
         "time": 109.18,
         "end": 111.96,
         "text": "フォンにいこそ エボリューション！",
-        "section": 6
+        "section": 6,
+        "translation": "鋒兄就是進化！"
       },
       {
         "time": 111.96,
         "end": 114.02,
         "text": "（エーアイ！）せいじを サポート",
-        "section": 6
+        "section": 6,
+        "translation": "（AI！）支援政務，"
       },
       {
         "time": 114.02,
         "end": 117.24,
         "text": "オープンデータの あたらしい じだい！",
-        "section": 6
+        "section": 6,
+        "translation": "開放資料的全新時代！"
       },
       {
         "time": 117.78,
         "end": 119.86,
         "text": "いんと ようが ならびたつ",
-        "section": 7
+        "section": 7,
+        "translation": "陰與陽並肩而立，"
       },
       {
         "time": 119.86,
         "end": 122.54,
         "text": "せいじと りそうが まじりあう",
-        "section": 7
+        "section": 7,
+        "translation": "政治與理想交會。"
       },
       {
         "time": 122.54,
         "end": 124.54,
         "text": "こうさする このステージで",
-        "section": 7
+        "section": 7,
+        "translation": "在這交錯的舞台，"
       },
       {
         "time": 124.54,
         "end": 127.06,
         "text": "うたえば とうひょうも おどりだす！",
-        "section": 7
+        "section": 7,
+        "translation": "一唱起歌，連選票都跳起來！"
       },
       {
         "time": 127.06,
         "end": 127.74,
         "text": "トゥーにい！",
-        "section": 7
+        "section": 7,
+        "translation": "塗哥！"
       },
       {
         "time": 127.74,
         "end": 130.86,
         "text": "もういっかい うたってくれ！",
-        "section": 7
+        "section": 7,
+        "translation": "請再唱一次！"
       },
       {
         "time": 131.46,
         "end": 134.46,
         "text": "タイペイに フォンにいが いて よかった",
-        "section": 8
+        "section": 8,
+        "translation": "台北有鋒兄真好，"
       },
       {
         "time": 134.46,
         "end": 136.38,
         "text": "あさまで ハイになれ！",
-        "section": 8
+        "section": 8,
+        "translation": "嗨到天亮！"
       },
       {
         "time": 136.38,
         "end": 138.74,
         "text": "トップから しちょうへの しんかろん",
-        "section": 8
+        "section": 8,
+        "translation": "從榜首到市長的進化論，"
       },
       {
         "time": 138.74,
         "end": 141.42,
         "text": "まちじゅうが さけんでる！",
-        "section": 8
+        "section": 8,
+        "translation": "整座城市都在吶喊！"
       },
       {
         "time": 141.68,
         "end": 144.42,
         "text": "じつりょくしじょうも うなずいた",
-        "section": 8
+        "section": 8,
+        "translation": "實力至上也點頭，"
       },
       {
         "time": 144.42,
         "end": 147.0,
         "text": "このしんかこそ りそうだぜ！",
-        "section": 8
+        "section": 8,
+        "translation": "這場進化就是理想！"
       },
       {
         "time": 147.0,
         "end": 149.74,
         "text": "そうだ そうだ エボリューション！",
-        "section": 8
+        "section": 8,
+        "translation": "對，對，就是進化！"
       },
       {
         "time": 151.8,
         "end": 153.16,
         "text": "いやー！",
-        "section": 9
+        "section": 9,
+        "translation": "不——！"
       },
       {
         "time": 153.16,
         "end": 154.94,
         "text": "これが フォンにいの",
-        "section": 9
+        "section": 9,
+        "translation": "這就是鋒兄的，"
       },
       {
         "time": 154.94,
         "end": 157.38,
         "text": "エボリューション・ショー！ 🔥",
-        "section": 9
+        "section": 9,
+        "translation": "進化秀！🔥"
       }
     ]
   },
@@ -8327,553 +8969,645 @@ export const newEffectsVersions = [
         "time": 9.215,
         "end": 12.395,
         "text": "It's twenty twenty-one, the year is here,",
-        "section": 0
+        "section": 0,
+        "translation": "今年是二零二一年，這一年來到，"
       },
       {
         "time": 12.395,
         "end": 15.985,
         "text": "Back in junior high, thirty-three classmates near.",
-        "section": 0
+        "section": 0,
+        "translation": "想起國中時，身邊有三十三名同學。"
       },
       {
         "time": 16.255,
         "end": 18.455,
         "text": "This year I turn thirty-three,",
-        "section": 0
+        "section": 0,
+        "translation": "今年我滿三十三歲，"
       },
       {
         "time": 18.455,
         "end": 21.695,
         "text": "Which classes match? Let's go and see!",
-        "section": 0
+        "section": 0,
+        "translation": "哪些班級也一樣？一起去看看！"
       },
       {
         "time": 21.695,
         "end": 24.075,
         "text": "Class Two? Not sure, maybe not,",
-        "section": 1
+        "section": 1,
+        "translation": "二班？不確定，也許不是，"
       },
       {
         "time": 24.075,
         "end": 27.075,
         "text": "Five, Twelve, Eighteen, Twenty-three got the spot!",
-        "section": 1
+        "section": 1,
+        "translation": "五班、十二班、十八班、二十三班符合！"
       },
       {
         "time": 27.075,
         "end": 28.875,
         "text": "Four classes, thirty-three each,",
-        "section": 1
+        "section": 1,
+        "translation": "四個班，每班三十三人，"
       },
       {
         "time": 28.875,
         "end": 30.975,
         "text": "Math teacher's lesson, back in reach!",
-        "section": 1
+        "section": 1,
+        "translation": "數學老師的課，又回到記憶裡！"
       },
       {
         "time": 30.975,
         "end": 34.395,
         "text": "Four numbers, choose just two,",
-        "section": 2
+        "section": 2,
+        "translation": "四個數字，只選兩個，"
       },
       {
         "time": 34.395,
         "end": 37.995,
         "text": "Six combinations coming through!",
-        "section": 2
+        "section": 2,
+        "translation": "六種組合就出現！"
       },
       {
         "time": 37.995,
         "end": 41.195,
         "text": "Five and Twelve, Five and Eighteen,",
-        "section": 3
+        "section": 3,
+        "translation": "五和十二，五和十八，"
       },
       {
         "time": 41.195,
         "end": 44.855,
         "text": "Five and Twenty-three on the scene.",
-        "section": 3
+        "section": 3,
+        "translation": "五和二十三也登場。"
       },
       {
         "time": 44.855,
         "end": 48.335,
         "text": "Twelve and Eighteen, Twelve and Twenty-three,",
-        "section": 3
+        "section": 3,
+        "translation": "十二和十八，十二和二十三，"
       },
       {
         "time": 48.335,
         "end": 52.335,
         "text": "Eighteen and Twenty-three, that's all six!",
-        "section": 3
+        "section": 3,
+        "translation": "十八和二十三，六種全到齊！"
       },
       {
         "time": 52.335,
         "end": 55.815,
         "text": "Seems meaningless, what can it be?",
-        "section": 4
+        "section": 4,
+        "translation": "好像沒意義，究竟是什麼？"
       },
       {
         "time": 55.815,
         "end": 59.895,
         "text": "My junior high yearbook calling me?",
-        "section": 4
+        "section": 4,
+        "translation": "是國中畢業紀念冊在呼喚我？"
       },
       {
         "time": 59.895,
         "end": 62.485,
         "text": "\"Feng Bro! Feng Bro!\" Who's calling my name?",
-        "section": 5
+        "section": 5,
+        "translation": "「鋒兄！鋒兄！」誰在叫我的名字？"
       },
       {
         "time": 63.575,
         "end": 67.065,
         "text": "Am I hearing things? Is this some game?",
-        "section": 5
+        "section": 5,
+        "translation": "我是不是幻聽？這是什麼遊戲？"
       },
       {
         "time": 67.375,
         "end": 70.395,
         "text": "The graduation yearbook calls once more,",
-        "section": 6
+        "section": 6,
+        "translation": "畢業紀念冊再度呼喚，"
       },
       {
         "time": 70.395,
         "end": 74.715,
         "text": "\"Feng Bro, I'll show you what these numbers are for!",
-        "section": 6
+        "section": 6,
+        "translation": "「鋒兄，我來告訴你這些數字的意義！"
       },
       {
         "time": 74.715,
         "end": 78.055,
         "text": "Make it happen, meaning comes alive,",
-        "section": 6
+        "section": 6,
+        "translation": "做得到，意義就活起來，"
       },
       {
         "time": 78.055,
         "end": 81.855,
         "text": "Fail to do it, meaning won't survive!\"",
-        "section": 6
+        "section": 6,
+        "translation": "做不到，意義就不存在！」"
       },
       {
         "time": 81.855,
         "end": 84.155,
         "text": "\"Meaning? How could there be meaning?\"",
-        "section": 7
+        "section": 7,
+        "translation": "「意義？怎麼可能有意義？」"
       },
       {
         "time": 84.155,
         "end": 86.435,
         "text": "Five and Twelve, here's the deal,",
-        "section": 8
+        "section": 8,
+        "translation": "五和十二，條件就在這裡，"
       },
       {
         "time": 86.435,
         "end": 88.295,
         "text": "Top exam rank would make it real!",
-        "section": 8
+        "section": 8,
+        "translation": "考到榜首，就讓意義成真！"
       },
       {
         "time": 88.295,
         "end": 89.675,
         "text": "\"No way, I'm not that smart!\"",
-        "section": 9
+        "section": 9,
+        "translation": "「不可能，我才沒那麼聰明！」"
       },
       {
         "time": 89.675,
         "end": 91.495,
         "text": "\"Then fifty points, just make a start!\"",
-        "section": 9
+        "section": 9,
+        "translation": "「那五十分呢？先開始吧！」"
       },
       {
         "time": 91.495,
         "end": 94.395,
         "text": "\"I'll give it a try, let's see my score!\"",
-        "section": 10
+        "section": 10,
+        "translation": "「我試試看，看看能考幾分！」"
       },
       {
         "time": 94.395,
         "end": 97.815,
         "text": "Twenty twenty-two, forty-six, no more.",
-        "section": 10
+        "section": 10,
+        "translation": "二零二二年，只有四十六分。"
       },
       {
         "time": 97.815,
         "end": 99.015,
         "text": "\"You're really bad!\"",
-        "section": 11
+        "section": 11,
+        "translation": "「你真的很差！」"
       },
       {
         "time": 99.015,
         "end": 100.755,
         "text": "\"I don't wanna test, I'm going mad!\"",
-        "section": 11
+        "section": 11,
+        "translation": "「我不想考試，都快瘋了！」"
       },
       {
         "time": 100.755,
         "end": 102.555,
         "text": "Twenty twenty-five, fifty points came through,",
-        "section": 12
+        "section": 12,
+        "translation": "二零二五年，五十分考到了，"
       },
       {
         "time": 102.555,
         "end": 104.275,
         "text": "\"Where's that promise? What happened to you?\"",
-        "section": 12
+        "section": 12,
+        "translation": "「說好的承諾呢？你怎麼了？」"
       },
       {
         "time": 104.275,
         "end": 106.035,
         "text": "\"I'm done with exams, I'm out of here!\"",
-        "section": 13
+        "section": 13,
+        "translation": "「考試到此為止，我不考了！」"
       },
       {
         "time": 106.035,
         "end": 108.035,
         "text": "\"Once you're past thirty-seven, no more exams to fear!\"",
-        "section": 13
+        "section": 13,
+        "translation": "「過了三十七歲，就不用再怕考試！」"
       },
       {
         "time": 108.035,
         "end": 109.935,
         "text": "\"That's great news, I feel so free!",
-        "section": 14
+        "section": 14,
+        "translation": "「這消息真好，我感到自由！"
       },
       {
         "time": 109.935,
         "end": 111.835,
         "text": "Never liked exams, that's always been me!\"",
-        "section": 14
+        "section": 14,
+        "translation": "我本來就不喜歡考試！」"
       },
       {
         "time": 111.835,
         "end": 113.735,
         "text": "\"Wait a minute, I ranked number one!",
-        "section": 15
+        "section": 15,
+        "translation": "「等等，我考到第一名了！"
       },
       {
         "time": 113.735,
         "end": 115.215,
         "text": "I really did it, the race is won!\"",
-        "section": 15
+        "section": 15,
+        "translation": "我真的做到了，贏下這場考試！」"
       },
       {
         "time": 115.215,
         "end": 118.335,
         "text": "If Five means grade five, Twelve means grade twelve,",
-        "section": 16
+        "section": 16,
+        "translation": "如果五是五職等，十二是十二職等，"
       },
       {
         "time": 118.335,
         "end": 121.805,
         "text": "Does fifty-two mean age fifty-two as well?",
-        "section": 16
+        "section": 16,
+        "translation": "五十二也代表五十二歲嗎？"
       },
       {
         "time": 122.035,
         "end": 124.125,
         "text": "\"Yes and no.\"",
-        "section": 17
+        "section": 17,
+        "translation": "「是，也不是。」"
       },
       {
         "time": 124.375,
         "end": 126.075,
         "text": "\"What does that mean? I need to know!\"",
-        "section": 17
+        "section": 17,
+        "translation": "「這是什麼意思？我想知道！」"
       },
       {
         "time": 126.075,
         "end": 127.935,
         "text": "\"If you're fifty-two and not grade twelve,",
-        "section": 18
+        "section": 18,
+        "translation": "「如果到了五十二歲，還不是十二職等，"
       },
       {
         "time": 127.935,
         "end": 129.715,
         "text": "That combination ends itself.\"",
-        "section": 18
+        "section": 18,
+        "translation": "這組就到此結束。」"
       },
       {
         "time": 129.715,
         "end": 132.835,
         "text": "\"But grade twelve means Deputy Secretary-General,",
-        "section": 19
+        "section": 19,
+        "translation": "「但十二職等是副秘書長，"
       },
       {
         "time": 132.835,
         "end": 136.435,
         "text": "And not at fifty-two — that's the scenario!\"",
-        "section": 19
+        "section": 19,
+        "translation": "而且不是五十二歲——就是這樣！」"
       },
       {
         "time": 136.435,
         "end": 139.955,
         "text": "\"Look again, there are more pairs to see!\"",
-        "section": 20
+        "section": 20,
+        "translation": "「再看看，還有其他組合！」"
       },
       {
         "time": 139.955,
         "end": 143.975,
         "text": "\"You're right, more combinations waiting for me!\"",
-        "section": 20
+        "section": 20,
+        "translation": "「你說得對，還有更多組合等著我！」"
       },
       {
         "time": 143.975,
         "end": 147.155,
         "text": "Five and Eighteen, nothing to say,",
-        "section": 21
+        "section": 21,
+        "translation": "五和十八，沒什麼好說，"
       },
       {
         "time": 147.155,
         "end": 150.515,
         "text": "No meaning here, let's skip away!",
-        "section": 21
+        "section": 21,
+        "translation": "這組沒意義，直接跳過！"
       },
       {
         "time": 150.515,
         "end": 153.525,
         "text": "Five and Twenty-three, what could it be?",
-        "section": 22
+        "section": 22,
+        "translation": "五和二十三，會是什麼呢？"
       },
       {
         "time": 153.815,
         "end": 155.555,
         "text": "Class Five, student Twenty-three?",
-        "section": 22
+        "section": 22,
+        "translation": "五班，二十三號同學？"
       },
       {
         "time": 155.555,
         "end": 158.615,
         "text": "A classmate from junior high cram school?",
-        "section": 23
+        "section": 23,
+        "translation": "國中補習班的同學？"
       },
       {
         "time": 158.615,
         "end": 161.505,
         "text": "What's so special? What's the rule?",
-        "section": 23
+        "section": 23,
+        "translation": "有什麼特別？有什麼道理？"
       },
       {
         "time": 162.235,
         "end": 162.965,
         "text": "\"What do you think?\"",
-        "section": 24
+        "section": 24,
+        "translation": "「你覺得呢？」"
       },
       {
         "time": 163.595,
         "end": 165.645,
         "text": "\"Is she a civil servant, do you think?\"",
-        "section": 24
+        "section": 24,
+        "translation": "「你覺得她是公務人員嗎？」"
       },
       {
         "time": 165.875,
         "end": 167.035,
         "text": "\"Not a permanent one!\"",
-        "section": 25
+        "section": 25,
+        "translation": "「不是正式的！」"
       },
       {
         "time": 167.035,
         "end": 168.415,
         "text": "\"So she's on contract, then?\"",
-        "section": 25
+        "section": 25,
+        "translation": "「那就是約聘人員？」"
       },
       {
         "time": 168.415,
         "end": 172.835,
         "text": "\"You'll know someday, just wait and see,",
-        "section": 26
+        "section": 26,
+        "translation": "「總有一天你會知道，等著看，"
       },
       {
         "time": 172.835,
         "end": 176.465,
         "text": "So I won't tell you, let the mystery be!\"",
-        "section": 26
+        "section": 26,
+        "translation": "所以我不告訴你，保留這個謎！」"
       },
       {
         "time": 176.955,
         "end": 179.795,
         "text": "Twelve and Eighteen, here comes the show,",
-        "section": 27
+        "section": 27,
+        "translation": "十二和十八，好戲登場，"
       },
       {
         "time": 179.795,
         "end": 183.825,
         "text": "A Ziwei sage runs for Taipei mayor — whoa!",
-        "section": 27
+        "section": 27,
+        "translation": "有個紫微聖人參選台北市長——哇！"
       },
       {
         "time": 184.015,
         "end": 186.525,
         "text": "\"That's interesting, what a surprise!",
-        "section": 28
+        "section": 28,
+        "translation": "「真有趣，多麼意外！"
       },
       {
         "time": 187.035,
         "end": 191.055,
         "text": "Twenty twenty-two, look at the numbers rise!\"",
-        "section": 28
+        "section": 28,
+        "translation": "看看二零二二年的數字！」"
       },
       {
         "time": 191.055,
         "end": 194.335,
         "text": "Eighth mayoral term, fourteenth council term,",
-        "section": 29
+        "section": 29,
+        "translation": "第八屆市長，第十四屆議會，"
       },
       {
         "time": 194.335,
         "end": 198.255,
         "text": "Four terms ahead, the numbers align!",
-        "section": 29
+        "section": 29,
+        "translation": "往後四屆，數字就對上了！"
       },
       {
         "time": 198.255,
         "end": 200.895,
         "text": "Other counties? Let's take a look,",
-        "section": 30
+        "section": 30,
+        "translation": "其他縣市呢？一起看看，"
       },
       {
         "time": 200.895,
         "end": 202.725,
         "text": "Kinmen's eighth, council eighth in the book.",
-        "section": 30
+        "section": 30,
+        "translation": "金門第八屆，議會也是第八屆。"
       },
       {
         "time": 203.035,
         "end": 204.515,
         "text": "Lienchiang's eighth, council eighth as well,",
-        "section": 30
+        "section": 30,
+        "translation": "連江第八屆，議會也同樣第八屆，"
       },
       {
         "time": 204.515,
         "end": 206.335,
         "text": "No more matches that I can tell!",
-        "section": 30
+        "section": 30,
+        "translation": "看來沒有其他符合的了！"
       },
       {
         "time": 206.335,
         "end": 208.505,
         "text": "\"Mayor of Taipei? You're joking, right?",
-        "section": 31
+        "section": 31,
+        "translation": "「台北市長？你在開玩笑吧？"
       },
       {
         "time": 208.895,
         "end": 211.675,
         "text": "I'd rather be mayor before Huang Ta-chou's time,",
-        "section": 31
+        "section": 31,
+        "translation": "要當也要當黃大洲之前的市長，"
       },
       {
         "time": 211.675,
         "end": 213.615,
         "text": "With presidential backing on my side!\"",
-        "section": 31
+        "section": 31,
+        "translation": "有總統在身邊支持！」"
       },
       {
         "time": 213.615,
         "end": 216.575,
         "text": "Twelve and Twenty-three, nothing to say,",
-        "section": 32
+        "section": 32,
+        "translation": "十二和二十三，沒什麼好說，"
       },
       {
         "time": 216.575,
         "end": 219.635,
         "text": "No meaning here, let's skip away!",
-        "section": 32
+        "section": 32,
+        "translation": "這組沒意義，直接跳過！"
       },
       {
         "time": 219.635,
         "end": 222.675,
         "text": "Eighteen and Twenty-three, one last pair,",
-        "section": 33
+        "section": 33,
+        "translation": "十八和二十三，最後一組，"
       },
       {
         "time": 222.675,
         "end": 227.415,
         "text": "Twenty twenty-four, the numbers are there!",
-        "section": 33
+        "section": 33,
+        "translation": "二零二四年，數字就在這裡！"
       },
       {
         "time": 227.415,
         "end": 230.055,
         "text": "Sixteenth president and vice president,",
-        "section": 34
+        "section": 34,
+        "translation": "第十六任總統與副總統，"
       },
       {
         "time": 230.055,
         "end": 232.075,
         "text": "Eleventh Legislative Yuan in line.",
-        "section": 34
+        "section": 34,
+        "translation": "第十一屆立法院。"
       },
       {
         "time": 232.075,
         "end": 233.975,
         "text": "Seven terms ahead, they coincide,",
-        "section": 34
+        "section": 34,
+        "translation": "往後七屆，數字就重合，"
       },
       {
         "time": 233.975,
         "end": 236.035,
         "text": "Another pattern side by side!",
-        "section": 34
+        "section": 34,
+        "translation": "又是一組並列的規律！"
       },
       {
         "time": 236.035,
         "end": 239.315,
         "text": "\"President? That sounds pretty normal to me,",
-        "section": 35
+        "section": 35,
+        "translation": "「總統？我聽起來很正常，"
       },
       {
         "time": 239.315,
         "end": 241.535,
         "text": "Taipei mayor, then presidency.\"",
-        "section": 35
+        "section": 35,
+        "translation": "台北市長，接著當總統。」"
       },
       {
         "time": 241.535,
         "end": 246.005,
         "text": "\"But why become president at all?",
-        "section": 36
+        "section": 36,
+        "translation": "「但為什麼一定要當總統？"
       },
       {
         "time": 246.475,
         "end": 249.295,
         "text": "Does it have to do with history's call?\"",
-        "section": 36
+        "section": 36,
+        "translation": "這與歷史的召喚有關嗎？」"
       },
       {
         "time": 249.295,
         "end": 253.745,
         "text": "\"If history has nothing to do with me,",
-        "section": 37
+        "section": 37,
+        "translation": "「如果歷史與我無關，"
       },
       {
         "time": 253.995,
         "end": 256.925,
         "text": "Why must I take that destiny?\"",
-        "section": 37
+        "section": 37,
+        "translation": "為什麼非得接受那個命運？」"
       },
       {
         "time": 257.275,
         "end": 260.765,
         "text": "Six combinations, one conversation,",
-        "section": 38
+        "section": 38,
+        "translation": "六種組合，一場對話，"
       },
       {
         "time": 261.255,
         "end": 264.035,
         "text": "Numbers and dreams, imagination!",
-        "section": 38
+        "section": 38,
+        "translation": "數字、夢想與想像！"
       },
       {
         "time": 264.035,
         "end": 267.825,
         "text": "This is the dialogue of combination,",
-        "section": 38
+        "section": 38,
+        "translation": "這就是排列組合的對話，"
       },
       {
         "time": 268.235,
         "end": 271.445,
         "text": "A yearbook's mysterious conversation!",
-        "section": 38
+        "section": 38,
+        "translation": "一場畢業紀念冊的神祕交談！"
       }
     ]
   },
@@ -8891,649 +9625,757 @@ export const newEffectsVersions = [
         "time": 8.875,
         "end": 12.085,
         "text": "ことしは にせんにじゅういちねん、",
-        "section": 0
+        "section": 0,
+        "translation": "今年是二零二一年，"
       },
       {
         "time": 12.875,
         "end": 15.835,
         "text": "ちゅうがくじだいを おもいだす。",
-        "section": 0
+        "section": 0,
+        "translation": "回想起國中時光。"
       },
       {
         "time": 15.835,
         "end": 19.505,
         "text": "クラスの せいとは さんじゅうさんにん、",
-        "section": 0
+        "section": 0,
+        "translation": "班上的學生有三十三人，"
       },
       {
         "time": 19.715,
         "end": 22.895,
         "text": "ことしの ぼくも さんじゅうさんさい！",
-        "section": 0
+        "section": 0,
+        "translation": "今年的我也三十三歲！"
       },
       {
         "time": 22.895,
         "end": 25.245,
         "text": "どのクラスが おなじかな？",
-        "section": 1
+        "section": 1,
+        "translation": "哪個班級也一樣呢？"
       },
       {
         "time": 25.705,
         "end": 27.075,
         "text": "にくみは ちょっと わからない。",
-        "section": 1
+        "section": 1,
+        "translation": "二班有點不確定，"
       },
       {
         "time": 27.075,
         "end": 29.535,
         "text": "たぶん さんじゅうさんにん じゃない、",
-        "section": 1
+        "section": 1,
+        "translation": "大概不是三十三人，"
       },
       {
         "time": 29.535,
         "end": 34.535,
         "text": "ごくみ、じゅうにくみ、じゅうはちくみ、にじゅうさんくみ！",
-        "section": 1
+        "section": 1,
+        "translation": "五班、十二班、十八班、二十三班！"
       },
       {
         "time": 34.535,
         "end": 36.375,
         "text": "この よっつが さんじゅうさんにん、",
-        "section": 2
+        "section": 2,
+        "translation": "這四個班都是三十三人，"
       },
       {
         "time": 36.375,
         "end": 38.395,
         "text": "すうがくの せんせい おもいだす。",
-        "section": 2
+        "section": 2,
+        "translation": "想起了數學老師。"
       },
       {
         "time": 38.395,
         "end": 39.675,
         "text": "じゅんれつと くみあわせ、",
-        "section": 2
+        "section": 2,
+        "translation": "排列與組合，"
       },
       {
         "time": 39.675,
         "end": 41.595,
         "text": "よっつから ふたつを えらぶなら、",
-        "section": 2
+        "section": 2,
+        "translation": "如果四個數字選兩個，"
       },
       {
         "time": 41.595,
         "end": 44.585,
         "text": "くみあわせは むっつ ある！",
-        "section": 2
+        "section": 2,
+        "translation": "總共有六種組合！"
       },
       {
         "time": 45.488,
         "end": 47.445,
         "text": "ごと じゅうに、ひとくみ、",
-        "section": 3
+        "section": 3,
+        "translation": "五和十二，一組，"
       },
       {
         "time": 47.528,
         "end": 49.085,
         "text": "ごと じゅうはち、ひとくみ、",
-        "section": 3
+        "section": 3,
+        "translation": "五和十八，一組，"
       },
       {
         "time": 49.128,
         "end": 50.915,
         "text": "ごと にじゅうさん、ひとくみ、",
-        "section": 3
+        "section": 3,
+        "translation": "五和二十三，一組，"
       },
       {
         "time": 50.915,
         "end": 52.735,
         "text": "じゅうにと じゅうはち、ひとくみ、",
-        "section": 3
+        "section": 3,
+        "translation": "十二和十八，一組，"
       },
       {
         "time": 52.735,
         "end": 54.655,
         "text": "じゅうにと にじゅうさん、ひとくみ、",
-        "section": 3
+        "section": 3,
+        "translation": "十二和二十三，一組，"
       },
       {
         "time": 54.655,
         "end": 57.925,
         "text": "じゅうはちと にじゅうさん、ひとくみ！",
-        "section": 3
+        "section": 3,
+        "translation": "十八和二十三，一組！"
       },
       {
         "time": 60.515,
         "end": 62.275,
         "text": "なんだか いみが ないみたい、",
-        "section": 4
+        "section": 4,
+        "translation": "感覺好像沒有意義，"
       },
       {
         "time": 62.275,
         "end": 64.255,
         "text": "ちゅうがくの そつぎょうアルバム、",
-        "section": 4
+        "section": 4,
+        "translation": "國中的畢業紀念冊，"
       },
       {
         "time": 64.255,
         "end": 66.895,
         "text": "だれかが ぼくを よんでいる？",
-        "section": 4
+        "section": 4,
+        "translation": "有人在呼喚我？"
       },
       {
         "time": 66.895,
         "end": 68.407,
         "text": "「フォンにい！ フォンにい！」",
-        "section": 5
+        "section": 5,
+        "translation": "「鋒兄！鋒兄！」"
       },
       {
         "time": 68.407,
         "end": 69.638,
         "text": "「えっ？ そらみみ なのかな？」",
-        "section": 5
+        "section": 5,
+        "translation": "「咦？是我幻聽嗎？」"
       },
       {
         "time": 70.055,
         "end": 71.655,
         "text": "そつぎょうアルバムが よんでいる、",
-        "section": 6
+        "section": 6,
+        "translation": "畢業紀念冊在呼喚，"
       },
       {
         "time": 71.655,
         "end": 74.645,
         "text": "「フォンにい、いみを あげよう！」",
-        "section": 6
+        "section": 6,
+        "translation": "「鋒兄，我給你意義！」"
       },
       {
         "time": 75.175,
         "end": 77.438,
         "text": "「できたら いみが あるんだよ、",
-        "section": 7
+        "section": 7,
+        "translation": "「做得到就有意義，"
       },
       {
         "time": 77.555,
         "end": 79.015,
         "text": "できなきゃ いみは ないんだよ！」",
-        "section": 7
+        "section": 7,
+        "translation": "做不到就沒有意義！」"
       },
       {
         "time": 79.015,
         "end": 81.995,
         "text": "「いみ？ そんなの あるわけない！」",
-        "section": 8
+        "section": 8,
+        "translation": "「意義？怎麼可能有！」"
       },
       {
         "time": 81.995,
         "end": 84.315,
         "text": "ごと じゅうに、ひとくみだ、",
-        "section": 9
+        "section": 9,
+        "translation": "五和十二，是一組，"
       },
       {
         "time": 84.315,
         "end": 86.375,
         "text": "「しけんで いちばんに なれば いみが ある！」",
-        "section": 9
+        "section": 9,
+        "translation": "「考試拿到第一名，就有意義！」"
       },
       {
         "time": 86.375,
         "end": 88.315,
         "text": "「そんな じしんは ないんだよ！」",
-        "section": 10
+        "section": 10,
+        "translation": "「我可沒有那種信心！」"
       },
       {
         "time": 88.315,
         "end": 90.112,
         "text": "「じゃあ ごじゅってんは どうだろう？」",
-        "section": 10
+        "section": 10,
+        "translation": "「那五十分怎麼樣？」"
       },
       {
         "time": 90.195,
         "end": 91.735,
         "text": "「ちょっと やってみようかな！」",
-        "section": 11
+        "section": 11,
+        "translation": "「我來試試看吧！」"
       },
       {
         "time": 91.735,
         "end": 94.535,
         "text": "にせんにじゅうにねん、さいこう よんじゅうろくてん！",
-        "section": 11
+        "section": 11,
+        "translation": "二零二二年，最高四十六分！"
       },
       {
         "time": 94.535,
         "end": 95.715,
         "text": "「へたすぎる じゃないか！」",
-        "section": 12
+        "section": 12,
+        "translation": "「這也太差了吧！」"
       },
       {
         "time": 95.715,
         "end": 97.455,
         "text": "「もう しけんは いやなんだ！」",
-        "section": 12
+        "section": 12,
+        "translation": "「我已經討厭考試了！」"
       },
       {
         "time": 97.455,
         "end": 99.715,
         "text": "にせんにじゅうごねん、ごじゅってん、",
-        "section": 13
+        "section": 13,
+        "translation": "二零二五年，五十分，"
       },
       {
         "time": 99.715,
         "end": 101.125,
         "text": "「やくそくは どうなった？」",
-        "section": 13
+        "section": 13,
+        "translation": "「說好的承諾呢？」"
       },
       {
         "time": 101.295,
         "end": 103.035,
         "text": "「もう しけんは うけないよ！」",
-        "section": 14
+        "section": 14,
+        "translation": "「我不再考試了！」"
       },
       {
         "time": 103.035,
         "end": 104.755,
         "text": "「さんじゅうななさいを すぎたら、",
-        "section": 14
+        "section": 14,
+        "translation": "「只要過了三十七歲，"
       },
       {
         "time": 104.755,
         "end": 106.715,
         "text": "もう しけんは いらないよ！」",
-        "section": 14
+        "section": 14,
+        "translation": "就再也不用考試了！」"
       },
       {
         "time": 106.715,
         "end": 108.355,
         "text": "「それは ほんとうに よかった！",
-        "section": 15
+        "section": 15,
+        "translation": "「那可真是太好了！"
       },
       {
         "time": 108.355,
         "end": 111.575,
         "text": "もともと しけんは きらいだよ！」",
-        "section": 15
+        "section": 15,
+        "translation": "我本來就討厭考試！」"
       },
       {
         "time": 111.575,
         "end": 114.015,
         "text": "「えっ？ ほんとうに いちばんに なった！",
-        "section": 16
+        "section": 16,
+        "translation": "「咦？真的考到第一名了！"
       },
       {
         "time": 114.015,
         "end": 115.655,
         "text": "ぼくが しけんで いちばんだ！」",
-        "section": 16
+        "section": 16,
+        "translation": "我考試拿了第一名！」"
       },
       {
         "time": 115.655,
         "end": 117.555,
         "text": "ごが ごとうきゅう ならば、",
-        "section": 17
+        "section": 17,
+        "translation": "如果五是五職等，"
       },
       {
         "time": 117.555,
         "end": 119.355,
         "text": "じゅうには じゅうにとうきゅう。",
-        "section": 17
+        "section": 17,
+        "translation": "十二就是十二職等。"
       },
       {
         "time": 119.355,
         "end": 121.175,
         "text": "ごじゅうには ごじゅうにさい？",
-        "section": 17
+        "section": 17,
+        "translation": "五十二是五十二歲嗎？"
       },
       {
         "time": 121.175,
         "end": 122.935,
         "text": "「そうでも あるし、ちがいも する！」",
-        "section": 18
+        "section": 18,
+        "translation": "「是，也不是！」"
       },
       {
         "time": 122.935,
         "end": 126.265,
         "text": "「いったい どういう いみなの？」",
-        "section": 18
+        "section": 18,
+        "translation": "「究竟是什麼意思？」"
       },
       {
         "time": 126.755,
         "end": 128.655,
         "text": "「ごじゅうにさいに なっても、",
-        "section": 19
+        "section": 19,
+        "translation": "「即使到了五十二歲，"
       },
       {
         "time": 128.655,
         "end": 130.575,
         "text": "じゅうにとうきゅう じゃなければ、",
-        "section": 19
+        "section": 19,
+        "translation": "如果還不是十二職等，"
       },
       {
         "time": 130.575,
         "end": 133.565,
         "text": "この くみあわせは おしまいだ！」",
-        "section": 19
+        "section": 19,
+        "translation": "這組就結束了！」"
       },
       {
         "time": 134.375,
         "end": 136.195,
         "text": "「でも じゅうにとうきゅうは、",
-        "section": 20
+        "section": 20,
+        "translation": "「但是十二職等，"
       },
       {
         "time": 136.195,
         "end": 137.915,
         "text": "ふくじむちょう なんだよ。",
-        "section": 20
+        "section": 20,
+        "translation": "是副秘書長，"
       },
       {
         "time": 137.915,
         "end": 140.625,
         "text": "しかも ごじゅうにさい じゃない！」",
-        "section": 20
+        "section": 20,
+        "translation": "而且不是五十二歲！」"
       },
       {
         "time": 141.335,
         "end": 143.975,
         "text": "「ほかの くみあわせも みてごらん！」",
-        "section": 21
+        "section": 21,
+        "translation": "「也看看其他組合吧！」"
       },
       {
         "time": 143.975,
         "end": 145.815,
         "text": "「そうだね！ まだ あるんだ！」",
-        "section": 21
+        "section": 21,
+        "translation": "「對耶！還有其他組！」"
       },
       {
         "time": 145.815,
         "end": 147.465,
         "text": "ごと じゅうはち、ひとくみだ、",
-        "section": 22
+        "section": 22,
+        "translation": "五和十八，是一組，"
       },
       {
         "time": 147.595,
         "end": 149.035,
         "text": "「いみが ないから とばそうよ！」",
-        "section": 22
+        "section": 22,
+        "translation": "「沒有意義，跳過吧！」"
       },
       {
         "time": 149.035,
         "end": 150.665,
         "text": "ごと にじゅうさん、ひとくみだ、",
-        "section": 23
+        "section": 23,
+        "translation": "五和二十三，是一組，"
       },
       {
         "time": 150.815,
         "end": 152.635,
         "text": "「ごくみの にじゅうさんばん？」",
-        "section": 23
+        "section": 23,
+        "translation": "「五班二十三號？」"
       },
       {
         "time": 152.635,
         "end": 154.465,
         "text": "ちゅうがくの じゅくの ともだち？",
-        "section": 24
+        "section": 24,
+        "translation": "國中補習班的朋友？"
       },
       {
         "time": 154.542,
         "end": 156.125,
         "text": "「それの どこが とくべつなの？」",
-        "section": 24
+        "section": 24,
+        "translation": "「那有什麼特別的？」"
       },
       {
         "time": 156.435,
         "end": 158.195,
         "text": "「きみは どう おもう？」",
-        "section": 25
+        "section": 25,
+        "translation": "「你怎麼想？」"
       },
       {
         "time": 158.415,
         "end": 159.985,
         "text": "「かのじょは こうむいんなの？」",
-        "section": 25
+        "section": 25,
+        "translation": "「她是公務人員嗎？」"
       },
       {
         "time": 160.239,
         "end": 161.813,
         "text": "「せいしきな しょくいん じゃない！」",
-        "section": 26
+        "section": 26,
+        "translation": "「不是正式職員！」"
       },
       {
         "time": 162.295,
         "end": 163.885,
         "text": "「じゃあ けいやくしょくいん？」",
-        "section": 26
+        "section": 26,
+        "translation": "「那就是約聘人員？」"
       },
       {
         "time": 163.885,
         "end": 165.615,
         "text": "「いつか わかる ときが くる、",
-        "section": 27
+        "section": 27,
+        "translation": "「總有一天會明白，"
       },
       {
         "time": 165.615,
         "end": 167.455,
         "text": "だから いまは おしえない！」",
-        "section": 27
+        "section": 27,
+        "translation": "所以現在先不告訴你！」"
       },
       {
         "time": 167.455,
         "end": 169.235,
         "text": "じゅうにと じゅうはち、ひとくみだ、",
-        "section": 28
+        "section": 28,
+        "translation": "十二和十八，是一組，"
       },
       {
         "time": 169.235,
         "end": 170.815,
         "text": "「しびせいじんが たいぺいの",
-        "section": 28
+        "section": 28,
+        "translation": "「聽說有個紫微聖人，"
       },
       {
         "time": 170.815,
         "end": 173.715,
         "text": "しちょうせんきょに でるんだって！」",
-        "section": 28
+        "section": 28,
+        "translation": "要參加台北市長選舉！」"
       },
       {
         "time": 173.715,
         "end": 176.335,
         "text": "「おもしろい！ なんだか ふしぎ！」",
-        "section": 29
+        "section": 29,
+        "translation": "「真有趣！感覺好神奇！」"
       },
       {
         "time": 176.335,
         "end": 178.395,
         "text": "にせんにじゅうにねん、",
-        "section": 30
+        "section": 30,
+        "translation": "二零二二年，"
       },
       {
         "time": 178.395,
         "end": 180.22,
         "text": "しちょうは だいはっき、",
-        "section": 30
+        "section": 30,
+        "translation": "市長是第八屆，"
       },
       {
         "time": 180.395,
         "end": 182.175,
         "text": "しぎかいは だいじゅうよんき！",
-        "section": 30
+        "section": 30,
+        "translation": "市議會是第十四屆！"
       },
       {
         "time": 182.175,
         "end": 183.935,
         "text": "「どちらも よんきを すすめたら、",
-        "section": 31
+        "section": 31,
+        "translation": "「如果兩邊都往後推四屆，"
       },
       {
         "time": 183.935,
         "end": 185.675,
         "text": "ぴったり あうんじゃ ないかな？」",
-        "section": 31
+        "section": 31,
+        "translation": "不就剛好對上了嗎？」"
       },
       {
         "time": 185.675,
         "end": 187.615,
         "text": "ほかの ちいきも みてみよう、",
-        "section": 32
+        "section": 32,
+        "translation": "也來看看其他地區，"
       },
       {
         "time": 187.615,
         "end": 189.47,
         "text": "きんもんは しちょうが だいはっき、",
-        "section": 32
+        "section": 32,
+        "translation": "金門的市長是第八屆，"
       },
       {
         "time": 189.555,
         "end": 191.225,
         "text": "ぎかいも だいはっき！",
-        "section": 32
+        "section": 32,
+        "translation": "議會也是第八屆！"
       },
       {
         "time": 191.415,
         "end": 193.05,
         "text": "れんこうも だいはっき、",
-        "section": 33
+        "section": 33,
+        "translation": "連江也是第八屆，"
       },
       {
         "time": 193.235,
         "end": 194.92,
         "text": "ぎかいも だいはっき！",
-        "section": 33
+        "section": 33,
+        "translation": "議會也是第八屆！"
       },
       {
         "time": 195.095,
         "end": 197.215,
         "text": "「ほかには ないみたいだ！」",
-        "section": 34
+        "section": 34,
+        "translation": "「看來沒有其他的了！」"
       },
       {
         "time": 197.215,
         "end": 199.035,
         "text": "「たいぺいの しちょう？ じょうだんでしょ！",
-        "section": 35
+        "section": 35,
+        "translation": "「台北市長？開玩笑的吧！"
       },
       {
         "time": 199.035,
         "end": 201.195,
         "text": "なるなら こうたいしゅう より まえの",
-        "section": 35
+        "section": 35,
+        "translation": "要當也想當黃大洲之前的，"
       },
       {
         "time": 201.195,
         "end": 202.155,
         "text": "しちょうに なりたい、",
-        "section": 35
+        "section": 35,
+        "translation": "那個時代的市長，"
       },
       {
         "time": 202.155,
         "end": 204.275,
         "text": "だいとうりょうの おうえんつきで！」",
-        "section": 35
+        "section": 35,
+        "translation": "有總統的支持！」"
       },
       {
         "time": 204.275,
         "end": 206.515,
         "text": "じゅうにと にじゅうさん、ひとくみだ、",
-        "section": 36
+        "section": 36,
+        "translation": "十二和二十三，是一組，"
       },
       {
         "time": 206.515,
         "end": 208.175,
         "text": "「いみが ないから とばそうよ！」",
-        "section": 36
+        "section": 36,
+        "translation": "「沒有意義，跳過吧！」"
       },
       {
         "time": 208.175,
         "end": 210.035,
         "text": "じゅうはちと にじゅうさん、さいごの くみ、",
-        "section": 37
+        "section": 37,
+        "translation": "十八和二十三，最後一組，"
       },
       {
         "time": 210.035,
         "end": 211.915,
         "text": "にせんにじゅうよねんを みてみよう！",
-        "section": 37
+        "section": 37,
+        "translation": "看看二零二四年！"
       },
       {
         "time": 211.915,
         "end": 214.555,
         "text": "だいじゅうろくだいの そうとうと ふくそうとう、",
-        "section": 38
+        "section": 38,
+        "translation": "第十六任總統與副總統，"
       },
       {
         "time": 214.555,
         "end": 215.984,
         "text": "だいじゅういっきの りっぽういん！",
-        "section": 38
+        "section": 38,
+        "translation": "第十一屆立法院！"
       },
       {
         "time": 215.984,
         "end": 217.555,
         "text": "「どちらも ななきを すすめたら、",
-        "section": 39
+        "section": 39,
+        "translation": "「如果兩邊都往後推七屆，"
       },
       {
         "time": 217.555,
         "end": 219.275,
         "text": "ぴったり あうんじゃ ないかな？」",
-        "section": 39
+        "section": 39,
+        "translation": "不就剛好對上了嗎？」"
       },
       {
         "time": 219.275,
         "end": 221.355,
         "text": "「だいとうりょう？ ふつうに みえるね、",
-        "section": 40
+        "section": 40,
+        "translation": "「總統？看起來很正常，"
       },
       {
         "time": 221.355,
         "end": 223.115,
         "text": "たいぺいしちょうから だいとうりょう！」",
-        "section": 40
+        "section": 40,
+        "translation": "從台北市長到總統！」"
       },
       {
         "time": 223.115,
         "end": 224.735,
         "text": "「でも どうして だいとうりょうに？",
-        "section": 41
+        "section": 41,
+        "translation": "「但為什麼要當總統？"
       },
       {
         "time": 224.735,
         "end": 226.515,
         "text": "れきしと なにか かんけいが ある？」",
-        "section": 41
+        "section": 41,
+        "translation": "跟歷史有什麼關係嗎？」"
       },
       {
         "time": 226.515,
         "end": 228.175,
         "text": "「れきしと かんけいが ないなら、",
-        "section": 42
+        "section": 42,
+        "translation": "「如果跟歷史沒有關係，"
       },
       {
         "time": 228.175,
         "end": 229.955,
         "text": "むりに なる ひつよう ないでしょう？」",
-        "section": 42
+        "section": 42,
+        "translation": "也不需要勉強去當吧？」"
       },
       {
         "time": 229.955,
         "end": 231.495,
         "text": "むっつの くみあわせ、",
-        "section": 43
+        "section": 43,
+        "translation": "六種組合，"
       },
       {
         "time": 231.495,
         "end": 232.705,
         "text": "むっつの ものがたり、",
-        "section": 43
+        "section": 43,
+        "translation": "六段故事，"
       },
       {
         "time": 233.195,
         "end": 235.335,
         "text": "すうじが つなぐ ふしぎな かいわ、",
-        "section": 43
+        "section": 43,
+        "translation": "數字串起不可思議的對話，"
       },
       {
         "time": 235.335,
         "end": 238.205,
         "text": "これが くみあわせの たいわ！",
-        "section": 43
+        "section": 43,
+        "translation": "這就是排列組合的對話！"
       }
     ]
   },
@@ -10361,121 +11203,141 @@ export const newEffectsVersions = [
         "time": 10.86,
         "end": 13.91,
         "text": "Lucky cat Bu Bu brings you blessings today",
-        "section": 0
+        "section": 0,
+        "translation": "招財喵布布今日為你送上祝福"
       },
       {
         "time": 13.96,
         "end": 16.87,
         "text": "Feng, may joy be with you at thirty-seven",
-        "section": 0
+        "section": 0,
+        "translation": "鋒兄，願喜悅伴你度過三十七歲"
       },
       {
         "time": 16.92,
         "end": 19.61,
         "text": "Your birthday gift: first prize, your receipt pays out",
-        "section": 0
+        "section": 0,
+        "translation": "生日禮物是發票對中頭獎"
       },
       {
         "time": 19.66,
         "end": 22.35,
         "text": "Two hundred thousand makes you smile all day",
-        "section": 0
+        "section": 0,
+        "translation": "二十萬元讓你整天笑開懷"
       },
       {
         "time": 22.4,
         "end": 27.87,
         "text": "Tu, next birthday, may your wish at last come true",
-        "section": 0
+        "section": 0,
+        "translation": "塗哥，願下個生日終能心願成真"
       },
       {
         "time": 27.92,
         "end": 34.39,
         "text": "Power Lotto’s grand prize is in sight",
-        "section": 0
+        "section": 0,
+        "translation": "威力彩頭獎就在眼前"
       },
       {
         "time": 34.44,
         "end": 39.11,
         "text": "Feng pays, six meals cost forty-eight hundred",
-        "section": 1
+        "section": 1,
+        "translation": "鋒兄買單，六頓大餐共四千八"
       },
       {
         "time": 39.16,
         "end": 44.97,
         "text": "Tu picks; your share is twenty million, two hundred fifty thousand",
-        "section": 1
+        "section": 1,
+        "translation": "塗哥選號，你分得兩千零二十五萬元"
       },
       {
         "time": 45.02,
         "end": 50.17,
         "text": "Our family shares good luck today",
-        "section": 1
+        "section": 1,
+        "translation": "我們一家今天共享好運"
       },
       {
         "time": 50.22,
         "end": 55.69,
         "text": "Lucky cat Bu Bu spreads joy far and wide",
-        "section": 1
+        "section": 1,
+        "translation": "招財喵布布把歡樂傳遍四方"
       },
       {
         "time": 64.6,
         "end": 67.49,
         "text": "Tu’s mum and dad, Feng’s parents are all here now",
-        "section": 2
+        "section": 2,
+        "translation": "塗哥的爸媽、鋒兄的雙親都來了"
       },
       {
         "time": 67.54,
         "end": 70.15,
         "text": "Lucky cat Bu Bu sees our joy shine bright",
-        "section": 2
+        "section": 2,
+        "translation": "招財喵布布見證我們歡喜閃耀"
       },
       {
         "time": 70.2,
         "end": 72.73,
         "text": "May good fortune bless this family",
-        "section": 2
+        "section": 2,
+        "translation": "願好運庇佑這個家庭"
       },
       {
         "time": 72.78,
         "end": 75.69,
         "text": "May wealth and joy stay with us evermore",
-        "section": 2
+        "section": 2,
+        "translation": "願財富與喜悅永遠與我們相伴"
       },
       {
         "time": 75.74,
         "end": 81.07,
         "text": "Tu, next birthday, may your wish at last come true",
-        "section": 2
+        "section": 2,
+        "translation": "塗哥，願下個生日終能心願成真"
       },
       {
         "time": 81.12,
         "end": 87.69,
         "text": "Power Lotto’s grand prize is in sight",
-        "section": 2
+        "section": 2,
+        "translation": "威力彩頭獎就在眼前"
       },
       {
         "time": 87.74,
         "end": 92.49,
         "text": "Feng pays, six meals cost forty-eight hundred",
-        "section": 3
+        "section": 3,
+        "translation": "鋒兄買單，六頓大餐共四千八"
       },
       {
         "time": 92.64,
         "end": 98.11,
         "text": "Tu picks; your share is twenty million, two hundred fifty thousand",
-        "section": 3
+        "section": 3,
+        "translation": "塗哥選號，你分得兩千零二十五萬元"
       },
       {
         "time": 98.16,
         "end": 103.35,
         "text": "Our family shares good luck today",
-        "section": 3
+        "section": 3,
+        "translation": "我們一家今天共享好運"
       },
       {
         "time": 103.4,
         "end": 110.35,
         "text": "Lucky cat Bu Bu spreads joy far and wide",
-        "section": 3
+        "section": 3,
+        "translation": "招財喵布布把歡樂傳遍四方"
       }
     ]
   },
@@ -10493,120 +11355,154 @@ export const newEffectsVersions = [
         "time": 11.6,
         "end": 15.11,
         "text": "ねこのブブ ふくをはこぶ",
+        "translation": "貓咪布布送來福氣",
         "section": 0
       },
       {
         "time": 15.16,
         "end": 18.13,
         "text": "フェン さんじゅうなな さちあれ",
+        "translation": "鋒兄三十七歲，願你幸福",
         "section": 0
       },
       {
         "time": 18.18,
         "end": 20.91,
         "text": "ギフト レシートいっとう",
+        "translation": "生日禮物是發票頭獎",
         "section": 0
       },
       {
         "time": 20.96,
         "end": 23.51,
         "text": "にじゅうまん えがおさく",
+        "translation": "二十萬元讓笑容綻放",
         "section": 0
       },
       {
         "time": 23.56,
         "end": 29.15,
         "text": "らいねん トゥのゆめかなう",
+        "translation": "明年塗哥的夢想成真",
         "section": 0
       },
       {
         "time": 29.2,
         "end": 35.85,
         "text": "パワーロト すぐそこ",
+        "translation": "威力彩頭獎近在眼前",
         "section": 0
       },
       {
         "time": 35.9,
         "end": 40.65,
         "text": "フェンがおごる ろくにん よんせんはっぴゃく",
+        "translation": "鋒兄請客，六人共四千八",
         "section": 1
       },
       {
         "time": 40.7,
         "end": 46.33,
         "text": "トゥがあて にせんにじゅうごまんわけて",
+        "translation": "塗哥中獎，兩千零二十五萬元一起分享",
         "section": 1
       },
       {
         "time": 46.38,
         "end": 49.47,
         "text": "かぞくでわけるふく",
+        "translation": "全家共享福氣",
         "section": 1
       },
       {
         "time": 49.52,
         "end": 52.47,
         "text": "ブブがしあわせをまく",
+        "translation": "布布播撒幸福",
+        "section": 1
+      },
+      {
+        "time": 52.52,
+        "end": 56.2,
+        "text": "りょうけのおやもあつまる",
+        "translation": "兩家的父母也齊聚一堂",
         "section": 1
       },
       {
         "time": 66.28,
         "end": 68.67,
         "text": "りょうけのおやもあつまる",
+        "translation": "兩家的父母也齊聚一堂",
         "section": 2
       },
       {
         "time": 68.72,
         "end": 71.55,
         "text": "ブブもみまもるえがお",
+        "translation": "布布也守望著大家的笑容",
         "section": 2
       },
       {
         "time": 71.6,
         "end": 74.87,
         "text": "ふくのかみ みまもる",
+        "translation": "福神守護著我們",
         "section": 2
       },
       {
         "time": 74.92,
         "end": 77.21,
         "text": "とみとさち いつまでも",
+        "translation": "財富與幸福長長久久",
         "section": 2
       },
       {
         "time": 77.26,
         "end": 82.85,
         "text": "らいねん トゥのゆめかなう",
+        "translation": "明年塗哥的夢想成真",
         "section": 2
       },
       {
         "time": 82.9,
         "end": 89.57,
         "text": "パワーロト すぐそこ",
+        "translation": "威力彩頭獎近在眼前",
         "section": 2
       },
       {
         "time": 89.62,
         "end": 94.51,
         "text": "フェンがおごる ろくにん よんせんはっぴゃく",
+        "translation": "鋒兄請客，六人共四千八",
         "section": 3
       },
       {
         "time": 94.56,
         "end": 99.81,
         "text": "トゥがあて にせんにじゅうごまんわけて",
+        "translation": "塗哥中獎，兩千零二十五萬元一起分享",
         "section": 3
       },
       {
         "time": 99.86,
         "end": 103.23,
         "text": "かぞくでわけるふく",
+        "translation": "全家共享福氣",
         "section": 3
       },
       {
         "time": 103.28,
         "end": 106.15,
         "text": "ブブがしあわせをまく",
+        "translation": "布布播撒幸福",
+        "section": 3
+      },
+      {
+        "time": 106.2,
+        "end": 110.32,
+        "text": "りょうけのおやもあつまる",
+        "translation": "兩家的父母也齊聚一堂",
         "section": 3
       }
     ]

@@ -41,9 +41,19 @@ export function buildTimeline(song, duration) {
   const lines = song.lyrics.map((lyric, i) => {
     const start = cues[i].time;
     const nextStart = cues[i + 1]?.time;
-    const end = nextStart ?? Math.min(duration - 3, start + clamp(visibleLength(lyric.text) * 0.45, 3.5, 8));
+    const defaultEnd = nextStart ?? Math.min(duration - 3, start + clamp(visibleLength(lyric.text) * 0.45, 3.5, 8));
+    // The Japanese jackpot has an instrumental break between the repeated parent lines.
+    const end = song.id === 's102-ja' ? cues[i].end ?? defaultEnd : defaultEnd;
     const chapter = song.chapters[lyric.chapter];
-    return { ...lyric, text: cues[i].text || lyric.text, index: i, start, end: Math.max(end, start + 0.4), action: chapter.action };
+    return {
+      ...lyric,
+      text: cues[i].text || lyric.text,
+      translation: song.translations?.[i],
+      index: i,
+      start,
+      end: Math.max(end, start + 0.4),
+      action: chapter.action,
+    };
   });
   lines.forEach(line => { line.mode = 'plate'; });
 

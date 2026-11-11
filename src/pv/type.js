@@ -4,6 +4,7 @@ import { withoutPunctuation, fillText, strokeText, measureText } from './text.js
 import { CANDY, css } from './color.js';
 import { SANS } from './bg.js';
 import { clamp, hash, smooth } from './timeline.js';
+import { stageOrder } from '../song-data.js';
 
 const backOut = k => {
   k = clamp(k, 0, 1);
@@ -169,25 +170,32 @@ function rowsFor(text, innerH) {
   return best.rows;
 }
 
-export function lyricPlate(text, H, inset = 0) {
+export function lyricPlate(text, H, inset = 0, translation = '') {
   text = withoutPunctuation(text);
+  translation = withoutPunctuation(translation).trim();
   const bandTop = Math.round(H * (1 - LYRIC_BAND));
   const bandBottom = H - inset - 22;
   const pad = 12;
   const innerH = Math.max(36, bandBottom - bandTop - pad * 2);
-  const rows = rowsFor(text, innerH);
+  const translationGap = 8;
+  const translationMaxSize = 34;
+  const mainH = translation ? innerH - translationMaxSize * 1.2 - translationGap : innerH;
+  const rows = rowsFor(text, mainH);
   const longest = Math.max(1, ...rows.map(rowUnits));
-  const size = clamp(Math.min(MAX_GLYPH, innerH / (rows.length * ROW_FIT), PLATE_WIDTH / longest), 14, MAX_GLYPH);
+  const size = clamp(Math.min(MAX_GLYPH, mainH / (rows.length * ROW_FIT), PLATE_WIDTH / longest), 14, MAX_GLYPH);
   const lineH = size * 1.18;
-  const block = rows.length * lineH;
+  const mainBlock = rows.length * lineH;
+  const translationSize = translation ? Math.min(translationMaxSize, size * 0.65, PLATE_WIDTH / rowUnits(translation)) : 0;
+  const block = translation ? mainBlock + translationGap + translationSize * 1.2 : mainBlock;
   let top = bandTop + pad + Math.max(0, (innerH - block) / 2);
   if (top + block > bandBottom - 4) top = bandBottom - 4 - block;
   if (top < bandTop) top = bandTop;
-  return { bandTop, bandBottom, size, rows, top, lineH, block };
+  const translationY = top + mainBlock + translationGap + translationSize * 0.6;
+  return { bandTop, bandBottom, size, rows, top, lineH, block, translation, translationSize, translationY };
 }
 
 function plateMode(ctx, line, t, W, H, inset) {
-  const plate = lyricPlate(line.text, H, inset);
+  const plate = lyricPlate(line.text, H, inset, line.translation);
   const fade = smooth((t - line.start) / 0.12);
   if (fade <= 0) return;
   ctx.save();
@@ -206,6 +214,18 @@ function plateMode(ctx, line, t, W, H, inset) {
       alpha: fade,
     });
   });
+  if (plate.translation) {
+    ctx.globalAlpha = fade;
+    ctx.font = `700 ${plate.translationSize}px ${SANS}`;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillStyle = '#fff';
+    ctx.strokeStyle = 'rgba(8,6,16,.85)';
+    ctx.lineWidth = 4;
+    ctx.lineJoin = 'round';
+    strokeText(ctx, plate.translation, W / 2, plate.translationY, PLATE_WIDTH);
+    fillText(ctx, plate.translation, W / 2, plate.translationY, PLATE_WIDTH);
+  }
   ctx.restore();
 }
 
@@ -438,7 +458,7 @@ export function drawEnding(ctx, { song, cast }, t, start, end, look, W, H) {
     ctx.globalAlpha = smooth((since - 0.8) / 0.5);
     fillText(ctx, 'CAST', W / 2, y);
     ctx.letterSpacing = '0px';
-    const names = [...new Set(cast)];
+    const names = [...new Set(stageOrder(cast.length).map(i => cast[i]))];
     const spacing = 240;
     names.forEach((name, i) => {
       const k = backOut((since - 1 - i * 0.12) / 0.4);

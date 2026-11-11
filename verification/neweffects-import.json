@@ -43,8 +43,9 @@
         },
         {
           "path": "最瞎結婚理由(英文歌詞).srt",
-          "sha256": "48b95f731166b79b003611114146f35cc731bdaed191e1918ae7fde66a52594d",
-          "committed": true
+          "sha256": "16c5e65b207c80d58752bd5482811eba451b21e9b57eb6f76a25e0d9d81cb90c",
+          "committed": true,
+          "sourceRevision": "9905648ba5dc7db407b41a5a4c6fc5aaeed1d823"
         },
         {
           "path": "assets/ref/wedding/lyrics-en.txt",
@@ -73,8 +74,9 @@
         },
         {
           "path": "最瞎結婚理由(日文歌詞).srt",
-          "sha256": "697939e02c7336b1b866de42d231d58fabc3b0a338422d1da99262ad6b29ca69",
-          "committed": true
+          "sha256": "4e023ea7942d34954a251fc971bf2345764aafe1071ac93f016d1bd31b372aca",
+          "committed": true,
+          "sourceRevision": "9905648ba5dc7db407b41a5a4c6fc5aaeed1d823"
         },
         {
           "path": "assets/ref/wedding/lyrics-ja.txt",
@@ -163,8 +165,9 @@
         },
         {
           "path": "鋒塗力百年夢(英文歌詞).srt",
-          "sha256": "543bd298c73b0ca46451761245e19629908638588dae031bb63a336baa5fc086",
-          "committed": true
+          "sha256": "804b88a4e86c8b5445f3f34ea2a6f1da0d0c35815b70bfb0bee9f705f65a5d8e",
+          "committed": true,
+          "sourceRevision": "9905648ba5dc7db407b41a5a4c6fc5aaeed1d823"
         },
         {
           "path": "assets/ref/fengtuli/lyrics-en.txt",
@@ -193,8 +196,9 @@
         },
         {
           "path": "鋒塗力百年夢(日文歌詞).srt",
-          "sha256": "8330f563bc0d17d4d71ce9e17ccde55aba91f5f2b928a79aa98c09fdcc366790",
-          "committed": true
+          "sha256": "588565eb29e58580d7e538d0bec75a5adeba9d4cf84f4fc42bd18e3b3f5d0e7f",
+          "committed": true,
+          "sourceRevision": "9905648ba5dc7db407b41a5a4c6fc5aaeed1d823"
         },
         {
           "path": "assets/ref/fengtuli/lyrics-ja.txt",
@@ -283,8 +287,9 @@
         },
         {
           "path": "水電進化 Show(英文歌詞).srt",
-          "sha256": "963f1740c900af17a2a7c22690ad296750aca1c3a9a2c780d4835aefb9dda139",
-          "committed": true
+          "sha256": "8f0c00d7ed15236b687bfa780583511b47f486d91f64c4cda450acb54822da5a",
+          "committed": true,
+          "sourceRevision": "9905648ba5dc7db407b41a5a4c6fc5aaeed1d823"
         },
         {
           "path": "assets/ref/plumbing-evolution/lyrics-en.txt",
@@ -313,8 +318,9 @@
         },
         {
           "path": "水電進化 Show(日文歌詞).srt",
-          "sha256": "9f2c19e62a29a7287eea60472af828ab4adac065af2424b2bffe835289d0a9ad",
-          "committed": true
+          "sha256": "96541a2082bda9bb3ce8e1db87205efa5b2bc15b39e950a3ffdaf95f6c36830b",
+          "committed": true,
+          "sourceRevision": "9905648ba5dc7db407b41a5a4c6fc5aaeed1d823"
         },
         {
           "path": "assets/ref/plumbing-evolution/lyrics-ja.txt",
@@ -403,8 +409,9 @@
         },
         {
           "path": "喵布布本喵掉的毛(英文歌詞).srt",
-          "sha256": "c2ca369369f8aa41e2a6b0c03722e87953638e743cada7ebb4ba4f13714fa8e9",
-          "committed": true
+          "sha256": "a23f0d0644ef76fa0056c3d0f6ed8e250c5108269f989e5f186c9e2063eda66f",
+          "committed": true,
+          "sourceRevision": "9905648ba5dc7db407b41a5a4c6fc5aaeed1d823"
         },
         {
           "path": "assets/ref/bubu-fur/lyrics-en.txt",
@@ -433,8 +440,9 @@
         },
         {
           "path": "喵布布本喵掉的毛(日文歌詞).srt",
-          "sha256": "a32ce6ca8edc6d44ed96fa093253fbc1fc074b4b6e59b27b19bc6b8587dfc551",
-          "committed": true
+          "sha256": "a80d31e1732f39b753d3a83f1ba38e3a8450c9751b887395ebdd2c33a4a4497b",
+          "committed": true,
+          "sourceRevision": "9905648ba5dc7db407b41a5a4c6fc5aaeed1d823"
         },
         {
           "path": "assets/ref/bubu-fur/lyrics-ja.txt",
@@ -532,8 +540,9 @@
         },
         {
           "path": "鋒兄的傳奇人生(英文歌詞).srt",
-          "sha256": "2b3c7b53f9b03e9bae4c4525f16ac71310099ab51cd33c4b3ef2e22843937974",
-          "committed": true
+          "sha256": "34316442fcb547cbc7cecf26f205b46d806ba10c675221f0c9908d8cb9c0b2b5",
+          "committed": true,
+          "sourceRevision": "9905648ba5dc7db407b41a5a4c6fc5aaeed1d823"
         },
         {
           "path": "assets/ref/feng-legend/lyrics-en.txt",
@@ -562,8 +571,9 @@
         },
         {
           "path": "鋒兄的傳奇人生(日文歌詞).srt",
-          "sha256": "6cfde12acb784044963496cd7366302cc4dbc97217424aa01f24c4731dbad1fa",
-          "committed": true
+          "sha256": "6f2f420d1ad11ad06c39e91c555bfb4ba53810e3c8aaf4edf4de65127c6f0409",
+          "committed": true,
+          "sourceRevision": "9905648ba5dc7db407b41a5a4c6fc5aaeed1d823"
         },
         {
           "path": "assets/ref/feng-legend/lyrics-ja.txt",
@@ -661,8 +671,9 @@
         },
         {
           "path": "塗哥水電王子爆紅(英文歌詞).srt",
-          "sha256": "d4e104248a35f08e110c7b2e4d3c8db74e4f32cdacbf19a007a28227a654aeb7",
-          "committed": true
+          "sha256": "1505f1f5ca9678695c5524408e0a82cac30cccea564b05dc356346a47ae30409",
+          "committed": true,
+          "sourceRevision": "9905648ba5dc7db407b41a5a4c6fc5aaeed1d823"
         },
         {
           "path": "assets/ref/plumbing-prince/lyrics-en.txt",
@@ -691,8 +702,9 @@
         },
         {
           "path": "塗哥水電王子爆紅(日文歌詞).srt",
-          "sha256": "9a0670c692a506d335cdec0bdb279856067517ac315cd27b825353b78d776f84",
-          "committed": true
+          "sha256": "7cab7b44b592c7d30ff478ca33fc681e609dad8d53aa0d55ec8cbafd3a5a95ca",
+          "committed": true,
+          "sourceRevision": "9905648ba5dc7db407b41a5a4c6fc5aaeed1d823"
         },
         {
           "path": "assets/ref/plumbing-prince/lyrics-ja.txt",
@@ -794,8 +806,9 @@
         },
         {
           "path": "鋒兄進化 Show！🔥(英文歌詞).srt",
-          "sha256": "a9498148baaba92c12a0c0e6a32228f1304cdf4f39c229b5991138f071623ebc",
-          "committed": true
+          "sha256": "f51ca3211d40ad6157a85f5dd01cab8823619c8d91c3ac641d03d58ac95b0fef",
+          "committed": true,
+          "sourceRevision": "9905648ba5dc7db407b41a5a4c6fc5aaeed1d823"
         },
         {
           "path": "assets/ref/evolution/lyrics-en.txt",
@@ -824,8 +837,9 @@
         },
         {
           "path": "鋒兄進化 Show！🔥(日文歌詞).srt",
-          "sha256": "064421b5825e9859b59b7caff79e08b7640ef3efe98c8ef8649dfdd3a184e6f2",
-          "committed": true
+          "sha256": "527851c463e069ec5580de469f90dc3bb2c266062d3feb70ce660d2e951f7363",
+          "committed": true,
+          "sourceRevision": "9905648ba5dc7db407b41a5a4c6fc5aaeed1d823"
         },
         {
           "path": "assets/ref/evolution/lyrics-ja.txt",
@@ -914,8 +928,9 @@
         },
         {
           "path": "我與國中畢業紀念冊的對話(英文歌詞).srt",
-          "sha256": "7993809fb3e5b55005837772bac0afb0c484df9840fb8d0d9e8b7bcb6fe26180",
-          "committed": true
+          "sha256": "5263be1452681b5f3f745a2bf4ce78135a6243274db00274d302a2fbe8cd7a24",
+          "committed": true,
+          "sourceRevision": "9905648ba5dc7db407b41a5a4c6fc5aaeed1d823"
         },
         {
           "path": "assets/ref/yearbook/lyrics-en.txt",
@@ -944,8 +959,9 @@
         },
         {
           "path": "我與國中畢業紀念冊的對話(日文歌詞).srt",
-          "sha256": "9e3998aa7fd9cb11a6e1e4530c17eb69071e6bddf26aca30993e22ca5655e021",
-          "committed": true
+          "sha256": "1656ebf1367a3dbce7b02d65bc01898fba1c0549a6ba4f17b237b68de521fcf5",
+          "committed": true,
+          "sourceRevision": "9905648ba5dc7db407b41a5a4c6fc5aaeed1d823"
         },
         {
           "path": "assets/ref/yearbook/lyrics-ja.txt",
@@ -1024,8 +1040,9 @@
         },
         {
           "path": "統一發票頭獎得主鋒兄威力彩頭獎得主塗哥(英文歌詞).srt",
-          "sha256": "0260dbcd7cc1669b563773a9a081acdcf5602c3bd54e3b15031b4147d5215569",
-          "committed": true
+          "sha256": "9f06bcb3558c26cd99e77cdcfda6563ca74abe300dcac1d17d27be609300be1b",
+          "committed": true,
+          "sourceRevision": "9905648ba5dc7db407b41a5a4c6fc5aaeed1d823"
         }
       ],
       "audioSha256": "4ef5abaa4a100f65df14bb8c45d750b42938d81b52feeca12dc34be70260eeb0",
@@ -1044,13 +1061,14 @@
         },
         {
           "path": "統一發票頭獎得主鋒兄威力彩頭獎得主塗哥(日文歌詞).srt",
-          "sha256": "397b7162bccbf17a4c044ef9e51147434e6ab3e8ebf0b2754f4a0ad47e68d96d",
-          "committed": true
+          "sha256": "672365472db291a8f8167626130ecf0cc3ec67cb18ff8beb90acda392e8e1e3b",
+          "committed": true,
+          "sourceRevision": "9905648ba5dc7db407b41a5a4c6fc5aaeed1d823"
         }
       ],
       "audioSha256": "740bc944a5e3b198adda8d789ab3e2dd9398c88b2c3fb5e0f329202d9757e1bb",
       "duration": 127.7735,
-      "cueCount": 20,
+      "cueCount": 22,
       "omitted": []
     },
     {

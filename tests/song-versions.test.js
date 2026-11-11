@@ -4,7 +4,7 @@ import { existsSync } from 'node:fs';
 import { newEffectsVersions } from '../src/new-effects-data.js';
 import { buildVersions, groupSongs } from '../src/song-versions.js';
 import { effectsSongs } from '../src/effects-songs.js';
-import { chapters, cast, flattenLyrics } from '../src/song-data.js';
+import { chapters, cast, flattenLyrics, stageOrder } from '../src/song-data.js';
 import { styleFor } from '../src/pv/styles.js';
 import { buildTimeline, findAt } from '../src/pv/timeline.js';
 import { lyricPlate } from '../src/pv/type.js';
@@ -56,4 +56,40 @@ test('localized jackpot stage copy survives the NewEffects import',()=>{
  assert.equal(en.chapters[0].prop,'🎂 Happy 37th Birthday, Feng!');
  assert.ok(!/[\u3400-\u9fff]/u.test([en.outro,en.ending,...en.chapters.flatMap(c=>[c.title,c.prop??''])].join('')));
  assert.equal(versions.find(s=>s.id==='wedding-en').couples,true);
+});
+
+test('English and Japanese PV cues carry a smaller Chinese line below the original', () => {
+ for (const song of versions) {
+  if (!['en', 'ja'].includes(song.language)) {
+   assert.equal(song.translations, undefined, song.id);
+   continue;
+  }
+  const lyrics = flattenLyrics(song.chapters);
+  const cues = lyrics.map(({ text }, i) => ({ text, time: song.times[i], end: song.ends[i] }));
+  const timeline = buildTimeline({ ...song, lyrics, cues }, song.duration);
+  for (const line of timeline.lines) {
+   assert.match(line.translation, /\p{Script=Han}/u, song.id);
+   const plate = lyricPlate(line.text, 1080, song.baseId === 's028' ? 58 : 0, line.translation);
+   assert.ok(plate.translationSize > 0 && plate.translationSize < plate.size, song.id);
+   assert.ok(plate.translationY > plate.top + plate.rows.length * plate.lineH, song.id);
+   assert.ok(plate.top + plate.block <= plate.bandBottom, song.id);
+  }
+  if (song.id === 's102-ja') {
+   const repeated = timeline.lines.filter(line => line.text === 'りょうけのおやもあつまる');
+   assert.deepEqual(repeated.map(({ start, end }) => [start, end]), [
+    [52.52, 56.2], [66.28, 68.67], [106.2, 110.32],
+   ]);
+  }
+ }
+});
+
+test('the jackpot credits use the localized cast names in stage order', () => {
+ const expected = {
+  zh: ['喵布布', '咕咕嘎嘎', '鋒兄', '塗哥', 'ＧＰＴ娘'],
+  en: ['Bu Bu', 'Gugugaga', 'Feng', 'Tu', 'GPT Musume'],
+  ja: ['ブブ', 'ググガガ', 'フェン', 'トゥ', 'GPTむすめ'],
+ };
+ for (const song of versions.filter(s => s.baseId === 's102' && s.language in expected)) {
+  assert.deepEqual(stageOrder(song.cast.length).map(i => song.pvCastNames[i]), expected[song.language]);
+ }
 });

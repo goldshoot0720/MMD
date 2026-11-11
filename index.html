@@ -44,18 +44,21 @@
   #transport .volume-controls { flex: 0 1 240px; min-width: 160px; }
   #transport #volume { flex: 1; min-width: 40px; width: auto; }
   #volume-value { min-width: 4ch; font-size: 12px; text-align: right; font-variant-numeric: tabular-nums; }
-  #transport button { font: inherit; color: inherit; background: #221b30; border: 1px solid #3d3153; border-radius: 999px; min-width: 52px; min-height: 44px; padding: 8px 12px; }
-  #transport button:hover { border-color: #bca8ff; background: #2d2440; }
+  #transport button, #transport select { font: inherit; color: inherit; background: #221b30; border: 1px solid #3d3153; border-radius: 999px; min-width: 52px; min-height: 44px; padding: 8px 12px; }
+  #transport button:hover, #transport select:hover { border-color: #bca8ff; background: #2d2440; }
   #transport button:disabled { opacity: .4; cursor: default; }
-  #transport button:focus-visible, #transport input:focus-visible { outline: 2px solid #bca8ff; outline-offset: 2px; }
+  #transport button:focus-visible, #transport input:focus-visible, #transport select:focus-visible { outline: 2px solid #bca8ff; outline-offset: 2px; }
   #transport button.play { background: #bca8ff; color: #221c37; border-color: #bca8ff; font-weight: 700; }
   #clock { margin-left: auto; color: #c9b8e6; font-size: 13px; font-variant-numeric: tabular-nums; white-space: nowrap; }
   @media (max-width: 900px) {
     :root { --transport-space: 178px; }
     #transport { padding-inline: 12px; }
     #transport .track-controls { flex-basis: 100%; justify-content: center; margin-right: 0; }
-    #transport .volume-controls { flex: 1; }
-    #transport button { min-width: 44px; padding-inline: 10px; font-size: 13px; }
+    #transport .volume-controls { flex: 1; min-width: 130px; }
+    #transport button, #transport select { min-width: 44px; padding-inline: 10px; font-size: 13px; }
+  }
+  @media (max-width: 350px) {
+    :root { --transport-space: 226px; }
   }
 </style>
 </head>
@@ -85,6 +88,12 @@
     <div class="seek-controls">
       <button type="button" id="rewind" aria-label="倒退 5 秒">−5</button>
       <button type="button" id="forward" aria-label="快轉 5 秒">+5</button>
+      <select id="speed" aria-label="播放速度" title="播放速度">
+        <option value="0.5">0.5×</option>
+        <option value="1" selected>1×</option>
+        <option value="1.5">1.5×</option>
+        <option value="2">2×</option>
+      </select>
     </div>
     <div class="volume-controls">
       <button type="button" id="mute" aria-label="靜音" title="靜音 (M)" aria-pressed="false">🔊</button>
