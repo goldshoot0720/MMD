@@ -70,9 +70,13 @@ test('English and Japanese PV cues carry a smaller Chinese line below the origin
   for (const line of timeline.lines) {
    assert.match(line.translation, /\p{Script=Han}/u, song.id);
    const plate = lyricPlate(line.text, 1080, song.baseId === 's028' ? 58 : 0, line.translation);
-   assert.ok(plate.translationSize > 0 && plate.translationSize < plate.size, song.id);
+   assert.ok(plate.translationSize > 0 && plate.translationSize < plate.size * 0.96, song.id);
    assert.ok(plate.translationY > plate.top + plate.rows.length * plate.lineH, song.id);
    assert.ok(plate.top + plate.block <= plate.bandBottom, song.id);
+  }
+  if (song.id === 's102-en') {
+   const shown = lyricPlate(timeline.lines[0].text, 1080, 0, timeline.lines[0].translation);
+   assert.equal(shown.rows.length, 1, timeline.lines[0].text);
   }
   if (song.id === 's102-ja') {
    const repeated = timeline.lines.filter(line => line.text === 'りょうけのおやもあつまる');

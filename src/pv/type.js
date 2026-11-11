@@ -13,9 +13,31 @@ const backOut = k => {
 };
 const SPACE_UNITS = 0.35; // what stickerRow gives a space, as a fraction of a glyph
 
-// Width of a row in glyph units: full-width glyphs count 1, spaces count SPACE_UNITS.
-// Character counts alone underestimate rows that contain spaces.
-const rowUnits = row => [...row].reduce((n, ch) => n + (/\s/.test(ch) ? SPACE_UNITS : 1), 0);
+// PingFang TC at weight 900, as a fraction of the font size. stickerRow draws Latin
+// at measureText * 0.98, so these are that advance. Kana and Han stay 1. Counting
+// Latin as a full em wraps an English line that still fits on one row.
+const LATIN_EM = {
+  A: 0.679, B: 0.69, C: 0.732, D: 0.72, E: 0.642, F: 0.582, G: 0.756, H: 0.736, I: 0.257,
+  J: 0.538, K: 0.714, L: 0.592, M: 0.903, N: 0.732, O: 0.775, P: 0.655, Q: 0.775, R: 0.697,
+  S: 0.651, T: 0.615, U: 0.734, V: 0.659, W: 0.953, X: 0.664, Y: 0.691, Z: 0.639,
+  a: 0.572, b: 0.602, c: 0.561, d: 0.602, e: 0.567, f: 0.378, g: 0.602, h: 0.577, i: 0.275,
+  j: 0.276, k: 0.553, l: 0.254, m: 0.884, n: 0.581, o: 0.6, p: 0.602, q: 0.602, r: 0.374,
+  s: 0.525, t: 0.362, u: 0.582, v: 0.506, w: 0.777, x: 0.537, y: 0.526, z: 0.506,
+  0: 0.6, 1: 0.41, 2: 0.6, 3: 0.6, 4: 0.6, 5: 0.6, 6: 0.6, 7: 0.553, 8: 0.6, 9: 0.6,
+};
+const glyphUnits = ch => {
+  if (/\s/.test(ch)) return SPACE_UNITS;
+  const cp = ch.codePointAt(0);
+  if (cp >= 0xFF00 && cp <= 0xFFEF) return 1;
+  const em = LATIN_EM[ch];
+  if (em != null) return Math.ceil(em * 98) / 100;
+  if (/\p{Script=Latin}/u.test(ch)) return 0.78;
+  return 1;
+};
+
+// Width of a row in glyph units. Full-width glyphs count 1. Latin uses its real advance,
+// so an English or romaji line that fits the plate stays on one row.
+export const rowUnits = row => [...row].reduce((n, ch) => n + glyphUnits(ch), 0);
 
 // Greedy wrap that prefers spaces and never exceeds `max` glyph units per row.
 export function wrap(text, max) {
@@ -25,9 +47,15 @@ export function wrap(text, max) {
   const push = () => { if (row) rows.push(row); row = ''; };
   for (const word of words) {
     const chars = [...word];
-    if (chars.length > max) {
+    if (rowUnits(word) > max) {
       push();
-      for (let i = 0; i < chars.length; i += max) rows.push(chars.slice(i, i + max).join(''));
+      let chunk = '';
+      for (const ch of chars) {
+        const next = chunk + ch;
+        if (chunk && rowUnits(next) > max) { rows.push(chunk); chunk = ch; }
+        else chunk = next;
+      }
+      if (chunk) rows.push(chunk);
       continue;
     }
     const joined = row ? `${row} ${word}` : word;
@@ -161,13 +189,34 @@ function fitRows(text, rows) {
 
 function rowsFor(text, innerH) {
   let best = null;
+  let single = null;
   for (let guess = 1; guess <= MAX_ROWS; guess++) {
     const rows = fitRows(text, guess);
     const longest = Math.max(1, ...rows.map(rowUnits));
     const size = Math.min(MAX_GLYPH, PLATE_WIDTH / longest, innerH / (rows.length * ROW_FIT));
+    if (rows.length === 1) single = { rows, size };
     if (!best || size > best.size + 0.01) best = { rows, size };
   }
+  // English and romaji are narrower than a full em. Keep one row whenever that
+  // size is still readable; only wrap when one row would shrink below 40px.
+  if (single && single.size >= 40) return single.rows;
   return best.rows;
+}
+
+// Drawn ink height as a fraction of the em, measured on PingFang TC 900.
+// Chinese fills more of the em than kana, and much more than Latin capitals.
+function inkOf(text) {
+  const chars = [...text].filter(ch => !/\s/.test(ch));
+  if (!chars.length) return 0.91;
+  let latin = 0, kana = 0;
+  for (const ch of chars) {
+    if (/\p{Script=Latin}/u.test(ch) || /\p{Nd}/u.test(ch)) latin++;
+    else if (/\p{Script=Hiragana}|\p{Script=Katakana}/u.test(ch)) kana++;
+  }
+  const n = chars.length;
+  if (latin / n >= 0.5) return 0.72;
+  if (kana / n >= 0.35) return 0.84;
+  return 0.91;
 }
 
 export function lyricPlate(text, H, inset = 0, translation = '') {
@@ -177,15 +226,26 @@ export function lyricPlate(text, H, inset = 0, translation = '') {
   const bandBottom = H - inset - 22;
   const pad = 12;
   const innerH = Math.max(36, bandBottom - bandTop - pad * 2);
-  const translationGap = 8;
-  const translationMaxSize = 34;
-  const mainH = translation ? innerH - translationMaxSize * 1.2 - translationGap : innerH;
-  const rows = rowsFor(text, mainH);
+  const translationGap = 6;
+  const rows = rowsFor(text, innerH);
   const longest = Math.max(1, ...rows.map(rowUnits));
-  const size = clamp(Math.min(MAX_GLYPH, mainH / (rows.length * ROW_FIT), PLATE_WIDTH / longest), 14, MAX_GLYPH);
+  let size = clamp(Math.min(MAX_GLYPH, innerH / (rows.length * ROW_FIT), PLATE_WIDTH / longest), 14, MAX_GLYPH);
+  // Chinese ink is taller than kana and much taller than Latin at the same em.
+  // Keep its drawn height just under the main language, never larger.
+  const mainInk = inkOf(text);
+  const translationRatio = Math.min(0.94, 0.92 * mainInk / 0.91);
+  const widthCap = translation ? PLATE_WIDTH / Math.max(1, rowUnits(translation)) : 0;
+  if (translation) {
+    const want = Math.min(size * translationRatio, widthCap);
+    const need = rows.length * size * 1.18 + translationGap + want * 1.2;
+    if (need > innerH) size = Math.max(14, size * innerH / need);
+  }
   const lineH = size * 1.18;
   const mainBlock = rows.length * lineH;
-  const translationSize = translation ? Math.min(translationMaxSize, size * 0.65, PLATE_WIDTH / rowUnits(translation)) : 0;
+  const translationRoom = Math.max(0, (innerH - mainBlock - translationGap) / 1.2);
+  const translationSize = translation
+    ? Math.min(size * translationRatio, widthCap, translationRoom)
+    : 0;
   const block = translation ? mainBlock + translationGap + translationSize * 1.2 : mainBlock;
   let top = bandTop + pad + Math.max(0, (innerH - block) / 2);
   if (top + block > bandBottom - 4) top = bandBottom - 4 - block;

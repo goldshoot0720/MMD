@@ -6,7 +6,7 @@ import { effectsSongs } from '../src/effects-songs.js';
 import { luckyTranslations } from '../src/lucky-translations.js';
 import { chapters, flattenLyrics } from '../src/song-data.js';
 import { parseLrc } from '../src/lrc.js';
-import { lyricPlate, LYRIC_BAND, MAX_GLYPH, PLATE_WIDTH } from '../src/pv/type.js';
+import { lyricPlate, LYRIC_BAND, MAX_GLYPH, PLATE_WIDTH, rowUnits } from '../src/pv/type.js';
 
 function asSong(raw) {
   const lyrics = flattenLyrics(raw.chapters);
@@ -49,8 +49,8 @@ test('no lyric line shrinks into unreadable sticker type', () => {
     for (const line of song.lyrics) {
       const plate = lyricPlate(line.text, 1080, inset);
       assert.ok(plate.rows.length <= 4, `${song.id} row count`);
-      const units = plate.rows.reduce((n, row) => n + [...row].reduce((m, ch) => m + (/\s/.test(ch) ? 0.35 : 1), 0), 0);
-      const widest = Math.max(...plate.rows.map(row => [...row].reduce((m, ch) => m + (/\s/.test(ch) ? 0.35 : 1), 0)));
+      const units = plate.rows.reduce((n, row) => n + rowUnits(row), 0);
+      const widest = Math.max(...plate.rows.map(rowUnits));
       assert.ok(widest * plate.size <= PLATE_WIDTH + 1, `${song.id} too wide: ${line.text.slice(0, 12)}`);
       assert.ok(units > 0);
       if (plate.size < smallest.size) smallest = { size: plate.size, text: line.text };
