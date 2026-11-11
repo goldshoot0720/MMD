@@ -215,16 +215,12 @@ function plateMode(ctx, line, t, W, H, inset) {
     });
   });
   if (plate.translation) {
-    ctx.globalAlpha = fade;
-    ctx.font = `700 ${plate.translationSize}px ${SANS}`;
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    ctx.fillStyle = '#fff';
-    ctx.strokeStyle = 'rgba(8,6,16,.85)';
-    ctx.lineWidth = 4;
-    ctx.lineJoin = 'round';
-    strokeText(ctx, plate.translation, W / 2, plate.translationY, PLATE_WIDTH);
-    fillText(ctx, plate.translation, W / 2, plate.translationY, PLATE_WIDTH);
+    const row = plate.rows.length;
+    stickerRow(ctx, plate.translation, W / 2, plate.translationY, plate.translationSize, t, () => line.start - 1, {
+      seed: line.index * 7 + row,
+      offset: line.index + row,
+      alpha: fade,
+    });
   }
   ctx.restore();
 }
