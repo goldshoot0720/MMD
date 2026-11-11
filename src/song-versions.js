@@ -27,7 +27,7 @@ const localizedCastNames = {
   '咕咕嘎嘎': { en: 'Gugugaga', ja: 'ググガガ' },
   '鋒兄': { en: 'Feng', ja: 'フェン' },
   '塗哥': { en: 'Tu', ja: 'トゥ' },
-  'GPT 娘': { zh: 'ＧＰＴ娘', en: 'GPT Musume', ja: 'GPTむすめ', yue: 'ＧＰＴ娘' },
+  'GPT 娘': { zh: 'ＧＰＴ娘', en: 'ＧＰＴ Ｇirl', ja: 'GPTむすめ', yue: 'ＧＰＴ娘' },
   '牙妹': { en: 'Yamei', ja: 'ヤーメイ' },
   '小塗': { en: 'Tu', ja: 'トゥ' },
   '魚妹': { en: 'Yumei', ja: 'ユーメイ' },

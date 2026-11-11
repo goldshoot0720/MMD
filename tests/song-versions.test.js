@@ -86,7 +86,7 @@ test('English and Japanese PV cues carry a smaller Chinese line below the origin
 test('the jackpot credits use the localized cast names in stage order', () => {
  const expected = {
   zh: ['喵布布', '咕咕嘎嘎', '鋒兄', '塗哥', 'ＧＰＴ娘'],
-  en: ['Bu Bu', 'Gugugaga', 'Feng', 'Tu', 'GPT Musume'],
+  en: ['Bu Bu', 'Gugugaga', 'Feng', 'Tu', 'ＧＰＴ Ｇirl'],
   ja: ['ブブ', 'ググガガ', 'フェン', 'トゥ', 'GPTむすめ'],
  };
  for (const song of versions.filter(s => s.baseId === 's102' && s.language in expected)) {
